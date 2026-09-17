@@ -128,3 +128,17 @@ cp .env.example .env     # then edit .env
 - Each project is self-contained: its own docs, its own tooling, no shared root build.
 - Pipelines are idempotent and cache their raw downloads, so re-running is cheap and the raw
   inputs stay auditable.
+
+## Licence
+
+The code in this repository is MIT licensed — see [`LICENSE`](LICENSE).
+
+**The data files are not.** Everything under `data/` carries the terms of its original source.
+Most are works of the United States Government (BLS, BEA, Census Bureau) and are in the public
+domain, but not all of them are, and at least one asks for citation. Read
+[`data/DATA_SOURCES.md`](data/DATA_SOURCES.md) before redistributing any data file.
+
+One dataset is deliberately incomplete for this reason: `p9_metro.json` has every
+Zillow-derived (ZORI) value removed, because Zillow's terms of use permit neither
+redistributing nor displaying them. The pipeline and the source URL are published, so you can
+download ZORI under Zillow's own terms and reproduce the full file yourself.

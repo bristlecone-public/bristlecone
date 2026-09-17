@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-NOTE ON DATA: The MIT licence above covers the code in this repository. Data
-files distributed here carry the terms of their original sources, which are
-listed with attribution in data/DATA_SOURCES.md. Most are works of the United
-States Government (Bureau of Labor Statistics, Bureau of Economic Analysis,
-Census Bureau) and are in the public domain; at least one third-party source
-is not. Check data/DATA_SOURCES.md before redistributing any data file.
