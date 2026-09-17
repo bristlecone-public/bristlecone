@@ -294,7 +294,9 @@
            shifted, and a window needs ≥90% of its months present. <em>X</em> is not the published series — it omits
            the strata without SA indexes (~86% of the basket) — so the decomposition describes <em>X</em>, not SA0
            exactly. Validated: Σ share<sub>i</sub> = 1.000000000 for both windows; replica SA MoM vs published SA0 MoM
-           since 2000-01 has correlation 0.972 and mean absolute difference 0.053 pp over 317 months.</p>
+           since 2000-01 has correlation <span data-check="p2:validation.replica_mom.corr" data-round="3">0.972</span>
+           and mean absolute difference <span data-check="p2:validation.replica_mom.mae" data-round="3">0.053</span> pp
+           over <span data-check="p2:validation.replica_mom.n" data-round="0">318</span> months.</p>
       </div>
     </details>
   </div>
@@ -1006,7 +1008,9 @@
               current index. October 2025 (no CPI release) fails for every scheme; November 2025 additionally fails for
               the <strong>mid</strong> tier at 86.0% coverage, so the mid line has a two-month hole where the others
               have one. That is the gate working on a narrower weight base, not a bug. The all-items replica matches
-              P1's <code>official_replica</code> to 0.0000 pp at every month.</dd>
+              P1's <code>official_replica</code> to
+              <span data-check="p8:validation.p8_cpiu_yoy_matches_p0.diff" data-round="4">0.0000</span> pp
+              at every month.</dd>
         </dl>
       </div>
     </details>
