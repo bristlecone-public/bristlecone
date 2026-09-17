@@ -5,30 +5,42 @@
     python cpi-lab/publish.py
     cd cpi-lab && npx wrangler deploy
 
+On the pipeline host it reads the raw pipeline output directly and does its own
+stripping, which is how the nightly refresh runs:
+
+    python3 cpi-lab/publish.py --data-dir $CPI_ROOT/out --strip-zori
+    cd cpi-lab && npx wrangler deploy
+
 The dashboard fetches `/data/<pipeline>.json` at runtime, so the assets tree has
-to carry the pipeline outputs next to the page. They are taken from
-.mirror-data/cpi-lab/, which is the same staging directory the public repo
-mirror publishes from — deliberately, so the ZORI strip has exactly one
-implementation (tools/public-mirror/prepare_data.py) and the website and the
-repo cannot drift apart on it.
+to carry the pipeline outputs next to the page.
 
 Zillow's Terms of Use §4(C) prohibit *displaying* their data as well as
 redistributing it, so the p9_metro.json served here is the stripped copy, same
-as the one in the repo.
+as the one in the repo. The strip has exactly one implementation — `zori.py`,
+next to the pipeline that writes the file — shared by this script and by
+tools/public-mirror/prepare_data.py, so the website and the repo cannot drift
+apart on what was removed. It always runs against the STAGED copy: the pipeline
+host's own out/ directory and the LAN site keep the full file. `assert_stripped`
+then runs unconditionally, so a source that was meant to be clean and isn't
+stops the build rather than publishing.
 
-NOTE ON FRESHNESS: this publishes a snapshot. The pipeline host keeps running on
-its own cron and its nginx copy stays live; nothing here updates Cloudflare
-automatically. Re-run this after a pipeline refresh, or add a deploy step to the
-host's cron.
+FRESHNESS: the published site is refreshed nightly from the pipeline host, which
+runs exactly this script against its own output and deploys only when the staged
+tree changes. It deploys the site as the PUBLIC REPOSITORY holds it, so what is
+served can always be diffed against what a reader is given — which also means a
+site change reaches the public site only once the mirror has been pushed.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import shutil
 import time
 from pathlib import Path
+
+import zori
 
 # P9's shelter panel is the CPI-rent vs ZORI comparison. With ZORI stripped it
 # renders "gap — pp · best lag — (r —)" placeholders under a legend still
@@ -110,11 +122,23 @@ ASSETS = ["index.html", "app.js", "charts.js", "styles.css"]
 
 
 def main() -> None:
-    if not DATA_SRC.exists():
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--data-dir", type=Path, default=DATA_SRC,
+                    help="where the pipeline JSONs live (default: the mirror "
+                         "staging tree; on the pipeline host, $CPI_ROOT/out)")
+    ap.add_argument("--strip-zori", action="store_true",
+                    help="apply the ZORI strip while staging, instead of "
+                         "assuming the source is already stripped. Use this "
+                         "when reading raw pipeline output.")
+    args = ap.parse_args()
+
+    data_src = args.data_dir
+    if not data_src.exists():
         raise SystemExit(
-            f"missing {DATA_SRC}\n"
-            "run: python tools/public-mirror/prepare_data.py (fetches the "
-            "pipeline outputs and strips ZORI)")
+            f"missing {data_src}\n"
+            "run: python tools/public-mirror/prepare_data.py (strips ZORI), or "
+            "pass --data-dir <pipeline out/> --strip-zori to read raw output")
 
     # Clear the contents rather than the directory itself: on Windows a preview
     # server whose cwd is .site/ blocks removing the directory, but not the
@@ -131,17 +155,23 @@ def main() -> None:
         shutil.copyfile(src, SITE / name)
 
     for name in FILES:
-        src = DATA_SRC / name
+        src = data_src / name
         if not src.exists():
             raise SystemExit(f"missing {src} — re-run prepare_data.py")
         shutil.copyfile(src, SITE / "data" / name)
 
-    # Fail loudly rather than publish Zillow-derived values by accident.
-    p9 = json.loads((SITE / "data" / "p9_metro.json").read_text(encoding="utf-8"))
-    if "best_lag_table" in p9 or any(
-            "zori_yoy_l12" in (m.get("latest_shelter") or {}) for m in p9.get("metros", [])):
-        raise SystemExit("p9_metro.json still carries ZORI-derived values — "
-                         "re-run tools/public-mirror/prepare_data.py")
+    # The strip runs on the STAGED copy, never on the source: the pipeline host's
+    # own out/ directory and the LAN site keep the full file.
+    staged_p9 = SITE / "data" / "p9_metro.json"
+    if args.strip_zori:
+        r = zori.strip_zori(staged_p9)
+        print(f"  ZORI stripped: {r['metro_fields']} metro fields, "
+              f"{r['best_lag_table']} best-lag rows, {r['series_points']} series points")
+
+    # Fail loudly rather than publish Zillow-derived values by accident. This runs
+    # whether or not we did the stripping, so a source that was supposed to be
+    # clean and isn't stops the build.
+    zori.assert_stripped(staged_p9)
 
     omit_shelter_panel(SITE)
 
