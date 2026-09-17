@@ -186,7 +186,13 @@ footer{margin-top:22px;color:var(--muted);font-size:.76rem;max-width:100ch;}
   </div>
 </div>
 
-<footer id="foot"></footer>
+<footer><span id="foot"></span>
+  <p>Source, pipeline and caveats:
+  <a href="https://github.com/bristlecone-public/bristlecone/tree/main/census">github.com/bristlecone-public/bristlecone</a>.
+  The complete seven-decade cohort-flow table (both sexes, 46&nbsp;MB uncompressed) is published there
+  and attached to the <a href="https://github.com/bristlecone-public/bristlecone/releases/latest">latest
+  release</a>; the per-decade, per-sex splits are regenerable with <code>python -m cohort_trace all</code>.</p>
+</footer>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
@@ -329,9 +335,11 @@ function repaint() {
     "young-adult mortality read as out-migration. 2020 counts carry " +
     "differential-privacy noise; cohorts with expected < 100 are flagged " +
     "low-reliability. Constant-territory units merge counties affected by " +
-    "splits/mergers (the Broomfield CO unit over-merges Broomfield with its " +
-    "parent counties); Puerto Rico is in the tables and search but not drawn " +
-    "on the map.";
+    "splits/mergers; Broomfield CO (created 2001 from parts of four counties) " +
+    "is instead traced standalone from 2000 on, its 4/1/2000 baseline " +
+    "reconstructed from the Census Bureau's intercensal estimates base, so " +
+    "Adams, Boulder, Jefferson and Weld keep their own signals. Puerto Rico " +
+    "is in the tables and search but not drawn on the map.";
 }
 
 function renderLegend() {
