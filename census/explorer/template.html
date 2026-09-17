@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cohort Flow Explorer — where the children went</title>
+<style>
+:root{
+  color-scheme: light;
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+  --border:rgba(11,11,11,.10); --accent:#2a78d6;
+  --div-r4:#7c2015; --div-r3:#c14434; --div-r2:#e58274; --div-r1:#f2b8b1;
+  --div-0:#f0efec;
+  --div-b1:#9ec5f4; --div-b2:#5598e7; --div-b3:#256abf; --div-b4:#0d366b;
+  --nodata:#e7e6e1; --statestroke:#fcfcfb; --hover-stroke:#0b0b0b;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7;
+    --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+    --border:rgba(255,255,255,.10); --accent:#3987e5;
+    --div-r4:#f6c0ba; --div-r3:#ea8578; --div-r2:#cc4437; --div-r1:#8f2d24;
+    --div-0:#383835;
+    --div-b1:#2f5e9e; --div-b2:#3987e5; --div-b3:#74aef0; --div-b4:#b7d3f6;
+    --nodata:#242422; --statestroke:#1a1a19; --hover-stroke:#ffffff;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);
+  font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;}
+.wrap{max-width:1360px;margin:0 auto;padding:20px 20px 60px;}
+header h1{font-size:1.35rem;margin:0 0 2px;font-weight:650;}
+header p.sub{margin:0 0 14px;color:var(--ink2);max-width:78ch;}
+header p.sub b{font-weight:600}
+
+.controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;
+  padding:10px 12px;background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;margin-bottom:14px;}
+.controls label{color:var(--ink2);font-size:.82rem;margin-right:2px;}
+.seg{display:inline-flex;border:1px solid var(--axis);border-radius:6px;overflow:hidden;}
+.seg button{border:0;background:transparent;color:var(--ink2);padding:5px 12px;
+  font:inherit;font-size:.85rem;cursor:pointer;}
+.seg button+button{border-left:1px solid var(--axis);}
+.seg button.on{background:var(--accent);color:#fff;}
+select,input[type=search]{font:inherit;font-size:.85rem;color:var(--ink);
+  background:var(--surface);border:1px solid var(--axis);border-radius:6px;padding:5px 8px;}
+.searchbox{position:relative}
+.searchbox input{width:230px}
+.searchbox .hits{position:absolute;top:100%;left:0;right:0;z-index:30;
+  background:var(--surface);border:1px solid var(--axis);border-radius:6px;
+  margin-top:2px;max-height:260px;overflow:auto;box-shadow:0 4px 14px rgba(0,0,0,.15);}
+.searchbox .hits div{padding:6px 10px;cursor:pointer;font-size:.85rem;}
+.searchbox .hits div:hover{background:var(--div-0);}
+.searchbox .hits .none{color:var(--muted);cursor:default;}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;}
+@media (max-width:1020px){.layout{grid-template-columns:minmax(0,1fr);}}
+
+.mapcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px 6px;}
+.mapcard svg{width:100%;height:auto;display:block;}
+#counties path{stroke:none;cursor:pointer;}
+#counties path.sel{stroke:var(--hover-stroke);stroke-width:1.4;}
+#states path{fill:none;stroke:var(--statestroke);stroke-width:.7;pointer-events:none;}
+#nation path{fill:none;stroke:var(--axis);stroke-width:.8;pointer-events:none;}
+
+.legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:6px 2px 4px;font-size:.78rem;color:var(--ink2);}
+.legrow{display:flex;align-items:flex-start;}
+.legcell{width:44px;}
+.legcell .sw{height:12px;border-radius:2px;margin:0 1px;}
+.legcell .tk{text-align:right;transform:translateX(50%);color:var(--muted);
+  font-size:.72rem;margin-top:2px;font-variant-numeric:tabular-nums;}
+.legend .cap{color:var(--muted)}
+.legend .nodata-key{display:inline-flex;align-items:center;gap:5px;}
+.legend .nodata-key i{width:12px;height:12px;border-radius:2px;background:var(--nodata);
+  border:1px solid var(--border);display:inline-block;}
+
+.basisnote{font-size:.78rem;color:var(--muted);padding:2px 2px 6px;max-width:90ch;}
+
+.tooltip{position:fixed;z-index:50;pointer-events:none;background:var(--surface);
+  border:1px solid var(--axis);border-radius:6px;padding:8px 10px;font-size:.8rem;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);max-width:280px;display:none;}
+.tooltip .tname{font-weight:600;margin-bottom:3px;}
+.tooltip table{border-collapse:collapse;}
+.tooltip td{padding:0 0 1px 0;color:var(--ink2);}
+.tooltip td+td{text-align:right;padding-left:14px;color:var(--ink);
+  font-variant-numeric:tabular-nums;}
+.tooltip .rl{color:var(--muted);font-size:.72rem;margin-top:3px;}
+
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;align-self:start;}
+.panel h2{font-size:1rem;margin:0 0 2px;font-weight:650;}
+.panel .meta{color:var(--ink2);font-size:.8rem;margin:0 0 10px;}
+.panel .hint{color:var(--muted);font-size:.85rem;}
+.cohrow{display:grid;grid-template-columns:86px 1fr 62px;gap:8px;align-items:center;
+  min-height:20px;}
+.cohrow .cl{font-size:.74rem;color:var(--ink2);text-align:right;
+  font-variant-numeric:tabular-nums;}
+.cohrow .val{font-size:.74rem;color:var(--ink2);font-variant-numeric:tabular-nums;}
+.bartrack{position:relative;height:14px;}
+.bartrack .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;
+  background:var(--axis);}
+.bartrack .bar{position:absolute;top:1px;height:12px;border-radius:0 4px 4px 0;}
+.bartrack .bar.neg{border-radius:4px 0 0 4px;}
+.bartrack .bar.capped{outline:1.5px dashed var(--muted);outline-offset:1px;}
+.phead{display:grid;grid-template-columns:86px 1fr 62px;gap:8px;
+  font-size:.72rem;color:var(--muted);margin:10px 0 4px;}
+.phead span:first-child{text-align:right}
+.pnote{color:var(--muted);font-size:.72rem;margin-top:8px;}
+.decadetabs{margin:6px 0 2px;}
+
+.ranks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+@media (max-width:760px){.ranks{grid-template-columns:1fr;}}
+.rankcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:12px 14px;}
+.rankcard h3{margin:0 0 8px;font-size:.92rem;font-weight:650;}
+.rankcard table{width:100%;border-collapse:collapse;font-size:.82rem;}
+.rankcard th{text-align:left;color:var(--muted);font-weight:500;font-size:.74rem;
+  border-bottom:1px solid var(--axis);padding:2px 6px 4px 0;}
+.rankcard th.num,.rankcard td.num{text-align:right;font-variant-numeric:tabular-nums;}
+.rankcard td{border-bottom:1px solid var(--grid);padding:3px 6px 3px 0;cursor:pointer;}
+.rankcard tr:hover td{background:var(--div-0);}
+.rankcard td .sw{display:inline-block;width:9px;height:9px;border-radius:2px;
+  margin-right:6px;vertical-align:baseline;}
+footer{margin-top:22px;color:var(--muted);font-size:.76rem;max-width:100ch;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Cohort Flow Explorer</h1>
+  <p class="sub">Where did the children of every census since 1950 go?
+  Each county is colored by its <b>net migration residual</b>: how its
+  cohorts&rsquo; census counts ten years later compare with the count
+  expected from national survival. <b style="color:var(--div-b3)">Blue
+  imports</b> a cohort, <b style="color:var(--div-r3)">red exports</b> it.
+  Click a county for its full cohort profile.</p>
+</header>
+
+<div class="controls">
+  <label>Decade</label>
+  <span class="seg" id="segPeriod"></span>
+  <label>Cohort</label>
+  <select id="selCohort"></select>
+  <label>Sex</label>
+  <span class="seg" id="segSex">
+    <button data-v="B" class="on">Both</button>
+    <button data-v="M">Male</button>
+    <button data-v="F">Female</button>
+  </span>
+  <span class="searchbox">
+    <input id="search" type="search" placeholder="Find a county…" autocomplete="off">
+    <div class="hits" id="hits" hidden></div>
+  </span>
+</div>
+
+<div class="layout">
+  <div>
+    <div class="mapcard">
+      <svg id="map" viewBox="0 0 975 610" role="img"
+           aria-label="US county choropleth of net migration residual rate">
+        <g id="counties"></g><g id="states"></g><g id="nation"></g>
+      </svg>
+      <div class="legend" id="legend"></div>
+      <div class="basisnote" id="basisnote"></div>
+    </div>
+    <div class="ranks">
+      <div class="rankcard"><h3 id="gainTitle"></h3>
+        <table><thead><tr><th>Unit</th><th class="num">Expected</th>
+        <th class="num">Actual</th><th class="num">Rate</th></tr></thead>
+        <tbody id="gainBody"></tbody></table></div>
+      <div class="rankcard"><h3 id="lossTitle"></h3>
+        <table><thead><tr><th>Unit</th><th class="num">Expected</th>
+        <th class="num">Actual</th><th class="num">Rate</th></tr></thead>
+        <tbody id="lossBody"></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel">
+    <div class="hint">Click a county on the map (or search) to see how every
+    birth cohort flowed through it — which ages it imports, which it
+    exports, and how that changed decade by decade since the 1950s.</div>
+  </div>
+</div>
+
+<footer id="foot"></footer>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const DATA = __DATA__;
+const TOPO = __TOPO__;
+
+const MG_NAMES = {
+  "MG-AK-SOUTHEAST": "Southeast Alaska (merged unit)",
+  "MG-AK-VALDEZ-CORDOVA": "Valdez–Cordova region, Alaska (merged unit)",
+  "MG-VA-ALLEGHANY": "Alleghany Co. + Clifton Forge, Virginia (merged unit)",
+  "MG-VA-BEDFORD": "Bedford Co. + Bedford city, Virginia (merged unit)",
+};
+const unitName = u => MG_NAMES[u] || (DATA.units[u] ? DATA.units[u].n : u);
+
+// ---- state ----
+const S = { period: DATA.periods.length - 1, cohort: "ya", sex: "B",
+            selected: null };
+// Cohort lists differ per period (historical censuses publish coarser
+// top bins), so everything indexes through the current period's list.
+const PC = pi => DATA.period_cohorts[pi];
+const yaIdxs = pi => PC(pi)
+  .map((c, i) => (c === "10-14" || c === "15-19") ? i : -1)
+  .filter(i => i >= 0);
+
+// ---- topojson decode (quantized, delta-encoded) ----
+function decodeArcs(t) {
+  const [sx, sy] = t.transform.scale, [tx, ty] = t.transform.translate;
+  return t.arcs.map(arc => {
+    let x = 0, y = 0;
+    return arc.map(([dx, dy]) => {
+      x += dx; y += dy;
+      return [x * sx + tx, y * sy + ty];
+    });
+  });
+}
+const ARCS = decodeArcs(TOPO);
+function ringPath(arcIdxs) {
+  const pts = [];
+  for (const i of arcIdxs) {
+    let a = i >= 0 ? ARCS[i] : ARCS[~i].slice().reverse();
+    if (pts.length) a = a.slice(1);
+    pts.push(...a);
+  }
+  return "M" + pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join("L") + "Z";
+}
+function geomPath(g) {
+  const polys = g.type === "Polygon" ? [g.arcs] :
+                g.type === "MultiPolygon" ? g.arcs : [];
+  return polys.map(rings => rings.map(ringPath).join("")).join("");
+}
+
+// ---- build map ----
+const unitEls = {};   // unit -> [path elements]
+(function buildMap() {
+  const gC = document.getElementById("counties");
+  for (const g of TOPO.objects.counties.geometries) {
+    const unit = DATA.xwalk[g.id] || g.id;
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", geomPath(g));
+    p.dataset.unit = unit;
+    gC.appendChild(p);
+    (unitEls[unit] = unitEls[unit] || []).push(p);
+  }
+  const gS = document.getElementById("states");
+  for (const g of TOPO.objects.states.geometries) {
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", geomPath(g));
+    gS.appendChild(p);
+  }
+  const gN = document.getElementById("nation");
+  for (const g of TOPO.objects.nation.geometries) {
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", geomPath(g));
+    gN.appendChild(p);
+  }
+})();
+
+// ---- values ----
+function cohortIdxs() {
+  if (S.cohort === "ya") return yaIdxs(S.period);
+  if (S.cohort === "all") return [...Array(PC(S.period).length).keys()];
+  const i = PC(S.period).indexOf(S.cohort);
+  return i >= 0 ? [i] : yaIdxs(S.period);
+}
+// returns {e, a, rate|null} for a unit under current controls
+function unitValue(u, periodIdx, cohIdxs, sex) {
+  const d = DATA.units[u].d[periodIdx];
+  let e = 0, a = 0;
+  const sexes = sex === "B" ? ["M", "F"] : [sex];
+  for (const sx of sexes) {
+    const arr = d[sx];
+    for (const ci of cohIdxs) { e += arr[2 * ci]; a += arr[2 * ci + 1]; }
+  }
+  return { e, a, rate: e > 0 ? (a - e) / e : null };
+}
+
+// ---- diverging scale ----
+const THRESH = [-0.5, -0.25, -0.10, -0.02, 0.02, 0.10, 0.25, 0.50];
+const CLASSES = ["--div-r4","--div-r3","--div-r2","--div-r1","--div-0",
+                 "--div-b1","--div-b2","--div-b3","--div-b4"];
+function classFor(rate) {
+  if (rate === null) return null;
+  let i = 0;
+  while (i < THRESH.length && rate >= THRESH[i]) i++;
+  return CLASSES[i];
+}
+const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+// ---- rendering ----
+const fmtI = n => Math.round(n).toLocaleString("en-US");
+const fmtR = r => (r >= 0 ? "+" : "−") + (Math.abs(r) * 100).toFixed(1) + "%";
+
+function repaint() {
+  const cohIdxs = cohortIdxs();
+  const vals = {};
+  for (const u in DATA.units) vals[u] = unitValue(u, S.period, cohIdxs, S.sex);
+  for (const u in unitEls) {
+    const v = vals[u];
+    const cls = v ? classFor(v.rate) : null;
+    const fill = cls ? `var(${cls})` : "var(--nodata)";
+    for (const el of unitEls[u]) el.setAttribute("fill", fill);
+  }
+  renderLegend();
+  renderRanks(vals, cohIdxs);
+  renderBasis();
+  renderPanel();
+  document.getElementById("foot").textContent =
+    "Method: census survival ratio — each cohort's national t→t+10 ratio " +
+    "(absorbing mortality and international migration) sets the expected count; " +
+    "the residual is primarily net domestic migration and sums to zero " +
+    "nationally. Read it with three biases in mind: (1) off-campus students " +
+    "count as household population, so college towns dominate young-adult gains " +
+    "even on the household basis; (2) net international migration rides in the " +
+    "national ratio, inflating gateway metros (Miami/NYC/Houston/LA/Chicago/" +
+    "Dallas) and penalizing low-immigration rural counties; (3) the method " +
+    "treats every uncounted person and every death as an out-migrant, so " +
+    "undercounted tribal, Delta, border, and Puerto Rican counties and rural " +
+    "young-adult mortality read as out-migration. 2020 counts carry " +
+    "differential-privacy noise; cohorts with expected < 100 are flagged " +
+    "low-reliability. Constant-territory units merge counties affected by " +
+    "splits/mergers (the Broomfield CO unit over-merges Broomfield with its " +
+    "parent counties); Puerto Rico is in the tables and search but not drawn " +
+    "on the map.";
+}
+
+function renderLegend() {
+  const lg = document.getElementById("legend");
+  const ticks = ["−50", "−25", "−10", "±2", "10", "25", "50"];
+  let cells = "";
+  for (let i = 0; i < CLASSES.length; i++) {
+    const tick = i < THRESH.length - 1 ? ticks[i] : "";
+    cells += `<span class="legcell"><span class="sw" style="background:var(${CLASSES[i]})"></span>` +
+             `<div class="tk">${tick}</div></span>`;
+  }
+  lg.innerHTML =
+    `<span class="cap">Net rate vs expected, %</span>` +
+    `<span class="legrow">${cells}</span>` +
+    `<span class="nodata-key"><i></i>no data / expected 0</span>`;
+}
+
+function renderBasis() {
+  const p = DATA.periods[S.period];
+  const b = DATA.basis[p];
+  const bothHousehold = DATA.periods.every(pp => DATA.basis[pp] === "household");
+  const mixed = !bothHousehold &&
+                DATA.periods.some(pp => DATA.basis[pp] === "household");
+  const compare = mixed
+    ? " Bases differ across decades, so decade-to-decade rate changes are " +
+      "NOT level-comparable — subtracting group quarters shifts college and " +
+      "prison counties by tens of points on its own."
+    : "";
+  document.getElementById("basisnote").textContent =
+    (b === "household"
+      ? `${p}: household population (group quarters subtracted, so dorms, ` +
+        `prisons, and bases don't register as migration). Off-campus students ` +
+        `still count as household population, so college towns keep large ` +
+        `young-adult gains here.`
+      : `${p}: total population — no 5-year group-quarters age table for ` +
+        `${p.slice(0,4)} (2000 has only coarse Under-18/18-64/65+ bands; ` +
+        `1990 none), so college, prison, and military counties inflate ` +
+        `young-adult flows.`) + compare;
+}
+
+function cohortLabel(ci, periodIdx) {
+  const c = PC(periodIdx)[ci];
+  const parts = c.replace("+","").split("-").map(Number);
+  const hi = parts[1] ?? parts[0];
+  const dst = hi + 10 >= 85 ? "85+" : `${parts[0]+10}–${hi+10}`;
+  return `${c.replace("-","–")} → ${dst}`;
+}
+
+function selectionLabel() {
+  if (S.cohort === "ya") return "young adults (10–19 → 20s)";
+  if (S.cohort === "all") return "all traced cohorts";
+  const i = PC(S.period).indexOf(S.cohort);
+  return i >= 0 ? "cohort " + cohortLabel(i, S.period)
+                : "young adults (10–19 → 20s)";
+}
+
+function renderRanks(vals, cohIdxs) {
+  const rows = [];
+  for (const u in vals) {
+    const v = vals[u];
+    if (v.e >= 1000 && v.rate !== null) rows.push([u, v]);
+  }
+  rows.sort((x, y) => y[1].rate - x[1].rate);
+  const p = DATA.periods[S.period];
+  document.getElementById("gainTitle").textContent =
+    `Largest net gains — ${selectionLabel()}, ${p}`;
+  document.getElementById("lossTitle").textContent =
+    `Largest net losses — ${selectionLabel()}, ${p}`;
+  fillRank("gainBody", rows.slice(0, 15));
+  fillRank("lossBody", rows.slice(-15).reverse());
+}
+function fillRank(id, rows) {
+  const tb = document.getElementById(id);
+  tb.innerHTML = rows.map(([u, v]) =>
+    `<tr data-u="${u}"><td><span class="sw" style="background:var(${classFor(v.rate)})"></span>` +
+    `${unitName(u)}</td><td class="num">${fmtI(v.e)}</td>` +
+    `<td class="num">${fmtI(v.a)}</td><td class="num">${fmtR(v.rate)}</td></tr>`
+  ).join("");
+  tb.querySelectorAll("tr").forEach(tr =>
+    tr.addEventListener("click", () => selectUnit(tr.dataset.u)));
+}
+
+// ---- detail panel ----
+const CAP = 1.0; // bar length capped at ±100%
+function renderPanel() {
+  const el = document.getElementById("panel");
+  if (!S.selected || !DATA.units[S.selected]) {
+    el.innerHTML = `<div class="hint">Click a county on the map (or search) to
+      see how every birth cohort flowed through it — which ages it imports,
+      which it exports, and how that changed decade by decade since the
+      1950s.</div>`;
+    return;
+  }
+  const u = S.selected;
+  let html = `<h2>${unitName(u)}</h2>`;
+  const sexNote = S.sex === "B" ? "both sexes" : S.sex === "M" ? "male" : "female";
+  html += `<p class="meta">Net rate vs expected by cohort (${sexNote}); age at
+    the decade's start → age at its end. Bars capped at ±100%
+    (dashed outline = beyond).</p>`;
+  for (let pi = 0; pi < DATA.periods.length; pi++) {
+    const p = DATA.periods[pi];
+    const ya = unitValue(u, pi, yaIdxs(pi), S.sex);
+    html += `<div class="phead"><span></span><span>${p} — young adults ` +
+      `${ya.rate === null ? "n/a" : fmtR(ya.rate)} ` +
+      `(${fmtI(ya.a)} vs ${fmtI(ya.e)} expected)</span><span>net</span></div>`;
+    for (let ci = 0; ci < PC(pi).length; ci++) {
+      const v = unitValue(u, pi, [ci], S.sex);
+      html += cohRow(cohortLabel(ci, pi), v);
+    }
+  }
+  html += `<div class="pnote">Cohorts with expected &lt; 100 are
+    noise-dominated (especially 2010–2020, which carries
+    differential-privacy noise) — read those rows loosely.</div>`;
+  el.innerHTML = html;
+}
+function cohRow(label, v) {
+  let bar = "", val = "—";
+  if (v.rate !== null) {
+    const r = v.rate, mag = Math.min(Math.abs(r), CAP) / CAP * 50;
+    const capped = Math.abs(r) > CAP ? " capped" : "";
+    const cls = classFor(r);
+    bar = r >= 0
+      ? `<span class="bar${capped}" style="left:50%;width:${mag}%;background:var(${cls})"></span>`
+      : `<span class="bar neg${capped}" style="right:50%;width:${mag}%;background:var(${cls})"></span>`;
+    val = `${fmtR(r)}${v.e < 100 ? " ⚠" : ""}`;
+  }
+  return `<div class="cohrow"><span class="cl">${label}</span>` +
+    `<span class="bartrack"><span class="mid"></span>${bar}</span>` +
+    `<span class="val">${val}</span></div>`;
+}
+
+// ---- selection & tooltip ----
+function selectUnit(u) {
+  S.selected = u;
+  document.querySelectorAll("#counties path.sel").forEach(p => p.classList.remove("sel"));
+  (unitEls[u] || []).forEach(p => p.classList.add("sel"));
+  renderPanel();
+  document.getElementById("panel").scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+const tip = document.getElementById("tooltip");
+const mapEl = document.getElementById("counties");
+mapEl.addEventListener("mousemove", ev => {
+  const t = ev.target;
+  if (t.tagName !== "path") { tip.style.display = "none"; return; }
+  const u = t.dataset.unit;
+  const v = unitValue(u, S.period, cohortIdxs(), S.sex);
+  const p = DATA.periods[S.period];
+  let rows;
+  if (v.e === 0 && v.a === 0) {
+    rows = `<tr><td colspan="2">no data for this selection</td></tr>`;
+  } else {
+    rows = `<tr><td>expected</td><td>${fmtI(v.e)}</td></tr>` +
+      `<tr><td>actual</td><td>${fmtI(v.a)}</td></tr>` +
+      `<tr><td>net</td><td>${fmtI(v.a - v.e)}</td></tr>` +
+      `<tr><td>rate</td><td>${v.rate === null ? "—" : fmtR(v.rate)}</td></tr>`;
+  }
+  tip.innerHTML = `<div class="tname">${unitName(u)}</div><table>${rows}</table>` +
+    (v.e > 0 && v.e < 100 ? `<div class="rl">⚠ low reliability (expected &lt; 100)</div>` : "") +
+    `<div class="rl">${p}, ${selectionLabel()}</div>`;
+  tip.style.display = "block";
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = ev.clientX + 14, y = ev.clientY + 14;
+  if (x + w > innerWidth - 8) x = ev.clientX - w - 14;
+  if (y + h > innerHeight - 8) y = ev.clientY - h - 14;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+});
+mapEl.addEventListener("mouseleave", () => tip.style.display = "none");
+mapEl.addEventListener("click", ev => {
+  if (ev.target.tagName === "path") selectUnit(ev.target.dataset.unit);
+});
+
+// ---- controls ----
+(function buildControls() {
+  const sp = document.getElementById("segPeriod");
+  DATA.periods.forEach((p, i) => {
+    const b = document.createElement("button");
+    b.textContent = p;
+    if (i === S.period) b.classList.add("on");
+    b.addEventListener("click", () => {
+      S.period = i;
+      sp.querySelectorAll("button").forEach((x, j) => x.classList.toggle("on", j === i));
+      rebuildCohortOptions();
+      repaint();
+    });
+    sp.appendChild(b);
+  });
+
+  const sc = document.getElementById("selCohort");
+  window.rebuildCohortOptions = function () {
+    const opts = [["ya", "Young adults (10–19 → 20s)"], ["all", "All cohorts"]];
+    PC(S.period).forEach((label, ci) =>
+      opts.push([label, cohortLabel(ci, S.period)]));
+    sc.innerHTML = opts.map(([v, l]) => `<option value="${v}">${l}</option>`).join("");
+    if (![...sc.options].some(o => o.value === S.cohort)) S.cohort = "ya";
+    sc.value = S.cohort;
+  };
+  rebuildCohortOptions();
+  sc.addEventListener("change", () => { S.cohort = sc.value; repaint(); });
+
+  document.getElementById("segSex").querySelectorAll("button").forEach(b =>
+    b.addEventListener("click", () => {
+      S.sex = b.dataset.v;
+      document.getElementById("segSex").querySelectorAll("button")
+        .forEach(x => x.classList.toggle("on", x === b));
+      repaint();
+    }));
+
+  const inp = document.getElementById("search"), hits = document.getElementById("hits");
+  // Accent-fold so "Dona Ana" finds Doña Ana (NFD splits ñ → n + combining tilde).
+  const COMBINING = new RegExp("[\\u0300-\\u036f]", "g");
+  const fold = s => s.toLowerCase().normalize("NFD").replace(COMBINING, "");
+  const index = Object.keys(DATA.units)
+    .map(u => [u, fold(unitName(u))]);
+  inp.addEventListener("input", () => {
+    const q = fold(inp.value.trim());
+    if (q.length < 2) { hits.hidden = true; return; }
+    const m = index.filter(([, n]) => n.includes(q)).slice(0, 9);
+    hits.innerHTML = m.length
+      ? m.map(([u]) => `<div data-u="${u}">${unitName(u)}</div>`).join("")
+      : `<div class="none">no match</div>`;
+    hits.hidden = false;
+    hits.querySelectorAll("div[data-u]").forEach(d =>
+      d.addEventListener("click", () => {
+        selectUnit(d.dataset.u); hits.hidden = true; inp.value = unitName(d.dataset.u);
+      }));
+  });
+  document.addEventListener("click", ev => {
+    if (!ev.target.closest(".searchbox")) hits.hidden = true;
+  });
+})();
+
+repaint();
+</script>
+</body>
+</html>

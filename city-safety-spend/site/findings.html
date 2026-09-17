@@ -1,0 +1,158 @@
+<title>Twenty-Eight Cents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#F4F6F8; --card:#FFFFFF; --ink:#111820; --ink2:#3C4A56; --muted:#6B7B88; --rule:#D3DBE2; --rule2:#E4EAEF;
+  --police:#2E62A8; --fire:#B07414; --wash:#E7EDF5;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0E1317; --card:#151C22; --ink:#E2E8ED; --ink2:#AEBCC7; --muted:#7F8E9B; --rule:#273139; --rule2:#1E272E;
+  --police:#5583C4; --fire:#B98421; --wash:#17222E;
+}}
+:root[data-theme="dark"]{
+  --paper:#0E1317; --card:#151C22; --ink:#E2E8ED; --ink2:#AEBCC7; --muted:#7F8E9B; --rule:#273139; --rule2:#1E272E;
+  --police:#5583C4; --fire:#B98421; --wash:#17222E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;
+  padding-inline:clamp(18px,5vw,40px);padding-block:40px 80px}
+.wrap{max-width:1000px;margin:0 auto}
+.col{max-width:68ch;margin-inline:auto}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(38px,7vw,72px);line-height:1.02;letter-spacing:-.02em;
+  margin:14px 0 8px;text-wrap:balance;font-variation-settings:"SOFT" 0,"WONK" 1}
+.standfirst{font-size:20px;line-height:1.5;color:var(--ink2);margin:0 0 6px;text-wrap:pretty}
+.byline{font-family:var(--mono);font-size:12px;color:var(--muted);margin:18px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+.sitenav{font-family:var(--mono);font-size:12px;margin:10px 0 0}
+.sitenav a{color:var(--police);text-decoration:none;border-bottom:1px solid currentColor}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(24px,3.4vw,31px);line-height:1.15;margin:52px 0 4px;letter-spacing:-.01em;text-wrap:balance}
+h2 .n{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--police);display:block;margin-bottom:8px;font-weight:400}
+p{margin:0 0 18px}
+strong{font-weight:600}
+em.key{font-style:normal;background:var(--wash);padding:1px 5px;border-radius:2px}
+.lede::first-letter{font-family:var(--display);font-size:3.1em;float:left;line-height:.82;padding:6px 10px 0 0;color:var(--police)}
+figure{margin:30px 0 26px}
+.fig{width:100%;height:auto;display:block;background:var(--card);border:1px solid var(--rule2);border-radius:3px;padding:6px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:9px;line-height:1.45}
+.fig .grid{stroke:var(--rule2);stroke-width:1}
+.fig .ax{font-family:var(--body);font-size:11px;fill:var(--muted)}
+.fig .ax.dim{font-size:10.5px}
+.fig .bar{fill:var(--police)}
+.fig .mark{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 3}
+.fig .marklab{font-family:var(--mono);font-size:11px;fill:var(--ink);font-weight:600}
+.fig .barlab,.fig .endlab{font-family:var(--mono);font-size:12px;fill:var(--ink);font-weight:600}
+.fig .ln{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.fig .ln.dash{stroke-dasharray:4 3;stroke-width:1.8;opacity:.85}
+table{border-collapse:collapse;width:100%;font-size:15px;font-variant-numeric:tabular-nums;margin:8px 0 6px}
+th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  font-weight:400;border-bottom:1px solid var(--ink);padding:6px 10px 6px 0}
+td{border-bottom:1px solid var(--rule2);padding:7px 10px 7px 0}
+td.num,th.num{text-align:right}
+.pull{border-left:3px solid var(--police);background:var(--card);padding:16px 20px;margin:26px 0;font-size:18px;line-height:1.5}
+.pull b{font-family:var(--display);font-weight:600}
+.limits{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:20px 24px;margin:30px 0}
+.limits h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:400}
+.limits ul{margin:0;padding-left:18px}
+.limits li{margin:0 0 10px}
+footer{margin-top:54px;padding-top:16px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--muted)}
+footer a{color:var(--police)}
+</style>
+<div class="wrap">
+<header class="col">
+  <div class="eyebrow">332 US cities of 100,000+ &middot; Census Bureau finance records, 1967 to 2024</div>
+  <h1>Twenty-Eight Cents</h1>
+  <p class="standfirst">Police and fire take about twenty-eight cents of every dollar a large American city spends. That number is smaller than the one in the budget speech, larger than it was in 1967, and almost unrelated to how much crime the city has.</p>
+  <p class="byline">Built from the Census Bureau's individual government finance records, checked against 29 cities' own audited books. Method and data at the end.</p>
+  <p class="sitenav"><a href="/">Look up any of the 332 cities in the dashboard</a></p>
+</header>
+
+<div class="col">
+<h2><span class="n">01</span>The number, and the other number</h2>
+<p class="lede">In the fiscal year ending in 2022, the median large American city spent <em class="key">27.8% of its general expenditure</em> on police and fire. Across the 327 cities with a complete record, covering 97 million residents, that came to $42.7 billion of policing and $23.3 billion of fire protection.</p>
+<p>The spread is wide. A tenth of cities spend under 12%, a tenth spend over 41%, and the extremes run from 3.2% to 55.4%. Police outspend fire by about 1.7 to one almost everywhere.</p>
+</div>
+
+<figure><svg class="fig" viewBox="0 0 860 300" role="img" aria-label="How many cities spend what share: a histogram peaking near 27.75 percent"><line class="grid" x1="44" x2="840" y1="254.0" y2="254.0"/><text class="ax" x="36" y="258.0" text-anchor="end">0</text><line class="grid" x1="44" x2="840" y1="192.4" y2="192.4"/><text class="ax" x="36" y="196.4" text-anchor="end">10</text><line class="grid" x1="44" x2="840" y1="130.8" y2="130.8"/><text class="ax" x="36" y="134.8" text-anchor="end">20</text><line class="grid" x1="44" x2="840" y1="69.1" y2="69.1"/><text class="ax" x="36" y="73.1" text-anchor="end">30</text><rect class="bar" x="78.7" y="247.8" width="30.2" height="6.2" rx="2"><title>2.5 to 5% : 1 cities</title></rect><rect class="bar" x="111.8" y="223.2" width="30.2" height="30.8" rx="2"><title>5 to 7.5% : 5 cities</title></rect><rect class="bar" x="145.0" y="173.9" width="30.2" height="80.1" rx="2"><title>7.5 to 10% : 13 cities</title></rect><rect class="bar" x="178.2" y="167.7" width="30.2" height="86.3" rx="2"><title>10 to 12.5% : 14 cities</title></rect><rect class="bar" x="211.3" y="204.7" width="30.2" height="49.3" rx="2"><title>12.5 to 15% : 8 cities</title></rect><rect class="bar" x="244.5" y="155.4" width="30.2" height="98.6" rx="2"><title>15 to 17.5% : 16 cities</title></rect><rect class="bar" x="277.7" y="155.4" width="30.2" height="98.6" rx="2"><title>17.5 to 20% : 16 cities</title></rect><rect class="bar" x="310.8" y="112.3" width="30.2" height="141.7" rx="2"><title>20 to 22.5% : 23 cities</title></rect><rect class="bar" x="344.0" y="38.3" width="30.2" height="215.7" rx="2"><title>22.5 to 25% : 35 cities</title></rect><rect class="bar" x="377.2" y="63.0" width="30.2" height="191.0" rx="2"><title>25 to 27.5% : 31 cities</title></rect><rect class="bar" x="410.3" y="56.8" width="30.2" height="197.2" rx="2"><title>27.5 to 30% : 32 cities</title></rect><rect class="bar" x="443.5" y="87.6" width="30.2" height="166.4" rx="2"><title>30 to 32.5% : 27 cities</title></rect><rect class="bar" x="476.7" y="26.0" width="30.2" height="228.0" rx="2"><title>32.5 to 35% : 37 cities</title></rect><rect class="bar" x="509.8" y="136.9" width="30.2" height="117.1" rx="2"><title>35 to 37.5% : 19 cities</title></rect><rect class="bar" x="543.0" y="167.7" width="30.2" height="86.3" rx="2"><title>37.5 to 40% : 14 cities</title></rect><rect class="bar" x="576.2" y="180.1" width="30.2" height="73.9" rx="2"><title>40 to 42.5% : 12 cities</title></rect><rect class="bar" x="609.3" y="186.2" width="30.2" height="67.8" rx="2"><title>42.5 to 45% : 11 cities</title></rect><rect class="bar" x="642.5" y="235.5" width="30.2" height="18.5" rx="2"><title>45 to 47.5% : 3 cities</title></rect><rect class="bar" x="675.7" y="229.4" width="30.2" height="24.6" rx="2"><title>47.5 to 50% : 4 cities</title></rect><rect class="bar" x="708.8" y="241.7" width="30.2" height="12.3" rx="2"><title>50 to 52.5% : 2 cities</title></rect><rect class="bar" x="742.0" y="241.7" width="30.2" height="12.3" rx="2"><title>52.5 to 55% : 2 cities</title></rect><rect class="bar" x="775.2" y="241.7" width="30.2" height="12.3" rx="2"><title>55 to 57.5% : 2 cities</title></rect><text class="ax" x="44.0" y="276" text-anchor="middle">0%</text><text class="ax" x="176.7" y="276" text-anchor="middle">10%</text><text class="ax" x="309.3" y="276" text-anchor="middle">20%</text><text class="ax" x="442.0" y="276" text-anchor="middle">30%</text><text class="ax" x="574.7" y="276" text-anchor="middle">40%</text><text class="ax" x="707.3" y="276" text-anchor="middle">50%</text><text class="ax" x="840.0" y="276" text-anchor="middle">60%</text><line class="mark" x1="412.2" x2="412.2" y1="18" y2="254.0"/><text class="marklab" x="418.2" y="25">median 27.75%</text><text class="ax" x="201.9" y="38" text-anchor="middle">10th 11.9%</text><text class="ax" x="586.6" y="38" text-anchor="middle">90th 40.9%</text><text class="ax" x="44" y="294">Share of general expenditure going to police and fire, 2022. Each bar is a 2.5-point band; the axis counts cities.</text></svg><figcaption>Every city with a complete 2022 record. The long left tail is not frugality: it is mostly cities whose books also carry schools, hospitals or a county jail, which enlarges the denominator.</figcaption></figure>
+
+<div class="col">
+<p>If you have heard a different number, you have probably heard the general fund share. City budget messages quote police and fire against the general fund, which excludes airports, water systems, grants and capital projects. For the same cities in the same year, that framing gives a median of <strong>48%</strong> where the Census basis gives <strong>23%</strong>.</p>
+<table>
+  <tr><th>City</th><th class="num">Share of its general fund</th><th class="num">Share of all general spending</th></tr>
+  <tr><td>Columbus</td><td class="num">71%</td><td class="num">30.8%</td></tr><tr><td>Houston</td><td class="num">70%</td><td class="num">28.1%</td></tr><tr><td>Phoenix</td><td class="num">70%</td><td class="num">30.1%</td></tr><tr><td>San Antonio</td><td class="num">67%</td><td class="num">28.3%</td></tr>
+</table>
+<p>Neither number is wrong. The first answers what competes at the council table; the second answers what the city government actually spends. Only the second means the same thing in every city, because each city decides for itself what lives in its general fund.</p>
+
+<h2><span class="n">02</span>The share held; the dollars grew</h2>
+<p>Take the 131 cities with complete records in every decade since 1972 and follow them. Their median share of spending rose from 21.8% to 25.5%, a change of 3.7 points in fifty years. Over the same span, what they spent per resident, in constant dollars, went from $390 to $778.</p>
+<p>How much that last figure means depends on which prices you deflate by, and the choice is not innocent. Against consumer prices it is a 1.99-fold rise. Against the cost of what governments actually buy, which is mostly labour and has risen faster, it is <strong>1.62-fold</strong> — from $466 to $754. The second is the more conservative reading, and the better answer to whether cities bought more policing and fire protection. Both are real; neither is flat.</p>
+<p>These 131 cities are also not a cross-section of the country. Surviving fifty years of continuous reporting selects for the older and the larger: 48% of them are Sunbelt against 74% of the cities left out, and their median population is 263,094 against 125,587. The cities that drop out spend 29.0% of their budgets today against 25.5% for the panel. This is a trend for big established cities, which is the only group anyone can follow this far back.</p>
+</div>
+
+<figure class="pair"><svg class="fig small" viewBox="0 0 420 250" role="img" aria-label="Share of spending, median of 131 cities, 1967 to 2024"><line class="grid" x1="52" x2="376" y1="210.0" y2="210.0"/><text class="ax" x="44" y="214.0" text-anchor="end">0%</text><line class="grid" x1="52" x2="376" y1="145.9" y2="145.9"/><text class="ax" x="44" y="149.9" text-anchor="end">10%</text><line class="grid" x1="52" x2="376" y1="81.8" y2="81.8"/><text class="ax" x="44" y="85.8" text-anchor="end">20%</text><text class="ax" x="69.1" y="228" text-anchor="middle">1970</text><text class="ax" x="182.7" y="228" text-anchor="middle">1990</text><text class="ax" x="296.4" y="228" text-anchor="middle">2010</text><path class="ln dash" style="stroke:var(--police)" d="M52.0 77.5M69.1 70.5L74.7 64.9L80.4 70.4L86.1 70.6L91.8 68.4L97.5 73.5L103.2 71.8L108.8 77.7L114.5 79.1L120.2 80.2L125.9 75.7L131.6 81.1L137.3 68.9L142.9 68.6L148.6 71.5L154.3 70.9L160.0 70.2L165.7 74.3L171.4 74.6L177.1 70.7L182.7 72.9L188.4 68.9L194.1 69.8L199.8 64.6L205.5 61.4L211.2 63.5L216.8 60.8L222.5 61.4L228.2 57.6L233.9 62.9L239.6 61.3L245.3 64.8L250.9 57.5L256.6 60.1L262.3 61.2L268.0 57.7L273.7 58.1L279.4 68.7L285.1 59.0L290.7 56.5L296.4 56.4L302.1 54.8"/><path class="ln" style="stroke:var(--police)" d="M302.1 54.8L307.8 51.5L313.5 47.9L319.2 45.4L324.8 45.2L330.5 41.9L336.2 38.6L341.9 42.8L347.6 43.8L353.3 42.8L358.9 44.9L364.6 46.8L370.3 48.1L376.0 53.4"/><circle cx="376.0" cy="53.4" r="3.5" style="fill:var(--police)"/><text class="endlab" x="372.0" y="43.4" text-anchor="end">24.43%</text><text class="endlab" x="52.0" y="67.5">20.67%</text><text class="ax" x="52" y="245">Police and fire as a share of general expenditure</text></svg><svg class="fig small" viewBox="0 0 420 250" role="img" aria-label="Spending per resident, median of 131 cities, 1967 to 2024"><line class="grid" x1="52" x2="376" y1="210.0" y2="210.0"/><text class="ax" x="44" y="214.0" text-anchor="end">$0</text><line class="grid" x1="52" x2="376" y1="167.4" y2="167.4"/><text class="ax" x="44" y="171.4" text-anchor="end">$200</text><line class="grid" x1="52" x2="376" y1="124.9" y2="124.9"/><text class="ax" x="44" y="128.9" text-anchor="end">$400</text><line class="grid" x1="52" x2="376" y1="82.3" y2="82.3"/><text class="ax" x="44" y="86.3" text-anchor="end">$600</text><line class="grid" x1="52" x2="376" y1="39.7" y2="39.7"/><text class="ax" x="44" y="43.7" text-anchor="end">$800</text><text class="ax" x="69.1" y="228" text-anchor="middle">1970</text><text class="ax" x="182.7" y="228" text-anchor="middle">1990</text><text class="ax" x="296.4" y="228" text-anchor="middle">2010</text><path class="ln dash" style="stroke:var(--fire)" d="M52.0 141.6M69.1 140.2L74.7 134.0L80.4 126.9L86.1 121.2L91.8 118.3L97.5 117.2L103.2 111.6L108.8 109.4L114.5 107.7L120.2 106.7L125.9 112.0L131.6 111.7L137.3 110.3L142.9 114.3L148.6 108.9L154.3 107.4L160.0 103.5L165.7 99.6L171.4 97.8L177.1 94.3L182.7 93.6L188.4 96.6L194.1 93.4L199.8 91.9L205.5 91.6L211.2 90.2L216.8 87.5L222.5 84.3L228.2 81.0L233.9 77.0L239.6 79.5L245.3 77.9L250.9 75.2L256.6 73.3L262.3 69.5L268.0 63.2L273.7 59.8L279.4 54.9L285.1 52.5L290.7 55.9L296.4 54.4L302.1 54.3"/><path class="ln" style="stroke:var(--fire)" d="M302.1 54.3L307.8 64.1L313.5 68.8L319.2 67.7L324.8 63.7L330.5 58.2L336.2 52.9L341.9 50.1L347.6 50.6L353.3 48.2L358.9 48.7L364.6 44.4L370.3 51.1L376.0 38.6"/><circle cx="376.0" cy="38.6" r="3.5" style="fill:var(--fire)"/><text class="endlab" x="372.0" y="28.6" text-anchor="end">$805</text><text class="endlab" x="52.0" y="131.6">$322</text><text class="ax" x="52" y="245">Police and fire per resident, 2025 dollars</text></svg></figure>
+<div class="col"><figcaption style="margin-top:-18px">Median of the same 131 cities throughout, so the lines follow cities rather than a changing sample. Dashed before 2012, where the figures come from a compilation of the same Census files with a slightly wider denominator. Since 1967 the per-resident figure has risen from $322.</figcaption></div>
+
+<div class="col">
+<div class="pull"><b>Cities did not shift their budgets toward public safety.</b> They kept roughly the same slice of a budget that grew: these cities&rsquo; total general spending per resident rose 77% above inflation over the same fifty years, from $1,753 to $3,109 in today&rsquo;s money. A near-constant share of a much larger budget is what raised the police and fire dollars.</div>
+<p>Staffing shows the same thing from the other side. The median city employed <strong>1.57 sworn officers per 1,000 residents</strong> in 2022, down from 1.70 a decade earlier, while pay per officer rose from $107,788 to $110,977 in constant dollars. Firefighters run about 1.24 per 1,000, and sixteen of these cities have no fire department at all: an independent district serves them.</p>
+<p>Read that pay figure narrowly. It is March cash payroll annualised, so it excludes employer pension contributions, health premiums and retiree benefits — which is where public safety compensation has actually been growing. Flat cash pay is not flat compensation, and this dataset cannot see the difference.</p>
+
+<h2><span class="n">03</span>Crime shows up in officers, not in budgets</h2>
+<p>Group the plain municipalities into four equal bands by violent crime rate and the staffing pattern is clear and monotonic. The safest quarter of cities employ 1.25 officers per 1,000; the most dangerous quarter employ 2.02, sixty per cent more.</p>
+</div>
+
+<figure><svg class="fig" viewBox="0 0 860 260" role="img" aria-label="Officers per thousand residents rises across crime quartiles from 1.25 to 2.02"><line class="grid" x1="58" x2="840" y1="206.0" y2="206.0"/><text class="ax" x="50" y="210.0" text-anchor="end">0</text><line class="grid" x1="58" x2="840" y1="170.0" y2="170.0"/><text class="ax" x="50" y="174.0" text-anchor="end">0.5</text><line class="grid" x1="58" x2="840" y1="133.9" y2="133.9"/><text class="ax" x="50" y="137.9" text-anchor="end">1</text><line class="grid" x1="58" x2="840" y1="97.9" y2="97.9"/><text class="ax" x="50" y="101.9" text-anchor="end">1.5</text><line class="grid" x1="58" x2="840" y1="61.8" y2="61.8"/><text class="ax" x="50" y="65.8" text-anchor="end">2</text><rect class="bar" x="81.0" y="115.9" width="149.5" height="90.1" rx="2"/><text class="barlab" x="155.8" y="107.9" text-anchor="middle">1.25</text><text class="ax" x="155.8" y="228" text-anchor="middle">0.1 to 2.7 per 1,000</text><text class="ax dim" x="155.8" y="242" text-anchor="middle">$608 per resident</text><rect class="bar" x="276.5" y="110.1" width="149.5" height="95.9" rx="2"/><text class="barlab" x="351.2" y="102.1" text-anchor="middle">1.33</text><text class="ax" x="351.2" y="228" text-anchor="middle">2.8 to 4.8 per 1,000</text><text class="ax dim" x="351.2" y="242" text-anchor="middle">$660 per resident</text><rect class="bar" x="472.0" y="90.7" width="149.5" height="115.3" rx="2"/><text class="barlab" x="546.8" y="82.7" text-anchor="middle">1.60</text><text class="ax" x="546.8" y="228" text-anchor="middle">4.8 to 7.0 per 1,000</text><text class="ax dim" x="546.8" y="242" text-anchor="middle">$659 per resident</text><rect class="bar" x="667.5" y="60.4" width="149.5" height="145.6" rx="2"/><text class="barlab" x="742.2" y="52.4" text-anchor="middle">2.02</text><text class="ax" x="742.2" y="228" text-anchor="middle">7.0 to 23.2 per 1,000</text><text class="ax dim" x="742.2" y="242" text-anchor="middle">$744 per resident</text><text class="ax" x="58" y="256">Cities grouped into four equal bands by violent crime rate. Bars are sworn officers per 1,000 residents; the line below each is median spending.</text></svg><figcaption>Only plain municipalities: no consolidated city-counties, no cities that run schools or buy policing from a county. Crime rates are as reported to the FBI, which is its own minefield; see the limits below.</figcaption></figure>
+
+<div class="col">
+<p>Spending per resident follows more weakly, and the budget <em>share</em> does not follow at all.</p>
+<table>
+  <tr><th>Relationship, across plain municipalities in 2022</th><th class="num">Correlation</th></tr>
+  <tr><td>Officers per 1,000 residents and the violent crime rate</td><td class="num">+0.51</td></tr><tr><td>Officer pay and the metro price level</td><td class="num">+0.74</td></tr><tr><td>Spending per resident and the violent crime rate</td><td class="num">+0.28</td></tr><tr><td>Spending per resident and the metro price level</td><td class="num">+0.36</td></tr><tr><td>Budget share and the violent crime rate</td><td class="num">-0.03</td></tr><tr><td>Budget share and city population</td><td class="num">-0.10</td></tr>
+</table>
+<p>That first relationship is worth pressing on, because Census models a third of the staffing rather than counting it. Splitting the cities by how their staffing figure was obtained: the relationship survives in every group, and it is weakest in exactly the group where Census estimated the number outright.</p>
+<table>
+  <tr><th>Staffing figure</th><th class="num">Cities</th><th class="num">Correlation with violent crime</th><th class="num">95% interval</th></tr>
+  <tr><td>All cities, as published</td><td class="num">224</td><td class="num">+0.51</td><td class="num">+0.40 to +0.60</td></tr><tr><td>Reported by the department</td><td class="num">138</td><td class="num">+0.57</td><td class="num">+0.44 to +0.67</td></tr><tr><td>Imputed by Census</td><td class="num">59</td><td class="num">+0.32</td><td class="num">+0.07 to +0.54</td></tr><tr><td>Prorated from a reported total</td><td class="num">20</td><td class="num">+0.72</td><td class="num">+0.41 to +0.88</td></tr>
+</table>
+<p>That is the pattern measurement error produces: an estimated value is smoothed toward a model, which blurs the relationship rather than inventing one. So the modelled cities are diluting this finding, not creating it. The reported-only figure is not the better number either — its interval overlaps the published one almost entirely, and cities that answer surveys are not a random sample of cities. Prorated is kept separate from imputed because it is a different failure — the department's total was reported and only the split between officers and civilians was estimated — though at twenty cities its interval spans almost the whole range and it settles nothing on its own.</p>
+<p>The strongest relationship in the dataset is not about crime at all: officer pay tracks the local price level at <strong>+0.74</strong>. Cities pay what their housing markets force them to pay. Crime buys headcount; geography sets the price of each head; and the share of the budget is decided by something else entirely, which is mostly what else the city government happens to run.</p>
+
+<h2><span class="n">04</span>Structure beats policy</h2>
+<p>The same city produces very different numbers depending on what its books contain. New York spends 6.6% of general expenditure on police and fire, or 13.1% once schools, welfare, hospitals and the airports are taken out. San Francisco moves from 8.7% to 16.4% on the same adjustment.</p>
+<table>
+  <tr><th>City</th><th class="num">Of general spending</th><th class="num">Of core municipal spending</th><th class="num">Of all spending</th></tr>
+  <tr><td>New York</td><td class="num">6.6%</td><td class="num">13.1%</td><td class="num">6.0%</td></tr><tr><td>Philadelphia</td><td class="num">11.7%</td><td class="num">17.4%</td><td class="num">10.7%</td></tr><tr><td>San Francisco</td><td class="num">8.7%</td><td class="num">16.4%</td><td class="num">7.3%</td></tr><tr><td>Houston</td><td class="num">28.1%</td><td class="num">33.3%</td><td class="num">25.5%</td></tr><tr><td>Phoenix</td><td class="num">30.1%</td><td class="num">38.7%</td><td class="num">22.3%</td></tr><tr><td>Plano</td><td class="num">28.1%</td><td class="num">28.3%</td><td class="num">23.6%</td></tr>
+</table>
+<p>Nothing about policing changed between those columns. What changed is whether a school system, a public hospital, a county jail or an electric utility sits inside the same government. Any ranking of cities that does not say which denominator it used is comparing organizational charts.</p>
+</div>
+
+<div class="col">
+<div class="limits">
+  <h3>What these numbers cannot see</h3>
+  <ul>
+    <li><strong>Pensions are counted city by city.</strong> Census leaves out payments into a fund a city runs itself but counts payments to a state system. Philadelphia's police line is $1,317M with pensions and $775M without; the Census figure is $784M. Checked against 29 cities' own books, the figures land a median of 1.03x the city's own, with the middle half between 0.97x and 1.10x.</li>
+    <li><strong>Contract policing is invisible.</strong> A city that buys its policing from the county sheriff shows almost nothing under the police code. Las Vegas paid $151M to a joint force and shows $18M.</li>
+    <li><strong>Crime reporting broke in 2021.</strong> The FBI's change of system left many departments filing nothing or filing partial years as whole ones. Chicago's reported violent crime falls from 25,553 in 2019 to 7,766 in 2021. Flagged, not fixed.</li>
+    <li><strong>Some figures are estimates.</strong> Census imputes police or fire spending for 39 of the 332 cities when the city does not answer the survey. Staffing is worse: of the 332, 191 are reported, 88 imputed and 31 prorated from earlier years, so about a third of it is modelled rather than counted. The table above separates them.</li>
+    <li><strong>Residents are not the whole population.</strong> Crime rates and officer ratios are both divided by resident count, so a city whose daytime population is far larger than its resident one — a downtown, an entertainment district — has both inflated by the same arithmetic. That may be flattering the relationship between crime and staffing. Measuring it needs daytime population estimates this project does not hold.</li>
+    <li><strong>A share is not a verdict.</strong> Nothing here says whether a city is spending too much, too little, or well. It says what was spent, on a basis that is the same everywhere.</li>
+  </ul>
+</div>
+
+<h2><span class="n">05</span>How this was built</h2>
+<p>Every figure comes from the Census Bureau's individual unit finance files, parsed directly rather than taken from a published table: police is item code 62, fire is item code 24. The parse reproduces the Bureau's own published state totals exactly in the 2012 census year and to within a hundredth of a per cent in 2017. Staffing comes from the Bureau's employment survey and agrees with the FBI's independent count within 10% for 82% of the city-years the Bureau marks as reported. Constant dollars use CPI-U; regional prices use the Bureau of Economic Analysis parities.</p>
+<p>The caveats above are not boilerplate. They are the residue of a validation that compared this dataset against five other sources and 29 cities' audited financial reports, and they are documented city by city, with the cities where the numbers do not reconcile named.</p>
+<footer>
+  Every city, year by year, in the companion <a href="/">dashboard</a>.
+  Data, pipeline and validation report: <a href="https://github.com/bristlecone-public/bristlecone/tree/main/city-safety-spend">github.com/bristlecone-public/bristlecone</a>.
+  Sources: U.S. Census Bureau Annual Survey of State and Local Government Finances and Census of Governments; Bureau of Labor Statistics CPI-U; Bureau of Economic Analysis Regional Price Parities; FBI Uniform Crime Reporting; Lincoln Institute of Land Policy; Vera Institute of Justice; and the cities' own annual comprehensive financial reports.
+  Figures are for Census fiscal year 2022 unless stated, meaning the fiscal year ending between July 2021 and June 2022. Data vintage: Census finance through fiscal year 2024, employment through 2025, reported crime through 2024. Built 2026-09-17.
+</footer>
+</div>
+</div>

@@ -1,0 +1,8 @@
+data/census_raw/
+data/*/raw/
+*.zip
+*.pdf
+__pycache__/
+
+# Per-machine pointer to the raw inputs (they live in the bristlecone monorepo now).
+data/.raw_root

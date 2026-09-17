@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EconPulse</title>
+<meta name="description" content="The economy's vital signs, live: rates, prices, labor, activity nowcasts, markets, and prediction markets." />
+<link rel="stylesheet" href="/style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>" />
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">📈</span>
+    <div>
+      <h1>EconPulse</h1>
+      <p class="tagline">The economy's vital signs, live: rates, prices, labor, activity nowcasts, markets, and prediction markets.</p>
+    </div>
+  </div>
+  <div class="top-right">
+    <span id="overall" class="pill unknown"><i></i><b>—</b></span>
+    <span id="generated" class="muted">loading…</span>
+    <button id="theme" class="ghost" title="Toggle theme" aria-label="Toggle theme">◐</button>
+  </div>
+</header>
+
+<nav id="nav" class="nav" aria-label="Sections"></nav>
+
+<main id="main">
+  <p class="muted" id="loading">Loading instruments…</p>
+</main>
+
+<footer class="foot">
+  <p>Every instrument shows its source and data age. Stale beats fake: on a failed fetch the last good value stays up and is marked.</p>
+  <p><a href="/api/state">/api/state</a> · <a href="/api/health">/api/health</a> · <a href="/api/registry">/api/registry</a> · <a href="https://github.com/bristlecone-public/bristlecone">source</a></p>
+</footer>
+
+<dialog id="detail"></dialog>
+<div id="tip" class="tip" hidden></div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>

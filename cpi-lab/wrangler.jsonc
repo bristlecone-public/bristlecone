@@ -1,0 +1,18 @@
+{
+	// Static-assets-only Worker. .site/ is staged by `python cpi-lab/publish.py`,
+	// which copies the page next to the pipeline outputs it fetches at runtime
+	// (/data/*.json), strips the ZORI-dependent shelter panel, and fails closed
+	// if any Zillow-derived value survives.
+	//
+	// This serves a SNAPSHOT. The pipeline host keeps its own cron and nginx copy;
+	// nothing here refreshes Cloudflare automatically. Re-run publish.py and
+	// deploy after a pipeline refresh.
+	"name": "cpi-lab",
+	"compatibility_date": "2026-08-01",
+	"workers_dev": true,
+	"assets": {
+		"directory": "./.site"
+	},
+	"observability": { "enabled": true },
+	"routes": [{ "pattern": "cpi.bristleconeanalytics.com", "custom_domain": true }]
+}

@@ -1,0 +1,474 @@
+<title>Public Safety Share</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F4F5F1; --surface:#FFFFFF; --surface2:#ECEEE8; --ink:#1A2129; --ink2:#4B5560; --muted:#7C8792; --line:#D9DDD5; --line2:#C6CBC2;
+  --police:#2E62A8; --fire:#B07414; --police-soft:#DCE6F5; --fire-soft:#F3E6CF;
+  --warn-ink:#7A4E00; --warn-bg:#FBEFD6; --focus:#2E62A8;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --serif:"Newsreader",Georgia,"Times New Roman",serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#16191E; --surface:#1E2228; --surface2:#262B32; --ink:#E6E9EC; --ink2:#B3BAC2; --muted:#7F8890; --line:#2E343B; --line2:#3B424A;
+  --police:#5583C4; --fire:#B98421; --police-soft:#22334D; --fire-soft:#3E3018; --warn-ink:#F0C670; --warn-bg:#3A2E12; --focus:#7FA6E0;
+}}
+:root[data-theme="dark"]{
+  --bg:#16191E; --surface:#1E2228; --surface2:#262B32; --ink:#E6E9EC; --ink2:#B3BAC2; --muted:#7F8890; --line:#2E343B; --line2:#3B424A;
+  --police:#5583C4; --fire:#B98421; --police-soft:#22334D; --fire-soft:#3E3018; --warn-ink:#F0C670; --warn-bg:#3A2E12; --focus:#7FA6E0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;padding-inline:clamp(16px,4vw,48px);padding-block:32px 64px}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.2vw,46px);line-height:1.08;letter-spacing:-.01em;margin:8px 0 12px;max-width:22ch;text-wrap:balance}
+.dek{font-size:17px;color:var(--ink2);max-width:66ch;margin:0}
+.readnav{font-size:13.5px;margin:14px 0 0}
+.readnav a{color:var(--police);text-decoration:none;border-bottom:1px solid currentColor}
+.readnav a:hover{border-bottom-width:2px}
+@media print{.readnav{display:none}}
+.dek b{color:var(--ink);font-weight:600}
+.code{font-family:var(--mono);font-size:.92em;background:var(--surface2);padding:1px 5px;border-radius:3px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0 24px}
+.stat{background:var(--surface);padding:16px 18px}
+.stat .n{font-family:var(--serif);font-size:38px;line-height:1;font-weight:500;font-variant-numeric:tabular-nums;margin:6px 0 4px}
+.stat .l{font-size:13px;color:var(--ink2);line-height:1.35}
+.stat .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+.controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end;margin:0 0 14px}
+.ctl{display:flex;flex-direction:column;gap:4px}
+.ctl label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+select,input[type=search]{font:inherit;font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line2);border-radius:4px;padding:7px 10px;min-height:36px}
+input[type=search]{min-width:200px}
+.check{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--ink2);min-height:36px}
+select:focus-visible,input:focus-visible,button:focus-visible,tr:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-height:36px}
+.chip{font:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--line2);background:var(--surface);color:var(--ink2);border-radius:999px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:20px;align-items:start}
+@media (max-width:1100px){.main{grid-template-columns:1fr}}
+.tablewrap{background:var(--surface);border:1px solid var(--line);overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:760px;font-variant-numeric:tabular-nums}
+th{position:sticky;top:0;background:var(--surface);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:left;padding:10px 10px;border-bottom:1px solid var(--line2);white-space:nowrap;cursor:pointer;user-select:none}
+th.num,td.num{text-align:right}
+th[aria-sort]::after{content:" ↓";color:var(--ink)}
+th[aria-sort=ascending]::after{content:" ↑"}
+td{padding:7px 10px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:middle}
+tr.row{cursor:pointer}
+tr.row:hover td{background:var(--surface2)}
+tr.row[aria-selected=true] td{background:var(--police-soft)}
+td.city{font-weight:600;white-space:nowrap}
+td.city small{font-weight:400;color:var(--muted);margin-left:5px}
+td.pf{font-weight:600}
+.bar{display:flex;gap:2px;height:10px;width:120px}
+.bar i{display:block;height:100%;border-radius:0 3px 3px 0}
+.bar .p{background:var(--police);border-radius:3px 0 0 3px}
+.bar .f{background:var(--fire)}
+.spark{display:block;width:96px;height:26px}
+.spark path{fill:none;stroke-width:1.5;stroke:var(--ink2)}
+.spark path.w{stroke:var(--muted);stroke-dasharray:2 2}
+.spark circle{fill:var(--ink)}
+.tag{display:inline-block;font-size:11px;letter-spacing:.04em;padding:2px 6px;border-radius:3px;background:var(--surface2);color:var(--ink2);margin-right:3px;white-space:nowrap}
+.tag.warn{background:var(--warn-bg);color:var(--warn-ink)}
+td.null{color:var(--muted);font-style:italic}
+.count{font-size:13px;color:var(--muted);margin:8px 0 0}
+.hint{font-size:13px;color:var(--ink2);margin:-4px 0 14px;max-width:90ch;border-left:3px solid var(--line2);padding-left:10px}
+
+.detail{background:var(--surface);border:1px solid var(--line);padding:18px 20px;position:sticky;top:12px}
+@media (max-width:1100px){.detail{position:static}}
+.detail h2{font-family:var(--serif);font-weight:500;font-size:28px;line-height:1.1;margin:0 0 2px}
+.detail .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px;margin:0 0 14px}
+.kv dt{color:var(--ink2)}
+.kv dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.kv dd.p{color:var(--police)}.kv dd.f{color:var(--fire)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--ink2);margin:0 0 6px;flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px;background:var(--ink)}
+.legend .lp::before{background:var(--police)}.legend .lf::before{background:var(--fire)}
+.legend .lw::before{background:transparent;border-top:2px dashed var(--muted);height:0}
+.chart{width:100%;height:auto;display:block}
+.chart text{font-family:var(--sans);font-size:11px;fill:var(--muted)}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .axis{stroke:var(--line2)}
+.chart .ln{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.chart .ln.p{stroke:var(--police)}.chart .ln.f{stroke:var(--fire)}.chart .ln.s{stroke:var(--ink);stroke-width:1.5}
+.chart .ln.w{stroke-dasharray:3 3;stroke-width:1.5}
+.chart .lab{font-size:11px;font-weight:600;fill:var(--ink)}
+.chart .lab.p{fill:var(--police)}.chart .lab.f{fill:var(--fire)}
+.chart .cross{stroke:var(--ink2);stroke-width:1;stroke-dasharray:2 2}
+.chart .dot{stroke:var(--surface);stroke-width:2}
+.chart .annband{fill:var(--surface2)}
+.chart .annline{stroke:var(--line2);stroke-width:1;stroke-dasharray:1 3}
+.chart .anntick{fill:var(--muted)}
+.annlist{font-size:12px;color:var(--muted);margin:4px 0 0}
+.annlist b{color:var(--ink2);font-weight:600}
+.tip{font-size:12px;color:var(--ink2);min-height:38px;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.tip b{color:var(--ink)}
+.notes{margin:12px 0 0;padding:10px 12px;background:var(--surface2);font-size:13px;color:var(--ink2);border-left:3px solid var(--line2)}
+.notes.warn{border-left-color:var(--warn-ink)}
+.empty{color:var(--muted);font-size:14px}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:4px;overflow:hidden;margin:4px 0 8px}
+.seg button{font:inherit;font-size:12px;padding:5px 10px;border:0;background:var(--surface);color:var(--ink2);cursor:pointer}
+.seg button+button{border-left:1px solid var(--line2)}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.staff{margin:14px 0 0;border-top:1px solid var(--line);padding-top:12px}
+.staff h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 8px}
+.staff table{min-width:0;width:100%;font-size:13px}
+.staff td,.staff th{padding:4px 6px;border-bottom:1px solid var(--line);position:static;cursor:default}
+.staff th{font-size:11px}
+.staff .cap{font-size:12px;color:var(--muted);margin:6px 0 0}
+.staff tr.me td{font-weight:600;background:var(--police-soft)}
+.staff tr.pick td{cursor:pointer}
+.staff tr.pick:hover td{background:var(--surface2)}
+.q{display:inline-block;font-size:11px;letter-spacing:.04em;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:1px;background:var(--surface2);color:var(--ink2);text-transform:none}
+.q.weak{background:var(--warn-bg);color:var(--warn-ink)}
+
+.read{margin:40px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px 28px;max-width:1100px}
+.read h3{font-family:var(--serif);font-weight:500;font-size:22px;margin:0 0 6px}
+.read p{margin:0;color:var(--ink2);font-size:14px;max-width:62ch}
+.read .all{grid-column:1/-1}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);max-width:80ch}
+footer p{margin:4px 0}
+@media (prefers-reduced-motion:no-preference){tr.row td{transition:background .12s}}
+@media print{
+  .controls,.hint,.tablewrap,.count,.stats,.seg{display:none!important}
+  .main{display:block}
+  .detail{position:static;border:0;padding:0}
+  body{padding:0;font-size:12px}
+  h1{font-size:24px}
+  .read{margin-top:16px;grid-template-columns:1fr 1fr;gap:10px 20px}
+  .read h3{font-size:14px}
+  .staff,.notes{break-inside:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:10px;color:#555}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">332 US cities of 100,000+ &middot; Census Bureau unit files 1967 to 2024 &middot; item codes <span class="code">E62</span> police, <span class="code">E24</span> fire</div>
+  <h1>How much of a city's spending goes to police and fire?</h1>
+  <p class="dek">Not the general-fund figure from the budget speech. Every share here divides by a denominator defined the same way in every city, from the Census Bureau's record of what each government spent. <b>Pick the denominator</b>, then compare. The police and fire figures are not perfectly uniform: checked against 29 cities&rsquo; own budgets they typically agree within 7%, so a 25% share is good to about two points, and a few cities are off by far more. Treat differences of a few points as noise.</p>
+  <p class="readnav"><a href="/findings.html">Read what the numbers show: <i>Twenty-Eight Cents</i></a></p>
+</header>
+
+<section class="stats" aria-label="Headline figures">
+  <div class="stat"><div class="k">Median city, 2022</div><div class="n" id="s-med">–</div><div class="l" id="s-med-l">police + fire as % of general expenditure</div></div>
+  <div class="stat"><div class="k">Same cities, whole local bill</div><div class="n" id="s-fisc">–</div><div class="l">median on the Fiscally Standardized basis: city plus its share of county, school and special districts (212 cities). County sheriffs are shared by population, which overstates police for most large cities</div></div>
+  <div class="stat"><div class="k">Widest spread, 2022</div><div class="n" id="s-range">–</div><div class="l" id="s-range-l">among plain municipalities with reported, complete records</div></div>
+  <div class="stat"><div class="k">Estimated, not reported</div><div class="n" id="s-imp">–</div><div class="l">cities whose 2022 police or fire figure was imputed by Census because the city did not report it</div></div>
+</section>
+
+<section class="controls" aria-label="Filters">
+  <div class="ctl"><label for="den">Denominator</label>
+    <select id="den">
+      <option value="general">General expenditure (all spending except utilities)</option>
+      <option value="core">Core municipal (also excludes schools, county functions, health, airports)</option>
+      <option value="total">Total expenditure (includes utilities)</option>
+      <option value="gen_ex_edu">General expenditure, excluding education</option>
+      <option value="fisc">Fiscally Standardized basis (212 cities, 2022)</option>
+    </select></div>
+  <div class="ctl"><label for="state">State</label><select id="state"><option value="">All states</option></select></div>
+  <div class="ctl"><label for="q">Find a city</label><input type="search" id="q" placeholder="Phoenix, Columbus, Plano&hellip;"></div>
+  <div class="chips" role="group" aria-label="Quick filters">
+    <button class="chip" id="chip-top" aria-pressed="false">Largest 25</button>
+    <button class="chip" id="chip-clean" aria-pressed="false">Reported &amp; complete only</button>
+    <button class="chip" id="chip-plain" aria-pressed="false">Plain municipalities only</button>
+  </div>
+</section>
+
+<p class="hint" id="hint"></p>
+
+<div class="main">
+  <div>
+    <div class="tablewrap">
+      <table id="tbl">
+        <thead><tr>
+          <th data-k="city">City</th>
+          <th data-k="pop" class="num" aria-sort="descending">Population</th>
+          <th data-k="p" class="num">Police</th>
+          <th data-k="f" class="num">Fire</th>
+          <th data-k="pf" class="num">Police + fire</th>
+          <th data-k="sw" class="num" title="Full-time sworn officers per 1,000 residents, March 2022">Officers / 1k</th>
+          <th>Share</th>
+          <th>1967 to 2024</th>
+          <th>Flags</th>
+        </tr></thead>
+        <tbody id="tb"></tbody>
+      </table>
+    </div>
+    <p class="count" id="count"></p>
+  </div>
+  <aside class="detail" id="detail" aria-live="polite"><p class="empty">Select a city to see its dollars, its trend since 1967, and what to know before comparing it.</p></aside>
+</div>
+
+<section class="read" aria-label="Read before comparing">
+  <div class="all"><div class="eyebrow">Read before comparing</div></div>
+  <div><h3>This is not the general-fund share</h3><p>Budget messages quote police and fire as a share of the general fund: about 70% in Phoenix and Houston, 46% in Chicago, 32% in Seattle. The same dollars are 30%, 28%, 20% and 16% of each city&rsquo;s general expenditure. Both are true. Only the Census denominator means the same thing in every city, because each city decides what lives in its general fund.</p></div>
+  <div><h3>Pensions are counted inconsistently</h3><p>By rule, Census counts a city&rsquo;s payments into a pension plan run by another body as police or fire spending and leaves out payments into a fund the city runs itself. In practice the treatment does not follow from who runs the fund. Philadelphia ($1,317M with pensions, $775M without, $784M here), Nashville, Seattle and Baltimore land below their own department lines; San Diego, San Jose and Memphis run their own funds too and match within 5%. Los Angeles lands 1.77 times its department appropriation because centrally budgeted benefits are allocated to police. Compare against the spot-check table, not a rule.</p></div>
+  <div><h3>Only the city&rsquo;s own department counts</h3><p>Code 62 is the municipal police department and nothing else. County sheriffs and constables sit under the county; transit police under transit (Houston METRO, New York&rsquo;s MTA, BART); port, airport and school-district police under those functions. A city that buys policing from the county (Las Vegas, Lancaster CA) shows almost nothing under code 62 at all. The Fiscally Standardized basis adds a share of the county; nothing adds the rest.</p></div>
+  <div><h3>Zero fire can be real</h3><p>Sixteen cities show no fire spending because an independent fire district or county agency levies and spends it: Irvine, Lakewood CO, Port St. Lucie, Elk Grove and others. Their police-plus-fire share understates what residents pay; the Fiscally Standardized basis adds the district back.</p></div>
+  <div><h3>Imputed means estimated</h3><p>When a city does not answer the survey, Census fills the line from its history and peers. In 2022 that includes Austin, Indianapolis, Akron, Dayton, Knoxville, Pueblo and about a third of the large Texas cities, 39 cities in all. Those rows carry the flag on every year they were estimated.</p></div>
+  <div><h3>Dollars are adjusted, per resident is not per visitor</h3><p>Constant dollars use the Bureau of Labor Statistics CPI-U. A city&rsquo;s Census fiscal year ends between July of one year and June of the next, so each year is deflated by the calendar year its midpoint falls in. Spending per resident divides by residents only, which flatters cities whose daytime population is far larger (downtown and tourist hubs such as Atlanta, St. Louis, Orlando).</p></div>
+  <div><h3>Fiscal years differ</h3><p>Census year 2022 is the fiscal year ending between July 2021 and June 2022. Cities that close on 30 June (New York, Los Angeles, Houston, Philadelphia) line up with it. Cities that close in the autumn or on 31 December (Dallas, San Antonio, Phoenix, Chicago, Denver, Seattle) report here what they call FY2021.</p></div>
+</section>
+
+<footer>
+  <p>Scope: Census Bureau Type 2 municipal governments with 100,000 or more residents in any year 2012 to 2024. Type 3 towns and townships are excluded, which leaves out the large New York towns (Hempstead, Brookhaven, Islip, Oyster Bay, North Hempstead, Babylon, Huntington, Ramapo, Amherst, Smithtown) and Lakewood NJ; the New York towns are policed by county departments in any case.</p>
+  <p>Source: U.S. Census Bureau, Annual Survey of State and Local Government Finances and Census of Governments, individual unit files 2012 to 2024 (parsed directly; sums verified against the Bureau's published state totals) and the Willamette University Government Finance Database for 1967 to 2011 and 2016 (same Census microdata, no imputation flags available). Fiscally Standardized basis from the Lincoln Institute of Land Policy. Cross-checked against Vera Institute FY2020 budgets and fifteen cities' FY2022 financial reports.</p>
+  <p>Printing this page gives a one-page fact sheet for the selected city; the repository also holds a static sheet per city.</p>
+  <p>The findings drawn from this data are written up in <a href="/findings.html"><i>Twenty-Eight Cents</i></a>.</p>
+  <p>Methodology, validation report, and the full CSVs: <a href="https://github.com/bristlecone-public/bristlecone/tree/main/city-safety-spend">github.com/bristlecone-public/bristlecone</a>. <span id="prov"></span></p>
+</footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const D=window.CSS_DATA, C=D.cities;
+const $=s=>document.querySelector(s);
+const st={den:'general',state:'',q:'',top:false,clean:false,plain:false,sort:'pop',dir:-1,sel:null};
+st.chart='share';
+const TOP25=new Set(C.slice(0,25).map(c=>c.id));
+
+const DEN={general:{k:'general',l:'general expenditure'},core:{k:'core',l:'core municipal expenditure'},total:{k:'total',l:'total expenditure'},gen_ex_edu:{k:'gen_ex_edu',l:'general expenditure excluding education'},fisc:{k:'fisc_general',l:'Fiscally Standardized general expenditure'}};
+function shares(c){
+  if(!c.complete) return {p:null,f:null,pf:null};
+  if(st.den==='fisc'){ if(c.fisc_general==null) return {p:null,f:null,pf:null,na:true}; return {p:100*c.fisc_police/c.fisc_general,f:100*c.fisc_fire/c.fisc_general,pf:100*(c.fisc_police+c.fisc_fire)/c.fisc_general}; }
+  const d=c[DEN[st.den].k]; if(!d) return {p:null,f:null,pf:null};
+  return {p:100*c.police/d,f:100*c.fire/d,pf:100*(c.police+c.fire)/d};
+}
+const imputed=c=>/[IAS]/.test(c.pflag+c.fflag);
+const VERIFIED={"New York":1.04,"Los Angeles":1.56,"Chicago":1.02,"Houston":1.00,"Phoenix":0.96,"Philadelphia":0.99,"San Antonio":1.03,"San Diego":1.03,"Dallas":1.15,"San Jose":1.02,"Austin":1.15,"Jacksonville":0.93,"Fort Worth":1.24,"Columbus":0.97,"Charlotte":1.10,"Indianapolis":0.96,"Seattle":0.81,"Denver":1.11,"Washington":null,"Nashville":0.85,"El Paso":1.10,"Boston":1.03,"Detroit":1.02,"Memphis":1.04,"Louisville":1.12,"Baltimore":1.04,"Las Vegas":0.56,"Atlanta":0.95,"Virginia Beach":1.15,"St Louis":1.36};
+const plain=c=>!(c.runs_schools||c.county||c.fire_ext||c.contracted||c.consolidated);
+const HINT={general:"The Census standard. Cities that run schools (New York, Boston, Virginia cities), consolidated city-counties (Nashville, Philadelphia, Louisville) and cities with a big municipal airport (Salt Lake City) look low here because their denominator is wider. For comparison across structures use Core municipal or the Fiscally Standardized basis.",
+core:"General expenditure with education, corrections, hospitals, public health, welfare, airports and seaports removed. The closest apples-to-apples view across consolidated city-counties, independent cities and plain municipalities. Municipal courts and city attorneys stay in, because every city runs them.",
+total:"Adds water, electric, gas and transit utilities to the denominator. San Antonio (CPS Energy), Austin (Austin Energy) and Los Angeles (LADWP) drop sharply. Excludes pension and insurance-trust benefit payments, which the public file stops carrying after 2015.",
+gen_ex_edu:"General expenditure with education removed, for comparing cities that run their own school systems with cities that do not.",
+fisc:"The Lincoln Institute estimate of everything local residents pay: the city plus its share of county, school district and special districts, 212 cities, 2022 only. Caution on police: the county sheriff is shared out by population, so a big city is charged for sheriff patrol that mostly covers unincorporated areas (Houston picks up $247M, a quarter of its own police budget). Right for a joint force like Las Vegas Metro; an overstatement for most large cities. For a consolidated city-county the county share is stranger still: Indianapolis, Nashville, Louisville and Jacksonville have no county government, and what FiSC counts there is the police spending of the other towns inside the county."};
+const pct=v=>v==null?'':v.toFixed(1)+'%';
+const usd=v=>v==null?'&ndash;':'$'+Math.round(v).toLocaleString('en-US');
+const BASE=D.meta.real_base;
+const money=v=>v==null?'–':v>=1e9?'$'+(v/1e9).toFixed(2)+'B':'$'+(v/1e6).toFixed(v>=1e8?0:1)+'M';
+const num=v=>v.toLocaleString('en-US');
+const fmtName=c=>c.city.replace(/ And County| County Metropolitan Government| Metro Government| Consolidated Government| Urban County Government| Unified Government| Municipality/g,'').replace('Washington Dc','Washington').replace('Wyandotte County And Kansas','Kansas City');
+
+// state options
+const states=[...new Set(C.map(c=>c.state))].sort();
+$('#state').innerHTML='<option value="">All states</option>'+states.map(s=>`<option>${s}</option>`).join('');
+
+function filtered(){
+  const q=st.q.trim().toLowerCase();
+  return C.filter(c=>(!st.state||c.state===st.state)&&(!st.top||TOP25.has(c.id))&&(!q||fmtName(c).toLowerCase().includes(q)||c.state.toLowerCase()===q)&&(!st.clean||(c.complete&&!imputed(c)))&&(!st.plain||plain(c)));
+}
+function sortRows(rows){
+  const k=st.sort, dir=st.dir;
+  return rows.map(c=>({c,s:shares(c)})).sort((a,b)=>{
+    let x,y;
+    if(k==='city'){x=fmtName(a.c);y=fmtName(b.c);return dir*x.localeCompare(y);}
+    if(k==='pop'){x=a.c.pop;y=b.c.pop;} else if(k==='sw'){x=a.c.emp?a.c.emp.sw1k:null;y=b.c.emp?b.c.emp.sw1k:null;} else {x=a.s[k];y=b.s[k];}
+    if(x==null&&y==null)return 0; if(x==null)return 1; if(y==null)return -1;
+    return dir*(x-y);
+  });
+}
+function spark(c){
+  const s=c.series; if(!s.y||!s.y.length) return '';
+  const W=96,H=26,x0=1967,x1=2024; const vals=s.pf.filter(v=>v!=null); if(!vals.length) return '';
+  const max=Math.max(...vals,1); const X=y=>((y-x0)/(x1-x0))*(W-4)+2, Y=v=>H-3-(v/max)*(H-6);
+  // Two paths, one per source. They need separate pen state: a single shared flag made the census
+  // path start with 'L', which is an invalid `d`, so every sparkline silently lost its modern half.
+  let dc='',dw='',prev=null,prevSrc=null;
+  s.y.forEach((y,i)=>{
+    const v=s.pf[i];
+    if(v==null){prev=null;prevSrc=null;return;}
+    const src=s.src[i]==='c'?'c':'w', pt=X(y).toFixed(1)+' '+Y(v).toFixed(1);
+    let d;
+    if(prev===null) d='M'+pt;                       // nothing before this: start here
+    else if(src===prevSrc) d='L'+pt;                // same source: keep drawing
+    else d='M'+prev+'L'+pt;                         // source changed: bridge from the last point
+    if(src==='c') dc+=d; else dw+=d;
+    prev=pt; prevSrc=src;
+  });
+  const li=s.y.length-1; const endv=[...s.pf].reverse().find(v=>v!=null); const endy=s.y[s.pf.lastIndexOf(endv)];
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" aria-hidden="true"><path class="w" d="${dw}"/><path d="${dc}"/><circle cx="${X(endy).toFixed(1)}" cy="${Y(endv).toFixed(1)}" r="2"/></svg>`;
+}
+function tags(c){
+  const t=[];
+  if(!c.complete)t.push('<span class="tag warn">incomplete</span>');
+  else if(imputed(c))t.push('<span class="tag warn">imputed</span>');
+  if(c.runs_schools)t.push('<span class="tag">schools</span>');
+  if(c.county)t.push('<span class="tag">county fns</span>');
+  if(c.fire_ext)t.push('<span class="tag">fire external</span>');
+  if(c.contracted)t.push('<span class="tag">contract police</span>');
+  if(c.consolidated)t.push('<span class="tag">city-county</span>');
+  return t.join('');
+}
+function render(){
+  const rows=sortRows(filtered());
+  const tb=$('#tb'); const max=Math.max(...rows.map(r=>r.s.pf||0),1);
+  tb.innerHTML=rows.map(({c,s})=>{
+    const sel=st.sel===c.id;
+    const nul=s.pf==null;
+    const cell=v=>nul?`<td class="num null">${s.na?'not in FiSC':'n/a'}</td>`:`<td class="num">${pct(v)}</td>`;
+    const bar=nul?'':`<div class="bar" title="police ${pct(s.p)}, fire ${pct(s.f)}"><i class="p" style="width:${(s.p/max*100).toFixed(1)}%"></i><i class="f" style="width:${(s.f/max*100).toFixed(1)}%"></i></div>`;
+    return `<tr class="row" tabindex="0" data-id="${c.id}" aria-selected="${sel}"><td class="city">${fmtName(c)}<small>${c.state}</small></td><td class="num">${num(c.pop)}</td>${cell(s.p)}${cell(s.f)}${nul?`<td class="num null pf"></td>`:`<td class="num pf">${pct(s.pf)}</td>`}<td class="num">${c.emp&&c.emp.sw1k!=null?c.emp.sw1k.toFixed(2)+(c.emp.pfl==='imputed'?'*':''):''}</td><td>${bar}</td><td>${spark(c)}</td><td>${tags(c)}</td></tr>`;
+  }).join('');
+  $('#count').innerHTML=`${rows.length} of ${C.length} cities &middot; shares divide by ${DEN[st.den].l} &middot; Census fiscal year 2022 &middot; sorted by ${st.sort==='city'?'name':st.sort==='pop'?'population':st.sort==='pf'?'police + fire':st.sort==='sw'?'officers per 1,000':st.sort} &middot; * imputed staffing`;
+  document.querySelectorAll('th[data-k]').forEach(th=>{ if(th.dataset.k===st.sort) th.setAttribute('aria-sort',st.dir<0?'descending':'ascending'); else th.removeAttribute('aria-sort'); });
+  stats();
+}
+function median(a){const b=a.filter(v=>v!=null).sort((x,y)=>x-y); if(!b.length)return null; const m=b.length>>1; return b.length%2?b[m]:(b[m-1]+b[m])/2;}
+function stats(){
+  const good=C.filter(c=>c.complete&&!imputed(c));
+  const sh=good.map(c=>shares(c).pf);
+  $('#s-med').textContent=pct(median(sh)); $('#s-med-l').textContent=`police + fire as % of ${DEN[st.den].l}, reported and complete records`;
+  const withF=good.filter(c=>c.fisc_pf!=null);
+  $('#s-fisc').textContent=pct(median(withF.map(c=>c.fisc_pf)));
+  const ranked=good.filter(plain).map(c=>({c,v:shares(c).pf})).filter(x=>x.v!=null).sort((a,b)=>a.v-b.v);
+  if(ranked.length){const lo=ranked[0],hi=ranked[ranked.length-1]; $('#s-range').textContent=`${pct(lo.v)} to ${pct(hi.v)}`; $('#s-range-l').textContent=`${fmtName(lo.c)} ${lo.c.state} to ${fmtName(hi.c)} ${hi.c.state}, among plain municipalities with reported, complete records (no contract police, external fire, schools or county functions)`;}
+  $('#hint').textContent=HINT[st.den];
+  $('#s-imp').textContent=`${C.filter(imputed).length} of ${C.length}`;
+}
+
+// ---- detail ----
+function detail(c){
+  const s=shares(c); const el=$('#detail');
+  const den=st.den==='fisc'?c.fisc_general:c[DEN[st.den].k];
+  const pol=st.den==='fisc'?c.fisc_police:c.police, fire=st.den==='fisc'?c.fisc_fire:c.fire;
+  const flags=[];
+  if(!c.complete)flags.push('This year\'s record is a partial response: shares are withheld.');
+  else if(imputed(c))flags.push(`Census imputed ${c.pflag.includes('I')&&c.fflag.includes('I')?'both police and fire':c.pflag.includes('I')?'police':c.fflag.includes('I')?'fire':'part of these figures'} for 2022 because the city did not report them (flags ${c.pflag}/${c.fflag}).`);
+  if(c.note)flags.push(c.note.replace(/;\s*/g,'. ')+'.');
+  const vk=Object.keys(VERIFIED).find(k=>fmtName(c).startsWith(k)&&(k!=='Columbus'||c.state==='OH')&&(k!=='Charlotte'||c.state==='NC')&&(k!=='Jacksonville'||c.state==='FL')&&(k!=='Washington'||c.state==='DC'));
+  const vr=vk?VERIFIED[vk]:null;
+  const vline=vr==null?'Not in the 29-city check against cities&rsquo; own budgets, so how closely Census tracks this city&rsquo;s police and fire spending is unverified.':`Checked against the city&rsquo;s own FY2022 budget schedule: Census police + fire is ${vr.toFixed(2)} times the department figures${Math.abs(vr-1)>0.2?', a large gap; see the validation report before comparing this city':Math.abs(vr-1)>0.1?', a moderate gap':', close agreement'}.`;
+  el.innerHTML=`<h2>${fmtName(c)}, ${c.state}</h2><p class="sub">Population ${num(c.pop)} &middot; Census fiscal year 2022 &middot; flags <span class="code">${c.pflag}/${c.fflag}</span></p>
+  <dl class="kv"><dt>Police (E62 + F62)</dt><dd class="p">${money(pol)}</dd><dt>Fire (E24 + F24)</dt><dd class="f">${money(fire)}</dd><dt>${DEN[st.den].l}</dt><dd>${money(den)}</dd><dt>Police + fire share</dt><dd>${s.pf==null?'n/a':pct(s.pf)}</dd>${st.den!=='fisc'&&c.pf_real?`<dt>Police + fire in ${BASE} dollars</dt><dd>${money(c.pf_real)}</dd><dt>Per resident, ${BASE} dollars</dt><dd>${usd(c.pf_real/c.pop)}</dd>`:''}${st.den!=='fisc'&&c.pf_rpp_per_res?`<dt>Per resident, adjusted for regional prices</dt><dd>${usd(c.pf_rpp_per_res)}</dd><dt>Metro price level, 2021 (U.S. = 100)</dt><dd>${c.rpp21.toFixed(1)}</dd>`:''}${c.fisc_pf!=null&&st.den!=='fisc'?`<dt>On the whole-local-bill basis</dt><dd>${pct(c.fisc_pf)}</dd>`:''}</dl>
+  <div class="seg" role="group" aria-label="Chart measure"><button id="m-share" aria-pressed="${st.chart==='share'}">Share of spending</button><button id="m-real" aria-pressed="${st.chart==='real'}">Per resident, ${BASE} $</button></div>
+  <div class="legend"><span class="lp">Police</span><span class="lf">Fire</span><span>Police + fire</span><span class="lw">Before 2012 and 2016: Willamette compilation, slightly different denominator</span></div>
+  <div id="chartbox"></div><div class="tip" id="tip">Hover the chart for any year.</div>
+  ${justiceBlock(c)}
+  ${staffing(c)}
+  ${crimeBlock(c)}
+  ${peerBlock(c)}
+  <div class="notes${vr!=null&&Math.abs(vr-1)>0.2?' warn':''}">${vline}</div>
+  ${flags.length?`<div class="notes${(!c.complete||imputed(c))?' warn':''}">${flags.join(' ')}</div>`:''}`;
+  chart(c);
+  document.querySelectorAll('#detail tr.pick').forEach(tr=>{const go=()=>{const p=C.find(x=>x.id===tr.dataset.id); if(p){st.sel=p.id; render(); detail(p);}}; tr.addEventListener('click',go); tr.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
+  $('#m-share').addEventListener('click',()=>{st.chart='share';detail(c);});
+  $('#m-real').addEventListener('click',()=>{st.chart='real';detail(c);});
+}
+function crimeBlock(c){
+  const cr=c.crime||{}; const ys=[2019,2022,2024].filter(y=>cr[y]);
+  if(!ys.length) return '<div class="staff"><h3>Reported crime (FBI)</h3><p class="cap">No FBI offense data matched this city.</p></div>';
+  const cell=(e,k,d)=>{ if(!e) return '&ndash;'; if(e.cov==='missing') return '<span title="not reported to the FBI">not reported</span>'; if(e.cov==='not_city') return '<span title="the reporting agency polices far more than the city">n/a</span>'; if(e.cov==='partial') return '<span title="fewer than 12 months reported">partial</span>'; const v=e[k]; return v==null?'&ndash;':v.toFixed(d)+(e.flag?'*':''); };
+  const flagged=ys.some(y=>cr[y].flag), notcity=ys.some(y=>cr[y].cov==='not_city');
+  return `<div class="staff"><h3>Reported crime (FBI)</h3><table><thead><tr><th></th>${ys.map(y=>`<th class="num">${y}</th>`).join('')}</tr></thead><tbody>
+  <tr><td>Violent crime per 1,000 residents</td>${ys.map(y=>`<td class="num">${cell(cr[y],'v',1)}</td>`).join('')}</tr>
+  <tr><td>Property crime per 1,000</td>${ys.map(y=>`<td class="num">${cell(cr[y],'p',1)}</td>`).join('')}</tr>
+  <tr><td>Murders per 100,000</td>${ys.map(y=>`<td class="num">${cell(cr[y],'m',1)}</td>`).join('')}</tr></tbody></table>
+  <p class="cap">Offenses known to the city&rsquo;s police department, as reported to the FBI, divided by residents.${flagged?' * This year breaks sharply from the city&rsquo;s own 2015 to 2019 level, which after the 2021 reporting-system change often means an incomplete submission rather than a real change; treat it as suspect.':''}${notcity?' The reporting agency polices far more than the city, so a per-resident rate would mislead.':''} Rates per resident run high in downtown and tourist hubs, and reported crime depends on reporting practice. This is context beside spending, not a measure of whether spending works.</p></div>`;
+}
+function justiceBlock(c){
+  const j=c.justice; if(!j) return '';
+  const m=v=>v==null?'&ndash;':money(v);
+  const rows=[['Police and fire (city)',j.pf],['Jails and corrections (city)',j.own_corr],['Courts and legal (city)',j.own_jud],['County jails, city&rsquo;s population share',j.cnty_corr],['County courts, city&rsquo;s population share',j.cnty_jud]];
+  if(j.cnty_pol!=null) rows.push(['County police it relies on, population share',j.cnty_pol]);
+  const cty=j.has_county?`Overlying counties and the city&rsquo;s share of each: ${j.counties.toLowerCase().replace(/(^|[\s-])([a-z])/g,(x,a,ch)=>a+ch.toUpperCase()).replace(/ (\d\.\d+)/g,(x,v)=>' '+(100*v).toFixed(0)+'%')}.`:'No separate county government sits over this city, so its own books already carry any jail and court costs.';
+  return `<div class="staff"><h3>With county jails and courts, 2022</h3><table><tbody>${rows.map(([l,v])=>`<tr><td>${l}</td><td class="num">${m(v)}</td></tr>`).join('')}<tr class="me"><td>Total</td><td class="num">${m(j.total)}</td></tr><tr><td>Per resident, ${BASE} dollars</td><td class="num">${usd(j.per_res)}</td></tr></tbody></table>
+  <p class="cap">${cty} County sheriff patrol is not included, because it mostly covers unincorporated areas; the exception is a city whose police force is the county&rsquo;s. State-run courts and prisons are on no local record. Matches the Lincoln Institute&rsquo;s county allocations within 0.3% for the typical city.</p></div>`;
+}
+function peerBlock(c){
+  const group=[c,...(c.peers||[]).map(id=>C.find(x=>x.id===id)).filter(Boolean)];
+  if(group.length<2) return '';
+  const val=x=>shares(x).pf;
+  const vals=group.map(val).filter(v=>v!=null).sort((a,b)=>b-a);
+  const mine=val(c); const rank=mine==null?null:vals.indexOf(mine)+1;
+  const others=group.slice(1).map(val).filter(v=>v!=null).sort((a,b)=>a-b);
+  const med=others.length?others[Math.floor(others.length/2)]:null;
+  const qtext={close:'close match',loose:'loose match',weak:'weak match: no city shares its structure'}[c.peer_quality]||'';
+  const rows=group.map((x,i)=>`<tr class="${i===0?'me':'pick'}"${i?` tabindex="0" data-id="${x.id}"`:''}><td>${fmtName(x)} <small>${x.state}</small></td><td class="num">${val(x)==null?'&ndash;':pct(val(x))}</td><td class="num">${x.emp&&x.emp.sw1k!=null?x.emp.sw1k.toFixed(2):'&ndash;'}</td><td class="num">${x.pf_rpp_per_res?usd(x.pf_rpp_per_res):'&ndash;'}</td></tr>`).join('');
+  const issue=/verified issue/.test(c.note||'')?' This city has a verified Census coding issue that inflates its figure; see the notes below before reading its rank.':'';
+  const verdict=rank?`${fmtName(c)} ranks ${rank} of ${vals.length} on police + fire share (peer median ${pct(med)}). Differences under about two points are within measurement noise.${issue}`:'This city has no complete share for 2022.';
+  return `<div class="staff"><h3>Peer cities <span class="q ${c.peer_quality}">${qtext}</span></h3><table><thead><tr><th>City</th><th class="num">P + F share</th><th class="num">Officers / 1k</th><th class="num">Per resident, price-adj.</th></tr></thead><tbody>${rows}</tbody></table>
+  <p class="cap">${verdict} Peers are the 8 cities closest on structure (consolidated government, runs schools, outside fire district, contract police, county functions), then population and regional prices. Share uses the denominator selected above; select a peer to open it.</p></div>`;
+}
+function staffing(c){
+  const a=c.emp, b=c.emp_latest;
+  if(!a&&!b) return '<div class="staff"><h3>Staffing</h3><p class="cap">No employment record for this city.</p></div>';
+  const cols=[a,b&&(!a||b.year!==a.year)?b:null].filter(Boolean);
+  const row=(label,fn)=>`<tr><td>${label}</td>${cols.map(e=>`<td class="num">${fn(e)}</td>`).join('')}</tr>`;
+  const fl=e=>e.pfl==='imputed'||e.ffl==='imputed';
+  return `<div class="staff"><h3>Staffing, full-time, March</h3><table><thead><tr><th></th>${cols.map(e=>`<th class="num">${e.year}${fl(e)?'*':''}</th>`).join('')}</tr></thead><tbody>
+  ${row('Sworn officers',e=>num(e.sworn))}
+  ${row('Per 1,000 residents',e=>e.sw1k==null?'&ndash;':e.sw1k.toFixed(2))}
+  ${row('Firefighters',e=>num(e.ff))}
+  ${row('Firefighters per 1,000',e=>e.ff1k==null?'&ndash;':e.ff1k.toFixed(2))}
+  ${row(`Officer pay, ${BASE} $`,e=>usd(e.pay))}
+  </tbody></table>
+  <p class="cap">Census employment survey. Sworn counts agree with the FBI&rsquo;s count from the departments themselves within 10% for 82% of reported city-years; imputed years agree less well. Pay is March gross payroll per full-time sworn officer times 12, including overtime and any one-off payouts that month, so treat single-city values loosely. It excludes pension and benefit costs, which is why it compares across cities where spending per officer would not.${cols.some(fl)?' * Some counts that year were imputed by Census.':''} Police staffing in contract and joint-force cities (Las Vegas, Lancaster) counts only the city&rsquo;s own employees.</p></div>`;
+}
+function chart(c){
+  const s=c.series, box=$('#chartbox'); if(!s.y||!s.y.length){box.innerHTML='<p class="empty">No series.</p>';return;}
+  const W=400,H=220,L=34,R=44,T=12,B=26; const x0=1967,x1=2024;
+  const real=st.chart==='real';
+  const A=real?{t:s.pc||[],p:s.pcp||[],f:s.pcf||[]}:{t:s.pf,p:s.p,f:s.fi};
+  const fmt=v=>real?'$'+Math.round(v).toLocaleString('en-US'):v.toFixed(1)+'%';
+  const all=[...A.t,...A.p,...A.f].filter(v=>v!=null); let ymax=Math.max(...all,real?100:5);
+  const step=real?(ymax>1500?500:ymax>600?200:ymax>250?100:50):(ymax>40?10:5); ymax=Math.ceil(ymax/step)*step;
+  const X=y=>L+((y-x0)/(x1-x0))*(W-L-R), Y=v=>T+(1-v/ymax)*(H-T-B);
+  const seg=(arr,srcWant)=>{let d='',pen=false; s.y.forEach((y,i)=>{const v=arr[i]; const ok=v!=null&&(srcWant==null||s.src[i]===srcWant); if(!ok){pen=false;return;} d+=(pen?'L':'M')+X(y).toFixed(1)+' '+Y(v).toFixed(1); pen=true;}); return d;};
+  // join the source boundary: draw willamette dashed, census solid; census segment includes the last willamette point for continuity
+  // census points solid; any segment touching a Willamette point (incl. the 2011-2012 and 2015-2016-2017 seams) dashed
+  const segC=(arr)=>{let d='',pen=false; s.y.forEach((y,i)=>{const v=arr[i]; if(v==null||s.src[i]!=='c'){pen=false;return;} d+=(pen?'L':'M')+X(y).toFixed(1)+' '+Y(v).toFixed(1); pen=true;}); return d;};
+  const segW=(arr)=>{let d=''; s.y.forEach((y,i)=>{ if(i===0)return; const a=arr[i-1],b=arr[i]; if(a==null||b==null)return; if(s.src[i]==='w'||s.src[i-1]==='w') d+=`M${X(s.y[i-1]).toFixed(1)} ${Y(a).toFixed(1)}L${X(y).toFixed(1)} ${Y(b).toFixed(1)}`;}); return d;};
+  const ticks=[]; for(let v=0;v<=ymax;v+=step)ticks.push(v);
+  const anns=(D.meta.annotations||[]).filter(a=>(a.scope==='national'||a.state===c.state)&&a.year>=x0&&a.year<=x1);
+  const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const annSvg=anns.map(a=>{const x1p=X(a.year), x2p=X(Math.min(a.end||a.year,x1));
+    const body=a.end?`<rect class="annband" x="${x1p.toFixed(1)}" y="${T}" width="${Math.max(x2p-x1p,1).toFixed(1)}" height="${(Y(0)-T).toFixed(1)}"/>`
+                    :`<line class="annline" x1="${x1p.toFixed(1)}" x2="${x1p.toFixed(1)}" y1="${T}" y2="${Y(0).toFixed(1)}"/>`;
+    const tick=`<path class="anntick" d="M${(x1p-3).toFixed(1)} ${(Y(0)+1).toFixed(1)}h6l-3 4z"/>`;
+    return `<g><title>${esc(a.label+(a.end?` (${a.year}-${a.end})`:` (${a.year})`)+': '+a.note)}</title>${body}${tick}</g>`;}).join('');
+  const yrs=[1970,1980,1990,2000,2010,2020];
+  const last=(arr)=>{for(let i=s.y.length-1;i>=0;i--) if(arr[i]!=null) return {y:s.y[i],v:arr[i]}; return null;};
+  const lp=last(A.p),lf=last(A.f),ls=last(A.t);
+  const lab=(o,cls)=>o?`<text class="lab ${cls}" x="${(X(o.y)+5).toFixed(1)}" y="${(Y(o.v)+4).toFixed(1)}">${fmt(o.v)}</text>`:'';
+  box.innerHTML=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Police and fire ${real?'spending per resident in '+BASE+' dollars':'share of general expenditure'}, ${fmtName(c)}, 1967 to 2024">
+    ${ticks.map(v=>`<line class="grid" x1="${L}" x2="${W-R}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}"/><text x="${L-6}" y="${(Y(v)+4).toFixed(1)}" text-anchor="end">${real?'$'+v.toLocaleString('en-US'):v+'%'}</text>`).join('')}
+    ${annSvg}
+    <line class="axis" x1="${L}" x2="${W-R}" y1="${Y(0)}" y2="${Y(0)}"/>
+    ${yrs.map(y=>`<text x="${X(y).toFixed(1)}" y="${H-8}" text-anchor="middle">${y}</text>`).join('')}
+    <path class="ln s w" d="${segW(A.t)}"/><path class="ln s" d="${segC(A.t)}"/>
+    <path class="ln p w" d="${segW(A.p)}"/><path class="ln p" d="${segC(A.p)}"/>
+    <path class="ln f w" d="${segW(A.f)}"/><path class="ln f" d="${segC(A.f)}"/>
+    ${lab(ls,'')}${lab(lp,'p')}${lab(lf,'f')}
+    <g id="hover"></g><rect id="hit" x="${L}" y="0" width="${W-L-R}" height="${H}" fill="transparent"/></svg>`;
+  if(anns.length) box.insertAdjacentHTML('beforeend',`<p class="annlist">Marked: ${anns.map(a=>`<span title="${esc(a.note)}"><b>${a.end?a.year+'-'+String(a.end).slice(2):a.year}</b> ${esc(a.label)}</span>`).join(' &middot; ')}</p>`);
+  const svg=box.querySelector('svg'), hit=svg.querySelector('#hit'), hov=svg.querySelector('#hover'), tip=$('#tip');
+  const move=e=>{const r=svg.getBoundingClientRect(); const px=(e.clientX-r.left)*(W/r.width); const yr=Math.round(x0+((px-L)/(W-L-R))*(x1-x0)); let best=-1,bd=1e9; s.y.forEach((y,i)=>{if(A.t[i]!=null&&Math.abs(y-yr)<bd){bd=Math.abs(y-yr);best=i;}}); if(best<0)return; const y=s.y[best];
+    hov.innerHTML=`<line class="cross" x1="${X(y)}" x2="${X(y)}" y1="${T}" y2="${Y(0)}"/>`+[[A.p[best],'var(--police)'],[A.f[best],'var(--fire)'],[A.t[best],'var(--ink)']].filter(a=>a[0]!=null).map(([v,col])=>`<circle class="dot" cx="${X(y)}" cy="${Y(v).toFixed(1)}" r="4" fill="${col}"/>`).join('');
+    tip.innerHTML=`<b>${y}</b> &middot; police ${fmt(A.p[best]??0)} &middot; fire ${fmt(A.f[best]??0)} &middot; together <b>${fmt(A.t[best])}</b> ${real?'per resident in '+BASE+' dollars (CPI-U)':'of general expenditure'} &middot; ${s.src[best]==='c'?'Census unit file, parsed directly':'Willamette compilation of the Census file; its general-expenditure denominator is slightly broader (includes utility interest and utility transfers)'}`;};
+  hit.addEventListener('mousemove',move); hit.addEventListener('touchmove',e=>{move(e.touches[0]);e.preventDefault();},{passive:false});
+  hit.addEventListener('mouseleave',()=>{hov.innerHTML='';});
+}
+
+// ---- events ----
+$('#den').addEventListener('change',e=>{st.den=e.target.value;render();if(st.sel)detail(C.find(c=>c.id===st.sel));});
+$('#state').addEventListener('change',e=>{st.state=e.target.value;render();});
+$('#q').addEventListener('input',e=>{st.q=e.target.value;render();});
+const chip=(id,key)=>$(id).addEventListener('click',e=>{st[key]=!st[key];e.target.setAttribute('aria-pressed',String(st[key]));render();});
+chip('#chip-top','top');chip('#chip-clean','clean');chip('#chip-plain','plain');
+document.querySelectorAll('th[data-k]').forEach(th=>th.addEventListener('click',()=>{const k=th.dataset.k; if(st.sort===k)st.dir*=-1; else {st.sort=k;st.dir=k==='city'?1:-1;} render();}));
+const pick=tr=>{const id=tr.dataset.id; st.sel=id; document.querySelectorAll('tr.row').forEach(r=>r.setAttribute('aria-selected',String(r.dataset.id===id))); detail(C.find(c=>c.id===id));};
+$('#tb').addEventListener('click',e=>{const tr=e.target.closest('tr.row'); if(tr)pick(tr);});
+$('#tb').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const tr=e.target.closest('tr.row'); if(tr){e.preventDefault();pick(tr);}}});
+
+render();
+// provenance comes from the data file, not from this page: a hardcoded date here went stale
+// the moment the pipeline was rerun, and disagreed with the data it was describing.
+$('#prov').textContent=[D.meta.vintage,D.meta.built?'Built '+D.meta.built+'.':''].filter(Boolean).join(' ');
+const h=C[0]; if(h){st.sel=h.id;render();detail(h);}
+})();
+</script>

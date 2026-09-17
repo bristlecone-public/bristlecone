@@ -1,0 +1,333 @@
+pid,city,state,fiscal_year,runs_schools,county_like_functions,education_pct_general,county_like_pct_general,police_flags,fire_flags,unit_imputed_share,record_complete,fire_external,police_contracted,consolidated_or_independent,note
+194805,New York,NY,2022,True,True,30.8,17.3,AR,AR,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books; police/fire contains imputed or analyst-adjusted items"
+161174,Los Angeles,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+162236,Chicago,IL,2022,False,True,0.0,3.4,R,R,0.198,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+176169,Houston,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+207536,Phoenix,AZ,2022,False,False,1.1,0.6,R,R,0.0,True,False,False,False,
+133602,Philadelphia,PA,2022,False,True,0.0,5.9,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+175988,San Antonio,TX,2022,False,True,3.2,4.7,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+207598,San Diego,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+187649,Dallas,TX,2022,False,False,0.0,0.5,R,R,0.0,True,False,False,False,
+100745,San Jose,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+176394,Austin,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+183701,Honolulu And County,HI,2022,False,False,0.0,0.6,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+176375,Fort Worth,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+101942,Jacksonville,FL,2022,False,False,0.0,0.2,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+209050,Columbus,OH,2022,False,False,0.5,0.0,R,R,0.0,True,False,False,False,
+194726,Charlotte,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+207957,Indianapolis,IN,2022,False,True,0.0,44.5,IR,I,0.884,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)"
+161258,San Francisco And County,CA,2022,False,True,0.0,21.6,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+184255,Seattle,WA,2022,False,True,3.4,5.4,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+165866,Louisville-Jefferson County Metro Government,KY,2022,False,False,3.7,2.5,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+194647,Denver And County,CO,2022,False,True,0.0,7.1,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+124214,Washington Dc,DC,2022,True,True,19.0,29.2,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+175728,Nashville-Davidson County Metropolitan Government,TN,2022,True,True,35.2,8.6,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+128108,Boston,MA,2022,True,True,36.7,6.7,R,R,0.0,True,False,False,False,dependent school system inside city books; carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+176118,El Paso,TX,2022,False,False,0.0,0.2,R,R,0.0,True,False,False,False,
+166817,Detroit,MI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+169988,Las Vegas,NV,2022,False,True,0.0,5.8,R,R,0.0,True,False,True,False,"carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure; police share under 5%: likely contracts with county sheriff (Census books such purchases as unallocated intergovernmental expenditure, invisible in code 62)"
+209170,Oklahoma,OK,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+211254,Portland,OR,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+175826,Memphis,TN,2022,False,False,0.0,0.1,R,R,0.539,True,False,False,False,majority of unit expenditure imputed (nonrespondent)
+136562,Milwaukee,WI,2022,False,False,0.0,0.8,R,R,0.0,True,False,False,False,
+208246,Baltimore,MD,2022,True,False,38.9,0.1,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+170378,Albuquerque,NM,2022,False,True,0.0,8.3,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+160840,Tucson,AZ,2022,False,False,0.0,0.0,R,R,0.032,True,False,False,False,
+189636,Fresno,CA,2022,False,False,0.0,0.0,R,R,0.002,True,False,False,False,
+100250,Mesa,AZ,2022,False,False,0.0,0.0,R,R,0.159,True,False,False,False,
+161241,Sacramento,CA,2022,False,False,0.0,0.3,R,R,0.0,True,False,False,False,
+194678,Atlanta,GA,2022,False,False,0.0,2.6,R,R,0.0,True,False,False,False,
+186236,Kansas,MO,2022,False,False,0.0,0.3,R,R,0.0,True,False,False,False,
+161362,Colorado Springs,CO,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+208698,Omaha,NE,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+171305,Raleigh,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194757,Miami,FL,2022,False,False,0.0,1.1,R,R,0.0,True,False,False,False,
+161173,Long Beach,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+202751,Virginia Beach,VA,2022,True,True,45.0,5.3,R,R,0.001,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+193551,Minneapolis,MN,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+123093,Oakland,CA,2022,False,False,0.0,0.2,R,R,0.04,True,False,False,False,
+161633,Tampa,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+212090,Tulsa,OK,2022,False,False,0.0,2.8,R,R,0.0,True,False,False,False,
+194811,Arlington,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+201810,Wichita,KS,2022,False,False,0.0,0.1,R,R,0.0,True,False,False,False,
+166094,New Orleans,LA,2022,False,True,0.0,3.6,S,S,0.05,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; police/fire contains imputed or analyst-adjusted items"
+194644,Aurora,CO,2022,False,False,0.0,0.0,R,R,0.002,True,False,False,False,
+183825,Bakersfield,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+172358,Cleveland,OH,2022,False,False,0.0,0.5,R,R,0.0,True,False,False,False,
+183836,Anaheim,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+100711,Santa Ana,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+207594,Riverside,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+169987,Henderson,NV,2022,False,True,0.0,5.2,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+176325,Corpus Christi,TX,2022,False,False,0.0,0.3,R,R,0.001,True,False,False,False,
+165831,Lexington-Fayette Urban County Government,KY,2022,False,True,0.0,8.1,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+211214,Stockton,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+167605,St Paul,MN,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+191166,Cincinnati,OH,2022,False,False,0.0,0.0,R,R,0.05,True,False,False,False,
+133470,Pittsburgh,PA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+171207,Greensboro,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+169159,St Louis,MO,2022,False,True,0.0,3.9,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; verified issue: Police (code 62) includes the whole Statement of Activities line 'Public safety: Other' ($54.3M: city jail, building division inspections, excise, emergency management, civilian oversight, public safety administration); possible issue: Corrections may be counted twice: the jail sits inside 'Public safety: Other' (already in E62) and Census also records E04 corrections $24.85M, E05 $17.19M and E66 inspection $7.86M"
+176053,Plano,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+169646,Lincoln,NE,2022,False,True,0.0,3.3,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+161665,Orlando,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194463,Anchorage Municipality,AK,2022,True,False,43.6,0.2,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+208963,Durham,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161229,Irvine,CA,2022,False,False,0.0,0.0,R,-,0.076,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+130835,Newark,NJ,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+211212,Chula Vista,CA,2022,False,False,0.0,0.1,R,R,0.0,True,False,False,False,
+163465,Fort Wayne,IN,2022,False,False,0.0,0.0,R,R,0.068,True,False,False,False,
+205133,Toledo,OH,2022,False,False,0.0,0.0,-,-,1.0,False,False,False,False,majority of unit expenditure imputed (nonrespondent); incomplete record this year (partial response); shares null
+161693,St Petersburg,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+100249,Chandler,AZ,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+135293,Laredo,TX,2022,False,False,0.0,1.6,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+209777,Madison,WI,2022,False,True,0.0,3.2,R,R,0.071,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+193734,Jersey,NJ,2022,False,False,0.0,0.0,R,R,0.013,True,False,False,False,
+189585,Scottsdale,AZ,2022,False,False,0.0,0.0,A,A,0.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+212233,Lubbock,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+208734,North Las Vegas,NV,2022,False,True,0.0,3.8,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+169993,Reno,NV,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+160831,Gilbert,AZ,2022,False,False,0.0,0.3,R,R,0.053,True,False,False,False,
+207535,Glendale,AZ,2022,False,False,0.0,0.0,R,IR,0.264,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+186634,Buffalo,NY,2022,True,False,58.2,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+194744,Winston-Salem,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+114563,Chesapeake,VA,2022,True,True,51.1,7.3,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+136057,Norfolk,VA,2022,True,True,32.2,7.1,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+176079,Irving,TX,2022,False,False,0.0,0.4,R,R,0.0,True,False,False,False,
+212231,Garland,TX,2022,False,False,0.0,0.3,R,R,0.0,True,False,False,False,
+207577,Fremont,CA,2022,False,False,0.0,1.4,R,R,0.038,True,False,False,False,
+194178,Richmond,VA,2022,True,True,33.0,7.6,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+161604,Hialeah,FL,2022,False,False,0.2,0.3,R,R,0.0,True,False,False,False,
+162035,Boise,ID,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+205599,Spokane,WA,2022,False,True,0.0,3.6,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+176868,Tacoma,WA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+166054,Baton Rouge-East Baton Rouge-Parish,LA,2022,False,True,0.0,11.6,IR,R,0.044,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; police/fire contains imputed or analyst-adjusted items"
+193115,San Bernardino,CA,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+161245,Fontana,CA,2022,False,False,0.0,0.0,R,R,0.022,True,False,False,False,
+207610,Modesto,CA,2022,False,False,0.0,0.0,R,R,0.002,True,False,False,False,
+161238,Moreno Valley,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+208056,Des Moines,IA,2022,False,False,0.0,1.7,R,R,0.0,True,False,False,False,
+131717,Fayetteville,NC,2022,False,False,0.0,0.1,I,I,0.217,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+137232,Santa Clarita,CA,2022,False,False,0.0,0.0,R,R,0.031,True,False,False,False,
+194820,Frisco,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+161710,Port St Lucie,FL,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+187646,Mckinney,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161299,Oxnard,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+225038,Birmingham,AL,2022,False,False,0.0,0.1,R,R,0.0,True,False,False,False,
+131239,Rochester,NY,2022,True,False,54.2,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+176492,Salt Lake,UT,2022,False,False,0.0,0.1,R,R,0.0,True,False,False,False,
+207520,Huntsville,AL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161649,Cape Coral,FL,2022,True,False,7.8,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+160833,Tempe,AZ,2022,False,True,0.0,6.3,R,R,0.284,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+109593,Yonkers,NY,2022,True,False,53.9,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+185901,Grand Rapids,MI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194809,Amarillo,TX,2022,False,True,0.0,9.0,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+100709,Huntington Beach,CA,2022,False,False,0.0,0.0,R,R,0.046,True,False,False,False,
+100435,Little Rock,AR,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161170,Glendale,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194679,Augusta-Richmond County Consolidated Government,GA,2022,False,True,0.0,5.7,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+208111,Overland Park,KS,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161944,Columbus Consolidated Government,GA,2022,False,True,0.0,7.4,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+189929,Aurora,IL,2022,False,True,0.0,3.2,R,R,0.132,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+161650,Tallahassee,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+100091,Montgomery,AL,2022,False,False,0.0,0.0,R,R,0.274,True,False,False,False,
+209096,Akron,OH,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+194823,Grand Prairie,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+175780,Knoxville,TN,2022,False,False,0.0,0.0,I,I,0.968,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+184196,Sioux Falls,SD,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+160683,Mobile,AL,2022,False,True,0.0,4.4,R,R,0.372,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+176816,Vancouver,WA,2022,False,False,0.0,0.0,R,R,0.035,True,False,False,False,
+127810,Shreveport,LA,2022,False,False,0.0,0.0,R,R,0.199,True,False,False,False,
+191559,Chattanooga,TN,2022,False,False,0.0,1.0,R,R,0.0,True,False,False,False,
+106079,Worcester,MA,2022,True,False,59.5,0.1,R,R,0.0,True,False,False,False,dependent school system inside city books
+161585,Fort Lauderdale,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+176022,Brownsville,TX,2022,False,False,0.0,0.5,R,R,0.0,True,False,False,False,
+161246,Ontario,CA,2022,False,False,0.0,0.0,R,R,0.041,True,False,False,False,
+160832,Peoria,AZ,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+112811,Providence,RI,2022,True,False,56.2,0.1,R,R,0.0,True,False,False,False,dependent school system inside city books
+176784,Newport News,VA,2022,True,True,39.4,8.8,R,R,0.071,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+161251,Rancho Cucamonga,CA,2022,False,False,0.0,0.0,R,R,0.011,True,False,False,False,
+200728,Elk Grove,CA,2022,False,False,0.0,0.0,R,-,0.061,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+205218,Salem,OR,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161256,Oceanside,CA,2022,False,False,0.0,0.0,R,R,0.029,True,False,False,False,
+161287,Santa Rosa,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161593,Pembroke Pines,FL,2022,False,False,0.0,0.7,R,R,0.0,True,False,False,False,
+131775,Cary,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+133222,Eugene,OR,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+193114,Garden Grove,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+207593,Corona,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+101409,Fort Collins,CO,2022,False,True,0.0,3.6,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+168896,Springfield,MO,2022,False,False,0.0,0.0,R,R,0.046,True,False,False,False,
+184266,Clarksville,TN,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+209712,Alexandria,VA,2022,True,True,29.2,7.2,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+161123,Hayward,CA,2022,False,False,0.0,0.0,R,R,0.014,True,False,False,False,
+129295,Jackson,MS,2022,False,False,0.0,1.2,R,R,0.0,True,False,False,False,
+161376,Lakewood,CO,2022,False,False,0.0,0.0,R,-,0.005,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+184451,Lancaster,CA,2022,False,False,0.0,0.0,R,-,0.0,True,True,True,False,"no fire spending on city books: fire provided by independent district or county; police share under 5%: likely contracts with county sheriff (Census books such purchases as unallocated intergovernmental expenditure, invisible in code 62)"
+161212,Salinas,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161586,Hollywood,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+175981,Killeen,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+102163,Macon-Bibb County,GA,2022,False,True,0.0,7.4,R,R,0.034,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+164911,Wyandotte County And Kansas Unified Government,KS,2022,False,True,0.0,7.4,I,I,0.441,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; police/fire contains imputed or analyst-adjusted items"
+106061,Springfield,MA,2022,True,False,68.9,0.1,R,R,0.0,True,False,False,False,dependent school system inside city books
+161281,Sunnyvale,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+209519,Murfreesboro,TN,2022,True,False,40.1,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+183832,Palmdale,CA,2022,False,False,0.0,0.0,R,R,0.05,True,False,False,False,
+161255,Escondido,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+205455,Pasadena,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161179,Pomona,CA,2022,False,False,0.0,0.0,R,R,0.074,True,False,False,False,
+161328,Thornton,CO,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+114624,Bellevue,WA,2022,False,False,0.0,0.8,R,R,0.0,True,False,False,False,
+162299,Naperville,IL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+209562,Denton,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194825,Midland,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+162690,Joliet,IL,2022,False,False,0.0,0.0,R,R,0.024,True,False,False,False,
+102882,Rockford,IL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+184046,Paterson,NJ,2022,False,False,0.0,0.3,R,R,0.017,True,False,False,False,
+123137,Roseville,CA,2022,False,False,0.0,1.3,R,R,0.063,True,False,False,False,
+205460,Mcallen,TX,2022,False,False,0.0,0.9,I,I,0.987,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+124438,Savannah,GA,2022,False,False,0.0,2.1,R,R,0.0,True,False,False,False,
+124038,Bridgeport,CT,2022,True,False,54.1,0.3,R,R,0.0,True,False,False,False,dependent school system inside city books
+100251,Surprise,AZ,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+204523,Olathe,KS,2022,False,True,0.0,5.0,R,I,0.684,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure; police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+207583,Torrance,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+176286,Waco,TX,2022,False,False,0.0,0.0,R,R,0.179,True,False,False,False,
+170582,Syracuse,NY,2022,True,False,98.0,0.0,-,-,0.0,False,False,False,False,dependent school system inside city books; incomplete record this year (partial response); shares null
+101927,Miramar,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+207582,Pasadena,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161218,Fullerton,CA,2022,False,False,0.0,0.0,R,R,0.011,True,False,False,False,
+172543,Dayton,OH,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+135130,Carrollton,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+174889,Charleston,SC,2022,False,False,0.0,0.4,I,I,0.769,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+135132,Mesquite,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+161220,Orange,CA,2022,False,False,0.0,0.0,R,R,0.058,True,False,False,False,
+135298,Round Rock,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+136056,Hampton,VA,2022,True,True,39.9,8.8,R,R,0.0,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions; dependent school system inside city books"
+123165,Visalia,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161572,Gainesville,FL,2022,False,False,0.0,0.6,R,R,0.0,True,False,False,False,
+164470,Cedar Rapids,IA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+176495,West Valley,UT,2022,False,False,0.0,1.0,R,R,0.0,True,False,False,False,
+161595,Coral Springs,FL,2022,True,False,6.4,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+128309,Warren,MI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+174959,Columbia,SC,2022,False,False,0.0,0.5,R,R,0.0,True,False,False,False,
+166734,Sterling Heights,MI,2022,False,False,0.0,0.0,R,R,0.004,True,False,False,False,
+225767,Stamford,CT,2022,True,False,50.8,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+161280,Santa Clara,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161447,New Haven,CT,2022,True,False,45.4,0.0,R,R,0.0,True,False,False,False,dependent school system inside city books
+205590,Kent,WA,2022,False,True,0.0,4.7,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+161132,Concord,CA,2022,False,False,0.0,0.0,R,-,0.032,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+204933,Elizabeth,NJ,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161834,Athens-Clarke County Unified Government,GA,2022,False,True,0.0,5.5,R,R,0.021,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+166076,Lafayette-Parish,LA,2022,False,False,0.0,1.7,R,R,0.011,True,False,False,True,"consolidated city-county, city-parish, or independent city: carries county-type functions"
+201369,Thousand Oaks,CA,2022,False,False,0.0,0.0,R,-,0.006,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+205181,Norman,OK,2022,False,True,0.0,74.6,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+176107,Odessa,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+171371,Fargo,ND,2022,False,False,0.0,0.2,S,RS,0.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+161302,Simi Valley,CA,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+161252,Victorville,CA,2022,False,False,0.0,2.0,R,R,0.0,True,False,False,False,
+171248,Wilmington,NC,2022,False,False,0.0,0.6,R,R,0.0,True,False,False,False,
+168809,Columbia,MO,2022,False,False,0.0,0.5,R,AR,0.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+164885,Topeka,KS,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+176386,Abilene,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+135095,Pearland,TX,2022,False,False,0.0,0.5,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+123092,Berkeley,CA,2022,False,False,0.0,0.0,R,R,0.026,True,False,False,False,
+161374,Arvada,CO,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+161441,Hartford,CT,2022,True,False,47.7,0.4,R,R,0.0,True,False,False,False,dependent school system inside city books
+174015,Allentown,PA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+162037,Meridian,ID,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+212234,Richardson,TX,2022,False,False,0.0,0.0,S,S,0.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+207608,Vallejo,CA,2022,False,False,0.0,0.0,R,R,0.024,True,False,False,False,
+167574,Rochester,MN,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+190480,Ann Arbor,MI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194814,College Station,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+166448,Cambridge,MA,2022,True,True,19.6,54.0,R,R,0.0,True,False,False,False,dependent school system inside city books; carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+174894,North Charleston,SC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+163681,Evansville,IN,2022,False,False,0.0,0.0,R,R,0.088,True,False,False,False,
+176132,Sugar Land,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+203966,Clovis,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+100750,Fairfield,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+166690,Lansing,MI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+184735,Palm Bay,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+129515,Independence,MO,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+207684,Clearwater,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+114311,West Jordan,UT,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+100719,Murrieta,CA,2022,False,False,0.0,0.0,R,R,0.007,True,False,False,False,
+176517,Provo,UT,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161254,Carlsbad,CA,2022,False,False,0.0,0.0,R,R,0.007,True,False,False,False,
+194812,Beaumont,TX,2022,False,True,0.0,11.7,R,R,0.0,True,False,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure
+184767,Lakeland,FL,2022,False,False,0.0,0.1,R,R,0.0,True,False,False,False,
+211654,Westminster,CO,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+137234,Temecula,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+162629,Springfield,IL,2022,False,False,0.0,0.0,-,-,0.0,False,False,False,False,incomplete record this year (partial response); shares null
+194732,High Point,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161679,West Palm Beach,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194654,Pueblo,CO,2022,False,False,0.0,0.0,I,I,0.828,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+170001,Manchester,NH,2022,True,False,43.7,0.4,R,R,0.387,True,False,False,False,dependent school system inside city books
+176873,Everett,WA,2022,False,False,0.0,0.5,R,R,0.0,True,False,False,False,
+211207,Costa Mesa,CA,2022,False,False,0.0,0.0,R,R,0.009,True,False,False,False,
+161588,Pompano Beach,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+161169,El Monte,CA,2022,False,False,0.0,0.0,R,R,0.046,True,False,False,False,
+202617,Lewisville,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+184222,Broken Arrow,OK,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+123096,Antioch,CA,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+211253,Hillsboro,OR,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+166449,Lowell,MA,2022,True,False,63.5,0.1,R,R,0.0,True,False,False,False,dependent school system inside city books
+102716,Elgin,IL,2022,False,False,0.0,0.6,R,R,0.0,True,False,False,False,
+212209,Centennial,CO,2022,False,False,0.0,0.0,R,-,0.001,False,False,False,False,incomplete record this year (partial response); shares null
+161135,Richmond,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+173685,Gresham,OR,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+216510,Sandy Springs,GA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+228280,Jurupa Valley,CA,2022,False,False,0.0,0.0,R,R,0.009,False,False,False,False,incomplete record this year (partial response); shares null
+108127,Billings,MT,2022,False,False,0.0,0.0,R,AR,0.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+193205,Peoria,IL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+209555,Allen,TX,2022,False,False,0.0,0.1,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+183829,Downey,CA,2022,False,False,0.0,0.0,R,R,0.043,True,False,False,False,
+214783,Miami Gardens,FL,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+207635,Greeley,CO,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+176142,League,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+135275,Tyler,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+161337,Boulder,CO,2022,False,False,0.0,0.0,R,R,0.035,True,False,False,False,
+123110,Inglewood,CA,2022,False,False,0.0,0.0,R,R,0.023,True,False,False,False,
+161300,San Buenaventura,CA,2022,False,False,0.0,0.0,R,R,0.027,True,False,False,False,
+108910,Sparks,NV,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+101696,Waterbury,CT,2022,True,False,54.0,0.9,R,R,0.0,True,False,False,False,dependent school system inside city books
+161594,Davie,FL,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+211215,Daly,CA,2022,False,False,0.0,0.0,R,R,0.004,True,False,False,False,
+161273,Santa Maria,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+135295,Wichita Falls,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+208793,Las Cruces,NM,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+123146,Rialto,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+177090,Green Bay,WI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+100689,West Covina,CA,2022,False,False,0.0,0.0,R,R,0.161,True,False,False,False,
+162062,Nampa,ID,2022,False,False,0.0,0.0,I,I,0.97,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+213591,Spokane Valley,WA,2022,False,True,0.0,3.3,R,-,0.0,True,True,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure; no fire spending on city books: fire provided by independent district or county
+161130,Chico,CA,2022,False,False,0.0,0.0,R,R,0.006,True,False,False,False,
+160723,Tuscaloosa,AL,2022,False,False,0.0,0.4,R,R,0.0,True,False,False,False,
+123117,Norwalk,CA,2022,False,False,0.0,0.0,R,-,0.0,True,True,False,False,no fire spending on city books: fire provided by independent district or county
+247337,South Fulton,GA,2022,False,False,0.0,0.1,I,-,1.0,True,True,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent); no fire spending on city books: fire provided by independent district or county
+183842,El Cajon,CA,2022,False,False,0.0,0.0,R,R,0.038,True,False,False,False,
+123157,San Mateo,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+113634,Edinburg,TX,2022,False,False,0.0,0.0,I,I,1.0,True,False,False,False,police/fire contains imputed or analyst-adjusted items; majority of unit expenditure imputed (nonrespondent)
+193960,Bend,OR,2022,False,False,0.0,0.0,R,R,0.077,True,False,False,False,
+126081,South Bend,IN,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+184443,Burbank,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+208060,Davenport,IA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+126027,Carmel,IN,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+135285,San Angelo,TX,2022,False,False,0.0,0.4,R,R,0.0,True,False,False,False,
+136110,Renton,WA,2022,False,True,0.0,14.8,R,-,0.0,True,True,False,False,carries county-type functions (corrections/hospital/welfare) above 3% of general expenditure; no fire spending on city books: fire provided by independent district or county
+168926,Lees Summit,MO,2022,False,False,0.0,0.0,R,R,0.086,True,False,False,False,
+161286,Vacaville,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+211981,Vista,CA,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+170404,Rio Rancho,NM,2022,False,False,0.0,0.1,R,R,0.0,True,False,False,False,
+110047,Concord,NC,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+194651,Longmont,CO,2022,False,False,0.0,0.0,R,R,0.03,True,False,False,False,
+103799,Fishers,IN,2022,False,False,0.0,0.0,R,R,0.161,True,False,False,False,
+187683,Conroe,TX,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+166455,Brockton,MA,2022,True,False,61.2,0.1,R,R,0.0,True,False,False,False,dependent school system inside city books
+176060,New Braunfels,TX,2022,False,False,0.0,0.0,I,I,0.307,True,False,False,False,police/fire contains imputed or analyst-adjusted items
+166441,New Bedford,MA,2022,True,False,63.0,0.4,R,R,0.0,True,False,False,False,dependent school system inside city books
+170440,Albany,NY,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+106055,Lynn,MA,2022,True,False,69.3,0.2,R,R,0.0,True,False,False,False,dependent school system inside city books
+166454,Quincy,MA,2022,True,False,40.1,0.2,R,R,0.0,True,False,False,False,dependent school system inside city books
+194789,Dearborn,MI,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+184202,St George,UT,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+122748,Goodyear,AZ,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,
+160830,Buckeye,AZ,2022,False,False,0.0,0.0,R,R,0.0,True,False,False,False,

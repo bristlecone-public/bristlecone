@@ -1,0 +1,7 @@
+out/*.json
+*.pyc
+__pycache__/
+.venv/
+
+# Cloudflare deploy staging (built by publish.py)
+.site/

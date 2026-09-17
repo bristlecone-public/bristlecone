@@ -1,0 +1,13 @@
+# Copy to .dev.vars for local dev (gitignored). In production use `wrangler secret put`.
+ADMIN_TOKEN=change-me
+
+# No instrument requires a key — every feed on the board is keyless, so an empty
+# .dev.vars gives you the complete dashboard. The one key below is an optional
+# upgrade, not a requirement.
+
+# FRED_API_KEY — optional. The 11 FRED-backed instruments default to the keyless
+# chart-download endpoint (fredgraph.csv). Set this and they switch to the official
+# JSON API instead (api.stlouisfed.org): documented, versioned, 120 req/min, and
+# less likely to change shape than the CSV download. Free, instant, no approval.
+# Register: https://fredaccount.stlouisfed.org/apikeys
+# FRED_API_KEY=

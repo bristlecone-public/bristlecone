@@ -1,0 +1,11 @@
+# Copy to .dev.vars for local dev (gitignored). In production use `wrangler secret put`.
+ADMIN_TOKEN=change-me
+
+# ---------------------------------------------------------------------------
+# Optional feed keys. Every other instrument on GridPulse is keyless; without
+# any of these the dashboard still shows 13 of 14 instruments.
+# ---------------------------------------------------------------------------
+
+# EIA Open Data v2 — US Lower-48 hourly demand (instrument: eia-us48-demand).
+# Free, instant, no approval step: https://www.eia.gov/opendata/register.php
+# EIA_API_KEY=

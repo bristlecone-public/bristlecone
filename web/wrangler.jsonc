@@ -1,0 +1,20 @@
+{
+	// The masthead landing page at the apex. Static-assets-only Worker; the
+	// document is built from the Artifact fragment by tools/build_masthead.py
+	// (the fragment has no <!doctype>/<head>/<body> because the Artifact
+	// skeleton supplies them).
+	//
+	// index.html is self-contained apart from Google Fonts — the tree-ring hero
+	// is drawn on a canvas, and every project link points at a live subdomain.
+	"name": "bristlecone-masthead",
+	"compatibility_date": "2026-08-01",
+	"workers_dev": true,
+	"assets": {
+		"directory": "./public"
+	},
+	"observability": { "enabled": true },
+	"routes": [
+		{ "pattern": "bristleconeanalytics.com", "custom_domain": true },
+		{ "pattern": "www.bristleconeanalytics.com", "custom_domain": true }
+	]
+}

@@ -1,0 +1,9 @@
+# Copy to .dev.vars for local dev (gitignored). In production use `wrangler secret put`.
+ADMIN_TOKEN=change-me
+
+# Cloudflare Radar — powers radar-l7-attacks, radar-bgp-anomalies and
+# radar-http3-share. Every other instrument is keyless; these three cards just
+# say "needs key" until this is set.
+# Get one (free) at https://dash.cloudflare.com/profile/api-tokens →
+# Create Token → Custom token → Permissions: Account · Account Analytics · Read
+# CLOUDFLARE_API_TOKEN=

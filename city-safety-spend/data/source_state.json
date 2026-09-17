@@ -1,0 +1,51 @@
+{
+ "bea_rpp": {
+  "changed": "2026-09-15",
+  "checked": "2026-09-17",
+  "value": {
+   "modified": "Thu, 19 Feb 2026 13:30:06 GMT",
+   "size": "146479"
+  }
+ },
+ "bls_cpi": {
+  "changed": "2026-09-15",
+  "checked": "2026-09-17",
+  "value": {
+   "latest_annual_average": "2025"
+  }
+ },
+ "census_employment": {
+  "changed": "2026-09-15",
+  "checked": "2026-09-17",
+  "value": {
+   "already_parsed": "2025",
+   "files": {},
+   "latest_published": null
+  }
+ },
+ "census_finance": {
+  "changed": "2026-09-15",
+  "checked": "2026-09-17",
+  "value": {
+   "already_parsed": "2024",
+   "files": {},
+   "latest_published": null
+  }
+ },
+ "fbi_employees": {
+  "changed": "2026-09-15",
+  "checked": "2026-09-17",
+  "value": {
+   "modified": "Fri, 14 Aug 2026 19:28:24 GMT",
+   "size": "106754028"
+  }
+ },
+ "fbi_offenses": {
+  "changed": "2026-09-15",
+  "checked": "2026-09-17",
+  "value": {
+   "modified": "Fri, 14 Aug 2026 19:28:58 GMT",
+   "size": "6215793"
+  }
+ }
+}

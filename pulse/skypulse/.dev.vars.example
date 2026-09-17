@@ -1,0 +1,7 @@
+# Copy to .dev.vars for local dev (gitignored). In production use `wrangler secret put`.
+ADMIN_TOKEN=change-me
+
+# Optional. Only `donki-cme` (NASA CCMC coronal mass ejection analyses) uses it;
+# every other instrument is keyless. Free personal key: https://api.nasa.gov
+# `DEMO_KEY` works for testing but is capped at 30 requests/hour/IP and 50/day.
+# NASA_API_KEY=DEMO_KEY

@@ -1,0 +1,13 @@
+# Copy to .dev.vars for local dev (gitignored). In production use `wrangler secret put`.
+ADMIN_TOKEN=change-me
+
+# Artificial Analysis — powers `aa-intelligence-index` (Frontier & benchmarks).
+# Free key, request one at https://artificialanalysis.ai/insights/api
+# (docs: https://artificialanalysis.ai/documentation). Sent as an `x-api-key`
+# header. Without it the instrument is skipped and every other card still works.
+# ARTIFICIAL_ANALYSIS_API_KEY=
+
+# Not wired up yet — see "Candidates / next" in docs/INSTRUMENTS.md.
+# Lambda Labs cloud API key, a keyed cross-check on the Vast.ai spot price.
+# Generate at https://cloud.lambdalabs.com/api-keys
+# LAMBDA_API_KEY=

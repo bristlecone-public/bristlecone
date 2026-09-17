@@ -1,0 +1,9625 @@
+{
+ "generated_at": "2026-09-12T09:38:11.914672+00:00",
+ "latest_month": "2026-08",
+ "since": "2000-01",
+ "caveat": "lead-lag correlation, not pass-through, not causal",
+ "params": {
+  "since": "2000-01",
+  "last": "2026-08",
+  "universe": "hybrid",
+  "n_nodes": 74,
+  "rho_min": 0.25,
+  "fdr": 0.05,
+  "min_windows": 3,
+  "max_lag": 12,
+  "granger_lags": 6,
+  "factor_lags": 0,
+  "leave_one_out_headline": true,
+  "min_obs": 60,
+  "month_coverage_min": 0.6,
+  "node_coverage_min": 0.8,
+  "weight_year": 2025
+ },
+ "windows": [
+  {
+   "name": "w1",
+   "start": "2000-01",
+   "end": "2014-12",
+   "n_months": 180
+  },
+  {
+   "name": "w2",
+   "start": "2004-01",
+   "end": "2018-12",
+   "n_months": 180
+  },
+  {
+   "name": "w3",
+   "start": "2008-01",
+   "end": "2022-12",
+   "n_months": 180
+  },
+  {
+   "name": "w4",
+   "start": "2011-01",
+   "end": "2026-08",
+   "n_months": 188
+  },
+  {
+   "name": "full",
+   "start": "2000-01",
+   "end": "2026-08",
+   "n_months": 320
+  }
+ ],
+ "groups": {
+  "SAF": {
+   "name": "Food and beverages",
+   "color": "#e07b39"
+  },
+  "SAH": {
+   "name": "Housing",
+   "color": "#3b7dd8"
+  },
+  "SAA": {
+   "name": "Apparel",
+   "color": "#c94f7c"
+  },
+  "SAT": {
+   "name": "Transportation",
+   "color": "#2f9e6b"
+  },
+  "SAM": {
+   "name": "Medical care",
+   "color": "#8b5cf6"
+  },
+  "SAR": {
+   "name": "Recreation",
+   "color": "#0ea5b7"
+  },
+  "SAE": {
+   "name": "Education and communication",
+   "color": "#eab308"
+  },
+  "SAG": {
+   "name": "Other goods and services",
+   "color": "#64748b"
+  }
+ },
+ "universe": {
+  "rule": "hybrid",
+  "n_nodes": 74,
+  "weight_covered": 88.94,
+  "weight_year": 2025,
+  "levels": {
+   "2": 38,
+   "3": 36
+  }
+ },
+ "variants": {
+  "raw": {
+   "nodes": [
+    {
+     "code": "SAF111",
+     "name": "Cereals and bakery products",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 1.035,
+     "in_deg": 8,
+     "out_deg": 8,
+     "upstreamness": 0.015
+    },
+    {
+     "code": "SAF112",
+     "name": "Meats, poultry, fish, and eggs",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 1.995,
+     "in_deg": 1,
+     "out_deg": 4,
+     "upstreamness": 0.709
+    },
+    {
+     "code": "SEFJ",
+     "name": "Dairy and related products",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.758,
+     "in_deg": 1,
+     "out_deg": 1,
+     "upstreamness": 0.0615
+    },
+    {
+     "code": "SAF113",
+     "name": "Fruits and vegetables",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 1.269,
+     "in_deg": 1,
+     "out_deg": 1,
+     "upstreamness": 0.0723
+    },
+    {
+     "code": "SAF114",
+     "name": "Nonalcoholic beverages and beverage materials",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.995,
+     "in_deg": 6,
+     "out_deg": 4,
+     "upstreamness": -0.3833
+    },
+    {
+     "code": "SAF115",
+     "name": "Other food at home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 2.273,
+     "in_deg": 10,
+     "out_deg": 4,
+     "upstreamness": -1.3853
+    },
+    {
+     "code": "SEFV",
+     "name": "Food away from home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 5.373,
+     "in_deg": 7,
+     "out_deg": 6,
+     "upstreamness": -0.8238
+    },
+    {
+     "code": "SEFW",
+     "name": "Alcoholic beverages at home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.397,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2242
+    },
+    {
+     "code": "SEFX",
+     "name": "Alcoholic beverages away from home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.443,
+     "in_deg": 1,
+     "out_deg": 1,
+     "upstreamness": 0.005
+    },
+    {
+     "code": "SEHA",
+     "name": "Rent of primary residence",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 7.84,
+     "in_deg": 4,
+     "out_deg": 4,
+     "upstreamness": 0.035
+    },
+    {
+     "code": "SEHB01",
+     "name": "Lodging while at school",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.118,
+     "in_deg": 2,
+     "out_deg": 2,
+     "upstreamness": 0.2234
+    },
+    {
+     "code": "SEHB02",
+     "name": "Other lodging away from home including hotels and motels",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 1.068,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEHC01",
+     "name": "Owners' equivalent rent of primary residence",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 25.23,
+     "in_deg": 3,
+     "out_deg": 2,
+     "upstreamness": -0.0825
+    },
+    {
+     "code": "SEHE",
+     "name": "Fuel oil and other fuels",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.14,
+     "in_deg": 2,
+     "out_deg": 7,
+     "upstreamness": 1.3935
+    },
+    {
+     "code": "SEHF",
+     "name": "Energy services",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 3.262,
+     "in_deg": 2,
+     "out_deg": 6,
+     "upstreamness": 0.9482
+    },
+    {
+     "code": "SEHG01",
+     "name": "Water and sewerage maintenance",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.783,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2076
+    },
+    {
+     "code": "SEHG02",
+     "name": "Garbage and trash collection",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.361,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2344
+    },
+    {
+     "code": "SEHH",
+     "name": "Window and floor coverings and other linens",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.238,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEHJ",
+     "name": "Furniture and bedding",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.884,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1982
+    },
+    {
+     "code": "SEHK",
+     "name": "Appliances",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.191,
+     "in_deg": 3,
+     "out_deg": 0,
+     "upstreamness": -0.6582
+    },
+    {
+     "code": "SEHL",
+     "name": "Other household equipment and furnishings",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.566,
+     "in_deg": 0,
+     "out_deg": 2,
+     "upstreamness": 0.4641
+    },
+    {
+     "code": "SEHM",
+     "name": "Tools, hardware, outdoor equipment and supplies",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.691,
+     "in_deg": 2,
+     "out_deg": 1,
+     "upstreamness": -0.3197
+    },
+    {
+     "code": "SEHN",
+     "name": "Housekeeping supplies",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.847,
+     "in_deg": 4,
+     "out_deg": 2,
+     "upstreamness": -0.644
+    },
+    {
+     "code": "SEHP03",
+     "name": "Moving, storage, freight expense",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.067,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2074
+    },
+    {
+     "code": "SEAA01",
+     "name": "Men's suits, sport coats, and outerwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.097,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA02",
+     "name": "Men's underwear, nightwear, swimwear and accessories",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.13,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA03",
+     "name": "Men's shirts and sweaters",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.126,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA04",
+     "name": "Men's pants and shorts",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.115,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAB",
+     "name": "Boys' apparel",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.116,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2166
+    },
+    {
+     "code": "SEAC01",
+     "name": "Women's outerwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.068,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2166
+    },
+    {
+     "code": "SEAC02",
+     "name": "Women's dresses",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.104,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAC03",
+     "name": "Women's suits and separates",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.366,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAC04",
+     "name": "Women's underwear, nightwear, swimwear and accessories",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.234,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAD",
+     "name": "Girls' apparel",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.141,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAE01",
+     "name": "Men's footwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.191,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAE02",
+     "name": "Boys' and girls' footwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.124,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAE03",
+     "name": "Women's footwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.269,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAG01",
+     "name": "Watches",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.035,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAG02",
+     "name": "Jewelry",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.128,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SETA01",
+     "name": "New vehicles",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 3.838,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.3549
+    },
+    {
+     "code": "SETA02",
+     "name": "Used cars and trucks",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 2.759,
+     "in_deg": 1,
+     "out_deg": 1,
+     "upstreamness": 0.116
+    },
+    {
+     "code": "SETA04",
+     "name": "Car and truck rental",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.138,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SETB01",
+     "name": "Gasoline (all types)",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 2.895,
+     "in_deg": 2,
+     "out_deg": 3,
+     "upstreamness": 0.189
+    },
+    {
+     "code": "SETC",
+     "name": "Motor vehicle parts and equipment",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.349,
+     "in_deg": 7,
+     "out_deg": 5,
+     "upstreamness": -0.1563
+    },
+    {
+     "code": "SETD",
+     "name": "Motor vehicle maintenance and repair",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 1.039,
+     "in_deg": 5,
+     "out_deg": 5,
+     "upstreamness": -0.1973
+    },
+    {
+     "code": "SETE",
+     "name": "Motor vehicle insurance",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 2.754,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.259
+    },
+    {
+     "code": "SETG01",
+     "name": "Airline fares",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.881,
+     "in_deg": 2,
+     "out_deg": 3,
+     "upstreamness": 0.0658
+    },
+    {
+     "code": "SETG02",
+     "name": "Other intercity transportation",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.244,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2074
+    },
+    {
+     "code": "SEMF01",
+     "name": "Prescription drugs",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 0.973,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEMC",
+     "name": "Professional services",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 3.426,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEMD01",
+     "name": "Hospital services",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 2.167,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2389
+    },
+    {
+     "code": "SEMD02",
+     "name": "Nursing homes and adult day services",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 0.221,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERA01",
+     "name": "Televisions",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.107,
+     "in_deg": 0,
+     "out_deg": 2,
+     "upstreamness": 0.4721
+    },
+    {
+     "code": "SERA02",
+     "name": "Cable, satellite, and live streaming television service",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.606,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERA03",
+     "name": "Other video equipment",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.017,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERB01",
+     "name": "Pets and pet products",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.612,
+     "in_deg": 6,
+     "out_deg": 6,
+     "upstreamness": 0.1561
+    },
+    {
+     "code": "SERB02",
+     "name": "Pet services including veterinary",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.546,
+     "in_deg": 0,
+     "out_deg": 2,
+     "upstreamness": 0.4342
+    },
+    {
+     "code": "SERC01",
+     "name": "Sports vehicles including bicycles",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.284,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERD01",
+     "name": "Photographic equipment and supplies",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.026,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.259
+    },
+    {
+     "code": "SERE01",
+     "name": "Toys",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.293,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERE02",
+     "name": "Sewing machines, fabric and supplies",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.029,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERE03",
+     "name": "Music instruments and accessories",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.043,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERF01",
+     "name": "Club membership for shopping clubs, fraternal, or other organizations, or participant sports fees",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.766,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERF02",
+     "name": "Admissions",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.704,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERF03",
+     "name": "Fees for lessons or instructions",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.158,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEEA",
+     "name": "Educational books and supplies",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.038,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1842
+    },
+    {
+     "code": "SEEB01",
+     "name": "College tuition and fees",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 1.351,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.4562
+    },
+    {
+     "code": "SEEB02",
+     "name": "Elementary and high school tuition and fees",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.408,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1863
+    },
+    {
+     "code": "SEEB03",
+     "name": "Day care and preschool",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.699,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2592
+    },
+    {
+     "code": "SEEB04",
+     "name": "Technical and vocational school tuition and fixed fees",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.036,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2641
+    },
+    {
+     "code": "SEEC",
+     "name": "Postage and delivery services",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.064,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEEE01",
+     "name": "Computers, peripherals, and smart home assistants",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.293,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEGD",
+     "name": "Miscellaneous personal services",
+     "major": "SAG",
+     "major_name": "Other goods and services",
+     "color": "#64748b",
+     "weight": 0.922,
+     "in_deg": 0,
+     "out_deg": 3,
+     "upstreamness": 0.6862
+    },
+    {
+     "code": "SEGE",
+     "name": "Miscellaneous personal goods",
+     "major": "SAG",
+     "major_name": "Other goods and services",
+     "color": "#64748b",
+     "weight": 0.184,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    }
+   ],
+   "edges": [
+    {
+     "src": "SEHC01",
+     "dst": "SEHA",
+     "lag": 1,
+     "rho": 0.8142,
+     "rho_other": 0.8008,
+     "q": 0.00349,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHC01",
+     "lag": 1,
+     "rho": 0.8038,
+     "rho_other": 0.7973,
+     "q": 0.75766,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEFV",
+     "lag": 1,
+     "rho": 0.5084,
+     "rho_other": 0.4939,
+     "q": 0.42276,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4703,
+     "rho_other": 0.4301,
+     "q": 0.02027,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4643,
+     "rho_other": 0.4272,
+     "q": 0.0035,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHB01",
+     "dst": "SEEB01",
+     "lag": 5,
+     "rho": 0.4562,
+     "rho_other": 0.4555,
+     "q": 0.31046,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF111",
+     "lag": 5,
+     "rho": 0.4162,
+     "rho_other": 0.3685,
+     "q": 0.02027,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEHA",
+     "lag": 3,
+     "rho": 0.4139,
+     "rho_other": 0.382,
+     "q": 0.22886,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.406,
+     "rho_other": 0.3744,
+     "q": 0.25311,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHC01",
+     "dst": "SETD",
+     "lag": 2,
+     "rho": 0.4015,
+     "rho_other": 0.3848,
+     "q": 0.17763,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SEFV",
+     "lag": 4,
+     "rho": 0.3965,
+     "rho_other": 0.3537,
+     "q": 0.03618,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SAF111",
+     "lag": 2,
+     "rho": 0.3877,
+     "rho_other": 0.3631,
+     "q": 0.1805,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.3824,
+     "rho_other": 0.3327,
+     "q": 0.57319,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.3768,
+     "rho_other": 0.338,
+     "q": 0.28374,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF115",
+     "lag": 3,
+     "rho": 0.3742,
+     "rho_other": 0.3274,
+     "q": 0.00705,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SEFV",
+     "lag": 2,
+     "rho": 0.3656,
+     "rho_other": 0.3636,
+     "q": 0.04563,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEHN",
+     "lag": 3,
+     "rho": 0.3606,
+     "rho_other": 0.348,
+     "q": 0.00349,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETA02",
+     "dst": "SETA01",
+     "lag": 1,
+     "rho": 0.3549,
+     "rho_other": 0.3152,
+     "q": 0.26436,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SERB01",
+     "lag": 1,
+     "rho": 0.3527,
+     "rho_other": 0.3107,
+     "q": 0.00695,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERB01",
+     "dst": "SEHN",
+     "lag": 5,
+     "rho": 0.34,
+     "rho_other": 0.3036,
+     "q": 0.0066,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHE",
+     "dst": "SETB01",
+     "lag": 1,
+     "rho": 0.3395,
+     "rho_other": 0.2085,
+     "q": 0.33167,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SEHN",
+     "lag": 1,
+     "rho": 0.3386,
+     "rho_other": 0.3257,
+     "q": 0.00545,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERB01",
+     "dst": "SETD",
+     "lag": 3,
+     "rho": 0.3366,
+     "rho_other": 0.3187,
+     "q": 0.1874,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHE",
+     "dst": "SEHF",
+     "lag": 1,
+     "rho": 0.3285,
+     "rho_other": 0.1776,
+     "q": 0.00242,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHN",
+     "dst": "SERB01",
+     "lag": 1,
+     "rho": 0.3253,
+     "rho_other": 0.3227,
+     "q": 0.00995,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB01",
+     "dst": "SAF111",
+     "lag": 2,
+     "rho": 0.3231,
+     "rho_other": 0.2875,
+     "q": 0.19092,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SETC",
+     "lag": 1,
+     "rho": 0.3212,
+     "rho_other": 0.2995,
+     "q": 0.04811,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHE",
+     "dst": "SETG01",
+     "lag": 1,
+     "rho": 0.3155,
+     "rho_other": 0.1086,
+     "q": 0.00512,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SETD",
+     "lag": 1,
+     "rho": 0.3081,
+     "rho_other": 0.2874,
+     "q": 0.17763,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERB01",
+     "dst": "SAF115",
+     "lag": 4,
+     "rho": 0.3054,
+     "rho_other": 0.2697,
+     "q": 0.1652,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.2987,
+     "rho_other": 0.2949,
+     "q": 0.03749,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF112",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.2983,
+     "rho_other": 0.3019,
+     "q": 0.0,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFV",
+     "dst": "SETC",
+     "lag": 1,
+     "rho": 0.298,
+     "rho_other": 0.2658,
+     "q": 0.45758,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SETC",
+     "lag": 3,
+     "rho": 0.2971,
+     "rho_other": 0.2612,
+     "q": 0.33076,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF114",
+     "lag": 1,
+     "rho": 0.2938,
+     "rho_other": 0.2705,
+     "q": 0.00803,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERA01",
+     "dst": "SEHA",
+     "lag": 12,
+     "rho": 0.2879,
+     "rho_other": 0.2486,
+     "q": 0.4804,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF114",
+     "lag": 2,
+     "rho": 0.2792,
+     "rho_other": 0.2458,
+     "q": 0.00402,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHN",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.2786,
+     "rho_other": 0.2728,
+     "q": 0.64779,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SEHA",
+     "lag": 8,
+     "rho": 0.2731,
+     "rho_other": 0.1869,
+     "q": 0.09506,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHM",
+     "lag": 1,
+     "rho": 0.273,
+     "rho_other": 0.2684,
+     "q": 0.00806,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFJ",
+     "dst": "SAF112",
+     "lag": 1,
+     "rho": 0.2686,
+     "rho_other": 0.2652,
+     "q": 0.26344,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF114",
+     "lag": 1,
+     "rho": 0.2682,
+     "rho_other": 0.2547,
+     "q": 0.03845,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEGD",
+     "dst": "SETD",
+     "lag": 4,
+     "rho": 0.2681,
+     "rho_other": 0.2421,
+     "q": 0.0788,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SAF114",
+     "lag": 1,
+     "rho": 0.2664,
+     "rho_other": 0.2483,
+     "q": 0.06806,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHL",
+     "dst": "SAF115",
+     "lag": 6,
+     "rho": 0.2647,
+     "rho_other": 0.2469,
+     "q": 0.24796,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF114",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.2645,
+     "rho_other": 0.2577,
+     "q": 0.17972,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SERB01",
+     "lag": 3,
+     "rho": 0.2642,
+     "rho_other": 0.2019,
+     "q": 0.04016,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEEB04",
+     "dst": "SEHB01",
+     "lag": 12,
+     "rho": 0.2641,
+     "rho_other": 0.2669,
+     "q": 0.71433,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SEHC01",
+     "lag": 8,
+     "rho": 0.2626,
+     "rho_other": 0.1785,
+     "q": 0.01571,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETB01",
+     "dst": "SETG01",
+     "lag": 1,
+     "rho": 0.2621,
+     "rho_other": 0.1162,
+     "q": 0.026,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETB01",
+     "dst": "SEHE",
+     "lag": 1,
+     "rho": 0.261,
+     "rho_other": 0.12,
+     "q": 0.40234,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SEEB03",
+     "lag": 3,
+     "rho": 0.2592,
+     "rho_other": 0.2367,
+     "q": 0.26065,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERD01",
+     "dst": "SETE",
+     "lag": 5,
+     "rho": 0.259,
+     "rho_other": 0.2508,
+     "q": 0.50175,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SAF115",
+     "lag": 1,
+     "rho": 0.2456,
+     "rho_other": 0.2285,
+     "q": 0.50666,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB01",
+     "dst": "SETC",
+     "lag": 1,
+     "rho": 0.2456,
+     "rho_other": 0.2217,
+     "q": 0.77742,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF112",
+     "dst": "SEHM",
+     "lag": 4,
+     "rho": 0.245,
+     "rho_other": 0.241,
+     "q": 0.17469,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SERB01",
+     "lag": 4,
+     "rho": 0.241,
+     "rho_other": 0.2143,
+     "q": 0.55739,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHE",
+     "dst": "SETC",
+     "lag": 6,
+     "rho": 0.2401,
+     "rho_other": 0.0752,
+     "q": 0.01091,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHA",
+     "dst": "SETA02",
+     "lag": 1,
+     "rho": -0.2389,
+     "rho_other": -0.2675,
+     "q": 0.08761,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHB01",
+     "dst": "SEMD01",
+     "lag": 3,
+     "rho": 0.2389,
+     "rho_other": 0.2311,
+     "q": 0.0068,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF112",
+     "dst": "SAF111",
+     "lag": 4,
+     "rho": 0.2388,
+     "rho_other": 0.2305,
+     "q": 0.02191,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB02",
+     "dst": "SERB01",
+     "lag": 1,
+     "rho": 0.2362,
+     "rho_other": 0.2106,
+     "q": 0.00188,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETG01",
+     "dst": "SAF115",
+     "lag": 3,
+     "rho": 0.2361,
+     "rho_other": 0.155,
+     "q": 0.03618,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHG02",
+     "dst": "SAF114",
+     "lag": 2,
+     "rho": 0.2344,
+     "rho_other": 0.2123,
+     "q": 0.11309,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEGD",
+     "dst": "SEHC01",
+     "lag": 9,
+     "rho": 0.2319,
+     "rho_other": 0.1958,
+     "q": 0.76397,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETC",
+     "dst": "SEHK",
+     "lag": 2,
+     "rho": 0.229,
+     "rho_other": 0.2324,
+     "q": 0.00208,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SETC",
+     "lag": 4,
+     "rho": 0.2253,
+     "rho_other": 0.2055,
+     "q": 0.46945,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERB01",
+     "dst": "SEFW",
+     "lag": 2,
+     "rho": 0.2242,
+     "rho_other": 0.2128,
+     "q": 0.00874,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHE",
+     "dst": "SEFV",
+     "lag": 7,
+     "rho": 0.2234,
+     "rho_other": -0.0042,
+     "q": 0.51047,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEAB",
+     "dst": "SEAC01",
+     "lag": 7,
+     "rho": 0.2166,
+     "rho_other": 0.2139,
+     "q": 0.70465,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEHK",
+     "lag": 4,
+     "rho": 0.2158,
+     "rho_other": 0.2064,
+     "q": 0.34429,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHE",
+     "dst": "SAF115",
+     "lag": 4,
+     "rho": 0.2142,
+     "rho_other": 0.0282,
+     "q": 0.01091,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETG01",
+     "dst": "SEHE",
+     "lag": 8,
+     "rho": -0.2137,
+     "rho_other": -0.2136,
+     "q": 0.26319,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFV",
+     "dst": "SEHK",
+     "lag": 2,
+     "rho": 0.2133,
+     "rho_other": 0.2206,
+     "q": 0.04563,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SETD",
+     "lag": 4,
+     "rho": 0.2128,
+     "rho_other": 0.1767,
+     "q": 0.2222,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFX",
+     "dst": "SEHN",
+     "lag": 2,
+     "rho": 0.2087,
+     "rho_other": 0.2006,
+     "q": 0.26719,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHG01",
+     "dst": "SEHB01",
+     "lag": 6,
+     "rho": 0.2076,
+     "rho_other": 0.2058,
+     "q": 0.59305,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHP03",
+     "dst": "SETG02",
+     "lag": 1,
+     "rho": 0.2074,
+     "rho_other": 0.1942,
+     "q": 0.0051,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHE",
+     "dst": "SEFJ",
+     "lag": 2,
+     "rho": 0.2072,
+     "rho_other": 0.0634,
+     "q": 0.11217,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SEFX",
+     "lag": 4,
+     "rho": 0.2037,
+     "rho_other": 0.167,
+     "q": 0.12631,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF113",
+     "dst": "SAF115",
+     "lag": 5,
+     "rho": 0.2017,
+     "rho_other": 0.1678,
+     "q": 0.01551,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHL",
+     "dst": "SERB01",
+     "lag": 2,
+     "rho": 0.1994,
+     "rho_other": 0.1757,
+     "q": 0.01571,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETB01",
+     "dst": "SEHF",
+     "lag": 1,
+     "rho": 0.199,
+     "rho_other": 0.0658,
+     "q": 0.13038,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHM",
+     "dst": "SEHJ",
+     "lag": 2,
+     "rho": 0.1982,
+     "rho_other": 0.1538,
+     "q": 0.79038,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB02",
+     "dst": "SAF111",
+     "lag": 2,
+     "rho": 0.198,
+     "rho_other": 0.1506,
+     "q": 0.57653,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF112",
+     "dst": "SAF114",
+     "lag": 2,
+     "rho": 0.1956,
+     "rho_other": 0.1901,
+     "q": 0.04818,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETG01",
+     "dst": "SETB01",
+     "lag": 1,
+     "rho": 0.1936,
+     "rho_other": 0.0299,
+     "q": 0.2765,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEGD",
+     "dst": "SEEB02",
+     "lag": 3,
+     "rho": 0.1863,
+     "rho_other": 0.1819,
+     "q": 0.39268,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERA01",
+     "dst": "SEEA",
+     "lag": 3,
+     "rho": -0.1842,
+     "rho_other": -0.1837,
+     "q": 0.07796,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SETC",
+     "lag": 4,
+     "rho": 0.1804,
+     "rho_other": 0.1429,
+     "q": 0.46531,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF113",
+     "lag": 2,
+     "rho": 0.1294,
+     "rho_other": 0.101,
+     "q": 0.00452,
+     "n_windows_pass": 3
+    }
+   ],
+   "stages": {
+    "pairs": 5402,
+    "tested": 5402,
+    "rho_screen": 213,
+    "fdr_pass": 231,
+    "screen_any": 383,
+    "stable": 91,
+    "stable_and_full_screen": 67,
+    "per_window": {
+     "w1": {
+      "start": "2000-01",
+      "end": "2014-12",
+      "n_months": 180,
+      "n_nodes": 71,
+      "tested": 4970,
+      "rho_screen": 228,
+      "fdr_pass": 116,
+      "screen_any": 314
+     },
+     "w2": {
+      "start": "2004-01",
+      "end": "2018-12",
+      "n_months": 180,
+      "n_nodes": 74,
+      "tested": 5402,
+      "rho_screen": 340,
+      "fdr_pass": 103,
+      "screen_any": 406
+     },
+     "w3": {
+      "start": "2008-01",
+      "end": "2022-12",
+      "n_months": 180,
+      "n_nodes": 74,
+      "tested": 5402,
+      "rho_screen": 741,
+      "fdr_pass": 385,
+      "screen_any": 953
+     },
+     "w4": {
+      "start": "2011-01",
+      "end": "2026-08",
+      "n_months": 188,
+      "n_nodes": 74,
+      "tested": 5402,
+      "rho_screen": 541,
+      "fdr_pass": 342,
+      "screen_any": 752
+     }
+    }
+   },
+   "top_edges": [
+    {
+     "src": "SEHC01",
+     "dst": "SEHA",
+     "lag": 1,
+     "rho": 0.8142,
+     "rho_other": 0.8008,
+     "q": 0.00349,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHC01",
+     "lag": 1,
+     "rho": 0.8038,
+     "rho_other": 0.7973,
+     "q": 0.75766,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEFV",
+     "lag": 1,
+     "rho": 0.5084,
+     "rho_other": 0.4939,
+     "q": 0.42276,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4703,
+     "rho_other": 0.4301,
+     "q": 0.02027,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4643,
+     "rho_other": 0.4272,
+     "q": 0.0035,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHB01",
+     "dst": "SEEB01",
+     "lag": 5,
+     "rho": 0.4562,
+     "rho_other": 0.4555,
+     "q": 0.31046,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF111",
+     "lag": 5,
+     "rho": 0.4162,
+     "rho_other": 0.3685,
+     "q": 0.02027,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEHA",
+     "lag": 3,
+     "rho": 0.4139,
+     "rho_other": 0.382,
+     "q": 0.22886,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.406,
+     "rho_other": 0.3744,
+     "q": 0.25311,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHC01",
+     "dst": "SETD",
+     "lag": 2,
+     "rho": 0.4015,
+     "rho_other": 0.3848,
+     "q": 0.17763,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SEFV",
+     "lag": 4,
+     "rho": 0.3965,
+     "rho_other": 0.3537,
+     "q": 0.03618,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SAF111",
+     "lag": 2,
+     "rho": 0.3877,
+     "rho_other": 0.3631,
+     "q": 0.1805,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.3824,
+     "rho_other": 0.3327,
+     "q": 0.57319,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.3768,
+     "rho_other": 0.338,
+     "q": 0.28374,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF115",
+     "lag": 3,
+     "rho": 0.3742,
+     "rho_other": 0.3274,
+     "q": 0.00705,
+     "n_windows_pass": 4
+    }
+   ],
+   "cascade": {
+    "SAF111": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.4703
+      },
+      {
+       "dst": "SEHA",
+       "lag": 3,
+       "rho": 0.4139
+      },
+      {
+       "dst": "SAF115",
+       "lag": 2,
+       "rho": 0.406
+      },
+      {
+       "dst": "SETC",
+       "lag": 1,
+       "rho": 0.3212
+      },
+      {
+       "dst": "SETD",
+       "lag": 1,
+       "rho": 0.3081
+      },
+      {
+       "dst": "SAF114",
+       "lag": 1,
+       "rho": 0.2682
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3386
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2133
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHC01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.8038
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.273
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": -0.2389
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.3606
+      },
+      {
+       "via": "SETC",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3527
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.229
+      },
+      {
+       "via": "SETD",
+       "dst": "SERB01",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.241
+      }
+     ]
+    },
+    "SAF112": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.2983
+      },
+      {
+       "dst": "SEHM",
+       "lag": 4,
+       "rho": 0.245
+      },
+      {
+       "dst": "SAF111",
+       "lag": 4,
+       "rho": 0.2388
+      },
+      {
+       "dst": "SAF114",
+       "lag": 2,
+       "rho": 0.1956
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.3824
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3386
+      },
+      {
+       "via": "SEFV",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.298
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2133
+      },
+      {
+       "via": "SEHM",
+       "dst": "SEHJ",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.1982
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.406
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.3212
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHK",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.2158
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.1294
+      },
+      {
+       "via": "SAF114",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.2645
+      }
+     ]
+    },
+    "SEFJ": {
+     "l1": [
+      {
+       "dst": "SAF112",
+       "lag": 1,
+       "rho": 0.2686
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF112",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.2983
+      },
+      {
+       "via": "SAF112",
+       "dst": "SEHM",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.245
+      },
+      {
+       "via": "SAF112",
+       "dst": "SAF111",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2388
+      },
+      {
+       "via": "SAF112",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.1956
+      }
+     ]
+    },
+    "SAF113": {
+     "l1": [
+      {
+       "dst": "SAF115",
+       "lag": 5,
+       "rho": 0.2017
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF115",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.4643
+      },
+      {
+       "via": "SAF115",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 7,
+       "rho": 0.3877
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.3606
+      },
+      {
+       "via": "SAF115",
+       "dst": "SETC",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.2971
+      }
+     ]
+    },
+    "SAF114": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 2,
+       "rho": 0.3656
+      },
+      {
+       "dst": "SAF111",
+       "lag": 1,
+       "rho": 0.2987
+      },
+      {
+       "dst": "SAF115",
+       "lag": 2,
+       "rho": 0.2645
+      },
+      {
+       "dst": "SETC",
+       "lag": 4,
+       "rho": 0.2253
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.3386
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.2133
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHK",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2158
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.1294
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.3606
+      },
+      {
+       "via": "SETC",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.3527
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.229
+      }
+     ]
+    },
+    "SAF115": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.4643
+      },
+      {
+       "dst": "SAF111",
+       "lag": 2,
+       "rho": 0.3877
+      },
+      {
+       "dst": "SEHN",
+       "lag": 3,
+       "rho": 0.3606
+      },
+      {
+       "dst": "SETC",
+       "lag": 3,
+       "rho": 0.2971
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2938
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2133
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2682
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHK",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.2158
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.1294
+      },
+      {
+       "via": "SEHN",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3253
+      },
+      {
+       "via": "SETC",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3527
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2792
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.229
+      }
+     ]
+    },
+    "SEFV": {
+     "l1": [
+      {
+       "dst": "SAF115",
+       "lag": 2,
+       "rho": 0.3824
+      },
+      {
+       "dst": "SAF111",
+       "lag": 1,
+       "rho": 0.3768
+      },
+      {
+       "dst": "SEHN",
+       "lag": 1,
+       "rho": 0.3386
+      },
+      {
+       "dst": "SETC",
+       "lag": 1,
+       "rho": 0.298
+      },
+      {
+       "dst": "SAF114",
+       "lag": 1,
+       "rho": 0.2938
+      },
+      {
+       "dst": "SEHK",
+       "lag": 2,
+       "rho": 0.2133
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.1294
+      },
+      {
+       "via": "SEHN",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3253
+      },
+      {
+       "via": "SETC",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3527
+      }
+     ]
+    },
+    "SEFX": {
+     "l1": [
+      {
+       "dst": "SEHN",
+       "lag": 2,
+       "rho": 0.2087
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHN",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.3253
+      },
+      {
+       "via": "SEHN",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2786
+      }
+     ]
+    },
+    "SEHA": {
+     "l1": [
+      {
+       "dst": "SEHC01",
+       "lag": 1,
+       "rho": 0.8038
+      },
+      {
+       "dst": "SEFV",
+       "lag": 1,
+       "rho": 0.5084
+      },
+      {
+       "dst": "SEHM",
+       "lag": 1,
+       "rho": 0.273
+      },
+      {
+       "dst": "SETA02",
+       "lag": 1,
+       "rho": -0.2389
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHC01",
+       "dst": "SETD",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.4015
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.3824
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3768
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3386
+      },
+      {
+       "via": "SEFV",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.298
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2938
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2133
+      },
+      {
+       "via": "SEHM",
+       "dst": "SEHJ",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.1982
+      },
+      {
+       "via": "SETA02",
+       "dst": "SETA01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3549
+      }
+     ]
+    },
+    "SEHB01": {
+     "l1": [
+      {
+       "dst": "SEEB01",
+       "lag": 5,
+       "rho": 0.4562
+      },
+      {
+       "dst": "SEMD01",
+       "lag": 3,
+       "rho": 0.2389
+      }
+     ],
+     "l2": []
+    },
+    "SEHC01": {
+     "l1": [
+      {
+       "dst": "SEHA",
+       "lag": 1,
+       "rho": 0.8142
+      },
+      {
+       "dst": "SETD",
+       "lag": 2,
+       "rho": 0.4015
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHA",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.5084
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.273
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": -0.2389
+      },
+      {
+       "via": "SETD",
+       "dst": "SEFV",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.3965
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2664
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF115",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2456
+      },
+      {
+       "via": "SETD",
+       "dst": "SERB01",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.241
+      },
+      {
+       "via": "SETD",
+       "dst": "SETC",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.1804
+      }
+     ]
+    },
+    "SEHE": {
+     "l1": [
+      {
+       "dst": "SETB01",
+       "lag": 1,
+       "rho": 0.3395
+      },
+      {
+       "dst": "SEHF",
+       "lag": 1,
+       "rho": 0.3285
+      },
+      {
+       "dst": "SETG01",
+       "lag": 1,
+       "rho": 0.3155
+      },
+      {
+       "dst": "SETC",
+       "lag": 6,
+       "rho": 0.2401
+      },
+      {
+       "dst": "SEFV",
+       "lag": 7,
+       "rho": 0.2234
+      },
+      {
+       "dst": "SAF115",
+       "lag": 4,
+       "rho": 0.2142
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHF",
+       "dst": "SEHA",
+       "lag": 8,
+       "cum_lag": 9,
+       "rho": 0.2731
+      },
+      {
+       "via": "SEHF",
+       "dst": "SERB01",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.2642
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEHC01",
+       "lag": 8,
+       "cum_lag": 9,
+       "rho": 0.2626
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEEB03",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.2592
+      },
+      {
+       "via": "SEHF",
+       "dst": "SETD",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2128
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEFX",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2037
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF111",
+       "lag": 5,
+       "cum_lag": 11,
+       "rho": 0.4162
+      },
+      {
+       "via": "SETC",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 7,
+       "rho": 0.3527
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 8,
+       "rho": 0.2792
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 8,
+       "rho": 0.229
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 8,
+       "rho": 0.3768
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 8,
+       "rho": 0.3386
+      }
+     ]
+    },
+    "SEHF": {
+     "l1": [
+      {
+       "dst": "SEHA",
+       "lag": 8,
+       "rho": 0.2731
+      },
+      {
+       "dst": "SERB01",
+       "lag": 3,
+       "rho": 0.2642
+      },
+      {
+       "dst": "SEHC01",
+       "lag": 8,
+       "rho": 0.2626
+      },
+      {
+       "dst": "SEEB03",
+       "lag": 3,
+       "rho": 0.2592
+      },
+      {
+       "dst": "SETD",
+       "lag": 4,
+       "rho": 0.2128
+      },
+      {
+       "dst": "SEFX",
+       "lag": 4,
+       "rho": 0.2037
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHA",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 9,
+       "rho": 0.5084
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 9,
+       "rho": 0.273
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 9,
+       "rho": -0.2389
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 8,
+       "rho": 0.34
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.3231
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 7,
+       "rho": 0.3054
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2456
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2242
+      },
+      {
+       "via": "SETD",
+       "dst": "SEFV",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.3965
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2664
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF115",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2456
+      },
+      {
+       "via": "SETD",
+       "dst": "SETC",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.1804
+      }
+     ]
+    },
+    "SEHG01": {
+     "l1": [
+      {
+       "dst": "SEHB01",
+       "lag": 6,
+       "rho": 0.2076
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHB01",
+       "dst": "SEEB01",
+       "lag": 5,
+       "cum_lag": 11,
+       "rho": 0.4562
+      },
+      {
+       "via": "SEHB01",
+       "dst": "SEMD01",
+       "lag": 3,
+       "cum_lag": 9,
+       "rho": 0.2389
+      }
+     ]
+    },
+    "SEHG02": {
+     "l1": [
+      {
+       "dst": "SAF114",
+       "lag": 2,
+       "rho": 0.2344
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF114",
+       "dst": "SEFV",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.3656
+      },
+      {
+       "via": "SAF114",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2987
+      },
+      {
+       "via": "SAF114",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.2645
+      },
+      {
+       "via": "SAF114",
+       "dst": "SETC",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.2253
+      }
+     ]
+    },
+    "SEHL": {
+     "l1": [
+      {
+       "dst": "SAF115",
+       "lag": 6,
+       "rho": 0.2647
+      },
+      {
+       "dst": "SERB01",
+       "lag": 2,
+       "rho": 0.1994
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF115",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 9,
+       "rho": 0.4643
+      },
+      {
+       "via": "SAF115",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 8,
+       "rho": 0.3877
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 9,
+       "rho": 0.3606
+      },
+      {
+       "via": "SAF115",
+       "dst": "SETC",
+       "lag": 3,
+       "cum_lag": 9,
+       "rho": 0.2971
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 7,
+       "rho": 0.34
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETD",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.3366
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.3231
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2456
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.2242
+      }
+     ]
+    },
+    "SEHM": {
+     "l1": [
+      {
+       "dst": "SEHJ",
+       "lag": 2,
+       "rho": 0.1982
+      }
+     ],
+     "l2": []
+    },
+    "SEHN": {
+     "l1": [
+      {
+       "dst": "SERB01",
+       "lag": 1,
+       "rho": 0.3253
+      },
+      {
+       "dst": "SAF111",
+       "lag": 1,
+       "rho": 0.2786
+      }
+     ],
+     "l2": [
+      {
+       "via": "SERB01",
+       "dst": "SETD",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.3366
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.3054
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2456
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2242
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.4703
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.406
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3212
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2682
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHK",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2158
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.1294
+      }
+     ]
+    },
+    "SEHP03": {
+     "l1": [
+      {
+       "dst": "SETG02",
+       "lag": 1,
+       "rho": 0.2074
+      }
+     ],
+     "l2": []
+    },
+    "SEAB": {
+     "l1": [
+      {
+       "dst": "SEAC01",
+       "lag": 7,
+       "rho": 0.2166
+      }
+     ],
+     "l2": []
+    },
+    "SETA02": {
+     "l1": [
+      {
+       "dst": "SETA01",
+       "lag": 1,
+       "rho": 0.3549
+      }
+     ],
+     "l2": []
+    },
+    "SETB01": {
+     "l1": [
+      {
+       "dst": "SETG01",
+       "lag": 1,
+       "rho": 0.2621
+      },
+      {
+       "dst": "SEHE",
+       "lag": 1,
+       "rho": 0.261
+      },
+      {
+       "dst": "SEHF",
+       "lag": 1,
+       "rho": 0.199
+      }
+     ],
+     "l2": [
+      {
+       "via": "SETG01",
+       "dst": "SAF115",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.2361
+      },
+      {
+       "via": "SEHE",
+       "dst": "SETC",
+       "lag": 6,
+       "cum_lag": 7,
+       "rho": 0.2401
+      },
+      {
+       "via": "SEHE",
+       "dst": "SEFV",
+       "lag": 7,
+       "cum_lag": 8,
+       "rho": 0.2234
+      },
+      {
+       "via": "SEHE",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2142
+      },
+      {
+       "via": "SEHE",
+       "dst": "SEFJ",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2072
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEHA",
+       "lag": 8,
+       "cum_lag": 9,
+       "rho": 0.2731
+      },
+      {
+       "via": "SEHF",
+       "dst": "SERB01",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.2642
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEHC01",
+       "lag": 8,
+       "cum_lag": 9,
+       "rho": 0.2626
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEEB03",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.2592
+      },
+      {
+       "via": "SEHF",
+       "dst": "SETD",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2128
+      },
+      {
+       "via": "SEHF",
+       "dst": "SEFX",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2037
+      }
+     ]
+    },
+    "SETC": {
+     "l1": [
+      {
+       "dst": "SAF111",
+       "lag": 5,
+       "rho": 0.4162
+      },
+      {
+       "dst": "SAF115",
+       "lag": 3,
+       "rho": 0.3742
+      },
+      {
+       "dst": "SERB01",
+       "lag": 1,
+       "rho": 0.3527
+      },
+      {
+       "dst": "SAF114",
+       "lag": 2,
+       "rho": 0.2792
+      },
+      {
+       "dst": "SEHK",
+       "lag": 2,
+       "rho": 0.229
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF111",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.4703
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 6,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 7,
+       "rho": 0.1294
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.4643
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.3606
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 6,
+       "rho": 0.34
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETD",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.3366
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2242
+      },
+      {
+       "via": "SAF114",
+       "dst": "SEFV",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.3656
+      }
+     ]
+    },
+    "SETD": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 4,
+       "rho": 0.3965
+      },
+      {
+       "dst": "SAF114",
+       "lag": 1,
+       "rho": 0.2664
+      },
+      {
+       "dst": "SAF115",
+       "lag": 1,
+       "rho": 0.2456
+      },
+      {
+       "dst": "SERB01",
+       "lag": 4,
+       "rho": 0.241
+      },
+      {
+       "dst": "SETC",
+       "lag": 4,
+       "rho": 0.1804
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.3768
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.3386
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.2133
+      },
+      {
+       "via": "SAF114",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2987
+      },
+      {
+       "via": "SAF115",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.3877
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.3606
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 9,
+       "rho": 0.34
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.3231
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.2242
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF111",
+       "lag": 5,
+       "cum_lag": 9,
+       "rho": 0.4162
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.229
+      }
+     ]
+    },
+    "SETG01": {
+     "l1": [
+      {
+       "dst": "SAF115",
+       "lag": 3,
+       "rho": 0.2361
+      },
+      {
+       "dst": "SEHE",
+       "lag": 8,
+       "rho": -0.2137
+      },
+      {
+       "dst": "SETB01",
+       "lag": 1,
+       "rho": 0.1936
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF115",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.4643
+      },
+      {
+       "via": "SAF115",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.3877
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.3606
+      },
+      {
+       "via": "SAF115",
+       "dst": "SETC",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.2971
+      },
+      {
+       "via": "SEHE",
+       "dst": "SEHF",
+       "lag": 1,
+       "cum_lag": 9,
+       "rho": 0.3285
+      },
+      {
+       "via": "SEHE",
+       "dst": "SETC",
+       "lag": 6,
+       "cum_lag": 14,
+       "rho": 0.2401
+      },
+      {
+       "via": "SEHE",
+       "dst": "SEFV",
+       "lag": 7,
+       "cum_lag": 15,
+       "rho": 0.2234
+      },
+      {
+       "via": "SEHE",
+       "dst": "SEFJ",
+       "lag": 2,
+       "cum_lag": 10,
+       "rho": 0.2072
+      },
+      {
+       "via": "SETB01",
+       "dst": "SEHF",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.199
+      }
+     ]
+    },
+    "SERA01": {
+     "l1": [
+      {
+       "dst": "SEHA",
+       "lag": 12,
+       "rho": 0.2879
+      },
+      {
+       "dst": "SEEA",
+       "lag": 3,
+       "rho": -0.1842
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHA",
+       "dst": "SEHC01",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": 0.8038
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": 0.5084
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": 0.273
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": -0.2389
+      }
+     ]
+    },
+    "SERB01": {
+     "l1": [
+      {
+       "dst": "SEHN",
+       "lag": 5,
+       "rho": 0.34
+      },
+      {
+       "dst": "SETD",
+       "lag": 3,
+       "rho": 0.3366
+      },
+      {
+       "dst": "SAF111",
+       "lag": 2,
+       "rho": 0.3231
+      },
+      {
+       "dst": "SAF115",
+       "lag": 4,
+       "rho": 0.3054
+      },
+      {
+       "dst": "SETC",
+       "lag": 1,
+       "rho": 0.2456
+      },
+      {
+       "dst": "SEFW",
+       "lag": 2,
+       "rho": 0.2242
+      }
+     ],
+     "l2": [
+      {
+       "via": "SETD",
+       "dst": "SEFV",
+       "lag": 4,
+       "cum_lag": 7,
+       "rho": 0.3965
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2664
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.4703
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2682
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHK",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.2158
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF113",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.1294
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.4643
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2792
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.229
+      }
+     ]
+    },
+    "SERB02": {
+     "l1": [
+      {
+       "dst": "SERB01",
+       "lag": 1,
+       "rho": 0.2362
+      },
+      {
+       "dst": "SAF111",
+       "lag": 2,
+       "rho": 0.198
+      }
+     ],
+     "l2": [
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 6,
+       "rho": 0.34
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETD",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.3366
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.3054
+      },
+      {
+       "via": "SERB01",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2456
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2242
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.4703
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.4139
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.406
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.3212
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.3081
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2682
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHK",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.2158
+      }
+     ]
+    },
+    "SERD01": {
+     "l1": [
+      {
+       "dst": "SETE",
+       "lag": 5,
+       "rho": 0.259
+      }
+     ],
+     "l2": []
+    },
+    "SEEB04": {
+     "l1": [
+      {
+       "dst": "SEHB01",
+       "lag": 12,
+       "rho": 0.2641
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHB01",
+       "dst": "SEEB01",
+       "lag": 5,
+       "cum_lag": 17,
+       "rho": 0.4562
+      },
+      {
+       "via": "SEHB01",
+       "dst": "SEMD01",
+       "lag": 3,
+       "cum_lag": 15,
+       "rho": 0.2389
+      }
+     ]
+    },
+    "SEGD": {
+     "l1": [
+      {
+       "dst": "SETD",
+       "lag": 4,
+       "rho": 0.2681
+      },
+      {
+       "dst": "SEHC01",
+       "lag": 9,
+       "rho": 0.2319
+      },
+      {
+       "dst": "SEEB02",
+       "lag": 3,
+       "rho": 0.1863
+      }
+     ],
+     "l2": [
+      {
+       "via": "SETD",
+       "dst": "SEFV",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.3965
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2664
+      },
+      {
+       "via": "SETD",
+       "dst": "SAF115",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2456
+      },
+      {
+       "via": "SETD",
+       "dst": "SERB01",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.241
+      },
+      {
+       "via": "SETD",
+       "dst": "SETC",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.1804
+      },
+      {
+       "via": "SEHC01",
+       "dst": "SEHA",
+       "lag": 1,
+       "cum_lag": 10,
+       "rho": 0.8142
+      }
+     ]
+    }
+   },
+   "lagprofile": {
+    "SAF111|SAF113": [
+     0.1104,
+     0.1294,
+     0.0831,
+     0.0838,
+     0.0019,
+     -0.0098,
+     -0.0084,
+     -0.053,
+     -0.0734,
+     -0.0555,
+     -0.0202,
+     -0.06
+    ],
+    "SAF111|SAF114": [
+     0.2682,
+     0.2398,
+     0.2199,
+     0.2064,
+     0.0815,
+     0.1918,
+     0.1196,
+     0.1504,
+     0.0367,
+     0.0124,
+     0.0435,
+     0.0226
+    ],
+    "SAF111|SAF115": [
+     0.3505,
+     0.406,
+     0.3054,
+     0.2981,
+     0.2876,
+     0.2463,
+     0.222,
+     0.1979,
+     0.14,
+     0.1051,
+     0.0225,
+     0.0388
+    ],
+    "SAF111|SEFV": [
+     0.4095,
+     0.4415,
+     0.4703,
+     0.3828,
+     0.4202,
+     0.3257,
+     0.3362,
+     0.291,
+     0.2537,
+     0.205,
+     0.1169,
+     0.1613
+    ],
+    "SAF111|SEHA": [
+     0.3217,
+     0.3459,
+     0.4139,
+     0.389,
+     0.3553,
+     0.3683,
+     0.3409,
+     0.3192,
+     0.2526,
+     0.2553,
+     0.2255,
+     0.1933
+    ],
+    "SAF111|SEHK": [
+     0.1061,
+     0.1247,
+     0.0482,
+     0.2158,
+     0.035,
+     0.1041,
+     0.0808,
+     0.0776,
+     0.0549,
+     -0.0299,
+     0.0272,
+     -0.0785
+    ],
+    "SAF111|SETC": [
+     0.3212,
+     0.2246,
+     0.2965,
+     0.2378,
+     0.1565,
+     0.122,
+     0.0964,
+     0.086,
+     0.0506,
+     0.0075,
+     -0.0756,
+     -0.0093
+    ],
+    "SAF111|SETD": [
+     0.3081,
+     0.1926,
+     0.2925,
+     0.2899,
+     0.2693,
+     0.2676,
+     0.2013,
+     0.1876,
+     0.2144,
+     0.2267,
+     0.1893,
+     0.1358
+    ],
+    "SAF112|SAF111": [
+     0.1662,
+     0.1227,
+     0.157,
+     0.2388,
+     0.1017,
+     0.2301,
+     0.1107,
+     0.1791,
+     0.1298,
+     0.2024,
+     0.1924,
+     0.17
+    ],
+    "SAF112|SAF114": [
+     0.1117,
+     0.1956,
+     0.1116,
+     0.1155,
+     0.0402,
+     0.1717,
+     0.0589,
+     0.1289,
+     0.1065,
+     0.0869,
+     0.072,
+     0.0232
+    ],
+    "SAF112|SEFV": [
+     0.2303,
+     0.2269,
+     0.2983,
+     0.2646,
+     0.2281,
+     0.172,
+     0.2013,
+     0.1924,
+     0.1537,
+     0.0791,
+     0.1424,
+     0.1921
+    ],
+    "SAF112|SEHM": [
+     0.0799,
+     0.0779,
+     0.0894,
+     0.245,
+     0.202,
+     0.2313,
+     0.1156,
+     0.0796,
+     0.0898,
+     0.1126,
+     0.1908,
+     0.1288
+    ],
+    "SEFJ|SAF112": [
+     0.2686,
+     0.1928,
+     0.1226,
+     0.0201,
+     0.0504,
+     0.0105,
+     0.0241,
+     0.039,
+     0.0297,
+     0.0069,
+     -0.0728,
+     -0.0877
+    ],
+    "SAF113|SAF115": [
+     0.0684,
+     -0.0024,
+     0.1921,
+     0.0839,
+     0.2017,
+     0.1468,
+     0.0114,
+     0.0415,
+     0.0087,
+     0.0288,
+     -0.0299,
+     0.0629
+    ],
+    "SAF114|SAF111": [
+     0.2987,
+     0.2362,
+     0.2421,
+     0.2166,
+     0.1755,
+     0.1988,
+     0.1247,
+     0.136,
+     0.1432,
+     0.0096,
+     0.1498,
+     -0.0027
+    ],
+    "SAF114|SAF115": [
+     0.2486,
+     0.2645,
+     0.2054,
+     0.2462,
+     0.1079,
+     0.2025,
+     0.043,
+     0.2036,
+     0.0927,
+     0.0399,
+     0.1523,
+     -0.0229
+    ],
+    "SAF114|SEFV": [
+     0.2991,
+     0.3656,
+     0.3506,
+     0.259,
+     0.3046,
+     0.3135,
+     0.2149,
+     0.2213,
+     0.1498,
+     0.1573,
+     0.1928,
+     0.1179
+    ],
+    "SAF114|SETC": [
+     0.1992,
+     0.2047,
+     0.1151,
+     0.2253,
+     0.0905,
+     0.1527,
+     -0.0079,
+     0.1181,
+     -0.0056,
+     0.0791,
+     -0.0294,
+     0.0483
+    ],
+    "SAF115|SAF111": [
+     0.3654,
+     0.3877,
+     0.2983,
+     0.295,
+     0.2553,
+     0.2433,
+     0.2256,
+     0.1683,
+     0.0994,
+     0.0904,
+     0.0579,
+     -0.0208
+    ],
+    "SAF115|SEFV": [
+     0.42,
+     0.4167,
+     0.4643,
+     0.3375,
+     0.3813,
+     0.2797,
+     0.3429,
+     0.3094,
+     0.2,
+     0.2131,
+     0.1935,
+     0.115
+    ],
+    "SAF115|SEHN": [
+     0.3142,
+     0.2411,
+     0.3606,
+     0.202,
+     0.2567,
+     0.2624,
+     0.188,
+     0.1926,
+     0.1581,
+     0.0702,
+     0.0428,
+     0.0035
+    ],
+    "SAF115|SETC": [
+     0.2553,
+     0.2438,
+     0.2971,
+     0.2245,
+     0.0956,
+     0.1414,
+     0.0601,
+     0.0514,
+     0.0431,
+     0.0234,
+     -0.0441,
+     -0.0144
+    ],
+    "SEFV|SAF111": [
+     0.3768,
+     0.2963,
+     0.3583,
+     0.2824,
+     0.2984,
+     0.2407,
+     0.2464,
+     0.2268,
+     0.2216,
+     0.1694,
+     0.132,
+     0.1557
+    ],
+    "SEFV|SAF114": [
+     0.2938,
+     0.2934,
+     0.2367,
+     0.2063,
+     0.2079,
+     0.1678,
+     0.2116,
+     0.186,
+     0.1523,
+     0.1656,
+     0.1064,
+     0.1492
+    ],
+    "SEFV|SAF115": [
+     0.3289,
+     0.3824,
+     0.3061,
+     0.2766,
+     0.2744,
+     0.3122,
+     0.222,
+     0.1992,
+     0.2176,
+     0.1778,
+     0.1179,
+     0.1784
+    ],
+    "SEFV|SEHK": [
+     0.13,
+     0.2133,
+     0.1435,
+     0.1716,
+     0.161,
+     0.0237,
+     0.0435,
+     0.0859,
+     0.0259,
+     -0.0411,
+     -0.0088,
+     -0.0715
+    ],
+    "SEFV|SEHN": [
+     0.3386,
+     0.2716,
+     0.2853,
+     0.2934,
+     0.2556,
+     0.2614,
+     0.2733,
+     0.1933,
+     0.1747,
+     0.1407,
+     0.1329,
+     0.1585
+    ],
+    "SEFV|SETC": [
+     0.298,
+     0.2779,
+     0.2911,
+     0.2201,
+     0.1464,
+     0.1364,
+     0.1535,
+     0.0772,
+     0.0695,
+     0.029,
+     0.0715,
+     0.0223
+    ],
+    "SEFX|SEHN": [
+     0.1664,
+     0.2087,
+     0.0818,
+     0.0949,
+     0.1627,
+     0.0741,
+     0.048,
+     0.0998,
+     -0.0065,
+     0.1146,
+     0.0768,
+     -0.0241
+    ],
+    "SEHA|SEFV": [
+     0.5084,
+     0.4782,
+     0.4551,
+     0.4159,
+     0.3693,
+     0.3378,
+     0.3069,
+     0.2883,
+     0.2328,
+     0.1638,
+     0.1566,
+     0.1492
+    ],
+    "SEHA|SEHC01": [
+     0.8038,
+     0.7907,
+     0.7699,
+     0.7376,
+     0.7237,
+     0.6828,
+     0.6699,
+     0.6195,
+     0.5805,
+     0.546,
+     0.5068,
+     0.4597
+    ],
+    "SEHA|SEHM": [
+     0.273,
+     0.219,
+     0.227,
+     0.2067,
+     0.1179,
+     0.1076,
+     0.0773,
+     0.0505,
+     0.0119,
+     -0.0589,
+     -0.0688,
+     -0.0763
+    ],
+    "SEHA|SETA02": [
+     -0.2389,
+     -0.237,
+     -0.2212,
+     -0.2148,
+     -0.2336,
+     -0.211,
+     -0.2069,
+     -0.1931,
+     -0.2083,
+     -0.1923,
+     -0.1707,
+     -0.1493
+    ],
+    "SEHB01|SEMD01": [
+     0.197,
+     0.1656,
+     0.2389,
+     0.1554,
+     0.1296,
+     0.1031,
+     0.0586,
+     0.0859,
+     0.1558,
+     0.1748,
+     0.0748,
+     0.0494
+    ],
+    "SEHB01|SEEB01": [
+     0.3802,
+     0.3338,
+     0.387,
+     0.3534,
+     0.4562,
+     0.3914,
+     0.3848,
+     0.4055,
+     0.3731,
+     0.372,
+     0.361,
+     0.4374
+    ],
+    "SEHC01|SEHA": [
+     0.8142,
+     0.7993,
+     0.7573,
+     0.7531,
+     0.7056,
+     0.6808,
+     0.6424,
+     0.6083,
+     0.5616,
+     0.5186,
+     0.4757,
+     0.4209
+    ],
+    "SEHC01|SETD": [
+     0.387,
+     0.4015,
+     0.3499,
+     0.3678,
+     0.3263,
+     0.299,
+     0.3049,
+     0.2905,
+     0.2573,
+     0.281,
+     0.2656,
+     0.2714
+    ],
+    "SEHE|SEFJ": [
+     0.1284,
+     0.2072,
+     0.1508,
+     0.1997,
+     0.1661,
+     0.1714,
+     0.1064,
+     0.0402,
+     0.0039,
+     -0.0146,
+     0.0383,
+     -0.0666
+    ],
+    "SEHE|SAF115": [
+     0.0446,
+     0.0502,
+     0.1876,
+     0.2142,
+     0.2086,
+     0.1816,
+     0.1618,
+     0.088,
+     0.1606,
+     0.1449,
+     0.1358,
+     0.1158
+    ],
+    "SEHE|SEFV": [
+     0.0013,
+     0.0086,
+     0.0828,
+     0.1543,
+     0.1734,
+     0.1464,
+     0.2234,
+     0.1662,
+     0.1065,
+     0.1928,
+     0.2066,
+     0.1872
+    ],
+    "SEHE|SEHF": [
+     0.3285,
+     0.2236,
+     0.2065,
+     0.2421,
+     0.1486,
+     0.1025,
+     0.1538,
+     0.0971,
+     -0.0706,
+     -0.017,
+     0.1741,
+     -0.0804
+    ],
+    "SEHE|SETB01": [
+     0.3395,
+     -0.0393,
+     -0.1056,
+     -0.0555,
+     -0.0195,
+     -0.0636,
+     -0.0076,
+     -0.0282,
+     -0.0249,
+     0.0341,
+     -0.0354,
+     -0.1518
+    ],
+    "SEHE|SETC": [
+     0.0732,
+     0.1165,
+     0.155,
+     0.1709,
+     0.208,
+     0.2401,
+     0.2137,
+     0.1724,
+     0.1444,
+     0.1959,
+     0.0822,
+     0.0936
+    ],
+    "SEHE|SETG01": [
+     0.3155,
+     0.1526,
+     0.0448,
+     0.0781,
+     0.0948,
+     0.0795,
+     -0.015,
+     -0.0771,
+     -0.0237,
+     0.0461,
+     0.0427,
+     -0.026
+    ],
+    "SEHF|SEFX": [
+     0.0618,
+     -0.0059,
+     0.069,
+     0.2037,
+     0.0997,
+     0.0371,
+     0.1406,
+     0.1569,
+     0.1703,
+     0.103,
+     0.117,
+     0.0639
+    ],
+    "SEHF|SEHA": [
+     0.1473,
+     0.1114,
+     0.1547,
+     0.202,
+     0.1892,
+     0.2439,
+     0.2033,
+     0.2731,
+     0.2119,
+     0.2296,
+     0.2477,
+     0.1945
+    ],
+    "SEHF|SEHC01": [
+     0.0423,
+     0.0826,
+     0.1026,
+     0.155,
+     0.1697,
+     0.211,
+     0.2352,
+     0.2626,
+     0.2474,
+     0.2479,
+     0.2482,
+     0.2394
+    ],
+    "SEHF|SETD": [
+     0.1494,
+     0.0556,
+     0.131,
+     0.2128,
+     0.1505,
+     0.1466,
+     0.1067,
+     0.1332,
+     0.1079,
+     0.0838,
+     0.0524,
+     0.0641
+    ],
+    "SEHF|SERB01": [
+     0.0585,
+     0.1192,
+     0.2642,
+     0.1694,
+     0.1485,
+     0.1577,
+     0.2044,
+     0.1542,
+     0.1618,
+     0.1104,
+     0.099,
+     0.1599
+    ],
+    "SEHF|SEEB03": [
+     0.0089,
+     0.0734,
+     0.2592,
+     0.0892,
+     0.1016,
+     0.0787,
+     0.0395,
+     0.089,
+     0.0443,
+     0.1077,
+     0.0385,
+     0.0667
+    ],
+    "SEHG01|SEHB01": [
+     0.146,
+     0.1177,
+     0.0721,
+     0.1467,
+     0.1249,
+     0.2076,
+     0.2031,
+     0.0417,
+     0.0566,
+     0.056,
+     0.1421,
+     0.174
+    ],
+    "SEHG02|SAF114": [
+     0.0884,
+     0.2344,
+     0.0586,
+     0.0191,
+     0.1062,
+     0.1016,
+     0.0606,
+     0.0658,
+     0.1056,
+     -0.0277,
+     0.0335,
+     0.1006
+    ],
+    "SEHL|SAF115": [
+     0.1162,
+     0.0307,
+     0.111,
+     0.1416,
+     0.1012,
+     0.2647,
+     0.0293,
+     0.1764,
+     0.0374,
+     0.0453,
+     0.1915,
+     0.0047
+    ],
+    "SEHL|SERB01": [
+     0.0449,
+     0.1994,
+     0.0765,
+     0.1581,
+     0.0213,
+     0.0574,
+     0.1497,
+     0.0732,
+     0.0483,
+     0.0057,
+     0.0041,
+     0.0681
+    ],
+    "SEHM|SEHJ": [
+     0.0813,
+     0.1982,
+     0.1723,
+     0.1176,
+     0.1182,
+     0.0873,
+     0.0365,
+     0.0432,
+     -0.0456,
+     -0.0445,
+     0.0391,
+     -0.0562
+    ],
+    "SEHN|SAF111": [
+     0.2786,
+     0.2265,
+     0.1961,
+     0.2066,
+     0.2245,
+     0.1215,
+     0.098,
+     0.0418,
+     0.0625,
+     0.0509,
+     0.0113,
+     0.0348
+    ],
+    "SEHN|SERB01": [
+     0.3253,
+     0.176,
+     0.2517,
+     0.2125,
+     0.1595,
+     0.1657,
+     0.1237,
+     0.204,
+     0.1515,
+     0.048,
+     0.0563,
+     0.055
+    ],
+    "SEHP03|SETG02": [
+     0.2074,
+     0.1845,
+     -0.0709,
+     -0.0011,
+     0.0141,
+     0.034,
+     0.0041,
+     -0.0338,
+     0.0167,
+     0.0086,
+     -0.0808,
+     -0.0718
+    ],
+    "SEAB|SEAC01": [
+     0.0189,
+     0.0193,
+     0.021,
+     -0.0125,
+     -0.1141,
+     0.0657,
+     0.2166,
+     -0.0262,
+     -0.0286,
+     0.0147,
+     -0.0776,
+     0.0361
+    ],
+    "SETA02|SETA01": [
+     0.3549,
+     0.3194,
+     0.2091,
+     0.1784,
+     0.1703,
+     0.1428,
+     0.1362,
+     0.1417,
+     0.1747,
+     0.2138,
+     0.1734,
+     0.198
+    ],
+    "SETB01|SEHE": [
+     0.261,
+     0.0733,
+     -0.0109,
+     0.0864,
+     0.1368,
+     0.0668,
+     0.0981,
+     -0.0122,
+     -0.0641,
+     0.0062,
+     0.0161,
+     -0.069
+    ],
+    "SETB01|SEHF": [
+     0.199,
+     0.1215,
+     0.1245,
+     0.1313,
+     0.0771,
+     0.1367,
+     0.1639,
+     0.0024,
+     -0.0345,
+     0.0732,
+     0.0836,
+     -0.0418
+    ],
+    "SETB01|SETG01": [
+     0.2621,
+     0.0871,
+     0.0101,
+     0.0753,
+     0.082,
+     0.0055,
+     -0.0404,
+     0.0003,
+     0.0112,
+     0.0661,
+     0.0455,
+     -0.0645
+    ],
+    "SETC|SAF111": [
+     0.3367,
+     0.3092,
+     0.3652,
+     0.3222,
+     0.4162,
+     0.2686,
+     0.3587,
+     0.2418,
+     0.2826,
+     0.2184,
+     0.2698,
+     0.208
+    ],
+    "SETC|SAF114": [
+     0.2568,
+     0.2792,
+     0.2064,
+     0.2093,
+     0.2435,
+     0.2143,
+     0.2252,
+     0.2143,
+     0.2139,
+     0.1004,
+     0.1557,
+     0.0866
+    ],
+    "SETC|SAF115": [
+     0.2906,
+     0.3518,
+     0.3742,
+     0.2934,
+     0.3674,
+     0.3307,
+     0.3387,
+     0.2466,
+     0.2743,
+     0.1672,
+     0.2503,
+     0.0971
+    ],
+    "SETC|SEHK": [
+     0.2246,
+     0.229,
+     0.1256,
+     0.0751,
+     0.175,
+     0.0847,
+     0.1049,
+     0.1206,
+     0.1209,
+     -0.0137,
+     0.0188,
+     -0.0026
+    ],
+    "SETC|SERB01": [
+     0.3527,
+     0.2466,
+     0.2516,
+     0.2831,
+     0.2793,
+     0.296,
+     0.2693,
+     0.2562,
+     0.2614,
+     0.2263,
+     0.1829,
+     0.1967
+    ],
+    "SETD|SAF114": [
+     0.2664,
+     0.1345,
+     0.0978,
+     0.0556,
+     0.1388,
+     0.1365,
+     0.0183,
+     0.2009,
+     0.0517,
+     0.0034,
+     -0.0306,
+     0.1311
+    ],
+    "SETD|SAF115": [
+     0.2456,
+     0.1285,
+     0.1939,
+     0.1651,
+     0.1266,
+     0.0831,
+     0.0345,
+     0.1217,
+     0.0252,
+     0.0569,
+     0.025,
+     0.078
+    ],
+    "SETD|SEFV": [
+     0.2786,
+     0.3416,
+     0.3833,
+     0.3965,
+     0.2043,
+     0.2023,
+     0.2122,
+     0.1842,
+     0.1753,
+     0.1471,
+     0.1626,
+     0.1183
+    ],
+    "SETD|SETC": [
+     0.0668,
+     0.1008,
+     0.1219,
+     0.1804,
+     0.0477,
+     0.0453,
+     0.1017,
+     -0.0395,
+     -0.0166,
+     -0.0009,
+     0.0372,
+     -0.0955
+    ],
+    "SETD|SERB01": [
+     0.1499,
+     0.0991,
+     0.1392,
+     0.241,
+     0.1674,
+     0.1578,
+     0.0774,
+     0.1639,
+     0.0043,
+     -0.0041,
+     0.0642,
+     0.0529
+    ],
+    "SETG01|SAF115": [
+     0.0544,
+     0.173,
+     0.2361,
+     0.176,
+     0.1454,
+     0.1545,
+     0.0264,
+     0.0242,
+     0.0736,
+     0.0788,
+     0.0458,
+     0.0841
+    ],
+    "SETG01|SEHE": [
+     0.1915,
+     0.0509,
+     -0.0279,
+     0.0462,
+     0.0744,
+     0.0907,
+     -0.0493,
+     -0.2137,
+     -0.181,
+     -0.0146,
+     0.0178,
+     -0.0577
+    ],
+    "SETG01|SETB01": [
+     0.1936,
+     0.0514,
+     -0.0724,
+     -0.0978,
+     -0.087,
+     -0.0577,
+     -0.0559,
+     -0.1065,
+     -0.0722,
+     0.0164,
+     0.0133,
+     -0.004
+    ],
+    "SERA01|SEHA": [
+     0.0682,
+     0.1123,
+     0.0977,
+     0.1133,
+     0.1672,
+     0.1461,
+     0.1781,
+     0.1954,
+     0.2308,
+     0.2878,
+     0.2688,
+     0.2879
+    ],
+    "SERA01|SEEA": [
+     -0.0501,
+     -0.0443,
+     -0.1842,
+     -0.1022,
+     0.0413,
+     0.0523,
+     -0.0376,
+     -0.0445,
+     0.1083,
+     0.1004,
+     0.039,
+     -0.012
+    ],
+    "SERB01|SAF111": [
+     0.3128,
+     0.3231,
+     0.2221,
+     0.3133,
+     0.1848,
+     0.1607,
+     0.1482,
+     0.1117,
+     0.0841,
+     0.0773,
+     0.0361,
+     0.0242
+    ],
+    "SERB01|SAF115": [
+     0.2689,
+     0.2712,
+     0.2007,
+     0.3054,
+     0.1575,
+     0.1365,
+     0.1665,
+     0.0439,
+     0.0834,
+     0.0582,
+     0.0375,
+     0.0732
+    ],
+    "SERB01|SEFW": [
+     0.1358,
+     0.2242,
+     0.0869,
+     0.1392,
+     0.1785,
+     0.0181,
+     0.0992,
+     0.0623,
+     0.1293,
+     0.1362,
+     0.0294,
+     0.058
+    ],
+    "SERB01|SEHN": [
+     0.0988,
+     0.1887,
+     0.1861,
+     0.174,
+     0.34,
+     0.1695,
+     0.084,
+     0.132,
+     0.0951,
+     0.051,
+     0.1075,
+     0.0503
+    ],
+    "SERB01|SETC": [
+     0.2456,
+     0.1707,
+     0.2349,
+     0.1482,
+     0.1222,
+     0.0819,
+     0.0898,
+     0.045,
+     0.0364,
+     0.007,
+     -0.0865,
+     -0.0775
+    ],
+    "SERB01|SETD": [
+     0.222,
+     0.1821,
+     0.3366,
+     0.2301,
+     0.1669,
+     0.1988,
+     0.1591,
+     0.1211,
+     0.1088,
+     0.1213,
+     0.1598,
+     0.0683
+    ],
+    "SERB02|SAF111": [
+     0.1496,
+     0.198,
+     0.1183,
+     0.1968,
+     0.1318,
+     0.1295,
+     0.151,
+     0.0192,
+     0.0943,
+     0.0736,
+     0.0659,
+     0.0615
+    ],
+    "SERB02|SERB01": [
+     0.2362,
+     0.1471,
+     0.1867,
+     0.029,
+     0.1535,
+     0.1638,
+     0.164,
+     0.1986,
+     0.0139,
+     0.0149,
+     0.1232,
+     -0.0039
+    ],
+    "SERD01|SETE": [
+     0.0456,
+     -0.0438,
+     -0.0969,
+     0.0966,
+     0.259,
+     0.0752,
+     -0.0979,
+     -0.0668,
+     0.0158,
+     0.0999,
+     0.0686,
+     0.0105
+    ],
+    "SEEB04|SEHB01": [
+     0.2386,
+     0.1977,
+     0.1558,
+     0.1861,
+     0.1963,
+     0.2199,
+     0.1965,
+     0.1953,
+     0.168,
+     0.1602,
+     0.2237,
+     0.2641
+    ],
+    "SEGD|SEHC01": [
+     0.1545,
+     0.1502,
+     0.1731,
+     0.1581,
+     0.1866,
+     0.1767,
+     0.1931,
+     0.1927,
+     0.2319,
+     0.1886,
+     0.1834,
+     0.191
+    ],
+    "SEGD|SETD": [
+     0.0848,
+     0.1655,
+     0.0295,
+     0.2681,
+     0.2164,
+     0.1297,
+     0.0795,
+     -0.0428,
+     0.0046,
+     0.0396,
+     0.2128,
+     0.1743
+    ],
+    "SEGD|SEEB02": [
+     0.0001,
+     0.0215,
+     0.1863,
+     0.1077,
+     0.0125,
+     0.0167,
+     0.1142,
+     0.0681,
+     0.075,
+     0.0039,
+     0.0052,
+     -0.0257
+    ]
+   }
+  },
+  "common_removed": {
+   "nodes": [
+    {
+     "code": "SAF111",
+     "name": "Cereals and bakery products",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 1.035,
+     "in_deg": 7,
+     "out_deg": 6,
+     "upstreamness": 0.0039
+    },
+    {
+     "code": "SAF112",
+     "name": "Meats, poultry, fish, and eggs",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 1.995,
+     "in_deg": 1,
+     "out_deg": 3,
+     "upstreamness": 0.5082
+    },
+    {
+     "code": "SEFJ",
+     "name": "Dairy and related products",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.758,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2652
+    },
+    {
+     "code": "SAF113",
+     "name": "Fruits and vegetables",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 1.269,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SAF114",
+     "name": "Nonalcoholic beverages and beverage materials",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.995,
+     "in_deg": 3,
+     "out_deg": 4,
+     "upstreamness": 0.3507
+    },
+    {
+     "code": "SAF115",
+     "name": "Other food at home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 2.273,
+     "in_deg": 5,
+     "out_deg": 6,
+     "upstreamness": 0.1541
+    },
+    {
+     "code": "SEFV",
+     "name": "Food away from home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 5.373,
+     "in_deg": 8,
+     "out_deg": 6,
+     "upstreamness": -1.1146
+    },
+    {
+     "code": "SEFW",
+     "name": "Alcoholic beverages at home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.397,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2128
+    },
+    {
+     "code": "SEFX",
+     "name": "Alcoholic beverages away from home",
+     "major": "SAF",
+     "major_name": "Food and beverages",
+     "color": "#e07b39",
+     "weight": 0.443,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEHA",
+     "name": "Rent of primary residence",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 7.84,
+     "in_deg": 4,
+     "out_deg": 7,
+     "upstreamness": 0.825
+    },
+    {
+     "code": "SEHB01",
+     "name": "Lodging while at school",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.118,
+     "in_deg": 3,
+     "out_deg": 2,
+     "upstreamness": 0.1153
+    },
+    {
+     "code": "SEHB02",
+     "name": "Other lodging away from home including hotels and motels",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 1.068,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEHC01",
+     "name": "Owners' equivalent rent of primary residence",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 25.23,
+     "in_deg": 2,
+     "out_deg": 3,
+     "upstreamness": 0.2095
+    },
+    {
+     "code": "SEHE",
+     "name": "Fuel oil and other fuels",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.14,
+     "in_deg": 3,
+     "out_deg": 0,
+     "upstreamness": -0.7217
+    },
+    {
+     "code": "SEHF",
+     "name": "Energy services",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 3.262,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2367
+    },
+    {
+     "code": "SEHG01",
+     "name": "Water and sewerage maintenance",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.783,
+     "in_deg": 1,
+     "out_deg": 1,
+     "upstreamness": 0.067
+    },
+    {
+     "code": "SEHG02",
+     "name": "Garbage and trash collection",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.361,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1739
+    },
+    {
+     "code": "SEHH",
+     "name": "Window and floor coverings and other linens",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.238,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEHJ",
+     "name": "Furniture and bedding",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.884,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1538
+    },
+    {
+     "code": "SEHK",
+     "name": "Appliances",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.191,
+     "in_deg": 2,
+     "out_deg": 0,
+     "upstreamness": -0.453
+    },
+    {
+     "code": "SEHL",
+     "name": "Other household equipment and furnishings",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.566,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.1757
+    },
+    {
+     "code": "SEHM",
+     "name": "Tools, hardware, outdoor equipment and supplies",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.691,
+     "in_deg": 2,
+     "out_deg": 1,
+     "upstreamness": -0.3555
+    },
+    {
+     "code": "SEHN",
+     "name": "Housekeeping supplies",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.847,
+     "in_deg": 3,
+     "out_deg": 4,
+     "upstreamness": 0.135
+    },
+    {
+     "code": "SEHP03",
+     "name": "Moving, storage, freight expense",
+     "major": "SAH",
+     "major_name": "Housing",
+     "color": "#3b7dd8",
+     "weight": 0.067,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA01",
+     "name": "Men's suits, sport coats, and outerwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.097,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA02",
+     "name": "Men's underwear, nightwear, swimwear and accessories",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.13,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA03",
+     "name": "Men's shirts and sweaters",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.126,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAA04",
+     "name": "Men's pants and shorts",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.115,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAB",
+     "name": "Boys' apparel",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.116,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2139
+    },
+    {
+     "code": "SEAC01",
+     "name": "Women's outerwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.068,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2139
+    },
+    {
+     "code": "SEAC02",
+     "name": "Women's dresses",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.104,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAC03",
+     "name": "Women's suits and separates",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.366,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAC04",
+     "name": "Women's underwear, nightwear, swimwear and accessories",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.234,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAD",
+     "name": "Girls' apparel",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.141,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAE01",
+     "name": "Men's footwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.191,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.1739
+    },
+    {
+     "code": "SEAE02",
+     "name": "Boys' and girls' footwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.124,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAE03",
+     "name": "Women's footwear",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.269,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1012
+    },
+    {
+     "code": "SEAG01",
+     "name": "Watches",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.035,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEAG02",
+     "name": "Jewelry",
+     "major": "SAA",
+     "major_name": "Apparel",
+     "color": "#c94f7c",
+     "weight": 0.128,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SETA01",
+     "name": "New vehicles",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 3.838,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.3152
+    },
+    {
+     "code": "SETA02",
+     "name": "Used cars and trucks",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 2.759,
+     "in_deg": 2,
+     "out_deg": 3,
+     "upstreamness": 0.2678
+    },
+    {
+     "code": "SETA04",
+     "name": "Car and truck rental",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.138,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SETB01",
+     "name": "Gasoline (all types)",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 2.895,
+     "in_deg": 1,
+     "out_deg": 2,
+     "upstreamness": 0.273
+    },
+    {
+     "code": "SETC",
+     "name": "Motor vehicle parts and equipment",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.349,
+     "in_deg": 6,
+     "out_deg": 4,
+     "upstreamness": -0.2465
+    },
+    {
+     "code": "SETD",
+     "name": "Motor vehicle maintenance and repair",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 1.039,
+     "in_deg": 4,
+     "out_deg": 3,
+     "upstreamness": -0.5451
+    },
+    {
+     "code": "SETE",
+     "name": "Motor vehicle insurance",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 2.754,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SETG01",
+     "name": "Airline fares",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.881,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SETG02",
+     "name": "Other intercity transportation",
+     "major": "SAT",
+     "major_name": "Transportation",
+     "color": "#2f9e6b",
+     "weight": 0.244,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEMF01",
+     "name": "Prescription drugs",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 0.973,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEMC",
+     "name": "Professional services",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 3.426,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEMD01",
+     "name": "Hospital services",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 2.167,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2311
+    },
+    {
+     "code": "SEMD02",
+     "name": "Nursing homes and adult day services",
+     "major": "SAM",
+     "major_name": "Medical care",
+     "color": "#8b5cf6",
+     "weight": 0.221,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERA01",
+     "name": "Televisions",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.107,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2486
+    },
+    {
+     "code": "SERA02",
+     "name": "Cable, satellite, and live streaming television service",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.606,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERA03",
+     "name": "Other video equipment",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.017,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERB01",
+     "name": "Pets and pet products",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.612,
+     "in_deg": 3,
+     "out_deg": 5,
+     "upstreamness": 0.6799
+    },
+    {
+     "code": "SERB02",
+     "name": "Pet services including veterinary",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.546,
+     "in_deg": 0,
+     "out_deg": 2,
+     "upstreamness": 0.3599
+    },
+    {
+     "code": "SERC01",
+     "name": "Sports vehicles including bicycles",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.284,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERD01",
+     "name": "Photographic equipment and supplies",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.026,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERE01",
+     "name": "Toys",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.293,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERE02",
+     "name": "Sewing machines, fabric and supplies",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.029,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERE03",
+     "name": "Music instruments and accessories",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.043,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERF01",
+     "name": "Club membership for shopping clubs, fraternal, or other organizations, or participant sports fees",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.766,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERF02",
+     "name": "Admissions",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.704,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SERF03",
+     "name": "Fees for lessons or instructions",
+     "major": "SAR",
+     "major_name": "Recreation",
+     "color": "#0ea5b7",
+     "weight": 0.158,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEEA",
+     "name": "Educational books and supplies",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.038,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEEB01",
+     "name": "College tuition and fees",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 1.351,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.4555
+    },
+    {
+     "code": "SEEB02",
+     "name": "Elementary and high school tuition and fees",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.408,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.1819
+    },
+    {
+     "code": "SEEB03",
+     "name": "Day care and preschool",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.699,
+     "in_deg": 1,
+     "out_deg": 0,
+     "upstreamness": -0.2367
+    },
+    {
+     "code": "SEEB04",
+     "name": "Technical and vocational school tuition and fixed fees",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.036,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.2669
+    },
+    {
+     "code": "SEEC",
+     "name": "Postage and delivery services",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.064,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEEE01",
+     "name": "Computers, peripherals, and smart home assistants",
+     "major": "SAE",
+     "major_name": "Education and communication",
+     "color": "#eab308",
+     "weight": 0.293,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    },
+    {
+     "code": "SEGD",
+     "name": "Miscellaneous personal services",
+     "major": "SAG",
+     "major_name": "Other goods and services",
+     "color": "#64748b",
+     "weight": 0.922,
+     "in_deg": 0,
+     "out_deg": 1,
+     "upstreamness": 0.1819
+    },
+    {
+     "code": "SEGE",
+     "name": "Miscellaneous personal goods",
+     "major": "SAG",
+     "major_name": "Other goods and services",
+     "color": "#64748b",
+     "weight": 0.184,
+     "in_deg": 0,
+     "out_deg": 0,
+     "upstreamness": 0.0
+    }
+   ],
+   "edges": [
+    {
+     "src": "SEHC01",
+     "dst": "SEHA",
+     "lag": 1,
+     "rho": 0.8008,
+     "rho_other": 0.8142,
+     "q": 0.0164,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHC01",
+     "lag": 1,
+     "rho": 0.7973,
+     "rho_other": 0.8038,
+     "q": 0.77454,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEFV",
+     "lag": 1,
+     "rho": 0.4939,
+     "rho_other": 0.5084,
+     "q": 0.24636,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHB01",
+     "dst": "SEEB01",
+     "lag": 5,
+     "rho": 0.4555,
+     "rho_other": 0.4562,
+     "q": 0.32664,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4301,
+     "rho_other": 0.4703,
+     "q": 0.05326,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4272,
+     "rho_other": 0.4643,
+     "q": 0.01108,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHC01",
+     "dst": "SETD",
+     "lag": 2,
+     "rho": 0.3848,
+     "rho_other": 0.4015,
+     "q": 0.21612,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEHA",
+     "lag": 3,
+     "rho": 0.382,
+     "rho_other": 0.4139,
+     "q": 0.46067,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.3744,
+     "rho_other": 0.406,
+     "q": 0.3167,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF111",
+     "lag": 5,
+     "rho": 0.3685,
+     "rho_other": 0.4162,
+     "q": 0.21769,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SEFV",
+     "lag": 2,
+     "rho": 0.3636,
+     "rho_other": 0.3656,
+     "q": 0.01108,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SAF111",
+     "lag": 2,
+     "rho": 0.3631,
+     "rho_other": 0.3877,
+     "q": 0.23227,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETD",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.3596,
+     "rho_other": 0.3833,
+     "q": 0.02185,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEHN",
+     "lag": 3,
+     "rho": 0.348,
+     "rho_other": 0.3606,
+     "q": 0.00885,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.338,
+     "rho_other": 0.3768,
+     "q": 0.29382,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.3327,
+     "rho_other": 0.3824,
+     "q": 0.6663,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF115",
+     "lag": 3,
+     "rho": 0.3274,
+     "rho_other": 0.3742,
+     "q": 0.08604,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SEHN",
+     "lag": 1,
+     "rho": 0.3257,
+     "rho_other": 0.3386,
+     "q": 0.00984,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHN",
+     "dst": "SERB01",
+     "lag": 1,
+     "rho": 0.3227,
+     "rho_other": 0.3253,
+     "q": 0.02021,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB01",
+     "dst": "SETD",
+     "lag": 3,
+     "rho": 0.3187,
+     "rho_other": 0.3366,
+     "q": 0.09884,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETA02",
+     "dst": "SETA01",
+     "lag": 1,
+     "rho": 0.3152,
+     "rho_other": 0.3549,
+     "q": 0.17038,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB01",
+     "dst": "SEHN",
+     "lag": 5,
+     "rho": 0.3036,
+     "rho_other": 0.34,
+     "q": 0.07937,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF112",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.3019,
+     "rho_other": 0.2983,
+     "q": 0.0,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SETC",
+     "lag": 1,
+     "rho": 0.2995,
+     "rho_other": 0.3212,
+     "q": 0.08604,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.2949,
+     "rho_other": 0.2987,
+     "q": 0.00901,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERB01",
+     "dst": "SEFV",
+     "lag": 1,
+     "rho": 0.2879,
+     "rho_other": 0.3166,
+     "q": 0.82553,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SETD",
+     "lag": 1,
+     "rho": 0.2874,
+     "rho_other": 0.3081,
+     "q": 0.15757,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHE",
+     "lag": 5,
+     "rho": -0.2801,
+     "rho_other": -0.1741,
+     "q": 0.0189,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETB01",
+     "dst": "SEHC01",
+     "lag": 5,
+     "rho": -0.2799,
+     "rho_other": -0.0899,
+     "q": 0.03183,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHN",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.2728,
+     "rho_other": 0.2786,
+     "q": 0.59461,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHN",
+     "dst": "SETD",
+     "lag": 4,
+     "rho": 0.271,
+     "rho_other": 0.288,
+     "q": 0.0239,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF114",
+     "lag": 1,
+     "rho": 0.2705,
+     "rho_other": 0.2938,
+     "q": 0.06712,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB01",
+     "dst": "SAF115",
+     "lag": 4,
+     "rho": 0.2697,
+     "rho_other": 0.3054,
+     "q": 0.21769,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHM",
+     "lag": 1,
+     "rho": 0.2684,
+     "rho_other": 0.273,
+     "q": 0.00248,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHA",
+     "dst": "SETA02",
+     "lag": 1,
+     "rho": -0.2675,
+     "rho_other": -0.2389,
+     "q": 0.19596,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEEB04",
+     "dst": "SEHB01",
+     "lag": 12,
+     "rho": 0.2669,
+     "rho_other": 0.2641,
+     "q": 0.73398,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFV",
+     "dst": "SETC",
+     "lag": 1,
+     "rho": 0.2658,
+     "rho_other": 0.298,
+     "q": 0.33857,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFJ",
+     "dst": "SAF112",
+     "lag": 1,
+     "rho": 0.2652,
+     "rho_other": 0.2686,
+     "q": 0.31385,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SETC",
+     "lag": 3,
+     "rho": 0.2612,
+     "rho_other": 0.2971,
+     "q": 0.41113,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.2577,
+     "rho_other": 0.2645,
+     "q": 0.10743,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHA",
+     "dst": "SETB01",
+     "lag": 1,
+     "rho": -0.2563,
+     "rho_other": -0.1096,
+     "q": 0.0,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF114",
+     "lag": 1,
+     "rho": 0.2547,
+     "rho_other": 0.2682,
+     "q": 0.03183,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETB01",
+     "dst": "SETA02",
+     "lag": 3,
+     "rho": 0.2494,
+     "rho_other": 0.213,
+     "q": 0.0918,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERA01",
+     "dst": "SEHA",
+     "lag": 12,
+     "rho": 0.2486,
+     "rho_other": 0.2879,
+     "q": 0.35158,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETA02",
+     "dst": "SEHA",
+     "lag": 1,
+     "rho": -0.2459,
+     "rho_other": -0.206,
+     "q": 0.0549,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF114",
+     "lag": 2,
+     "rho": 0.2458,
+     "rho_other": 0.2792,
+     "q": 0.01588,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHN",
+     "dst": "SETC",
+     "lag": 1,
+     "rho": 0.2458,
+     "rho_other": 0.2491,
+     "q": 0.64269,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF112",
+     "dst": "SEHM",
+     "lag": 4,
+     "rho": 0.241,
+     "rho_other": 0.245,
+     "q": 0.22786,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHF",
+     "dst": "SEEB03",
+     "lag": 3,
+     "rho": 0.2367,
+     "rho_other": 0.2592,
+     "q": 0.35639,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETC",
+     "dst": "SEHK",
+     "lag": 2,
+     "rho": 0.2324,
+     "rho_other": 0.229,
+     "q": 0.00025,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHB01",
+     "dst": "SEMD01",
+     "lag": 3,
+     "rho": 0.2311,
+     "rho_other": 0.2389,
+     "q": 0.0085,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF112",
+     "dst": "SAF111",
+     "lag": 4,
+     "rho": 0.2305,
+     "rho_other": 0.2388,
+     "q": 0.03171,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETA02",
+     "dst": "SEHE",
+     "lag": 4,
+     "rho": 0.2236,
+     "rho_other": 0.2698,
+     "q": 0.16948,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFV",
+     "dst": "SEHK",
+     "lag": 2,
+     "rho": 0.2206,
+     "rho_other": 0.2133,
+     "q": 0.06205,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEHE",
+     "lag": 5,
+     "rho": -0.218,
+     "rho_other": -0.0996,
+     "q": 0.08439,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SERB01",
+     "lag": 4,
+     "rho": 0.2143,
+     "rho_other": 0.241,
+     "q": 0.69883,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEAB",
+     "dst": "SEAC01",
+     "lag": 7,
+     "rho": 0.2139,
+     "rho_other": 0.2166,
+     "q": 0.71795,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB01",
+     "dst": "SEFW",
+     "lag": 2,
+     "rho": 0.2128,
+     "rho_other": 0.2242,
+     "q": 0.01918,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHG01",
+     "dst": "SEHB01",
+     "lag": 6,
+     "rho": 0.2058,
+     "rho_other": 0.2076,
+     "q": 0.60345,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF114",
+     "dst": "SETC",
+     "lag": 4,
+     "rho": 0.2055,
+     "rho_other": 0.2253,
+     "q": 0.40868,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SERB02",
+     "dst": "SEFV",
+     "lag": 6,
+     "rho": 0.2037,
+     "rho_other": 0.252,
+     "q": 0.04534,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEGD",
+     "dst": "SEEB02",
+     "lag": 3,
+     "rho": 0.1819,
+     "rho_other": 0.1863,
+     "q": 0.44132,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHL",
+     "dst": "SERB01",
+     "lag": 2,
+     "rho": 0.1757,
+     "rho_other": 0.1994,
+     "q": 0.02158,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEAE01",
+     "dst": "SEHG02",
+     "lag": 11,
+     "rho": -0.1739,
+     "rho_other": -0.1594,
+     "q": 0.65458,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SERB02",
+     "dst": "SAF111",
+     "lag": 4,
+     "rho": 0.1562,
+     "rho_other": 0.1968,
+     "q": 0.62511,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHM",
+     "dst": "SEHJ",
+     "lag": 3,
+     "rho": 0.1538,
+     "rho_other": 0.1723,
+     "q": 0.81736,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SETD",
+     "dst": "SETC",
+     "lag": 4,
+     "rho": 0.1429,
+     "rho_other": 0.1804,
+     "q": 0.61222,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHG01",
+     "lag": 5,
+     "rho": -0.1388,
+     "rho_other": -0.1406,
+     "q": 0.67579,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEHC01",
+     "dst": "SEAE03",
+     "lag": 1,
+     "rho": -0.1012,
+     "rho_other": -0.054,
+     "q": 0.28795,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEHB01",
+     "lag": 4,
+     "rho": -0.0987,
+     "rho_other": -0.0959,
+     "q": 0.69154,
+     "n_windows_pass": 3
+    }
+   ],
+   "stages": {
+    "pairs": 5402,
+    "tested": 5402,
+    "rho_screen": 168,
+    "fdr_pass": 176,
+    "screen_any": 301,
+    "stable": 70,
+    "stable_and_full_screen": 49,
+    "per_window": {
+     "w1": {
+      "start": "2000-01",
+      "end": "2014-12",
+      "n_months": 180,
+      "n_nodes": 71,
+      "tested": 4970,
+      "rho_screen": 207,
+      "fdr_pass": 118,
+      "screen_any": 300
+     },
+     "w2": {
+      "start": "2004-01",
+      "end": "2018-12",
+      "n_months": 180,
+      "n_nodes": 74,
+      "tested": 5402,
+      "rho_screen": 311,
+      "fdr_pass": 99,
+      "screen_any": 371
+     },
+     "w3": {
+      "start": "2008-01",
+      "end": "2022-12",
+      "n_months": 180,
+      "n_nodes": 74,
+      "tested": 5402,
+      "rho_screen": 552,
+      "fdr_pass": 242,
+      "screen_any": 696
+     },
+     "w4": {
+      "start": "2011-01",
+      "end": "2026-08",
+      "n_months": 188,
+      "n_nodes": 74,
+      "tested": 5402,
+      "rho_screen": 365,
+      "fdr_pass": 224,
+      "screen_any": 510
+     }
+    }
+   },
+   "top_edges": [
+    {
+     "src": "SEHC01",
+     "dst": "SEHA",
+     "lag": 1,
+     "rho": 0.8008,
+     "rho_other": 0.8142,
+     "q": 0.0164,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEHC01",
+     "lag": 1,
+     "rho": 0.7973,
+     "rho_other": 0.8038,
+     "q": 0.77454,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHA",
+     "dst": "SEFV",
+     "lag": 1,
+     "rho": 0.4939,
+     "rho_other": 0.5084,
+     "q": 0.24636,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHB01",
+     "dst": "SEEB01",
+     "lag": 5,
+     "rho": 0.4555,
+     "rho_other": 0.4562,
+     "q": 0.32664,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4301,
+     "rho_other": 0.4703,
+     "q": 0.05326,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.4272,
+     "rho_other": 0.4643,
+     "q": 0.01108,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SEHC01",
+     "dst": "SETD",
+     "lag": 2,
+     "rho": 0.3848,
+     "rho_other": 0.4015,
+     "q": 0.21612,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SEHA",
+     "lag": 3,
+     "rho": 0.382,
+     "rho_other": 0.4139,
+     "q": 0.46067,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF111",
+     "dst": "SAF115",
+     "lag": 2,
+     "rho": 0.3744,
+     "rho_other": 0.406,
+     "q": 0.3167,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETC",
+     "dst": "SAF111",
+     "lag": 5,
+     "rho": 0.3685,
+     "rho_other": 0.4162,
+     "q": 0.21769,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SAF114",
+     "dst": "SEFV",
+     "lag": 2,
+     "rho": 0.3636,
+     "rho_other": 0.3656,
+     "q": 0.01108,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SAF111",
+     "lag": 2,
+     "rho": 0.3631,
+     "rho_other": 0.3877,
+     "q": 0.23227,
+     "n_windows_pass": 4
+    },
+    {
+     "src": "SETD",
+     "dst": "SEFV",
+     "lag": 3,
+     "rho": 0.3596,
+     "rho_other": 0.3833,
+     "q": 0.02185,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SAF115",
+     "dst": "SEHN",
+     "lag": 3,
+     "rho": 0.348,
+     "rho_other": 0.3606,
+     "q": 0.00885,
+     "n_windows_pass": 3
+    },
+    {
+     "src": "SEFV",
+     "dst": "SAF111",
+     "lag": 1,
+     "rho": 0.338,
+     "rho_other": 0.3768,
+     "q": 0.29382,
+     "n_windows_pass": 4
+    }
+   ],
+   "cascade": {
+    "SAF111": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.4301
+      },
+      {
+       "dst": "SEHA",
+       "lag": 3,
+       "rho": 0.382
+      },
+      {
+       "dst": "SAF115",
+       "lag": 2,
+       "rho": 0.3744
+      },
+      {
+       "dst": "SETC",
+       "lag": 1,
+       "rho": 0.2995
+      },
+      {
+       "dst": "SETD",
+       "lag": 1,
+       "rho": 0.2874
+      },
+      {
+       "dst": "SAF114",
+       "lag": 1,
+       "rho": 0.2547
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3257
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2206
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHC01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.7973
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 8,
+       "rho": -0.2801
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2684
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": -0.2675
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETB01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": -0.2563
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHG01",
+       "lag": 5,
+       "cum_lag": 8,
+       "rho": -0.1388
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.348
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 7,
+       "rho": -0.218
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHB01",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": -0.0987
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2324
+      }
+     ]
+    },
+    "SAF112": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.3019
+      },
+      {
+       "dst": "SEHM",
+       "lag": 4,
+       "rho": 0.241
+      },
+      {
+       "dst": "SAF111",
+       "lag": 4,
+       "rho": 0.2305
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.3327
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3257
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2705
+      },
+      {
+       "via": "SEFV",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2658
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2206
+      },
+      {
+       "via": "SEHM",
+       "dst": "SEHJ",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.1538
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.3744
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2995
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2874
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2547
+      }
+     ]
+    },
+    "SEFJ": {
+     "l1": [
+      {
+       "dst": "SAF112",
+       "lag": 1,
+       "rho": 0.2652
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF112",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.3019
+      },
+      {
+       "via": "SAF112",
+       "dst": "SEHM",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.241
+      },
+      {
+       "via": "SAF112",
+       "dst": "SAF111",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2305
+      }
+     ]
+    },
+    "SAF114": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 2,
+       "rho": 0.3636
+      },
+      {
+       "dst": "SAF111",
+       "lag": 1,
+       "rho": 0.2949
+      },
+      {
+       "dst": "SAF115",
+       "lag": 2,
+       "rho": 0.2577
+      },
+      {
+       "dst": "SETC",
+       "lag": 4,
+       "rho": 0.2055
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.3257
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.2206
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2874
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.348
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 7,
+       "rho": -0.218
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHB01",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": -0.0987
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.2324
+      }
+     ]
+    },
+    "SAF115": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.4272
+      },
+      {
+       "dst": "SAF111",
+       "lag": 2,
+       "rho": 0.3631
+      },
+      {
+       "dst": "SEHN",
+       "lag": 3,
+       "rho": 0.348
+      },
+      {
+       "dst": "SETC",
+       "lag": 3,
+       "rho": 0.2612
+      },
+      {
+       "dst": "SEHE",
+       "lag": 5,
+       "rho": -0.218
+      },
+      {
+       "dst": "SEHB01",
+       "lag": 4,
+       "rho": -0.0987
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2705
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2206
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2874
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2547
+      },
+      {
+       "via": "SEHN",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3227
+      },
+      {
+       "via": "SEHN",
+       "dst": "SETD",
+       "lag": 4,
+       "cum_lag": 7,
+       "rho": 0.271
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2458
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2324
+      },
+      {
+       "via": "SEHB01",
+       "dst": "SEEB01",
+       "lag": 5,
+       "cum_lag": 9,
+       "rho": 0.4555
+      },
+      {
+       "via": "SEHB01",
+       "dst": "SEMD01",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.2311
+      }
+     ]
+    },
+    "SEFV": {
+     "l1": [
+      {
+       "dst": "SAF111",
+       "lag": 1,
+       "rho": 0.338
+      },
+      {
+       "dst": "SAF115",
+       "lag": 2,
+       "rho": 0.3327
+      },
+      {
+       "dst": "SEHN",
+       "lag": 1,
+       "rho": 0.3257
+      },
+      {
+       "dst": "SAF114",
+       "lag": 1,
+       "rho": 0.2705
+      },
+      {
+       "dst": "SETC",
+       "lag": 1,
+       "rho": 0.2658
+      },
+      {
+       "dst": "SEHK",
+       "lag": 2,
+       "rho": 0.2206
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2874
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 7,
+       "rho": -0.218
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHB01",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": -0.0987
+      },
+      {
+       "via": "SEHN",
+       "dst": "SERB01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3227
+      },
+      {
+       "via": "SEHN",
+       "dst": "SETD",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.271
+      }
+     ]
+    },
+    "SEHA": {
+     "l1": [
+      {
+       "dst": "SEHC01",
+       "lag": 1,
+       "rho": 0.7973
+      },
+      {
+       "dst": "SEFV",
+       "lag": 1,
+       "rho": 0.4939
+      },
+      {
+       "dst": "SEHE",
+       "lag": 5,
+       "rho": -0.2801
+      },
+      {
+       "dst": "SEHM",
+       "lag": 1,
+       "rho": 0.2684
+      },
+      {
+       "dst": "SETA02",
+       "lag": 1,
+       "rho": -0.2675
+      },
+      {
+       "dst": "SETB01",
+       "lag": 1,
+       "rho": -0.2563
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHC01",
+       "dst": "SETD",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.3848
+      },
+      {
+       "via": "SEHC01",
+       "dst": "SEAE03",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": -0.1012
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.338
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.3327
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3257
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2705
+      },
+      {
+       "via": "SEFV",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2658
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2206
+      },
+      {
+       "via": "SEHM",
+       "dst": "SEHJ",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.1538
+      },
+      {
+       "via": "SETA02",
+       "dst": "SETA01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.3152
+      }
+     ]
+    },
+    "SEHB01": {
+     "l1": [
+      {
+       "dst": "SEEB01",
+       "lag": 5,
+       "rho": 0.4555
+      },
+      {
+       "dst": "SEMD01",
+       "lag": 3,
+       "rho": 0.2311
+      }
+     ],
+     "l2": []
+    },
+    "SEHC01": {
+     "l1": [
+      {
+       "dst": "SEHA",
+       "lag": 1,
+       "rho": 0.8008
+      },
+      {
+       "dst": "SETD",
+       "lag": 2,
+       "rho": 0.3848
+      },
+      {
+       "dst": "SEAE03",
+       "lag": 1,
+       "rho": -0.1012
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHA",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.4939
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 6,
+       "rho": -0.2801
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2684
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": -0.2675
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETB01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": -0.2563
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHG01",
+       "lag": 5,
+       "cum_lag": 6,
+       "rho": -0.1388
+      },
+      {
+       "via": "SETD",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.3596
+      },
+      {
+       "via": "SETD",
+       "dst": "SERB01",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.2143
+      },
+      {
+       "via": "SETD",
+       "dst": "SETC",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.1429
+      }
+     ]
+    },
+    "SEHF": {
+     "l1": [
+      {
+       "dst": "SEEB03",
+       "lag": 3,
+       "rho": 0.2367
+      }
+     ],
+     "l2": []
+    },
+    "SEHG01": {
+     "l1": [
+      {
+       "dst": "SEHB01",
+       "lag": 6,
+       "rho": 0.2058
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHB01",
+       "dst": "SEEB01",
+       "lag": 5,
+       "cum_lag": 11,
+       "rho": 0.4555
+      },
+      {
+       "via": "SEHB01",
+       "dst": "SEMD01",
+       "lag": 3,
+       "cum_lag": 9,
+       "rho": 0.2311
+      }
+     ]
+    },
+    "SEHL": {
+     "l1": [
+      {
+       "dst": "SERB01",
+       "lag": 2,
+       "rho": 0.1757
+      }
+     ],
+     "l2": [
+      {
+       "via": "SERB01",
+       "dst": "SETD",
+       "lag": 3,
+       "cum_lag": 5,
+       "rho": 0.3187
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 7,
+       "rho": 0.3036
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 3,
+       "rho": 0.2879
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 6,
+       "rho": 0.2697
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.2128
+      }
+     ]
+    },
+    "SEHM": {
+     "l1": [
+      {
+       "dst": "SEHJ",
+       "lag": 3,
+       "rho": 0.1538
+      }
+     ],
+     "l2": []
+    },
+    "SEHN": {
+     "l1": [
+      {
+       "dst": "SERB01",
+       "lag": 1,
+       "rho": 0.3227
+      },
+      {
+       "dst": "SAF111",
+       "lag": 1,
+       "rho": 0.2728
+      },
+      {
+       "dst": "SETD",
+       "lag": 4,
+       "rho": 0.271
+      },
+      {
+       "dst": "SETC",
+       "lag": 1,
+       "rho": 0.2458
+      }
+     ],
+     "l2": [
+      {
+       "via": "SERB01",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2879
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 5,
+       "rho": 0.2697
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2128
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.4301
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.3744
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2547
+      },
+      {
+       "via": "SETD",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.3596
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF115",
+       "lag": 3,
+       "cum_lag": 4,
+       "rho": 0.3274
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2458
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2324
+      }
+     ]
+    },
+    "SEAB": {
+     "l1": [
+      {
+       "dst": "SEAC01",
+       "lag": 7,
+       "rho": 0.2139
+      }
+     ],
+     "l2": []
+    },
+    "SEAE01": {
+     "l1": [
+      {
+       "dst": "SEHG02",
+       "lag": 11,
+       "rho": -0.1739
+      }
+     ],
+     "l2": []
+    },
+    "SETA02": {
+     "l1": [
+      {
+       "dst": "SETA01",
+       "lag": 1,
+       "rho": 0.3152
+      },
+      {
+       "dst": "SEHA",
+       "lag": 1,
+       "rho": -0.2459
+      },
+      {
+       "dst": "SEHE",
+       "lag": 4,
+       "rho": 0.2236
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHA",
+       "dst": "SEHC01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.7973
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.4939
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2684
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETB01",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": -0.2563
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHG01",
+       "lag": 5,
+       "cum_lag": 6,
+       "rho": -0.1388
+      }
+     ]
+    },
+    "SETB01": {
+     "l1": [
+      {
+       "dst": "SEHC01",
+       "lag": 5,
+       "rho": -0.2799
+      },
+      {
+       "dst": "SETA02",
+       "lag": 3,
+       "rho": 0.2494
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHC01",
+       "dst": "SEHA",
+       "lag": 1,
+       "cum_lag": 6,
+       "rho": 0.8008
+      },
+      {
+       "via": "SEHC01",
+       "dst": "SETD",
+       "lag": 2,
+       "cum_lag": 7,
+       "rho": 0.3848
+      },
+      {
+       "via": "SEHC01",
+       "dst": "SEAE03",
+       "lag": 1,
+       "cum_lag": 6,
+       "rho": -0.1012
+      },
+      {
+       "via": "SETA02",
+       "dst": "SETA01",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3152
+      },
+      {
+       "via": "SETA02",
+       "dst": "SEHA",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": -0.2459
+      },
+      {
+       "via": "SETA02",
+       "dst": "SEHE",
+       "lag": 4,
+       "cum_lag": 7,
+       "rho": 0.2236
+      }
+     ]
+    },
+    "SETC": {
+     "l1": [
+      {
+       "dst": "SAF111",
+       "lag": 5,
+       "rho": 0.3685
+      },
+      {
+       "dst": "SAF115",
+       "lag": 3,
+       "rho": 0.3274
+      },
+      {
+       "dst": "SAF114",
+       "lag": 2,
+       "rho": 0.2458
+      },
+      {
+       "dst": "SEHK",
+       "lag": 2,
+       "rho": 0.2324
+      }
+     ],
+     "l2": [
+      {
+       "via": "SAF111",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.4301
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 8,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 6,
+       "rho": 0.2874
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEFV",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.4272
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHN",
+       "lag": 3,
+       "cum_lag": 6,
+       "rho": 0.348
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 8,
+       "rho": -0.218
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHB01",
+       "lag": 4,
+       "cum_lag": 7,
+       "rho": -0.0987
+      },
+      {
+       "via": "SAF114",
+       "dst": "SEFV",
+       "lag": 2,
+       "cum_lag": 4,
+       "rho": 0.3636
+      }
+     ]
+    },
+    "SETD": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 3,
+       "rho": 0.3596
+      },
+      {
+       "dst": "SERB01",
+       "lag": 4,
+       "rho": 0.2143
+      },
+      {
+       "dst": "SETC",
+       "lag": 4,
+       "rho": 0.1429
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.338
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.3327
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.3257
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 4,
+       "rho": 0.2705
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 5,
+       "rho": 0.2206
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEHN",
+       "lag": 5,
+       "cum_lag": 9,
+       "rho": 0.3036
+      },
+      {
+       "via": "SERB01",
+       "dst": "SAF115",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": 0.2697
+      },
+      {
+       "via": "SERB01",
+       "dst": "SEFW",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.2128
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF111",
+       "lag": 5,
+       "cum_lag": 9,
+       "rho": 0.3685
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF115",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.3274
+      },
+      {
+       "via": "SETC",
+       "dst": "SAF114",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.2458
+      },
+      {
+       "via": "SETC",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.2324
+      }
+     ]
+    },
+    "SERA01": {
+     "l1": [
+      {
+       "dst": "SEHA",
+       "lag": 12,
+       "rho": 0.2486
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHA",
+       "dst": "SEHC01",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": 0.7973
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEFV",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": 0.4939
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 17,
+       "rho": -0.2801
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHM",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": 0.2684
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETA02",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": -0.2675
+      },
+      {
+       "via": "SEHA",
+       "dst": "SETB01",
+       "lag": 1,
+       "cum_lag": 13,
+       "rho": -0.2563
+      },
+      {
+       "via": "SEHA",
+       "dst": "SEHG01",
+       "lag": 5,
+       "cum_lag": 17,
+       "rho": -0.1388
+      }
+     ]
+    },
+    "SERB01": {
+     "l1": [
+      {
+       "dst": "SETD",
+       "lag": 3,
+       "rho": 0.3187
+      },
+      {
+       "dst": "SEHN",
+       "lag": 5,
+       "rho": 0.3036
+      },
+      {
+       "dst": "SEFV",
+       "lag": 1,
+       "rho": 0.2879
+      },
+      {
+       "dst": "SAF115",
+       "lag": 4,
+       "rho": 0.2697
+      },
+      {
+       "dst": "SEFW",
+       "lag": 2,
+       "rho": 0.2128
+      }
+     ],
+     "l2": [
+      {
+       "via": "SETD",
+       "dst": "SETC",
+       "lag": 4,
+       "cum_lag": 7,
+       "rho": 0.1429
+      },
+      {
+       "via": "SEHN",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 6,
+       "rho": 0.2728
+      },
+      {
+       "via": "SEHN",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 6,
+       "rho": 0.2458
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF111",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.338
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2705
+      },
+      {
+       "via": "SEFV",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 2,
+       "rho": 0.2658
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 3,
+       "rho": 0.2206
+      },
+      {
+       "via": "SAF115",
+       "dst": "SAF111",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.3631
+      },
+      {
+       "via": "SAF115",
+       "dst": "SETC",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.2612
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHE",
+       "lag": 5,
+       "cum_lag": 9,
+       "rho": -0.218
+      },
+      {
+       "via": "SAF115",
+       "dst": "SEHB01",
+       "lag": 4,
+       "cum_lag": 8,
+       "rho": -0.0987
+      }
+     ]
+    },
+    "SERB02": {
+     "l1": [
+      {
+       "dst": "SEFV",
+       "lag": 6,
+       "rho": 0.2037
+      },
+      {
+       "dst": "SAF111",
+       "lag": 4,
+       "rho": 0.1562
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEFV",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 8,
+       "rho": 0.3327
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHN",
+       "lag": 1,
+       "cum_lag": 7,
+       "rho": 0.3257
+      },
+      {
+       "via": "SEFV",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 7,
+       "rho": 0.2705
+      },
+      {
+       "via": "SEFV",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 7,
+       "rho": 0.2658
+      },
+      {
+       "via": "SEFV",
+       "dst": "SEHK",
+       "lag": 2,
+       "cum_lag": 8,
+       "rho": 0.2206
+      },
+      {
+       "via": "SAF111",
+       "dst": "SEHA",
+       "lag": 3,
+       "cum_lag": 7,
+       "rho": 0.382
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF115",
+       "lag": 2,
+       "cum_lag": 6,
+       "rho": 0.3744
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETC",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2995
+      },
+      {
+       "via": "SAF111",
+       "dst": "SETD",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2874
+      },
+      {
+       "via": "SAF111",
+       "dst": "SAF114",
+       "lag": 1,
+       "cum_lag": 5,
+       "rho": 0.2547
+      }
+     ]
+    },
+    "SEEB04": {
+     "l1": [
+      {
+       "dst": "SEHB01",
+       "lag": 12,
+       "rho": 0.2669
+      }
+     ],
+     "l2": [
+      {
+       "via": "SEHB01",
+       "dst": "SEEB01",
+       "lag": 5,
+       "cum_lag": 17,
+       "rho": 0.4555
+      },
+      {
+       "via": "SEHB01",
+       "dst": "SEMD01",
+       "lag": 3,
+       "cum_lag": 15,
+       "rho": 0.2311
+      }
+     ]
+    },
+    "SEGD": {
+     "l1": [
+      {
+       "dst": "SEEB02",
+       "lag": 3,
+       "rho": 0.1819
+      }
+     ],
+     "l2": []
+    }
+   },
+   "lagprofile": {
+    "SAF111|SAF114": [
+     0.2547,
+     0.2186,
+     0.2048,
+     0.1835,
+     0.0573,
+     0.1745,
+     0.1054,
+     0.1365,
+     0.0302,
+     0.0022,
+     0.0284,
+     0.0097
+    ],
+    "SAF111|SAF115": [
+     0.3361,
+     0.3744,
+     0.2694,
+     0.2654,
+     0.2596,
+     0.2275,
+     0.206,
+     0.1848,
+     0.1306,
+     0.0871,
+     0.0043,
+     0.0251
+    ],
+    "SAF111|SEFV": [
+     0.3855,
+     0.404,
+     0.4301,
+     0.3477,
+     0.4026,
+     0.3161,
+     0.3237,
+     0.2794,
+     0.2533,
+     0.1868,
+     0.0854,
+     0.1411
+    ],
+    "SAF111|SEHA": [
+     0.2983,
+     0.3139,
+     0.382,
+     0.3646,
+     0.3349,
+     0.3499,
+     0.3172,
+     0.2925,
+     0.2303,
+     0.2248,
+     0.1853,
+     0.1636
+    ],
+    "SAF111|SETC": [
+     0.2995,
+     0.181,
+     0.258,
+     0.2073,
+     0.1335,
+     0.1029,
+     0.0818,
+     0.0728,
+     0.0449,
+     -0.0125,
+     -0.0934,
+     -0.0101
+    ],
+    "SAF111|SETD": [
+     0.2874,
+     0.1605,
+     0.2609,
+     0.2687,
+     0.2527,
+     0.2549,
+     0.184,
+     0.1712,
+     0.2085,
+     0.2143,
+     0.1777,
+     0.1204
+    ],
+    "SAF112|SAF111": [
+     0.1549,
+     0.1133,
+     0.1515,
+     0.2305,
+     0.094,
+     0.2154,
+     0.0951,
+     0.1678,
+     0.1191,
+     0.1974,
+     0.1823,
+     0.1531
+    ],
+    "SAF112|SEFV": [
+     0.2152,
+     0.2192,
+     0.3019,
+     0.2591,
+     0.2251,
+     0.1484,
+     0.1745,
+     0.1733,
+     0.1381,
+     0.071,
+     0.1217,
+     0.1604
+    ],
+    "SAF112|SEHM": [
+     0.0696,
+     0.0701,
+     0.0876,
+     0.241,
+     0.1985,
+     0.2156,
+     0.0961,
+     0.064,
+     0.0764,
+     0.1052,
+     0.1764,
+     0.1074
+    ],
+    "SEFJ|SAF112": [
+     0.2652,
+     0.181,
+     0.1028,
+     -0.0029,
+     0.0354,
+     0.002,
+     0.0183,
+     0.0321,
+     0.0222,
+     -0.0061,
+     -0.0848,
+     -0.0877
+    ],
+    "SAF114|SAF111": [
+     0.2949,
+     0.2288,
+     0.2212,
+     0.2012,
+     0.1608,
+     0.1828,
+     0.1249,
+     0.1293,
+     0.1273,
+     0.0011,
+     0.1421,
+     -0.0165
+    ],
+    "SAF114|SAF115": [
+     0.2464,
+     0.2577,
+     0.1857,
+     0.2318,
+     0.0931,
+     0.188,
+     0.042,
+     0.1976,
+     0.0783,
+     0.0322,
+     0.1448,
+     -0.035
+    ],
+    "SAF114|SEFV": [
+     0.3006,
+     0.3636,
+     0.3183,
+     0.2362,
+     0.2855,
+     0.2913,
+     0.2231,
+     0.2138,
+     0.1211,
+     0.147,
+     0.1802,
+     0.0934
+    ],
+    "SAF114|SETC": [
+     0.1964,
+     0.196,
+     0.0838,
+     0.2055,
+     0.0698,
+     0.1297,
+     -0.0065,
+     0.1094,
+     -0.0305,
+     0.0688,
+     -0.0416,
+     0.032
+    ],
+    "SAF115|SAF111": [
+     0.3416,
+     0.3631,
+     0.2635,
+     0.2686,
+     0.2272,
+     0.2188,
+     0.2129,
+     0.1487,
+     0.0809,
+     0.0716,
+     0.0418,
+     -0.0451
+    ],
+    "SAF115|SEFV": [
+     0.3937,
+     0.3958,
+     0.4272,
+     0.3144,
+     0.356,
+     0.2582,
+     0.3338,
+     0.2842,
+     0.1849,
+     0.1945,
+     0.1687,
+     0.0785
+    ],
+    "SAF115|SEHB01": [
+     -0.0416,
+     -0.053,
+     -0.0538,
+     -0.0987,
+     0.0641,
+     -0.0383,
+     0.0538,
+     -0.0408,
+     0.0329,
+     0.0486,
+     0.0527,
+     0.0629
+    ],
+    "SAF115|SEHE": [
+     -0.0897,
+     -0.0494,
+     -0.043,
+     -0.1315,
+     -0.218,
+     -0.1853,
+     -0.1275,
+     -0.0881,
+     -0.1436,
+     -0.1039,
+     -0.1301,
+     -0.1987
+    ],
+    "SAF115|SEHN": [
+     0.3047,
+     0.2327,
+     0.348,
+     0.1845,
+     0.2318,
+     0.2459,
+     0.1718,
+     0.1718,
+     0.1434,
+     0.0488,
+     0.0221,
+     -0.017
+    ],
+    "SAF115|SETC": [
+     0.23,
+     0.2144,
+     0.2612,
+     0.2038,
+     0.0665,
+     0.1158,
+     0.0465,
+     0.0264,
+     0.028,
+     0.0034,
+     -0.0595,
+     -0.0277
+    ],
+    "SEFV|SAF111": [
+     0.338,
+     0.2407,
+     0.2963,
+     0.2098,
+     0.2301,
+     0.1742,
+     0.1919,
+     0.1757,
+     0.1701,
+     0.1216,
+     0.0857,
+     0.0997
+    ],
+    "SEFV|SAF114": [
+     0.2705,
+     0.2551,
+     0.2103,
+     0.1581,
+     0.1562,
+     0.1266,
+     0.1796,
+     0.1531,
+     0.1367,
+     0.1462,
+     0.0731,
+     0.1205
+    ],
+    "SEFV|SAF115": [
+     0.3084,
+     0.3327,
+     0.2442,
+     0.2069,
+     0.2025,
+     0.2567,
+     0.1658,
+     0.1499,
+     0.177,
+     0.1335,
+     0.0724,
+     0.1339
+    ],
+    "SEFV|SEHK": [
+     0.1332,
+     0.2206,
+     0.1388,
+     0.1525,
+     0.1499,
+     0.0104,
+     0.0306,
+     0.0598,
+     -0.0156,
+     -0.0539,
+     -0.0198,
+     -0.0904
+    ],
+    "SEFV|SEHN": [
+     0.3257,
+     0.2574,
+     0.2629,
+     0.253,
+     0.1965,
+     0.2214,
+     0.2307,
+     0.1426,
+     0.1374,
+     0.0894,
+     0.0823,
+     0.1121
+    ],
+    "SEFV|SETC": [
+     0.2658,
+     0.2171,
+     0.2352,
+     0.1556,
+     0.0753,
+     0.061,
+     0.0824,
+     0.0074,
+     0.0143,
+     -0.0284,
+     0.0231,
+     -0.0142
+    ],
+    "SEHA|SEFV": [
+     0.4939,
+     0.4611,
+     0.4308,
+     0.3787,
+     0.3435,
+     0.3061,
+     0.2718,
+     0.2533,
+     0.2086,
+     0.1471,
+     0.1402,
+     0.1258
+    ],
+    "SEHA|SEHC01": [
+     0.7973,
+     0.7802,
+     0.7589,
+     0.7244,
+     0.7128,
+     0.6591,
+     0.6416,
+     0.5833,
+     0.5478,
+     0.5181,
+     0.4794,
+     0.431
+    ],
+    "SEHA|SEHE": [
+     -0.1945,
+     -0.2685,
+     -0.2761,
+     -0.2364,
+     -0.2801,
+     -0.2309,
+     -0.2352,
+     -0.1732,
+     -0.1476,
+     -0.1591,
+     -0.1175,
+     -0.0806
+    ],
+    "SEHA|SEHG01": [
+     -0.1137,
+     -0.1014,
+     -0.1343,
+     -0.1002,
+     -0.1388,
+     -0.0886,
+     -0.0971,
+     -0.0766,
+     -0.0836,
+     -0.099,
+     -0.0439,
+     -0.0734
+    ],
+    "SEHA|SEHM": [
+     0.2684,
+     0.2075,
+     0.2067,
+     0.1821,
+     0.0944,
+     0.0888,
+     0.056,
+     0.0218,
+     -0.0152,
+     -0.0805,
+     -0.0902,
+     -0.0904
+    ],
+    "SEHA|SETA02": [
+     -0.2675,
+     -0.2671,
+     -0.2455,
+     -0.2264,
+     -0.2273,
+     -0.2115,
+     -0.2086,
+     -0.194,
+     -0.2031,
+     -0.1876,
+     -0.1596,
+     -0.1228
+    ],
+    "SEHA|SETB01": [
+     -0.2563,
+     -0.2306,
+     -0.197,
+     -0.1795,
+     -0.1701,
+     -0.134,
+     -0.1308,
+     -0.0843,
+     -0.0821,
+     -0.1017,
+     -0.1077,
+     -0.0794
+    ],
+    "SEHB01|SEMD01": [
+     0.199,
+     0.1653,
+     0.2311,
+     0.1474,
+     0.1264,
+     0.1051,
+     0.0614,
+     0.0816,
+     0.148,
+     0.1706,
+     0.0747,
+     0.0531
+    ],
+    "SEHB01|SEEB01": [
+     0.3778,
+     0.3296,
+     0.382,
+     0.35,
+     0.4555,
+     0.3931,
+     0.3858,
+     0.4022,
+     0.3679,
+     0.3696,
+     0.3599,
+     0.4396
+    ],
+    "SEHC01|SEHA": [
+     0.8008,
+     0.7896,
+     0.7469,
+     0.7418,
+     0.6906,
+     0.6638,
+     0.6185,
+     0.582,
+     0.541,
+     0.5034,
+     0.4558,
+     0.4027
+    ],
+    "SEHC01|SEAE03": [
+     -0.1012,
+     -0.023,
+     -0.0482,
+     -0.0188,
+     -0.0261,
+     -0.0092,
+     0.0111,
+     0.0108,
+     -0.0252,
+     -0.0313,
+     -0.0331,
+     -0.0216
+    ],
+    "SEHC01|SETD": [
+     0.3644,
+     0.3848,
+     0.332,
+     0.35,
+     0.3055,
+     0.2785,
+     0.2793,
+     0.2661,
+     0.2416,
+     0.2748,
+     0.2638,
+     0.2617
+    ],
+    "SEHF|SEEB03": [
+     -0.0038,
+     0.0726,
+     0.2367,
+     0.0556,
+     0.0728,
+     0.0574,
+     0.031,
+     0.0764,
+     -0.0113,
+     0.0524,
+     0.012,
+     0.0461
+    ],
+    "SEHG01|SEHB01": [
+     0.1421,
+     0.1126,
+     0.0649,
+     0.1462,
+     0.1241,
+     0.2058,
+     0.2034,
+     0.0397,
+     0.0549,
+     0.0531,
+     0.1353,
+     0.1733
+    ],
+    "SEHL|SERB01": [
+     0.02,
+     0.1757,
+     0.0373,
+     0.1298,
+     -0.001,
+     0.0418,
+     0.1248,
+     0.0541,
+     0.034,
+     -0.0066,
+     -0.0333,
+     0.04
+    ],
+    "SEHM|SEHJ": [
+     0.0341,
+     0.1538,
+     0.1538,
+     0.1061,
+     0.0924,
+     0.0584,
+     -0.0027,
+     -0.0159,
+     -0.0944,
+     -0.0648,
+     0.0295,
+     -0.0952
+    ],
+    "SEHN|SAF111": [
+     0.2728,
+     0.2109,
+     0.1807,
+     0.1883,
+     0.2091,
+     0.11,
+     0.0924,
+     0.0308,
+     0.0587,
+     0.0442,
+     -0.0002,
+     0.0239
+    ],
+    "SEHN|SETC": [
+     0.2458,
+     0.1646,
+     0.1355,
+     0.117,
+     0.0404,
+     0.0814,
+     0.0289,
+     -0.0507,
+     0.0865,
+     0.0098,
+     -0.0132,
+     -0.001
+    ],
+    "SEHN|SETD": [
+     0.2207,
+     0.1875,
+     0.1661,
+     0.271,
+     0.1822,
+     0.0963,
+     0.1717,
+     0.207,
+     0.2334,
+     0.053,
+     0.2029,
+     0.1298
+    ],
+    "SEHN|SERB01": [
+     0.3227,
+     0.1598,
+     0.2349,
+     0.1933,
+     0.145,
+     0.1575,
+     0.1191,
+     0.1936,
+     0.1532,
+     0.0422,
+     0.0409,
+     0.0421
+    ],
+    "SEAB|SEAC01": [
+     0.0177,
+     0.0167,
+     0.0147,
+     -0.0172,
+     -0.1219,
+     0.0567,
+     0.2139,
+     -0.0246,
+     -0.0289,
+     0.0152,
+     -0.0777,
+     0.0387
+    ],
+    "SEAE01|SEHG02": [
+     -0.0321,
+     -0.0926,
+     0.0706,
+     0.062,
+     -0.0523,
+     -0.0191,
+     0.0554,
+     0.0354,
+     0.0116,
+     -0.0381,
+     -0.1739,
+     0.0154
+    ],
+    "SETA02|SEHA": [
+     -0.2459,
+     -0.2059,
+     -0.1508,
+     -0.11,
+     -0.0255,
+     -0.0395,
+     0.0141,
+     0.0445,
+     0.0422,
+     0.0776,
+     0.1123,
+     0.1959
+    ],
+    "SETA02|SEHE": [
+     -0.0532,
+     0.0085,
+     0.2025,
+     0.2236,
+     0.1685,
+     -0.0226,
+     -0.1649,
+     -0.1811,
+     -0.0375,
+     0.027,
+     0.0896,
+     -0.0268
+    ],
+    "SETA02|SETA01": [
+     0.3152,
+     0.3051,
+     0.1923,
+     0.1422,
+     0.1269,
+     0.1088,
+     0.1123,
+     0.1097,
+     0.1323,
+     0.1989,
+     0.1516,
+     0.1703
+    ],
+    "SETB01|SEHC01": [
+     -0.2017,
+     -0.1972,
+     -0.2155,
+     -0.2504,
+     -0.2799,
+     -0.1798,
+     -0.1419,
+     -0.1265,
+     -0.1094,
+     -0.1319,
+     -0.1214,
+     -0.1079
+    ],
+    "SETB01|SETA02": [
+     -0.0252,
+     0.1573,
+     0.2494,
+     0.1646,
+     0.039,
+     0.0355,
+     -0.0092,
+     -0.0031,
+     0.0224,
+     0.0726,
+     0.071,
+     -0.0274
+    ],
+    "SETC|SAF111": [
+     0.2957,
+     0.2564,
+     0.3167,
+     0.2653,
+     0.3685,
+     0.2139,
+     0.3141,
+     0.2002,
+     0.2393,
+     0.1764,
+     0.2469,
+     0.1783
+    ],
+    "SETC|SAF114": [
+     0.2345,
+     0.2458,
+     0.1842,
+     0.171,
+     0.204,
+     0.1818,
+     0.1984,
+     0.1877,
+     0.2009,
+     0.082,
+     0.1324,
+     0.065
+    ],
+    "SETC|SAF115": [
+     0.2644,
+     0.3026,
+     0.3274,
+     0.2382,
+     0.316,
+     0.2838,
+     0.2934,
+     0.2073,
+     0.2393,
+     0.1267,
+     0.2269,
+     0.0716
+    ],
+    "SETC|SEHK": [
+     0.2268,
+     0.2324,
+     0.1205,
+     0.0575,
+     0.1658,
+     0.0753,
+     0.0955,
+     0.1003,
+     0.0905,
+     -0.0229,
+     0.0114,
+     -0.0147
+    ],
+    "SETD|SEFV": [
+     0.2481,
+     0.3161,
+     0.3596,
+     0.3537,
+     0.1662,
+     0.1634,
+     0.1461,
+     0.1171,
+     0.1268,
+     0.109,
+     0.1193,
+     0.0676
+    ],
+    "SETD|SETC": [
+     0.0381,
+     0.0612,
+     0.0929,
+     0.1429,
+     0.0126,
+     0.0033,
+     0.0515,
+     -0.0937,
+     -0.0576,
+     -0.0348,
+     0.0172,
+     -0.1105
+    ],
+    "SETD|SERB01": [
+     0.1206,
+     0.0726,
+     0.1076,
+     0.2143,
+     0.1497,
+     0.1349,
+     0.0273,
+     0.1195,
+     -0.0346,
+     -0.0363,
+     0.033,
+     0.0199
+    ],
+    "SERA01|SEHA": [
+     0.0428,
+     0.0808,
+     0.0644,
+     0.0782,
+     0.1391,
+     0.1118,
+     0.1218,
+     0.1399,
+     0.179,
+     0.2426,
+     0.2215,
+     0.2486
+    ],
+    "SERB01|SAF115": [
+     0.249,
+     0.2359,
+     0.1582,
+     0.2697,
+     0.1154,
+     0.1012,
+     0.1322,
+     0.0178,
+     0.059,
+     0.022,
+     0.0098,
+     0.0484
+    ],
+    "SERB01|SEFV": [
+     0.2879,
+     0.2122,
+     0.2281,
+     0.2419,
+     0.2503,
+     0.2217,
+     0.2146,
+     0.0933,
+     0.0699,
+     0.0317,
+     0.0281,
+     0.0127
+    ],
+    "SERB01|SEFW": [
+     0.1316,
+     0.2128,
+     0.0762,
+     0.1283,
+     0.1516,
+     0.0114,
+     0.1054,
+     0.0518,
+     0.1158,
+     0.11,
+     0.0106,
+     0.0538
+    ],
+    "SERB01|SEHN": [
+     0.0838,
+     0.1803,
+     0.1677,
+     0.1462,
+     0.3036,
+     0.1393,
+     0.051,
+     0.099,
+     0.068,
+     0.0118,
+     0.0701,
+     0.0175
+    ],
+    "SERB01|SETD": [
+     0.1992,
+     0.1601,
+     0.3187,
+     0.2215,
+     0.1489,
+     0.1708,
+     0.123,
+     0.0901,
+     0.0853,
+     0.0878,
+     0.139,
+     0.037
+    ],
+    "SERB02|SAF111": [
+     0.1163,
+     0.1506,
+     0.0723,
+     0.1562,
+     0.0846,
+     0.083,
+     0.1089,
+     -0.0108,
+     0.061,
+     0.0329,
+     0.0383,
+     0.0312
+    ],
+    "SERB02|SEFV": [
+     0.1988,
+     0.1843,
+     0.0596,
+     0.0759,
+     0.1238,
+     0.2037,
+     0.1373,
+     0.0805,
+     0.0816,
+     0.0517,
+     0.076,
+     0.0769
+    ],
+    "SEEB04|SEHB01": [
+     0.2414,
+     0.1969,
+     0.1566,
+     0.1826,
+     0.195,
+     0.2204,
+     0.1978,
+     0.1994,
+     0.1683,
+     0.1591,
+     0.2225,
+     0.2669
+    ],
+    "SEGD|SEEB02": [
+     0.0052,
+     0.0188,
+     0.1819,
+     0.1008,
+     0.0134,
+     0.0155,
+     0.1085,
+     0.0655,
+     0.0758,
+     -0.0036,
+     -0.0123,
+     -0.0343
+    ]
+   }
+  }
+ },
+ "sanity": [
+  {
+   "name": "gasoline -> airline fares",
+   "src": "SETB01",
+   "dst": "SETG01",
+   "variant": "raw",
+   "lag": 1,
+   "rho": 0.2621,
+   "q": 0.026,
+   "n_windows_pass": 3,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "fuel oil and other fuels -> airline fares",
+   "src": "SEHE",
+   "dst": "SETG01",
+   "variant": "raw",
+   "lag": 1,
+   "rho": 0.3155,
+   "q": 0.00512,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "fuel oil and other fuels -> gasoline",
+   "src": "SEHE",
+   "dst": "SETB01",
+   "variant": "raw",
+   "lag": 1,
+   "rho": 0.3395,
+   "q": 0.33167,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "gasoline -> motor vehicle maintenance",
+   "src": "SETB01",
+   "dst": "SETD",
+   "variant": "raw",
+   "lag": 7,
+   "rho": 0.121,
+   "q": 0.50084,
+   "n_windows_pass": 0,
+   "stable": false,
+   "found": true
+  },
+  {
+   "name": "energy services -> owners' equivalent rent",
+   "src": "SEHF",
+   "dst": "SEHC01",
+   "variant": "raw",
+   "lag": 8,
+   "rho": 0.2626,
+   "q": 0.01571,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "cereals and bakery -> food away from home",
+   "src": "SAF111",
+   "dst": "SEFV",
+   "variant": "raw",
+   "lag": 3,
+   "rho": 0.4703,
+   "q": 0.02027,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "meats/poultry/fish/eggs -> food away from home",
+   "src": "SAF112",
+   "dst": "SEFV",
+   "variant": "raw",
+   "lag": 3,
+   "rho": 0.2983,
+   "q": 0.0,
+   "n_windows_pass": 3,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "other food at home -> food away from home",
+   "src": "SAF115",
+   "dst": "SEFV",
+   "variant": "raw",
+   "lag": 3,
+   "rho": 0.4643,
+   "q": 0.0035,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "rent -> owners' equivalent rent",
+   "src": "SEHA",
+   "dst": "SEHC01",
+   "variant": "raw",
+   "lag": 1,
+   "rho": 0.8038,
+   "q": 0.75766,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "owners' equivalent rent -> rent",
+   "src": "SEHC01",
+   "dst": "SEHA",
+   "variant": "raw",
+   "lag": 1,
+   "rho": 0.8142,
+   "q": 0.00349,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "gasoline -> airline fares",
+   "src": "SETB01",
+   "dst": "SETG01",
+   "variant": "common_removed",
+   "lag": 2,
+   "rho": 0.1251,
+   "q": 0.01476,
+   "n_windows_pass": 1,
+   "stable": false,
+   "found": true
+  },
+  {
+   "name": "fuel oil and other fuels -> airline fares",
+   "src": "SEHE",
+   "dst": "SETG01",
+   "variant": "common_removed",
+   "lag": 2,
+   "rho": 0.1238,
+   "q": 0.06173,
+   "n_windows_pass": 1,
+   "stable": false,
+   "found": true
+  },
+  {
+   "name": "fuel oil and other fuels -> gasoline",
+   "src": "SEHE",
+   "dst": "SETB01",
+   "variant": "common_removed",
+   "lag": 1,
+   "rho": 0.2085,
+   "q": 0.63003,
+   "n_windows_pass": 1,
+   "stable": false,
+   "found": true
+  },
+  {
+   "name": "gasoline -> motor vehicle maintenance",
+   "src": "SETB01",
+   "dst": "SETD",
+   "variant": "common_removed",
+   "lag": 4,
+   "rho": -0.18,
+   "q": 0.24347,
+   "n_windows_pass": 0,
+   "stable": false,
+   "found": true
+  },
+  {
+   "name": "energy services -> owners' equivalent rent",
+   "src": "SEHF",
+   "dst": "SEHC01",
+   "variant": "common_removed",
+   "lag": 8,
+   "rho": 0.1785,
+   "q": 0.02158,
+   "n_windows_pass": 2,
+   "stable": false,
+   "found": true
+  },
+  {
+   "name": "cereals and bakery -> food away from home",
+   "src": "SAF111",
+   "dst": "SEFV",
+   "variant": "common_removed",
+   "lag": 3,
+   "rho": 0.4301,
+   "q": 0.05326,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "meats/poultry/fish/eggs -> food away from home",
+   "src": "SAF112",
+   "dst": "SEFV",
+   "variant": "common_removed",
+   "lag": 3,
+   "rho": 0.3019,
+   "q": 0.0,
+   "n_windows_pass": 3,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "other food at home -> food away from home",
+   "src": "SAF115",
+   "dst": "SEFV",
+   "variant": "common_removed",
+   "lag": 3,
+   "rho": 0.4272,
+   "q": 0.01108,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "rent -> owners' equivalent rent",
+   "src": "SEHA",
+   "dst": "SEHC01",
+   "variant": "common_removed",
+   "lag": 1,
+   "rho": 0.7973,
+   "q": 0.77454,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  },
+  {
+   "name": "owners' equivalent rent -> rent",
+   "src": "SEHC01",
+   "dst": "SEHA",
+   "variant": "common_removed",
+   "lag": 1,
+   "rho": 0.8008,
+   "q": 0.0164,
+   "n_windows_pass": 4,
+   "stable": true,
+   "found": true
+  }
+ ],
+ "notes": [
+  "lead-lag correlation, not pass-through, not causal. An arrow i -> j means the seasonally adjusted monthly rate of i moved before that of j, on average, over the sample. It does not mean i's prices feed into j's costs.",
+  "Common drivers are the obvious alternative explanation: in the `raw` variant almost everything correlates with almost everything through the aggregate, which is why `common_removed` is the variant to read. There each series is regressed on the headline SA MoM *with its own contribution removed* (leave-one-out). Using the plain headline is not safe: gasoline is 2.9% of the basket but its monthly rate has 19x the headline's standard deviation, so it largely regresses on itself, gets a coefficient of +16, and its residual becomes roughly minus-the-headline - which then shows up as a flat -0.5 arrow from gasoline into every persistent service item at every lag from 1 to 12.",
+  "Each edge carries `rho_other`, the same pair and lag measured in the other variant. An edge whose rho_other is near zero or of the opposite sign is a creature of the common-factor step, not a robust feature of the data.",
+  "The headline used for common-factor removal contains the item itself, so for very heavy nodes (owners' equivalent rent is ~25% of the basket) some of the item's own variation is removed along with the factor. Read those nodes' degrees with care.",
+  "Edges are screened with Benjamini-Hochberg FDR across all ordered pairs within a window, then required to reappear in at least 3 of 4 overlapping 15-year windows with the same sign and the same best lag (+/-2 months). Surviving edges are reproducible features of the sample, not evidence of a mechanism.",
+  "The best lag is the argmax of |rho| over 1..12 months and is not sharply identified: neighbouring lags usually have similar correlations, which is what p10_lagprofile is for.",
+  "Nodes are non-overlapping mid-level items (no node is an ancestor of another), so no edge is a mechanical aggregation identity. Items inside the same major group can still share collection samples and seasonal factors.",
+  "October 2025 has no CPI and November 2025 has no SA monthly change; the panel is reindexed to a complete calendar so every lag is a calendar lag, and both months are dropped by the 60%-of-weight coverage gate rather than shifted away."
+ ]
+}

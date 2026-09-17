@@ -1,0 +1,15 @@
+{
+  "name": "skypulse",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "collect": "node scripts/collect-local.mjs",
+    "check": "node scripts/check-registry.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

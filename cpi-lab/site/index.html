@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CPI Lab</title>
+<meta name="description" content="Item-level CPI analysis: a frequency-weighted basket, the cross-section of item inflation, how fast shocks fade, how much a monthly print is revised, the chained-CPI substitution gap, which item prices lead which, what producer prices have already done, how import-intensive prices move against domestic ones, how far apart cities are, and the health of the collection instrument.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232a78d6'/%3E%3Cpath d='M3 11.5 L6 7 L9 9 L13 4' stroke='white' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme">Theme</button>
+    <h1>CPI Lab</h1>
+    <p class="sub">Item-level rebuilds of the US Consumer Price Index from published BLS files. Nine questions:
+      what the basket looks like if you weight it by <em>how often</em> you buy things instead of how much you spend,
+      how spread out item inflation actually is, how fast a shock fades out of an item's rate, how much a monthly print
+      moves after it is published, where the fixed-weight basket and the chained one part company, which item
+      prices move before which, what producer prices have already done that consumer prices have not yet, how the
+      import-intensive part of the basket is moving against the domestic part, and how far apart cities are. Plus one
+      about the survey itself: how much of the index is still being physically collected. Everything here is
+      <strong>descriptive</strong> — it reports what the published series did, never why.</p>
+    <p class="updated" id="updated">Loading…</p>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+<div id="loaderr"></div>
+
+<!-- ============================ HEADLINE STRIP ============================ -->
+<section id="headline" aria-labelledby="h-headline">
+  <h2 id="h-headline"><span class="eyebrow">Summary</span>The latest month at a glance</h2>
+  <p class="lede">Nine numbers for the most recent CPI month. The first three are whole-basket indexes built three
+     different ways; the next three describe the spread of item rates behind the headline; the seventh is the spread
+     across <em>cities</em> rather than across items; the last two are about the measurement itself, not about prices —
+     how much of the index rests on imputation, and how often a printed monthly change survives revision.</p>
+  <div class="tiles" id="tiles"></div>
+  <p class="note" id="tileNote"></p>
+</section>
+
+<!-- ================================= P1 ================================== -->
+<section id="p1" aria-labelledby="h-p1">
+  <h2 id="h-p1"><span class="eyebrow">P1 · Frequency weighting</span>What you buy weekly vs the official basket</h2>
+  <p class="lede">The published CPI weights every item by <em>how much money</em> households spend on it — owners'
+     equivalent rent is about a quarter of the basket because shelter is about a quarter of spending. These indexes
+     rebuild exactly the same calculation, weighting each item instead by <em>how often</em> households record buying
+     it in the Consumer Expenditure Diary.</p>
+
+  <div class="panel">
+    <h3>Five indexes, one construction</h3>
+    <p class="isnt"><b>What this is:</b> the same December-chained Laspeyres index over the same ~179 published items,
+       re-weighted by purchase frequency instead of expenditure share.
+       <b>What it isn't:</b> a measure of inflation "as experienced" or "as felt" — no survey of what households notice
+       is used anywhere in this pipeline, and the frequency-weighted basket is not a truer CPI, just a much more
+       concentrated one.</p>
+    <div class="controls" id="p1Controls">
+      <span class="ctl-label">Show:</span>
+    </div>
+    <div id="p1Line" class="plot-host"></div>
+    <div id="p1LineTable"></div>
+    <p class="note">Shaded bands are ±1 balanced-repeated-replication standard error of each scheme's gap against the
+       official replica. They are deliberately drawn to scale: at ±0.019&nbsp;pp in the latest month the band is
+       narrower than the line itself. Diary <em>sampling</em> is not the weak link here — the choice of Diary year is
+       (see the method note). <strong>October 2025 is absent from every series</strong> — there was no CPI release that
+       month — so the lines break rather than interpolate across it.</p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>Frequency measure</dt>
+          <dd>"Share of weighted CE Diary purchase entries per consumer-unit-week, mapped UCC → ELI → published item
+              stratum." For Diary year <em>y</em>, with consumer-unit-weeks <em>c</em>, final weight
+              <code>FINLWT21</code>, and <em>n<sub>c,u</sub></em> the number of <code>expd</code> purchase entries
+              CU-week <em>c</em> recorded for UCC <em>u</em>:
+              entries_per_cuweek(<em>u</em>) = Σ<sub>c</sub> <em>n<sub>c,u</sub> W<sub>c</sub></em> / Σ<sub>c</sub> <em>W<sub>c</sub></em>.</dd>
+          <dt>Index construction</dt>
+          <dd>"December-chained Laspeyres over the same leaf universe as the P0 replica" —
+              <em>I<sub>t</sub></em> = <em>I</em><sub>Dec(y)</sub> · Σ<sub>i</sub> <em>w<sub>i</sub> P<sub>it</sub>/P<sub>i,Dec(y)</sub></em> / Σ<sub>i</sub> <em>w<sub>i</sub></em>,
+              chained through each December, built identically to the official replica so the two are comparable.
+              Leaf universe = <code>cpi_weight WHERE is_leaf=1 AND matched=1</code>, ~179 items covering ~97% of the
+              CPI; the missing ~3% is unsampled strata with no published index and is renormalised away.</dd>
+          <dt>The bill floor (<code>bill_salience</code>)</dt>
+          <dd>"max(diary frequency, 1/4.345 entries per CU-week) for the listed items only" — i.e. each of 17
+              documented recurring-bill items is treated as at least <strong>one purchase event per month</strong>
+              (0.23015 entries per consumer-unit-week), unless the Diary already sees it more often. The Diary is a
+              two-week purchase log: a household writes down the eggs but not its rent, so owners' equivalent rent
+              scores 25.8% of spending and <strong>0.00%</strong> of purchase entries. The floor binds for all 17
+              items, taking the group from 1.04% to 11.27% of the basket.
+              <div class="warn"><strong>This is an assumption, not a measurement.</strong> "One bill a month" is a
+              stipulation about what a bill is; the Diary cannot confirm or refute it. It also gives a rent payment
+              and a garbage bill exactly the same weight, which is crude.</div>
+              The 17 items: <span id="billItems">rent, owners' equivalent rent, tenants'/household insurance, motor
+              vehicle insurance, health insurance, electricity, utility gas, water &amp; sewerage, garbage &amp; trash,
+              wireless phone, residential phone, internet, cable/satellite/streaming, college tuition, elementary &amp;
+              high-school tuition, day care &amp; preschool, and state motor-vehicle registration &amp; licence fees</span>.
+              Deliberately excluded as <em>not</em> bills: hotels, video and music subscriptions (they mix
+              subscriptions with one-off purchases), parking fees, and episodic medical services.</dd>
+          <dt>Multi-ELI split</dt>
+          <dd>"Expenditure-weight split of the 29 multi-ELI UCCs (see sensitivity variant <code>split_equal</code>)".
+              ELI → published item is <code>'SE'+ELI[:4]</code>, walking up to <code>[:3]</code> and <code>[:2]</code>
+              when the finer stratum is unpublished.</dd>
+          <dt>Aggregation level</dt>
+          <dd>"Published item (see sensitivity variant <code>agg_class</code>)".</dd>
+          <dt>Coverage gate</dt>
+          <dd>A month is priced only if leaves carrying ≥ <strong>90%</strong> of the scheme's weight have both a
+              December base and a current index. Only 11.3% of the official-replica weight had an October-2025
+              observation, so that month is dropped from every scheme, every sensitivity variant and every bootstrap
+              replicate rather than being priced off a handful of items.</dd>
+          <dt>Sampling error</dt>
+          <dd>σ = √( Σ<sub>r=1..44</sub> (θ<sub>r</sub> − θ)² / 44 ) over the 44 CE PUMD balanced-repeated-replication
+              weights, where θ is the gap (scheme YoY − official replica YoY) in percentage points.
+              PUMD replicate weights are already doubled half-sample weights, so no Fay factor is applied; under the
+              Fay <em>k</em>=0.5 convention every SE here would be exactly 2× larger.</dd>
+          <dt>How much do the arbitrary choices matter?</dt>
+          <dd id="sensCopy">Eight specification variants are rebuilt as separate indexes.</dd>
+        </dl>
+      </div>
+    </details>
+    <div id="p1Sens"></div>
+  </div>
+
+  <div class="panel">
+    <h3>Expenditure weight vs frequency weight — top 25 items</h3>
+    <p class="isnt"><b>What this is:</b> for the 25 largest items by either weight, the share of the basket each gets
+       under expenditure weighting and under frequency weighting.
+       <b>What it isn't:</b> a claim that either weighting is correct. The gaps are mostly an artefact of what the
+       Diary can see: recurring bills collected by the CE Interview survey score near zero frequency by construction.</p>
+    <div class="scroller"><div id="p1Weights"></div></div>
+    <div id="p1WeightsTable"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p><strong>Expenditure weight</strong> is the December relative importance of the item (the published CPI's own
+           weight). <strong>Frequency weight</strong> is the item's share of weighted CE Diary purchase entries per
+           consumer-unit-week, normalised to 100 over the same leaf universe. Both are percentages of the basket for
+           the latest month.</p>
+        <p>Purchase-entry counts partly measure <em>classification depth</em>: an item BLS splits into several UCCs
+           accumulates more entries than an equally common item recorded as one. The <code>agg_class</code> sensitivity
+           variant measures this and finds it small in aggregate (0.0004&nbsp;pp on the headline) — but that is an
+           aggregate result and can still be large for an individual item.</p>
+        <p>About 5% of Diary entries have no concordance row and are dropped; 99.4% of the concordance-mapped entry
+           mass lands on a published leaf.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Gap drivers — which items open the gap this month</h3>
+    <p class="isnt"><b>What this is:</b> per item, its contribution to the frequency-weighted rate minus its
+       contribution to the expenditure-weighted rate, in percentage points, for the latest month.
+       <b>What it isn't:</b> an attribution of cause. A large bar means the item is weighted very differently under the
+       two schemes <em>and</em> its price moved — nothing more.</p>
+    <div id="p1Gap"></div>
+    <div id="p1GapTable"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>contribution = weight × item YoY / 100, computed separately with the expenditure weight
+           (<code>contrib_exp</code>) and the frequency weight (<code>contrib_sal</code>); the bar is
+           <code>gap_driver = contrib_sal − contrib_exp</code>. Blue bars push the frequency-weighted index above the
+           official replica, red bars pull it below. Bars sum across all ~175 items to approximately the total gap;
+           the 12 largest in each direction are shown.</p>
+      </div>
+    </details>
+  </div>
+
+  <p class="note" id="r1Note">
+    <strong>Does this explain why households say inflation feels higher? No.</strong> A separate research note (R1)
+    tested exactly that and found the frequency-weighted index does <em>not</em> explain the gap between household
+    inflation expectations and published CPI over 2022–26 — and to the extent the data says anything, it says the
+    opposite of the hypothesis. Conditional on the published inflation rate itself, the frequency gap adds
+    ΔR² = 0.002 (χ² = 0.25, p = 0.62) to explaining the Michigan expectations gap. The eye-catching univariate slope is
+    <em>negative</em> (−0.69, t = −4.28): the frequency index ran hottest in 2022 exactly when households were most
+    <em>under</em>-predicting inflation. Read these indexes as <strong>"inflation of what you buy every week"</strong> —
+    a descriptive re-weighting — not as "what people feel".
+  </p>
+</section>
+
+<!-- ================================= P2 ================================== -->
+<section id="p2" aria-labelledby="h-p2">
+  <h2 id="h-p2"><span class="eyebrow">P2 · Cross-section</span>The shape of inflation</h2>
+  <p class="lede">Headline CPI is one number built from about 180 published items whose annual rates in the latest month
+     ran from <span id="p2Range">a steep fall to a steep rise</span>. This section measures the <em>shape</em> of that
+     cross-section every month, and asks which items actually move the aggregate around. Every statistic is weighted by
+     how much of the household budget the item represents.</p>
+
+  <div class="panel">
+    <h3>The distribution of item inflation, month by month</h3>
+    <p class="isnt"><b>What this is:</b> the spread of 12-month rates across published CPI items for each of the last 24
+       months, with each item's contribution scaled by its budget weight.
+       <b>What it isn't:</b> a distribution over households or over prices paid — it is a distribution over
+       <em>items</em>, so a 25% swing in eggs (0.13% of spending) barely registers next to a 3% move in rent.</p>
+    <div id="p2Ridge"></div>
+    <p class="note">One row per month, newest at the top. Height is budget weight falling in each bin, on a shared
+       scale across all months, so a taller, narrower ridge means the basket is moving together and a flat wide one
+       means it isn't. The axis spans the weighted 5th–95th percentile of every month shown; the roughly 5% of basket
+       weight beyond each end — a handful of very small items running from about −26% to +39% — is clamped into the
+       end bins rather than stretching the axis. Exact percentiles are in the data table.</p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>Universe: <code>cpi_weight WHERE is_leaf=1 AND matched=1</code> for
+           <code>weight_year = calendar_year − 1</code> (the December relative importance of year <em>Y</em> applies to
+           the months of <em>Y</em>+1), joined to <code>cpi_item_month</code> — 179 items covering ~97% of the CPI-U.
+           Weights are renormalised each month over the items that actually have a value.</p>
+        <p>The <code>yoy</code> view shown here is NSA, 12-month, and covered 175 items / 96.5% of the basket in the
+           latest month. It is the view to show a consumer; the SA-based 3-month-annualised and 1-month views describe
+           a smaller basket (~86%) because seasonally adjusted indexes exist for fewer strata.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Median, trimmed mean and the 10th–90th percentile spread</h3>
+    <p class="isnt"><b>What this is:</b> four order statistics of the same weighted item cross-section, over time.
+       <b>What it isn't:</b> alternative inflation forecasts. A widening p10–p90 gap means the average is describing
+       fewer and fewer real prices; it does not say the average is wrong.</p>
+    <div class="controls" id="p2Controls">
+      <span class="ctl-label">Universe:</span>
+      <div class="seg" role="group" aria-label="Universe">
+        <button type="button" data-u="all" aria-pressed="true">All items</button>
+        <button type="button" data-u="exshelter" aria-pressed="false">Ex-shelter</button>
+      </div>
+    </div>
+    <div id="p2Stats"></div>
+    <div id="p2StatsTable"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>Median / percentiles</dt>
+          <dd>"The value of the first item at which the cumulative weight reaches <em>p</em>" — the step definition, no
+              interpolation, the same convention the Cleveland Fed uses for its median CPI.</dd>
+          <dt>Trimmed mean (16%)</dt>
+          <dd>Each item keeps the overlap of its weight interval [<em>W<sub>i</sub></em> − <em>w<sub>i</sub></em>,
+              <em>W<sub>i</sub></em>] with [α, 1−α], so boundary items are split and the estimator is continuous in α;
+              then a weighted mean over the retained weight, with α = 0.16 per tail. This is the standard "underlying
+              inflation" measure; the Cleveland Fed publishes a 16% version, against which ours runs −0.13 to +0.34 pp
+              over the last 12 months (expected: they trim ~45 aggregated components, we trim 142–175 leaves).</dd>
+          <dt>Ex-shelter universe</dt>
+          <dd>Drops <code>SEHA</code>, <code>SEHC01</code> and every leaf whose <code>cu_item</code> ancestry contains
+              <code>SAH1</code> — in practice rent, owners' equivalent rent, lodging away from home and tenants'
+              insurance, about 34.4% of the 2025 weight.</dd>
+        </dl>
+        <div class="warn"><strong>Owners' equivalent rent dominates every weighted moment.</strong> At ~25% of the
+          basket, OER alone spans the 41.7th to the 67.8th percentile of the July-2026 cross-section, so it <em>is</em>
+          the weighted median in 46 of the 138 months since 2015 — including every month of 2026 — and the median and
+          p75 can collapse onto the same item. This is why the ex-shelter toggle exists, and why the median should
+          always be read next to the percentile spread.</div>
+        <p><strong>Trimmed means are not monotone in α.</strong> In July 2026 the 8% trim gave 2.75 but the 16% trim
+           gave 2.95, because 15.2% of the basket was falling and widening the trim removed most of the negative tail.
+           That is correct behaviour, not a bug — the two trims are two different descriptions, not a robustness
+           ladder.</p>
+        <p>Weights only exist from December 2017 in <code>cpi_weight</code>; months before 2021 reuse the oldest
+           available vintage and are a genuinely fixed-weight historical cross-section, not the weights of the day.
+           Treat pre-2021 history as indicative.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Who moves headline</h3>
+    <p class="isnt"><b>What this is:</b> each item's share of the variance of monthly headline SA inflation over the
+       last 24 and 60 months (the shares add to exactly 100%), shown next to its contribution to the <em>level</em> of
+       the latest month.
+       <b>What it isn't:</b> causation. A large variance share means the item's contribution co-moved with the total
+       over the window — it reflects the item's volatility, not any claim about what drives inflation.</p>
+    <div class="grid2">
+      <div>
+        <h4 style="font-size:13px;margin:0 0 6px;color:var(--text-secondary);font-weight:600">Share of headline variance</h4>
+        <div id="p2Var"></div>
+      </div>
+      <div>
+        <h4 style="font-size:13px;margin:0 0 6px;color:var(--text-secondary);font-weight:600">Contribution to the level (pp)</h4>
+        <div id="p2Level"></div>
+      </div>
+    </div>
+    <div id="p2VarTable"></div>
+    <p class="note" id="p2VarNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>Let <em>x<sub>it</sub></em> be item SA month-on-month change and <em>w<sub>it</sub></em> its renormalised
+           weight, and define the contribution <em>c<sub>it</sub></em> = <em>w<sub>it</sub> x<sub>it</sub></em>
+           (percentage points). Then <em>X<sub>t</sub></em> = Σ<sub>i</sub> <em>c<sub>it</sub></em> is our replica of
+           headline SA MoM, and exactly Var(<em>X</em>) = Σ<sub>i</sub> Cov(<em>c<sub>i</sub></em>, <em>X</em>), so
+           share<sub>i</sub> = Cov(<em>c<sub>i</sub></em>, <em>X</em>) / Var(<em>X</em>) and Σ<sub>i</sub>
+           share<sub>i</sub> = 1. A negative share means the item consistently moved against the total, damping it.</p>
+        <p>Windows are 24 and 60 calendar months ending at the latest month; months with no CPI are dropped, never
+           shifted, and a window needs ≥90% of its months present. <em>X</em> is not the published series — it omits
+           the strata without SA indexes (~86% of the basket) — so the decomposition describes <em>X</em>, not SA0
+           exactly. Validated: Σ share<sub>i</sub> = 1.000000000 for both windows; replica SA MoM vs published SA0 MoM
+           since 2000-01 has correlation 0.972 and mean absolute difference 0.053 pp over 317 months.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================================= P3 ================================== -->
+<section id="p3" aria-labelledby="h-p3">
+  <h2 id="h-p3"><span class="eyebrow">P3 · Persistence</span>How fast shocks fade</h2>
+  <p class="lede">Some items reprice constantly and forget last month immediately; others move in slow steps. This
+     section measures, for every published item, how much of a month's deviation from its own average is still there
+     the following month — and then asks whether today's inflation sits in the fast-fading part of the basket or the
+     slow part. Everything here describes the <em>rate of change</em> of a published index in a sample. It is not a
+     statement about price-setting behaviour, and not a forecast.</p>
+
+  <div class="panel">
+    <h3>Every item, sized by weight, coloured by half-life</h3>
+    <p class="isnt"><b>What this is:</b> the latest month's cross-section of ~174 leaf items — area is the item's share
+       of the basket, fill is how many months it takes for half of a deviation in its monthly rate to disappear.
+       <b>What it isn't:</b> a claim that a low half-life item's <em>prices</em> are unstable, or that a high one's are
+       fixed. A half-life of zero means this month's rate tells you nothing about next month's; it does not mean the
+       price never moves. Levels are far more persistent than rates.</p>
+    <div class="controls" id="p3Controls">
+      <span class="ctl-label">Universe:</span>
+      <div class="seg" role="group" aria-label="Universe">
+        <button type="button" data-u="raw" aria-pressed="true">Raw item rate</button>
+        <button type="button" data-u="relative" aria-pressed="false">Item minus headline</button>
+      </div>
+    </div>
+    <p class="note" id="p3UnivNote"></p>
+    <div id="p3Tree"></div>
+    <div id="p3TreeTable"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>rho</dt>
+          <dd>OLS slope of the item's monthly rate on its own one-month lag, with a constant, over a rolling
+              <strong>120-month</strong> window ending at the latest month (equivalent to a demeaned AR(1)). An item
+              enters a window only with at least 96 monthly rates inside it.</dd>
+          <dt>Half-life</dt>
+          <dd><code>ln(0.5) / ln(rho)</code> months; <strong>0</strong> when rho ≤ 0 — the deviation is gone the
+              following month — and capped at 60 when rho ≥ 1.</dd>
+          <dt>The monthly rate, and the two source groups</dt>
+          <dd>Each item is assigned <em>one</em> rate definition for its whole history. <code>sa</code> items use the
+              published seasonally adjusted month-over-month change (146 items, 86.0% of CPI-U). Items whose SA series
+              is too short use <code>nsa12</code>: <code>100 × (ln P<sub>t</sub> − ln P<sub>t−12</sub>) / 12</code>
+              (36 items, 10.2%).
+              <div class="warn"><strong>The <code>nsa12</code> rate manufactures persistence.</strong> It is a 12-term
+              moving average, so applied to pure noise it yields rho ≈ 0.917 and a half-life of about 8 months
+              analytically — the pipeline re-derives 0.896 / 6.3 months by simulation. That is why the two source
+              groups are shown as <em>separate faceted charts with separate rankings</em> on this page and never sorted
+              into one list: a ranking that mixes them is a chart of the filter, not of the basket.</div></dd>
+          <dt>Raw vs relative universe</dt>
+          <dd>"Relative" repeats everything on the item's rate <em>minus the headline rate</em> put through the same
+              filter, so a slowly-fading common shock is differenced out. Spearman correlation between the two
+              half-life rankings at the latest month is <strong id="p3Spear">—</strong>: the ordering is robust, the
+              levels are not. Note the mechanical bias — owners' equivalent rent is ~25% of the headline, so
+              subtracting the headline subtracts a quarter of OER from itself, and the relative measure is biased
+              toward finding low persistence for high-weight items. The honest answer for a large item is somewhere
+              between the two. Both are published; never quote one alone.</dd>
+          <dt>Uncertainty</dt>
+          <dd>rho from 120 observations carries a standard error of roughly 0.09, so a half-life of 4 months and one of
+              6 are usually not distinguishable. <code>lp12</code> (the local-projection slope at a 12-month horizon)
+              and its Newey–West HAC standard error are in the data table; they are the only published uncertainty
+              numbers here. Read the league table as indicative ordering.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Sticky and flexible CPI — ours and the Atlanta Fed's</h3>
+    <p class="isnt"><b>What this is:</b> the same December-chained Laspeyres arithmetic as the official replica, run
+       twice with the item weights tilted toward the more persistent items and toward the less persistent ones, next to
+       the Atlanta Fed's published sticky/flexible series.
+       <b>What it isn't:</b> the same measurement as the Atlanta Fed's, and not a validation against it. The two split
+       the basket on different criteria and are expected to disagree.</p>
+    <div class="controls" id="p3SeriesControls">
+      <span class="ctl-label">Show:</span>
+    </div>
+    <div id="p3Series"></div>
+    <div id="p3SeriesTable"></div>
+    <p class="note" id="p3SeriesNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>Weights</dt>
+          <dd>With <em>s<sub>i</sub></em> the <strong>within-source-group</strong> rank percentile of rho,
+              sticky CPI weights item <em>i</em> by <code>w<sub>i</sub> · s<sub>i</sub></code> and flexible CPI by
+              <code>w<sub>i</sub> · (1 − s<sub>i</sub>)</code>. The <code>_binary</code> schemes split hard at the
+              within-source weighted median; the <code>_pooled</code> schemes deliberately do <em>not</em> normalise
+              within source and are shown as the sensitivity run that makes the <code>nsa12</code> artefact visible.
+              All schemes run on exactly the same item set, so they are comparable with each other and with the
+              official replica.</dd>
+          <dt>No look-ahead</dt>
+          <dd>The classification used for the months of year <em>Y</em>+1 is estimated on the window ending
+              <strong>December of Y</strong>, so the index never uses data from the months it is applied to.</dd>
+          <dt>Why owners' equivalent rent dominates the sticky index</dt>
+          <dd>OER is 25.2% of the basket <em>and</em> the most persistent seasonally adjusted item. Weight × persistence
+              puts it at <span id="p3OerShare">33.4</span>% of the sticky index's weight, with rent of primary
+              residence adding another 10.5% — <strong>shelter alone is about 44% of our sticky CPI</strong>. Read
+              every movement in it as, to a first approximation, a shelter index with a tail of vehicles and
+              restaurants. It is not an independent read on the economy.</dd>
+          <dt>Why ours and the Atlanta Fed's differ — vehicles</dt>
+          <dd id="p3AfCopy">The Atlanta Fed splits the basket by <em>how often prices change</em> (Bils–Klenow: sticky =
+              repriced less often than every 4.3 months) — a fact about price-setting. Ours splits by <em>how
+              persistent the published index's inflation rate is</em> — a fact about the time series. The
+              classifications genuinely disagree on big items: <strong>used cars and new vehicles reprice constantly,
+              so the Atlanta Fed calls them flexible, but their index has serially correlated monthly changes, so P3
+              calls them sticky.</strong> That single disagreement explains most of the divergence — in June 2021 our
+              sticky CPI hit 6.31% against our flexible 3.12% because the used-car spike landed in our sticky basket
+              and in their flexible one, and in April–May 2026 the same thing runs the other way. Treat the overlay as
+              a sanity band, not a validation. Neither is "right"; they measure different things and the labels happen
+              to collide.</dd>
+          <dt>Validation</dt>
+          <dd>This pipeline's own <code>official_replica</code> reproduces the published headline within ±0.15 pp in
+              every one of the last six months. The Atlanta Fed rows use a ±2 pp <em>sanity band</em>, not a
+              tolerance.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>How much of the basket fades fast</h3>
+    <p class="isnt"><b>What this is:</b> the share of covered leaf weight whose half-life falls under 3 months, between
+       3 and 12, and above 12 — computed separately for the two source groups and, for comparison only, pooled.
+       <b>What it isn't:</b> comparable across the two source groups. The pooled row is printed so the artefact is
+       visible, not so it can be quoted.</p>
+    <div id="p3Buckets"></div>
+    <div id="p3BucketsTable"></div>
+    <p class="note" id="p3BucketNote"></p>
+  </div>
+</section>
+
+<!-- ================================= P4 ================================== -->
+<section id="p4" aria-labelledby="h-p4">
+  <h2 id="h-p4"><span class="eyebrow">P4 · Revisions</span>How much a print changes later</h2>
+  <p class="lede">A seasonally adjusted monthly CPI change is an estimate, and the seasonal pattern it rests on is
+     re-learned every January — at which point BLS restates the previous five years of adjusted history. The underlying
+     prices do not change and the not-seasonally-adjusted index is essentially never revised; what moves is the split
+     between "this is the normal March pattern" and "this is news". This section measures how far a first print
+     eventually travels, and how much of a single month is separable from the recent trend at all.</p>
+
+  <div class="panel">
+    <h3>Every vintage of the last 36 months</h3>
+    <p class="isnt"><b>What this is:</b> for one series, the seasonally adjusted month-over-month change of the last 36
+       observation months as it appeared in each of the archived vintages, with the current vintage in ink and the
+       first print of each month dashed.
+       <b>What it isn't:</b> a correction sequence. There is no true value being converged on — there is a seasonal
+       decomposition being re-estimated, and revising it as data arrives is correct practice, not error.</p>
+    <div class="controls" id="p4FanControls">
+      <span class="ctl-label">Series:</span>
+    </div>
+    <div id="p4Fan"></div>
+    <div id="p4FanTable"></div>
+    <p class="note" id="p4FanNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p><strong>Source:</strong> the <a href="https://alfred.stlouisfed.org/" rel="noopener">ALFRED</a> vintage
+           archive at the St. Louis Fed, which keeps every FRED vintage. Thirteen series are collected; headline goes
+           back to 1972, the aggregates to 1996, and the nine item-level <code>CUSR0000*</code> series to 2011, so
+           <strong>only the 2011+ window is comparable across all thirteen</strong>.</p>
+        <p><strong>First print</strong> is the month-over-month change in the earliest vintage that contains that
+           observation month. A series' oldest archived vintage also carries back-history that had already been revised
+           before ALFRED ever saw it; those months are stored with <code>true_first = 0</code> and excluded from every
+           statistic, because including them would bias revisions toward zero.</p>
+        <p>Each vintage is reindexed onto a complete monthly calendar before differencing, so a month-over-month change
+           is a true calendar lag. <strong>October and November 2025 are therefore absent from every vintage of the
+           aggregates</strong> — there was no October CPI. Two series are exceptions and do have an October value, new
+           vehicles and used cars, because those indexes are built from transaction data rather than field collection;
+           this is detected from the data per series, not hardcoded.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>The February effect is a direction, not a size</h3>
+    <p class="isnt"><b>What this is:</b> the average <em>signed</em> revision from first print to latest value, by
+       calendar month of the year, pooled over the whole history of the series.
+       <b>What it isn't:</b> a statement about inflation. Re-estimated seasonal factors redistribute a fixed annual
+       total across twelve months, so these revisions roughly cancel over a year — the overall mean signed revision for
+       headline is +0.002 pp, i.e. zero.</p>
+    <div class="controls" id="p4MoyControls">
+      <span class="ctl-label">Series:</span>
+    </div>
+    <div id="p4Moy"></div>
+    <div id="p4MoyTable"></div>
+    <p class="note" id="p4MoyNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>Revision = <code>latest − first_print</code> in percentage points, averaged over every genuine first print
+           for that calendar month. The magnitude is <em>flat</em> across the year — headline mean |revision| is
+           0.068 pp for January+February against 0.066 pp for the rest of the year, a ratio of 1.03. It is the
+           <strong>sign</strong> that carries the seasonal signature: early-year prints are systematically revised
+           down, late-year prints systematically up.</p>
+        <p>Month-of-year statistics pool across each series' whole history, which for headline
+           mixes several seasonal-adjustment methodology regimes (X-11 through X-13ARIMA-SEATS, with intervention
+           analysis introduced at different dates per series). The sign pattern is stable across sub-periods; the
+           magnitudes are not directly comparable across decades.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Does a 0.4 stay a 0.4?</h3>
+    <p class="isnt"><b>What this is:</b> every headline and core first print that printed as 0.4, and what tenth it
+       eventually rounded to. Rounding is half away from zero (BLS style), not Python's banker's rounding.
+       <b>What it isn't:</b> a claim that the revised number is more correct than the printed one — only that the
+       printed tenth is not durable.</p>
+    <div id="p4Trans"></div>
+    <p class="note" id="p4TransNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>Reporting rounds a monthly CPI change to one decimal, so the honest question is whether the <em>printed</em>
+           number survives. Both the first print and the latest value are rounded to tenths and cross-tabulated; the
+           full transition matrix for all thirteen series is in <code>p4_transition</code> and in the JSON.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>First prints against their own trailing trend</h3>
+    <p class="isnt"><b>What this is:</b> each month's first print, against a band of ±1.5 sampling standard errors
+       around that month's <em>real-time</em> trailing 12-month average. Filled markers are the months that fall inside
+       the band.
+       <b>What it isn't:</b> a hypothesis test. The trailing mean is itself estimated, the SE is a median across cells
+       rather than the standard error of this particular change, and it covers sampling error only.</p>
+    <div class="controls" id="p4SeControls">
+      <span class="ctl-label">Series:</span>
+    </div>
+    <div id="p4Se"></div>
+    <div id="p4SeTable"></div>
+    <p class="note" id="p4SeNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>The flag is <code>|first_print − trailing 12-month mean of MoM in that same vintage| &lt; 1.5 × SE</code>.
+           The trailing mean is computed from the first-print vintage, not from today's data, and requires at least 9
+           of the 12 prior calendar months. Standard errors are BLS's own annual median SE of a one-month change
+           (Table 1V of the variance workbooks, parsed by P5), matched to the observation month's year.</p>
+        <div class="warn"><strong>Sampling error is the smaller of the two uncertainties here.</strong> For headline
+           the sampling SE of a one-month change is 0.04 pp, while the standard deviation of the eventual
+           seasonal-adjustment revision is 0.086 pp — <strong>revision is about twice the sampling error</strong>. The
+           two are roughly independent, so a first print of headline SA month-over-month carries something like
+           √(0.04² + 0.086²) ≈ 0.095 pp of total uncertainty before anything else is considered.</div>
+        <p>Three series are matched exactly to a published group (headline, core, energy); the rest are components of,
+           or spread across, a broader group, and are marked with an asterisk in the summary table. For those the group
+           SE is a <strong>lower bound</strong> on the component's sampling error — narrower cells carry fewer price
+           quotes — so their "within 1.5 SE" share is conservative, i.e. too low.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================================= P8 ================================== -->
+<section id="p8" aria-labelledby="h-p8">
+  <h2 id="h-p8"><span class="eyebrow">P8 · Chained CPI</span>Where households substitute</h2>
+  <p class="lede">BLS publishes two headline indexes off the same price quotes. The CPI-U combines them with fixed,
+     lagged expenditure weights; the Chained CPI-U uses spending patterns from both ends of the period, so it registers
+     that when beef gets expensive people buy more chicken. The difference is the <em>upper-level substitution gap</em>.
+     Since December 1999 the all-items gap has averaged <span id="p8LongRun">0.27</span> percentage points a year, which
+     compounds to <span id="p8Cum">7.0</span>% — the reason "chained CPI" keeps appearing in budget proposals.</p>
+
+  <div class="panel">
+    <h3>29 categories, ten years, coloured by the gap</h3>
+    <p class="isnt"><b>What this is:</b> CPI-U 12-month change minus C-CPI-U 12-month change, in percentage points, for
+       each published category and each of the last 120 months. Blue means the fixed-weight index rose faster; red means
+       the chained index did.
+       <b>What it isn't:</b> a set of independent measurements. The rows <em>nest</em> — All items ⊃ Housing ⊃ Shelter —
+       and the six commodity-and-service-group rows slice the same total a second time. Read it for where and when the
+       two formulas disagree, not as 29 separate facts.</p>
+    <div class="controls" id="p8HeatControls">
+      <span class="ctl-label">Rows:</span>
+      <div class="seg" role="group" aria-label="Rows">
+        <button type="button" data-s="expenditure" aria-pressed="true">Expenditure categories (23)</button>
+        <button type="button" data-s="all" aria-pressed="false">Add commodity &amp; service groups (29)</button>
+      </div>
+    </div>
+    <div class="scroller-wide"><div id="p8Heat"></div></div>
+    <div class="chips" id="p8Stages"></div>
+    <div id="p8HeatTable"></div>
+    <p class="note" id="p8HeatNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>The one number</dt>
+          <dd><code>gap_yoy = CPI-U 12-month % change − C-CPI-U 12-month % change</code>, in percentage points. Both
+              indexes are taken as published; nothing is re-aggregated. The CPI-U leg is NSA, matching the C-CPI-U,
+              which BLS never seasonally adjusts. All 12-month lags are calendar-aligned joins, never row offsets.</dd>
+          <dt>Which substitution this is</dt>
+          <dd><strong>Upper-level only</strong> — shifting spending between categories. Swapping between varieties
+              <em>inside</em> a category is already handled in both indexes by the same geometric means BLS has used
+              since 1999, so that layer is not in these numbers.</dd>
+          <dt>The three publication stages</dt>
+          <dd>The chained formula needs to know what people spent that month, and that arrives about a year late, so
+              every month is published three times: <strong>initial</strong> with the month itself,
+              <strong>interim</strong> each quarter, and <strong>final</strong> 10–12 months later. The stage is
+              carried in the footnote code on each data row of the flat file (<code>I</code>, <code>U</code>, blank),
+              and is marked on the month axis. The newest number on this chart is the least reliable one.</dd>
+          <dt>Universe</dt>
+          <dd>There is <strong>no fine-grained C-CPI-U</strong>. The chained index does not exist below these 29
+              published aggregates, anywhere public — so "item level" here means these 29, not the ~179 leaf strata
+              used by P1 and P2.</dd>
+          <dt>October 2025</dt>
+          <dd>No CPI and no C-CPI-U, with exactly one exception: new vehicles has an October value in both surveys, so
+              that is the single 2025-10 cell on this chart. Everything else is absent by design.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Cumulative divergence by major group since 1999</h3>
+    <p class="isnt"><b>What this is:</b> the percent by which each major group's fixed-weight index has outrun its
+       chained counterpart since the chained index's own December 1999 base.
+       <b>What it isn't:</b> a running sum of the monthly gaps — it is a ratio of the two index levels, so it is the
+       cumulative divergence, not an accumulation of the 12-month numbers above.</p>
+    <div class="controls" id="p8GroupControls">
+      <span class="ctl-label">Groups:</span>
+    </div>
+    <div id="p8Groups"></div>
+    <div id="p8GroupsTable"></div>
+    <p class="note" id="p8GroupNote"></p>
+  </div>
+
+  <div class="panel">
+    <h3>Biggest and smallest 12-month gaps at the last <em>final</em> month</h3>
+    <p class="isnt"><b>What this is:</b> the 12-month gap by category as of the most recent month whose chained values
+       are final, which is the only stage worth ranking on.
+       <b>What it isn't:</b> a ranking of "who substitutes most". A negative gap simply means the chained index rose
+       faster for that category over those 12 months; that happens routinely at category level and is not a
+       contradiction — the aggregate gap is the weighted net.</p>
+    <div id="p8Rank"></div>
+    <div id="p8RankTable"></div>
+    <p class="note" id="p8RankNote"></p>
+  </div>
+
+  <div class="panel">
+    <h3>What a fresh chained number is worth</h3>
+    <p class="isnt"><b>What this is:</b> the all-items chained index as first published against its value today, and
+       the resulting revision to the 12-month change.
+       <b>What it isn't:</b> evidence that the long-run gap is unreliable. The long-run average is solid; it is the
+       single fresh month that is not.</p>
+    <div id="p8Rev"></div>
+    <div id="p8RevTable"></div>
+    <div class="caveat" id="p8RevCaveat"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>The flat file only ever carries the <em>current</em> stage of each month, so it is a snapshot rather than a
+           history. Publication history is therefore rebuilt from BLS's own monthly supplemental tables —
+           <strong>Table 1C</strong>, xlsx from 2021-11 and pdf back to 2017-07 — each of which prints the index as it
+           stood at that release. 107 files, publications 2017-07 … 2026-07. Nothing before 2017-07 is recoverable:
+           the 2012–2016 archives contain no C-CPI-U table at all, and BLS publishes no consolidated revision
+           history.</p>
+        <p><code>rev_yoy_pp</code> is the number to quote. <code>rev_pct</code> compares the level published for that
+           month then and now, and because the whole index path is revised together it is not a clean per-month
+           statistic.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================================= P10 ================================= -->
+<section id="p10" aria-labelledby="h-p10">
+  <h2 id="h-p10"><span class="eyebrow">P10 · Lead–lag map</span>What leads what</h2>
+  <p class="lede">74 mid-level CPI items covering 89% of household spending, treated as 74 monthly series of price
+     changes since 2000. For each of the 5,402 ordered pairs — "does A move before B?" is a different question from
+     "does B move before A?" — the pipeline asks whether A's move lines up with B's move one to twelve months later,
+     and how reliably. Only the relationships that survive four separate filters are drawn.</p>
+
+  <div class="caveat">
+    <strong>Lead–lag correlation, not pass-through, not causal.</strong> An arrow from <em>i</em> to <em>j</em> means
+    that when <em>i</em>'s seasonally adjusted monthly rate moved, <em>j</em>'s tended to move a few months later. It
+    does <strong>not</strong> mean <em>i</em>'s prices feed into <em>j</em>'s costs. Two items can lead and lag each
+    other because they share a driver, because BLS prices them on staggered schedules, because one is smoothed and the
+    other is not, or by chance. The filtering below removes accidents, not confounders — a shared driver produces
+    exactly the same picture as a pass-through.
+  </div>
+
+  <div class="panel">
+    <h3>The map</h3>
+    <p class="isnt"><b>What this is:</b> the stable edges only. Node size is the item's share of the basket, node
+       colour and ring position are its major group, arrow width is |ρ| and arrow colour its sign; hover or click a
+       node to light up everything it leads, two steps out, with the cumulative lag.
+       <b>What it isn't:</b> a causal graph, and not a complete one — 37 of the 74 nodes have no stable edge at all,
+       and the absence of an arrow into a thinly-covered group is weak evidence.</p>
+    <div class="controls" id="p10Controls">
+      <span class="ctl-label">Variant:</span>
+      <div class="seg" role="group" aria-label="Variant">
+        <button type="button" data-v="common_removed" aria-pressed="true">Common factor removed (read this one)</button>
+        <button type="button" data-v="raw" aria-pressed="false">Raw</button>
+      </div>
+    </div>
+    <div id="p10Legend"></div>
+    <div class="scroller-wide"><div id="p10Net"></div></div>
+    <p class="note" id="p10Hint">Hover or focus a node to highlight its two-level downstream cascade; click to pin it,
+       click again or press Escape to release. The cascade table appears below when a node is selected.</p>
+    <div id="p10Cascade"></div>
+    <div id="p10NetTable"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>The two variants</dt>
+          <dd><code>raw</code> is the items as published, and it is <strong>dominated by energy</strong>: fuel oil,
+              gasoline and energy services appear to move first and everything else to follow, because energy is what
+              moves the overall inflation number and the overall number is inside every series.
+              <code>common_removed</code> takes each item's own idiosyncratic movement after regressing out the
+              headline — and is the variant to read. Almost every energy→transport link is strong in
+              <code>raw</code> and gone in <code>common_removed</code>: those items do not have a private relationship
+              with each other, they are both riding the same tide.</dd>
+          <dt>Leave-one-out headline</dt>
+          <dd>The headline regressor has the item's own contribution removed. This matters more than it sounds:
+              gasoline is 2.9% of the basket but its monthly rate has 19× the headline's standard deviation, so on the
+              plain headline it largely regresses on itself, takes a coefficient of +16, and its residual becomes
+              roughly minus-the-headline — which then shows up as a flat ρ ≈ −0.5 arrow from gasoline into every
+              persistent service item <em>at every lag from 1 to 12</em>, the signature of a level artefact rather than
+              a lead. The fix drops energy sources from 12 to 3 while leaving every genuine edge intact or slightly
+              stronger.</dd>
+          <dt>ρ, lag and q</dt>
+          <dd><strong>ρ</strong> is the cross-correlation at the best lag; ρ = 0.43 means roughly 18% of the
+              follower's month-to-month wiggle lines up with the leader's three months earlier. <strong>Lag</strong> is
+              the argmax of |ρ| over 1…12 months and is <em>not</em> sharply identified — neighbouring lags usually
+              differ by a few hundredths. <strong>q</strong> is the FDR-adjusted p-value of a Newey–West HAC
+              Granger-style F test; a low q means the leader says something the follower's own history did not already
+              say. A high q with a high ρ — rent → OER, ρ 0.80, q 0.78 — means "these two move together with a
+              one-month offset, but neither predicts the other beyond its own past". Both are shown because they answer
+              different questions.</dd>
+          <dt>Stability</dt>
+          <dd>Everything is recomputed on four overlapping ~15-year windows. A pair passes a window if |ρ| &gt; 0.25 or
+              q &lt; 0.05 there; an edge is <strong>stable</strong> only if it passes in at least 3 of the 4 windows,
+              with the same sign and every best lag within ±2 months of their median. Note that 20 of the 70 stable
+              edges do not clear the screen on the full sample — they pass in three windows but wash out when all 26
+              years are pooled.</dd>
+          <dt><code>rho_other</code></dt>
+          <dd>Every edge carries the same pair at the same lag measured in the <em>other</em> variant. An edge whose
+              <code>rho_other</code> is near zero or of the opposite sign is a creature of the common-factor step, not
+              a robust feature of the data. Three weak negative gasoline / fuel-oil edges survive into the main view
+              and are residual artefact.</dd>
+          <dt>Colour and position</dt>
+          <dd>Major group is carried by <strong>position first</strong> — each group occupies one labelled arc of the
+              ring — and by colour second, which is what allows eight group hues in a form where any two can end up
+              adjacent. Every node is also directly labelled, and the full edge list is in the data table.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>5,402 candidate pairs, 70 arrows</h3>
+    <p class="isnt"><b>What this is:</b> how many ordered pairs survive each filtering stage.
+       <b>What it isn't:</b> a p-value. The FDR step controls the false-discovery rate across all pairs tested within a
+       window; the stability step is a reproducibility requirement, not a significance level.</p>
+    <div id="p10Funnel"></div>
+    <div id="p10FunnelTable"></div>
+    <p class="note" id="p10FunnelNote"></p>
+  </div>
+
+  <div class="panel">
+    <h3>The relationships that were specified in advance</h3>
+    <p class="isnt"><b>What this is:</b> ten relationships written into the brief <em>before</em> the pipeline ran, and
+       whether each came out stable in each variant.
+       <b>What it isn't:</b> a scorecard where more passes is better. Several of these are <em>expected</em> to fail in
+       the common-removed view, and that failure is the result.</p>
+    <div id="p10Sanity"></div>
+    <p class="note" id="p10SanityNote"></p>
+  </div>
+</section>
+
+<!-- ================================= P6 ================================== -->
+<section id="p6" aria-labelledby="h-p6">
+  <h2 id="h-p6"><span class="eyebrow">P6 · Producer prices</span>What's in the pipe</h2>
+  <p class="lede">Before a jar of peanut butter is a jar of peanut butter on a shelf, it left a factory with a
+     different price on it. BLS measures both. P6 lines up <strong>61 verified pairs</strong> of "this producer price ↔
+     this consumer price", measures how far apart in time the two have historically moved, and then asks one narrow
+     arithmetic question: producer prices for these things recently moved by more (or less) than they usually do — if
+     that carries through to the shelf the way it has carried through before, how many basis points are
+     <strong>still to reach headline CPI over the following twelve months</strong> — counting only the pass-through
+     that has not already landed?</p>
+
+  <div class="caveat">
+    <strong>Historical-relationship arithmetic, not a forecast.</strong> Nobody here is predicting the CPI. The
+    calculation is a recent producer-price deviation multiplied by a coefficient estimated on the past, summed. It
+    contains no view about demand, retail margins, inventories, the dollar or tariffs. It is also
+    <strong>not causal</strong>: when producer beef prices rise and consumer beef prices follow, part of that is cost
+    pass-through and part is both prices answering to the same herd, feed price and weather. The regression cannot
+    separate them and does not try.
+  </div>
+
+  <div class="panel">
+    <h3>Pressure in the pipe</h3>
+    <p class="isnt"><b>What this is:</b> the sum, over the pairs where the question is answerable, of each recent
+       producer-price deviation <em>weighted by the pass-through it has not yet delivered</em> — an innovation
+       <em>k</em> months old keeps only <code>(β₁₂ − β<sub>k</sub>)/β₁₂</code> of its effect — times β₁₂ times the
+       item's share of the basket, in basis points of the headline. I.e. the CPI change <strong>still in the pipe</strong>
+       from recent producer surprises, yet to reach the shelf over the coming ~12 months if history repeats.
+       <b>What it isn't:</b> a next-month CPI pressure, a forecast, a decomposition of the CPI, or a statement about
+       anything outside the corner of the basket it covers — the pairs that feed the total carry
+       <span id="p6Cover">9.7</span>% of consumer spending, and shelter, about a third of the CPI, has no producer
+       price at all. The figure is a running total of what is left to come, not dated to any particular future month.</p>
+    <div class="kv" id="p6PressKv"></div>
+    <div id="p6Press"></div>
+    <div id="p6PressTable"></div>
+    <h4 style="font-size:13.5px;margin:22px 0 2px">What is making up that number this month</h4>
+    <p class="isnt">Note how small the weights are. The big-weight pairs are either lag-0 (gasoline 2.90%, electricity
+       2.49%, physicians 1.68%), weak (hospital services 2.17%) or covered by a finer pair (food at home 8.32%,
+       apparel 2.37%), so the total is a sum over a genuinely small corner of the basket.</p>
+    <div id="p6Top"></div>
+    <div id="p6TopTable"></div>
+    <p class="note" id="p6PressNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>The arithmetic, exactly</dt>
+          <dd>For a pair with best lag <em>L</em> at month <em>m</em>: <code>base</code> is the mean of the PPI
+              month-over-month rate over the 60 months ending at <em>m</em>. Each of the <em>L</em> months ending at
+              <em>m</em> contributes its deviation <code>dev<sub>m−k</sub> = ppi_mom<sub>m−k</sub> − base</code>,
+              <strong>discounted by the pass-through it has already delivered</strong>: an innovation <em>k</em> months
+              old keeps the factor <code>(β₁₂ − β<sub>k</sub>)/β₁₂</code>, where β<sub>k</sub> is the same local
+              projection estimated at horizon <em>k</em>. The pair's contribution is
+              <code>Σ<sub>k=0..L−1</sub> dev<sub>m−k</sub> · max(β₁₂ − β<sub>k</sub>, 0) · weight</code>, which lands
+              directly in basis points of the headline. This <strong>removes the double-count</strong> that a plain
+              <code>shock × β₁₂</code> would carry — β₁₂ is the <em>cumulative</em> 12-month response, so applying it in
+              full to an innovation that has already passed through for months over-counts, and it also up-weighted
+              longer-lag pairs mechanically. The freshest innovation (k=0) keeps almost all of its effect; one older than
+              twelve months keeps none — the method <strong>assumes pass-through is essentially complete within a
+              year</strong>. A pair whose response is entirely contemporaneous (β₀ ≈ β₁₂) contributes ~0: its moves are
+              already on the shelf. The ±1 SE band uses <code>|Σ dev·(β₁₂−β<sub>k</sub>)/β₁₂| · se(β₁₂) · weight</code>,
+              a deliberately conservative choice — the true SE of <code>β₁₂ − β<sub>k</sub></code> is smaller because the
+              two are estimated together.</dd>
+          <dt>β₁₂ — the pass-through coefficient</dt>
+          <dd>Jordà (2005) local projections:
+              <code>Σ<sub>j=0..h</sub> cpi_mom<sub>t+j</sub> = α + β<sub>h</sub>·ppi_mom<sub>t</sub> + γ₁₋₃ cpi_mom<sub>t−1..t−3</sub> + ε</code>,
+              so β₁₂ is the <em>cumulative</em> pp response of the CPI item over 13 months to a 1 pp producer-price move.
+              Overlapping horizons make ε an MA(h) process by construction, so the standard errors are Newey–West with a
+              Bartlett kernel truncated at <code>h + ⌊4·(n/100)^(2/9)⌋</code> and a small-sample factor — OLS standard
+              errors would be meaningless here.</dd>
+          <dt>Lag 0 contributes exactly zero, by construction</dt>
+          <dd><strong>22 of the 61 pairs peak at lag 0</strong> — gasoline (ρ = 0.82), electricity, fuel oil, airline
+              fares, milk, eggs, piped gas. For those the producer move and the consumer move land in the same month,
+              so by the time the PPI print exists there is nothing left in the pipe and the pair contributes zero. That
+              is the correct answer, not a coverage failure. The same applies to the 16 <em>weak</em> pairs (β₁₂ ≤ 0 or
+              |β₁₂/se| &lt; 1.96) and to the import-price overlays, which would double-count the PPI pair on the same
+              CPI item.</dd>
+          <dt>One pair per CPI item, finer wins</dt>
+          <dd>The concordance deliberately nests (both "Meats" and "Beef and veal"). A pair is dropped from the
+              <em>sum</em> — never from the tables — when another pair's CPI item is a descendant of it in the BLS item
+              hierarchy.</dd>
+          <dt>The two bands</dt>
+          <dd>The ±1 SE drawn on the chart treats the β errors as independent across pairs. They are not — the pairs
+              share macro shocks — so it is a <strong>lower bound</strong>, and the comonotone bound
+              <code>Σ|contrib_se|</code> is printed beside it. <strong>Neither band allows for the βs being wrong in a
+              regime sense</strong>, which is normally the larger uncertainty by a wide margin; that is what the
+              rolling range in the pass-through table is for.</dd>
+          <dt>PPI is preliminary for four months</dt>
+          <dd>Every PPI index is recalculated with late reports at each release, so the most recent readings — exactly
+              the ones this figure is built from — will move. The pipeline vintages them.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Pair by pair</h3>
+    <p class="isnt"><b>What this is:</b> the producer-price month-over-month rate, already shifted forward by that
+       pair's best lag, drawn over the consumer-price rate for the same item — the last eight years, one facet per
+       pair. <b>What it isn't:</b> a fit. The two lines are the raw inputs; no regression line is drawn, and a pair
+       whose lines look unrelated <em>is</em> unrelated.</p>
+    <div class="controls" id="p6SmControls"></div>
+    <div id="p6SmLegend"></div>
+    <div class="smgrid" id="p6Sm"></div>
+    <div id="p6SmTable"></div>
+    <p class="note">Each facet has its own vertical scale — the producer and consumer series for a pair are in the same
+       units (percent per month) but not the same size, and a shared scale across facets would flatten every food pair
+       to nothing next to gasoline.</p>
+  </div>
+
+  <div class="panel">
+    <h3>Every pair, with its error bar and its range</h3>
+    <p class="isnt"><b>What this is:</b> all 61 surviving pairs, sortable, grouped by how confident the concordance row
+       is. <b>What it isn't:</b> a ranking. NSA-demeaned pairs are not comparable with seasonally adjusted ones (the
+       same rule P3 enforces), and <strong>the rolling range matters more than the point estimate</strong> — for new
+       vehicles β₁₂ is 0.41 over the full sample and has run from −0.03 to 1.48 depending on the decade.</p>
+    <div class="controls" id="p6PairControls"></div>
+    <div id="p6Pairs"></div>
+    <p class="note" id="p6PairNote"></p>
+    <details class="method">
+      <summary>What the flags mean</summary>
+      <div class="method-body">
+        <dl>
+          <dt><span class="pill bad">weak</span></dt>
+          <dd>Full-sample β₁₂ is ≤ 0 or not distinguishable from zero at |t| &lt; 1.96. <strong>16 of 61.</strong>
+              Several are relationships you would have bet on — dental care, hospital services, car rental,
+              motor-vehicle maintenance. They stay in the tables and are kept out of the sum. A concordance that only
+              reported its winners would be worthless.</dd>
+          <dt><span class="pill bad">CPI leads</span></dt>
+          <dd>The correlation at a <em>negative</em> lag beats the one at lag 0 — the consumer price is moving before
+              the producer price, so the pipeline story does not hold for that pair. <strong>16 of 61</strong>, three of
+              them in the sum (poultry, fish and seafood, canned fruits and vegetables). Negative lags are an alignment
+              diagnostic only and are never chosen as the best lag.</dd>
+          <dt><span class="pill">NSA-dm</span></dt>
+          <dd>BLS has discontinued the seasonally adjusted twin of that PPI series (or the CPI item has no SA index),
+              so both sides have their calendar-month means removed over the estimation sample instead. A crude X-11
+              substitute — without it, a January producer bump and a January consumer bump would correlate whether or
+              not one caused the other.</dd>
+          <dt>β₁₂ above 1</dt>
+          <dd>Seven pairs have the consumer price moving more than one-for-one — cereals and bakery products at 3.5 is
+              the extreme. Not automatically wrong: the PPI series usually covers a slice of what goes into the CPI
+              item, so a 1 pp move in the measured slice can accompany a larger move in the whole thing. It does mean
+              "pass-through" is a loose word for those pairs.</dd>
+          <dt>Confidence</dt>
+          <dd>A property of the hand-built concordance row, not of the statistics: <code>high</code> means the producer
+              series is the right upstream price for that consumer item, <code>low</code> that it is the closest
+              available proxy. Imported-goods pairs — apparel, footwear, consumer electronics, much of furniture —
+              are labelled <code>med</code> or <code>low</code> because the domestic PPI is measuring the wrong
+              upstream price; the BEA import-price overlays are published next to them for that reason.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Producer-price context: final and intermediate demand</h3>
+    <p class="isnt"><b>What this is:</b> the PPI's own headline aggregates, 12-month changes, for context.
+       <b>What it isn't:</b> comparable with the CPI, and deliberately <strong>not paired with any CPI item</strong>.
+       Final demand includes exports, government purchases and capital equipment and excludes imports; lining it up
+       against the CPI headline is apples to oranges.</p>
+    <div class="controls" id="p6FdControls"></div>
+    <div id="p6Fd"></div>
+    <div id="p6FdTable"></div>
+  </div>
+</section>
+
+<!-- ================================= P7 ================================== -->
+<section id="p7" aria-labelledby="h-p7">
+  <h2 id="h-p7"><span class="eyebrow">P7 · Import exposure</span>Tariff-exposed vs domestic prices</h2>
+  <p class="lede">Every item in the basket is made somewhere. P7 works out, for each of the 179 CPI leaf items, how
+     much of a dollar spent on it ends up paying for something that crossed a border — then splits the basket into
+     three groups by that share and builds a separate inflation index for each. <strong>Exposed</strong> (25% or more
+     imported content) is 43 items and 12.6% of the basket; <strong>mid</strong> (10–25%) is 81 items and 19.9%;
+     <strong>domestic</strong> (under 10%) is 55 items and 65.2%, dominated by shelter, medical care, education and
+     personal services.</p>
+
+  <div class="caveat">
+    <strong>The current reading is the opposite of the naive story, and it is worth saying plainly.</strong> At
+    <span id="p7LatestMonth">2026-07</span> the exposed tier is running at <span id="p7Exposed">2.79</span>% and the
+    domestic tier at <span id="p7Domestic">2.98</span>% — the most import-intensive part of the basket is
+    <strong>below</strong> the least import-intensive part, and below the headline replica at
+    <span id="p7Replica">3.29</span>%. The fastest tier is the middle one
+    (<span id="p7Mid">4.61</span>%), which is largely composition: it holds new and used vehicles, food away from home
+    and apparel. None of these three numbers measures the effect of a tariff on a price. They are re-weightings of
+    published BLS item indexes — a fact about two groups of prices, whose cause could equally be the dollar, shipping
+    rates, or goods and services having been on different paths since 2021.
+  </div>
+
+  <div class="panel">
+    <h3>Three baskets, one method</h3>
+    <p class="isnt"><b>What this is:</b> December-chained Laspeyres indexes over the same published item indexes,
+       re-weighted by import-content tier, with the all-items replica for scale. <b>What it isn't:</b> a treatment and
+       a control. Tier assignment is <em>import content</em>, not tariff exposure: a high-import item sourced entirely
+       from a country that was never tariffed sits in the exposed tier anyway.</p>
+    <div class="controls" id="p7SeriesControls"></div>
+    <div id="p7Series"></div>
+    <p class="note" id="p7SeriesNote"></p>
+    <div id="p7SeriesTable"></div>
+    <details class="method">
+      <summary>Method &amp; exact definitions — how import content is measured</summary>
+      <div class="method-body">
+        <dl>
+          <dt>Direct import content of a commodity</dt>
+          <dd><code>sd_c = M[c, F01000] / U[c, F01000]</code> — the import matrix over the Use table, both at
+              producers' prices, on the PCE column, clipped to [0,1]. For the 127 of 402 commodities with negligible
+              PCE use the denominator falls back to total use excluding BEA's negative imports-reconciliation column.</dd>
+          <dt>Embodied (indirect) imports — the Leontief round</dt>
+          <dd><code>mi = ΣM[·,j]/x_j</code> per dollar of industry output, re-expressed per dollar of commodity output
+              through the Make table, then run through the domestic commodity-by-commodity total-requirements matrix:
+              <code>t = mc·L</code>. Total content is <code>st_c = sd_c + (1 − sd_c)·t_c</code> — the dollar splits
+              into an imported part and a domestically produced part, and only the domestic part carries embodied
+              imports. Industry and commodity output sums <strong>must exclude BEA's total row/column</strong>;
+              including it silently halves every intensity.</dd>
+          <dt>Why the PCE bridge matters</dt>
+          <dd>The margin share of a consumer dollar is not a constant. The 2017 detail bridge puts the producer's share
+              of the purchaser price at <strong>12.5%</strong> for games and toys — nearly seven eighths of that price
+              is transport plus wholesale plus retail margin — and at <strong>73.8%</strong> for nonelectric cookware.
+              A uniform "goods at retail ≈ 30–40%" haircut would have mis-stated import content by a factor of two at
+              both ends of that range. Margins and transport are domestic services and carry only the embodied content
+              of the trade and transport commodities (2017: wholesale 0.053, retail 0.041, transport 0.094).</dd>
+          <dt>2017, on purpose</dt>
+          <dd>BEA publishes the detail Use / Make / import / total-requirements set only for benchmark years, so
+              exposure is measured <strong>before every tariff in the timeline</strong>. That is an advantage for the
+              event study — the tier assignment cannot be contaminated by the tariffs being studied or by re-sourcing
+              in response to them — and a limitation for the descriptive series: any supply chain that moved after 2017
+              is mis-classified, in the direction of overstating exposure for anything that reshored. The 2007 and 2012
+              bases are computed too; mean share across the 179 leaves is 0.190 / 0.197 / 0.177.</dd>
+          <dt>Where the cutoffs sit</dt>
+          <dd>0.25 and 0.10 on total share, and they are <strong>not</strong> percentile splits. The distribution is
+              bimodal — services and shelter pile up below 0.10, durable goods above 0.25 — so the cuts fall in the
+              sparse middle. Moving the high cut to 0.30 would move 12 items; to 0.20, 21 items.</dd>
+          <dt>Coverage gate and the October hole</dt>
+          <dd>A month is dropped unless leaves carrying 90% of the tier's weight have both a December base and a
+              current index. October 2025 (no CPI release) fails for every scheme; November 2025 additionally fails for
+              the <strong>mid</strong> tier at 86.0% coverage, so the mid line has a two-month hole where the others
+              have one. That is the gate working on a narrower weight base, not a bug. The all-items replica matches
+              P1's <code>official_replica</code> to 0.0000 pp at every month.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Which items are import-intensive</h3>
+    <p class="isnt"><b>What this is:</b> the 179 leaf items, area = share of the basket, fill = total import content of
+       a consumer dollar. Computers top the list at 0.59. <b>What it isn't:</b> a measure of where an item is made.
+       BEA allocates a commodity's imports proportionally across its users, so this is the import share of an item's
+       <em>commodities</em>, not of the specific varieties in the CPI sample.</p>
+    <div class="controls" id="p7TreeControls"></div>
+    <div id="p7TreeLegend"></div>
+    <div class="scroller-wide"><div id="p7Tree"></div></div>
+    <div id="p7TreeTable"></div>
+    <p class="note" id="p7TreeNote"></p>
+  </div>
+
+  <div class="panel">
+    <h3>Event study <span class="pill">Tier 2</span></h3>
+    <div class="caveat">
+      <strong>Read the pre-trend flag before the coefficient, and read this caveat before either.</strong> The
+      headline result — the April 2025 universal 10% reciprocal baseline — is a cumulative
+      <strong>+2.33 pp</strong> exposed-minus-domestic gap over the following year with a HAC standard error of
+      <strong>1.29 pp</strong>. That is <strong>about 1.8 standard errors: suggestive, and not significant at
+      conventional levels.</strong> It also <strong>bundles six other tariff actions</strong> that took legal effect in
+      the same month — monthly CPI cannot separate them — in a month that saw the largest equity and dollar moves of
+      the year. It is not an estimate of the pass-through of a 10% tariff.
+    </div>
+    <p class="isnt"><b>What this is:</b> per-horizon coefficients on the weighted exposed-minus-domestic gap in
+       demeaned month-over-month inflation, with the cumulative path from month 0, for one selected action.
+       <b>What it isn't:</b> a clean experiment. With 28 events in 100 months most ±24-month windows contain other
+       events, and each regression treats the others as noise.</p>
+    <div class="controls" id="p7EventControls"></div>
+    <div class="kv" id="p7EventKv"></div>
+    <div id="p7Event"></div>
+    <p class="note" id="p7EventNote"></p>
+    <div id="p7EventBundle"></div>
+    <h4 style="font-size:13.5px;margin:22px 0 2px">All 25 estimated events, with the pre-trend test</h4>
+    <p class="isnt"><b>10 of the 25 fail the pre-trend check</b>, and they are shown rather than filtered out. The
+       failures cluster in two places, both informative: the 2018 Section 301 lists, where the goods–services gap was
+       already narrowing, and late 2025 / 2026, where the exposed-domestic gap was trending steadily and any event
+       dropped into it inherits that trend.</p>
+    <div id="p7EventTable"></div>
+    <p class="note">Events from mid-2025 onward have very few post-event months, so their cumulative windows are
+       truncated and their standard errors are correspondingly small and <strong>not comparable</strong> with the
+       earlier rows.</p>
+    <details class="method">
+      <summary>Method &amp; exact definitions — the estimating equation</summary>
+      <div class="method-body">
+        <dl>
+          <dt>The dependent variable</dt>
+          <dd><code>G_t = Σ<sub>exposed</sub> w·x / Σw − Σ<sub>domestic</sub> w·x / Σw</code>, where <code>x</code> is
+              an item's NSA month-over-month change minus that item's own mean for <em>that calendar month</em>,
+              computed over all months more than 12 away from the event so the event cannot demean itself away.
+              <strong>NSA throughout, for both legs</strong> — mixing SA items with NSA-fallback items would put a
+              seasonal wedge straight into the difference.</dd>
+          <dt>The regression</dt>
+          <dd>±24 months around the event; dummies for relative months −6…+12 with −24…−7 as the omitted baseline;
+              <strong>Newey–West HAC standard errors, 6 lags</strong>. The cumulative 0…+12 effect and its SE come from
+              the full coefficient covariance — which is why the cumulative path on the chart carries an interval only
+              at its endpoint. Constructing a band for the intermediate horizons would mean inventing the covariance
+              the pipeline does not publish.</dd>
+          <dt>Pre-trend test</dt>
+          <dd>OLS slope of <code>G_t</code> over relative months −6…−1 with HAC(2) standard errors; flagged as failing
+              when |t| &gt; 2. A failure says the two tiers were <em>already</em> diverging before the action.</dd>
+          <dt>Event selection and bundling</dt>
+          <dd>87 timeline rows → 28 events → 25 estimated. A row is eligible if its confidence is high or medium and
+              |ad-valorem change| ≥ 5 pp. <strong>Each month contributes at most one event</strong>, chosen by duty
+              impulse (|rate change| × annual import value covered), not by the largest rate change — a 50 pp rate on
+              one partner moves the consumer basket far less than a 10 pp rate on everything. Every other row sharing
+              the month is listed as a bundled action. Import values rank events and are never published as facts about
+              trade volumes.</dd>
+          <dt>Known weaknesses, in the pipeline's own words</dt>
+          <dd>Tier assignment is not treatment assignment. Windows overlap. One-per-month bundling is a real loss of
+              resolution, not a technicality. And the exposed tier is durable-goods heavy while the domestic tier is
+              shelter heavy, so anything that moves durables relative to shelter shows up here regardless of trade
+              policy.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>The tariff timeline</h3>
+    <p class="isnt"><b>What this is:</b> the hand-curated source table everything above is keyed on — the date duties
+       began to be <em>collected</em> (not the announcement date, which the press reports and which differs by weeks),
+       the <em>change</em> in the ad-valorem rate rather than the level, and a primary source for each row.
+       <b>What it isn't:</b> automatic. There is no machine-readable feed of US tariff effective dates with rates and
+       there never will be; every row was read out of a Federal Register or USTR document by hand.</p>
+    <div class="controls" id="p7TimelineControls"></div>
+    <div id="p7Timeline"></div>
+    <p class="note">Rows whose rate is shown as <code>varies</code> are single legal actions that changed dozens of
+       rates at once; inventing one number for them would be worse than admitting it, so they are published and
+       excluded from the event study. Court rulings that vacate or stay tariffs get rows at 0 pp — they are events even
+       though they are not rate changes. Actions that were <strong>announced but never took legal effect</strong> are
+       deliberately absent: the October 2025 100% pharmaceutical tariff, the August 2025 100% semiconductor tariff and
+       a January 2026 wood/furniture step-up that was postponed a year were all widely reported as if they had
+       happened, and none of them is in this table.</p>
+  </div>
+</section>
+
+<!-- ================================= P9 ================================== -->
+<section id="p9" aria-labelledby="h-p9">
+  <h2 id="h-p9"><span class="eyebrow">P9 · Metro areas</span>Your city vs the average</h2>
+  <p class="lede">National inflation is an average and the average is not what anybody pays. The CPI is priced in 23
+     metro areas large enough to get their own published index, and those 23 numbers spread out a long way — in July
+     2026 from <strong>+1.9% (Tampa)</strong> to <strong>+5.6% (Urban Hawaii)</strong> around a population-weighted
+     mean of 3.5%. This section puts each metro's inflation rate next to two things people feel locally: what local
+     pay did, and what the local rental market did.</p>
+
+  <div class="caveat">
+    <strong>Only 3 of the 23 metros publish an all-items index every month</strong> — New York, Chicago and Los
+    Angeles. The other 20 publish every <em>other</em> month, split into two staggered groups of 9 and 11, so the
+    cross-section alternates between 12 cities and 14 <em>different</em> cities and the average can move a quarter of a
+    point purely because the cast changed. Every chart here reports only the metros that actually published that month,
+    and flags the months where the swap is visibly moving the average. Nothing is ever interpolated.
+    <strong>Shelter and rent are the exception: they are monthly for all 23</strong> — the housing survey runs monthly
+    everywhere even though the general commodity and service pricing does not.
+  </div>
+
+  <div class="panel">
+    <h3>Did pay keep up, by metro</h3>
+    <p class="isnt"><b>What this is:</b> local average weekly wage growth minus local CPI, in percentage points, for
+       the latest quarter both exist. <b>What it isn't:</b> anybody's paycheck. QCEW wages are per <em>covered job</em>,
+       not per person; they include bonuses, and they move with employment composition — a metro that sheds low-wage
+       jobs shows wage growth without anyone getting a raise. The CPI basket is the average urban consumer's, not the
+       average worker's, and the two populations are not the same people.</p>
+    <div class="controls" id="p9RealControls"></div>
+    <div id="p9Real"></div>
+    <div id="p9RealTable"></div>
+    <p class="note" id="p9RealNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>Wages lag by 7–8 months, and it is structural</dt>
+          <dd>QCEW posts a quarter roughly 5–6 months after it ends, so the newest wage quarter here is
+              <strong><span id="p9WageQ">2025Q4</span></strong> against CPI through
+              <strong><span id="p9CpiM">2026-07</span></strong>. The real-wage panel will always trail the price panel
+              by two to three quarters. This is not a stale build.</dd>
+          <dt>The 2025Q3+ ownership fallback — read this before comparing quarters</dt>
+          <dd>MSA-level <em>private</em> average weekly wage is <strong>suppressed for every MSA from 2025Q3
+              onward</strong> (disclosure code <code>-</code>, published as literal zeros, which is why they are stored
+              as nulls rather than as a −100% change). Those quarters fall back to <strong>total covered</strong>
+              employment, which includes government. Where both bases exist they differ by <strong>0.34 pp on
+              average</strong>, so the latest cross-metro ranking sits on a slightly different footing than earlier
+              quarters. The last fully private-basis quarter is 2025Q2, whose ranking is led by Urban Alaska (+3.8 pp),
+              Phoenix (+3.5) and San Francisco (+3.4) with Seattle (−2.1) and Los Angeles (−1.5) at the bottom — a
+              broadly similar picture, which is reassuring. A year-over-year change is never taken across bases.</dd>
+          <dt>Matching a quarterly wage to a monthly price</dt>
+          <dd>The CPI reading for a quarter is <strong>the last month inside that quarter for which the metro actually
+              published</strong>. Always inside the quarter, so no information leaks in from the next one; always the
+              freshest reading available; and data-driven rather than schedule-driven, so it self-corrects when BLS
+              reassigned bimonthly slots in the 2018 revision and when a month is missing. The October 2025 hole is
+              visible in it: every even-schedule metro's 2025Q4 row resolves to 2025-12, every odd metro's to 2025-11.
+              <code>real = wage_yoy − cpi_yoy</code>; the exact ratio form differs by under 0.1 pp at these rates.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>CPI rent vs the asking-rent market, one year earlier</h3>
+    <p class="isnt"><b>What this is:</b> each metro's CPI rent-of-primary-residence 12-month change against Zillow's
+       ZORI asking-rent index lagged 12 months. <b>What it isn't:</b> the same thing measured twice, and not a
+       forecast relationship. CPI rent is the average rent paid across the whole occupied stock, most of it under
+       leases signed months or years ago and including renewals below market; ZORI is a repeat-rent index of
+       <em>asking</em> rents on newly listed units. The lag between them is a mechanical consequence of lease turnover.
+       Neither one is "right".</p>
+    <div class="controls" id="p9ShelterControls"></div>
+    <div id="p9ShelterLegend"></div>
+    <div class="smgrid" id="p9Shelter"></div>
+    <div id="p9ShelterTable"></div>
+    <p class="note" id="p9ShelterNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>Why a fixed 12-month lag when the best lag varies</dt>
+          <dd>The per-metro best lag runs from 7 (Urban Alaska) to 18 (St. Louis, Urban Hawaii), median 12; at a fixed
+              12 months the mean correlation across metros is 0.735. The headline gap uses the fixed 12 so the 23
+              metros share a definition — a metro-specific gap would be 23 different measurements with one name. The
+              full 0–18 correlation profile per metro is in the table.</dd>
+          <dt>Urban Hawaii is not usable, and it is flagged rather than hidden</dt>
+          <dd>Its best correlation at <em>any</em> lag is <strong>0.07</strong> — no relationship at all. This is the
+              clearest symptom of a geography mismatch: CPI "Urban Hawaii" is priced statewide while ZORI's
+              <em>Urban Honolulu, HI</em> is Oahu only. <strong>Urban Alaska</strong> carries the same
+              <code>approx_geo</code> flag (the CPI covers Anchorage plus Fairbanks; the CBSA is Anchorage). Detroit
+              (r = 0.55) and Los Angeles (r = 0.58) are visibly weaker than the rest even at their best lag.</dd>
+          <dt>Which ZORI file</dt>
+          <dd>Smoothed, all home types, not seasonally adjusted. Zillow reshuffles these files roughly annually, so the
+              loader accepts the first candidate that <em>parses into the expected shape</em> rather than the first
+              that returns HTTP 200, caches the last good copy, and echoes the URL that actually resolved into the
+              JSON — a silent switch to a fallback file is therefore visible rather than invisible. All 23 metros
+              crosswalk by name, all with the full history.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>How far apart are cities?</h3>
+    <p class="isnt"><b>What this is:</b> the population-weighted standard deviation of the 12-month all-items change
+       across whichever metros published that month. <b>What it isn't:</b> a like-for-like month-to-month series —
+       adjacent months hold different cities. The marked months are where the pipeline measures the panel swap moving
+       the mean by more than 0.3 pp.</p>
+    <div class="controls" id="p9DispControls"></div>
+    <div id="p9Disp"></div>
+    <div id="p9DispTable"></div>
+    <p class="note" id="p9DispNote"></p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <dl>
+          <dt>The composition flag</dt>
+          <dd><code>comp_delta = mean[t] − mean(mean[t−1], mean[t], mean[t+1])</code>, flagged when |comp_delta| &gt;
+              0.3 pp. Because <em>t−1</em> and <em>t+1</em> carry the complementary panel, the three-month centred
+              average is close to composition-neutral and the residual is the composition effect. It is null — and the
+              flag with it — when either neighbour is missing, including the months either side of the October 2025
+              hole and the latest month. <strong>15 of 212 months are flagged</strong>, clustered exactly where you
+              would predict: mid-2022 to mid-2023, when metro rates were furthest apart and the swap mattered most. The
+              sign alternates — 2022-06 +0.73, 2022-07 −0.59, 2022-08 +0.49, 2022-09 −0.35 — which is the signature of
+              a composition artefact rather than of inflation. In that stretch the even panel (Phoenix, Miami, Atlanta)
+              ran roughly a point hotter than the odd panel (New York, Boston, Washington).</dd>
+          <dt>Rules</dt>
+          <dd>Only metros with a published value that month enter the cross-section, and at least 8 are required.
+              Weights are constant 2020 CBSA population. The series starts 1998-01 because BLS redefined the metro
+              pricing areas in 1998 and again in 2018; before 2018 it covers 20 metros, not 23, on the earlier
+              definitions.</dd>
+          <dt>What a metro difference is worth</dt>
+          <dd>Metro indexes are built on much smaller samples than the national index and carry materially larger
+              sampling error. <strong>A 0.3 pp difference between two metros in one month is not a finding.</strong>
+              Metro CPI is also NSA only — there is no seasonally adjusted metro CPI at all — so only 12-month changes
+              are used here and month-to-month moves are not comparable with the seasonally adjusted national
+              headline.</dd>
+        </dl>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ================================= P5 ================================== -->
+<section id="p5" aria-labelledby="h-p5">
+  <h2 id="h-p5"><span class="eyebrow">P5 · Instrument health</span>How healthy is the measurement</h2>
+  <p class="lede">This section is about <em>how the CPI is being collected</em>, not what it says: how much of the price
+     data is actually observed, how much is imputed, and what BLS has publicly announced about its own collection.</p>
+
+  <div class="err" id="p5Warn" style="display:none"></div>
+
+  <p class="note" style="border-left-color:var(--div-neg);margin:0 0 18px">
+    <strong>The distinction everything here depends on: the share of imputations is not the share of the index
+    imputed.</strong> BLS says so in plain text on the source page — <em>"They do not represent an overall imputation
+    rate for each survey."</em> A different-cell share of 37% means that <em>of the observations BLS had to impute</em>,
+    37% used a wider donor pool instead of the preferred same-item-same-area cell. It does not mean 37% of the CPI was
+    imputed, and it does not mean 37% of anything was guessed. There is no number in any of these sources that supports
+    "X% of the CPI is guessed."
+  </p>
+
+  <div class="panel">
+    <h3>Imputation and response rates vs the 2019 baseline</h3>
+    <p class="isnt"><b>What this is:</b> four monthly BLS collection statistics, plotted either as published levels or
+       as percentage points above their own January–December 2019 mean.
+       <b>What it isn't:</b> a measure of error in the CPI. An imputed quote <em>borrows a measured price change</em>
+       from similar items; it does not invent a price level.</p>
+    <div class="controls" id="p5Controls">
+      <span class="ctl-label">Scale:</span>
+      <div class="seg" role="group" aria-label="Scale">
+        <button type="button" data-m="pp" aria-pressed="true">Change vs 2019 (pp)</button>
+        <button type="button" data-m="level" aria-pressed="false">Published level (%)</button>
+      </div>
+    </div>
+    <div id="p5Lines"></div>
+    <div id="p5LinesTable"></div>
+    <p class="note"><strong>Part of the decline in collection rates is by design.</strong> BLS cut the collection sample
+       in 2025, so targeted quote counts fall alongside collected ones — targeted C&amp;S quotes are down about 11% on
+       2019 while collected quotes are down about 27%. This is a budget and policy change, not purely a wave of
+       refusals. October 2025 is blank in every monthly source (lapse in appropriations); it is omitted, never
+       interpolated and never carried forward.</p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body"><dl id="p5Defs"></dl></div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Instrument stress indicator, in percentage points above 2019</h3>
+    <p class="isnt"><b>What this is:</b> an indicator of how far the collection environment has moved from 2019,
+       averaging four imputation-quantity and imputation-quality components across two domains.
+       <b>What it isn't:</b> an error bar, a bias estimate, or a correction to the CPI. It has no units of inflation.
+       A high value means more of the index rests on imputation than in 2019; it says nothing about the direction of
+       any resulting error.</p>
+    <div id="p5Stress"></div>
+    <div id="p5StressTable"></div>
+    <p class="note">Markers on the chart are BLS CPI notices flagged as collection, shutdown, COVID or data-quality
+       events. Hover or focus a marker for the notice title.</p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p id="p5StressDef"></p>
+        <div class="warn"><strong>Read the magnitude carefully.</strong> 2019 was a very flat year — the component
+          standard deviations are 0.83–1.19 pp, and the imputation shares are published as whole percents, so part of
+          that SD is just rounding. Dividing a ~15 pp move by a ~1 pp baseline SD gives z-scores in the teens and
+          thirties. <strong>Those are not sigmas in any probability sense</strong> — the series are trending and
+          autocorrelated, so a Gaussian tail reading is meaningless. Read the shape and the ordering, and quote the
+          percentage-point version, which is what is plotted here.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>Published standard errors have barely moved</h3>
+    <p class="isnt"><b>What this is:</b> BLS's own annual median standard error of the published 12-month price change,
+       by item, indexed against 2019.
+       <b>What it isn't:</b> a total error. These are <em>sampling error only</em>.</p>
+    <div id="p5Se"></div>
+    <p class="note"><strong>This is the most important nuance in this section.</strong> All-items SE inflation versus
+       2019 is modest and below the 2022 peak, even though imputation roughly doubled. The risk created by falling
+       response is <em>nonresponse bias</em>, which no BLS series here quantifies and which would not show up in these
+       standard errors. "The SEs barely moved" is not evidence that nothing happened; it is evidence that the SEs are
+       not measuring this.</p>
+    <details class="method">
+      <summary>Method &amp; exact definitions</summary>
+      <div class="method-body">
+        <p>"BLS variance tables: the median (across the year's published changes) standard error of the CPI price
+           change, by item and horizon, U.S. city average. Published <strong>annually</strong>, one value per calendar
+           year." Standard errors are deliberately <em>not</em> part of the stress composite: an annual number cannot
+           be z-scored against a 12-month 2019 baseline.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <h3>BLS collection notices</h3>
+    <p class="isnt"><b>What this is:</b> BLS's own published notices about CPI collection, shutdowns, COVID impacts and
+       data quality, scraped from the notices index.
+       <b>What it isn't:</b> an analysis of them — only title, date and URL are stored, never the body. Re-read the
+       notice itself before quoting one.</p>
+    <div id="p5Events"></div>
+  </div>
+</section>
+
+<!-- ============================== METHOD ================================= -->
+<section id="method" aria-labelledby="h-method">
+  <h2 id="h-method"><span class="eyebrow">Provenance</span>Method &amp; sources</h2>
+  <p class="lede">Everything on this page is rebuilt from published BLS files by pipelines that re-run daily. Nothing is
+     hand-entered.</p>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>Data files behind this page</h3>
+      <p class="isnt">Each panel reads a JSON written by its pipeline. The server aliases <code>/data/</code> to the
+         pipeline output directory, so this page always shows the most recent successful run.</p>
+      <div id="genTable"></div>
+    </div>
+    <div class="panel">
+      <h3>Primary sources</h3>
+      <ul class="srcs">
+        <li><a href="https://www.bls.gov/cpi/" rel="noopener">BLS Consumer Price Index</a> — item indexes and relative importances</li>
+        <li><a href="https://www.bls.gov/cpi/tables/relative-importance/" rel="noopener">CPI relative importance tables</a> (incl. <code>ri-archive-2010-2019.zip</code> for the 2017–19 back-fill)</li>
+        <li><a href="https://www.bls.gov/cex/pumd.htm" rel="noopener">CE Public-Use Microdata (Diary)</a> — purchase-entry frequencies and the 44 replicate weights</li>
+        <li><a href="https://www.bls.gov/cex/pumd-getting-started-guide.htm" rel="noopener">CE PUMD Getting Started Guide</a> §6.3 — the sampling-error formula</li>
+        <li><a href="https://www.bls.gov/cpi/tables/imputation.htm" rel="noopener">CPI imputation source distribution</a></li>
+        <li><a href="https://www.bls.gov/cpi/tables/response-rates/home.htm" rel="noopener">CPI monthly response rates</a></li>
+        <li><a href="https://www.bls.gov/cpi/tables/variance-estimates/home.htm" rel="noopener">CPI variance estimates</a></li>
+        <li><a href="https://www.bls.gov/cpi/notices/" rel="noopener">CPI notices index</a></li>
+        <li><a href="https://download.bls.gov/pub/time.series/su/" rel="noopener">BLS <code>su.*</code> flat files</a> — the Chained CPI-U survey: 29 series, with the initial / interim / final stage carried in each row's footnote code (P8)</li>
+        <li><a href="https://www.bls.gov/cpi/tables/supplemental-files/" rel="noopener">CPI supplemental files, Table 1C</a> — the chained index as printed at each release, xlsx from 2021-11 and pdf back to 2017-07, which is how P8's revision history is reconstructed</li>
+        <li><a href="https://alfred.stlouisfed.org/" rel="noopener">ALFRED vintage archive</a> (St. Louis Fed) — every archived FRED vintage of thirteen CPI series, the source of every revision statistic in P4</li>
+        <li><a href="https://www.atlantafed.org/research/inflationproject/stickyprice" rel="noopener">Atlanta Fed sticky-price CPI</a> (via FRED <code>STICKCPIM159SFRBATL</code> / <code>FLEXCPIM159SFRBATL</code>) — the sanity band next to P3's sticky/flexible split, <em>not</em> a validation: the two split the basket on different criteria</li>
+        <li><a href="https://www.clevelandfed.org/indicators-and-data/median-cpi" rel="noopener">Cleveland Fed median &amp; trimmed-mean CPI</a> — external validation of P2</li>
+        <li><a href="https://download.bls.gov/pub/time.series/wp/" rel="noopener">BLS <code>wp.*</code> flat files</a> — PPI commodity indexes and the FD-ID family; keyed on <code>group_code</code> + <code>item_code</code>, so the series id is <code>WP</code> + seasonal + group + item (P6)</li>
+        <li><a href="https://download.bls.gov/pub/time.series/ei/" rel="noopener">BLS <code>ei.*</code> import/export price indexes</a> — the six BEA end-use import overlays in P6 (<code>index_code IR</code>) and the by-locality-of-origin series in P7 (<code>index_code CO</code>)</li>
+        <li><a href="https://apps.bea.gov/industry/xls/" rel="noopener">BEA input-output accounts</a> — the 2017 benchmark detail import matrix, Use and Make tables, the commodity×commodity total-requirements matrix and the <strong>PCE Bridge</strong> (<code>PCEBridge_2017_DET.xlsx</code>), which is what turns commodity import content into an import share of a <em>consumer</em> dollar (P7). Note: a 404 at <code>apps.bea.gov</code> arrives as HTTP 200 with a 26 KB HTML page, so every probe checks <code>Content-Type</code></li>
+        <li><a href="https://www.bls.gov/cew/" rel="noopener">BLS Quarterly Census of Employment and Wages</a> — average weekly wage by metro from unemployment-insurance filings, via the per-quarter <code>industry/10.csv</code> slice (P9)</li>
+        <li><a href="https://www.zillow.com/research/data/" rel="noopener">Zillow Observed Rent Index (ZORI)</a> — smoothed, all home types, NSA, asking rents on newly listed units (P9). The file Zillow serves moves roughly annually; the resolved URL is recorded in the JSON on every run</li>
+        <li><a href="https://www.federalregister.gov/" rel="noopener">Federal Register</a> / <a href="https://ustr.gov/" rel="noopener">USTR</a> / <a href="https://www.govinfo.gov/" rel="noopener">govinfo.gov</a> — the primary documents behind every row of P7's hand-curated tariff timeline (<code>govinfo.gov</code> usually serves documents the other two block)</li>
+        <li><a href="https://www2.census.gov/programs-surveys/popest/datasets/2020-2022/metro/totals/cbsa-est2022.csv" rel="noopener">Census CBSA population estimates</a> — the dispersion weights in P9, cross-checked at run time (the Census <em>API</em> now needs a key and returns a "Missing Key" page with HTTP 200, so it is not used)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Specification &amp; documentation</h3>
+    <ul class="srcs">
+      <li><code>docs/P1.md</code> — the frequency-weighted CPI (schemes, bill floor, sensitivity, bootstrap)</li>
+      <li><code>docs/P2.md</code> — the shape of inflation across items (statistics, variance decomposition)</li>
+      <li><code>docs/P3.md</code> — item-level persistence, sticky/flexible construction, the <code>nsa12</code> artefact</li>
+      <li><code>docs/P4.md</code> — revision ghosts: vintages, transition matrices, the "within 1.5 SE" flag</li>
+      <li><code>docs/P5.md</code> — CPI instrument health / data quality</li>
+      <li><code>docs/P6.md</code> — PPI → CPI pipeline pressure: the concordance, the lag map, local-projection pass-through</li>
+      <li><code>docs/P7.md</code> — tariff-exposed vs domestic prices: import content from the BEA I-O accounts, the tiers, the event study and its maintenance cost</li>
+      <li><code>docs/P9.md</code> — metro CPI vs local wages and rents: the bimonthly stagger, the quarter-matching rule, the ZORI lag profile</li>
+      <li><code>docs/P8.md</code> — C-CPI-U vs CPI-U, the substitution gap and its three publication stages</li>
+      <li><code>docs/P10.md</code> — the lead–lag map: universe, variants, stability filter, sanity expectations</li>
+      <li><code>research/R1_expectations.md</code> — does the frequency-weighted CPI explain the expectations gap? (No.)</li>
+    </ul>
+    <p class="note">Known gotcha that shapes every chart here: <strong>October 2025 has no CPI</strong> (lapse in
+       appropriations). Every lag is calendar-aligned rather than row-offset, so November 2025 month-on-month and
+       January 2026 three-month-annualised figures are missing by design rather than shifted, and October 2025 is a
+       genuine hole in every line on this page.</p>
+  </div>
+</section>
+
+</main>
+
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

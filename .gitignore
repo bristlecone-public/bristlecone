@@ -1,0 +1,25 @@
+# Local secrets — NEVER commit. Values live only on your machine.
+.env
+.env.local
+**/.env
+**/.env.local
+
+# The committed template (placeholders only) is the exception.
+!.env.example
+!**/.env.example
+
+# Public-mirror build output (regenerate with tools/public-mirror/mirror.py)
+.mirror-build/
+.mirror-data/
+.mirror-dist/
+
+# city-safety-spend raw government source files (~2.8 GB): Census unit files, FBI Return A and
+# employee data, BEA parities, Lincoln FiSC, Willamette compilation, city ACFRs. Kept here so the
+# provenance for every data project sits together, never committed. Everything derived from them is
+# committed in the city-safety-spend repo under data/census_out.
+city-safety-spend/data/census_raw/
+city-safety-spend/data/*/raw/
+
+# Python bytecode
+__pycache__/
+*.pyc

@@ -1,0 +1,30 @@
+{
+	"name": "gridpulse",
+	"main": "src/index.js",
+	"compatibility_date": "2026-08-01",
+	"workers_dev": true,
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/api/*"]
+	},
+	"kv_namespaces": [
+		// Create with: npx wrangler kv namespace create SNAPSHOTS
+		// then paste the id here (and a preview_id for `wrangler dev`).
+		{ "binding": "SNAPSHOTS", "id": "<your-kv-namespace-id>", "preview_id": "<your-preview-kv-namespace-id>" }
+	],
+	"triggers": {
+		// One cron; per-instrument cadence gating lives in the collector.
+		"crons": ["*/30 * * * *"]
+	},
+	"observability": { "enabled": true },
+	// Fan out to peers only on the :00 tick of these UTC hours (KV write budget)
+	"vars": { "PEER_FAN_UTC_HOURS": "0,6,12,18" },
+	// Fan-out cron to siblings without their own trigger (Workers Free = 5 crons/account)
+	"services": [
+		{ "binding": "PEER_ECONPULSE", "service": "econpulse" },
+		{ "binding": "PEER_COMPUTEPULSE", "service": "computepulse" }
+	],
+	"routes": [{ "pattern": "gridpulse.bristleconeanalytics.com", "custom_domain": true }]
+}

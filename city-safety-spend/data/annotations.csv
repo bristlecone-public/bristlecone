@@ -1,0 +1,9 @@
+scope,state,year,end_year,label,note,source_url
+national,,1994,,Crime Act and COPS grants,"Violent Crime Control and Law Enforcement Act signed 13 September 1994; its COPS program funded local officer hiring from FY1995.",https://www.congress.gov/bill/103rd-congress/house-bill/3355
+national,,2008,2010,Great Recession,"Recession December 2007 to June 2009; local property and sales tax revenue fell with a lag, and city budgets contracted into 2012.",https://www.nber.org/research/business-cycle-dating
+national,,2020,,CARES Act,"Coronavirus Aid, Relief, and Economic Security Act signed 27 March 2020, including the Coronavirus Relief Fund for state and local governments.",https://www.congress.gov/bill/116th-congress/house-bill/748
+national,,2021,,ARPA recovery funds,"American Rescue Plan Act signed 11 March 2021 created the $350bn State and Local Fiscal Recovery Funds, spent through 2026.",https://www.congress.gov/bill/117th-congress/house-bill/1319
+state,CA,1978,,Proposition 13,"Capped property tax rates at 1% of assessed value and limited assessment growth, shifting California cities toward sales and other revenue.",https://repository.uclawsf.edu/ca_ballot_props/849/
+state,MA,1980,,Proposition 2 and a half,"Capped the property tax levy at 2.5% of assessed value and annual levy growth at 2.5%.",https://www.mass.gov/info-details/levy-limits-a-primer-on-proposition-2-12
+state,CO,1992,,TABOR,"Taxpayer's Bill of Rights limited revenue growth and required votes for tax increases.",https://leg.colorado.gov/publications/taxpayers-bill-rights-tabor
+state,TX,2019,,Senate Bill 2,"Property Tax Reform and Transparency Act lowered the voter-approval rate for cities to 3.5% growth in maintenance and operations revenue.",https://capitol.texas.gov/BillLookup/History.aspx?LegSess=86R&Bill=SB2

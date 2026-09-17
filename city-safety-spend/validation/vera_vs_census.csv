@@ -1,0 +1,73 @@
+city,state,vera_police_headline_usd,vera_police_dept_only_usd,vera_pct_of_city_funds,vera_source,census2020_police_usd,census2020_flags,ratio_census2020_to_vera_dept,census2020_police_pct_general,census2021_police_usd,census2021_flags,ratio_census2021_to_vera_dept,census2021_police_pct_general,closest_ratio,matched
+Burlington,VT,17926954,14712289,0.19,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/burlington-vt,,,,,,,,,,False
+Charleston,WV,22489588,22489588,0.25,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/charleston-wv,,,,,,,,,,False
+Cheyenne,WY,14493787,14493787,0.26,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/cheyenne-wy,,,,,,,,,,False
+Jacksonville,FL,481594597,0,0.35,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/jacksonville-fl,451200000,R,,20.44,488639000,R,,21.22,,True
+Portland,ME,17757540,17757540,0.09,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/portland-me,,,,,,,,,,False
+Wilmington,DE,59770276,59770276,0.34,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/wilmington-de,,,,,,,,,,False
+Las Vegas,NV,173702925,156836411,0.13,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/las-vegas-nv,15100000,I,0.096,1.39,17201000,R,0.11,1.61,0.11,True
+St. Louis,MO,154870227,122720607,0.27,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/st-louis-mo,217560000,R,1.773,20.66,202215000,R,1.648,18.46,1.648,True
+Providence,RI,85644030,56150999,0.11,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/providence-ri,107251000,R,1.91,12.54,90998000,R,1.621,10.4,1.621,True
+Los Angeles,CA,1735493169,1735493169,0.33,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/los-angeles-ca,2547793000,R,1.468,21.17,2605395000,R,1.501,18.35,1.468,True
+Seattle,WA,440240547,409111750,0.12,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/seattle-wa,253480000,R,0.62,9.54,269398000,R,0.658,8.97,0.658,True
+Tucson,AZ,193274430,193274430,0.28,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/tucson-az,251510000,I,1.301,31.47,243273000,I,1.259,30.53,1.259,True
+Sioux Falls,SD,41028140,31069826,0.23,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/sioux-falls-sd,37355000,R,1.202,13.09,40434000,R,1.301,12.37,1.202,True
+Washington,DC,655379632,559528000,0.05,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/washington-dc,681236000,R,1.218,4.27,668928000,R,1.196,3.84,1.196,True
+Nashville,TN,216790900,216790900,0.21,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/nashville-tn,283212000,R,1.306,7.81,257196000,R,1.186,6.41,1.186,True
+Charlotte,NC,285877585,285877585,0.39,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/charlotte-nc,335516000,RS,1.174,16.2,363320000,R,1.271,18.37,1.174,True
+Philadelphia,PA,956632151,956632151,0.15,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/philadelphia-pa,745747000,R,0.78,9.71,796751000,R,0.833,9.61,0.833,True
+Raleigh,NC,109694902,109694902,0.21,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/raleigh-nc,130049000,R,1.186,17.15,126875000,R,1.157,16.56,1.157,True
+Sacramento,CA,184342524,184342524,0.26,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/sacramento-ca,213270000,R,1.157,18.06,229213000,R,1.243,13.21,1.157,True
+Austin,TX,491265529,491265529,0.40,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/austin-tx,398459000,I,0.811,17.41,421134000,I,0.857,17.44,0.857,True
+Colorado Springs,CO,140388709,140388709,0.34,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/colorado-springs-co,121202000,R,0.863,19.7,116049000,R,0.827,16.01,0.863,True
+El Paso,TX,157607718,157607718,0.32,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/el-paso-tx,131938000,R,0.837,14.55,137751000,R,0.874,14.86,0.874,True
+New Orleans,LA,206887632,194054969,0.24,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/new-orleans-la,90602000,S,0.467,4.92,170006000,S,0.876,9.26,0.876,True
+Birmingham,AL,92775797,92775797,0.21,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/birmingham-al,103194000,R,1.112,20.25,106672000,R,1.15,18.15,1.112,True
+Anchorage,AK,133766426,133766426,0.27,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/anchorage-ak,147957000,R,1.106,10.37,151070000,R,1.129,9.26,1.106,True
+Dallas,TX,545974490,545974490,0.36,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/dallas-tx,437933000,R,0.802,12.29,491084000,R,0.899,13.22,0.899,True
+San Antonio,TX,479091284,479091284,0.37,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/san-antonio-tx,425314000,R,0.888,16.43,434020000,R,0.906,16.09,0.906,True
+Oklahoma City,OK,226626456,226626456,0.29,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/oklahoma-city-ok,205552000,R,0.907,19.86,195264000,RS,0.862,17.77,0.907,True
+Kansas City,MO,262247405,262247405,0.43,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/kansas-city-mo,236614000,R,0.902,11.95,239671000,R,0.914,10.51,0.914,True
+San Francisco,CA,706182301,694782292,0.09,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/san-francisco-ca,608840000,R,0.876,4.83,635964000,R,0.915,4.92,0.915,True
+Houston,TX,899879053,899879053,0.36,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/houston-tx,790241000,R,0.878,16.92,824796000,R,0.917,16.02,0.917,True
+San Diego,CA,542087473,542087473,0.34,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/san-diego-ca,399076000,R,0.736,11.74,497357000,R,0.917,11.9,0.917,True
+Honolulu,HI,301701305,301701305,0.17,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/honolulu-hi,323419000,R,1.072,14.02,334787000,R,1.11,12.73,1.072,True
+Phoenix,AZ,909129491,733671491,0.41,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/phoenix-az,783690000,R,1.068,23.08,590685000,R,0.805,18.67,1.068,True
+Fresno,CA,201764000,201764000,0.40,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/fresno-ca,165455000,R,0.82,26.89,188001000,R,0.932,21.37,0.932,True
+Albuquerque,NM,211084000,210057000,0.32,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/albuquerque-nm,196952000,R,0.938,21.38,190827000,R,0.908,16.4,0.938,True
+San Jose,CA,473208901,464466750,0.30,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/san-jose-ca,312462000,R,0.673,16.7,436971000,R,0.941,19.87,0.941,True
+Tampa,FL,176982462,176982462,0.41,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/tampa-fl,166013000,R,0.938,15.89,166593000,R,0.941,14.78,0.941,True
+Jackson,MS,37523140,37523140,0.28,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/jackson-ms,35384000,R,0.943,14.83,29634000,R,0.79,12.06,0.943,True
+Denver,CO,277927093,256043663,0.17,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/denver-co,280689000,R,1.096,6.87,269958000,R,1.054,5.72,1.054,True
+Minneapolis,MN,193360000,193360000,0.35,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/minneapolis-mn,181165000,R,0.937,14.44,182981000,R,0.946,13.15,0.946,True
+Detroit,MI,318193356,318193356,0.29,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/detroit-mi,348477000,R,1.095,19.92,301421000,R,0.947,15.39,0.947,True
+Bridgeport,CT,102312652,102312652,0.18,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/bridgeport-ct,97154000,R,0.95,14.45,94393000,R,0.923,11.48,0.95,True
+Long Beach,CA,265466991,264499242,0.43,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/long-beach-ca,253525000,R,0.959,15.46,277697000,R,1.05,15.99,0.959,True
+Columbus,OH,347780657,347467765,0.37,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/columbus-oh,361860000,R,1.041,17.92,373228000,R,1.074,17.79,1.041,True
+Fargo,ND,22832341,22832341,0.22,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/fargo-nd,21924000,RS,0.96,6.51,24435000,RS,1.07,6.26,0.96,True
+Charleston,SC,53445152,53445152,0.22,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/charleston-sc,55554000,I,1.039,17.79,56232000,I,1.052,17.87,1.039,True
+Newark,NJ,207955896,154625080,0.29,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/newark-nj,148698000,R,0.962,20.92,135637000,R,0.877,19.32,0.962,True
+Manchester,NH,25285675,25285675,0.16,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/manchester-nh,26208000,R,1.036,6.51,28832000,R,1.14,6.59,1.036,True
+New York,NY,11036298140,5595282792,0.08,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/new-york-ny,6113179000,R,1.093,5.66,5791291000,R,1.035,5.17,1.035,True
+Milwaukee,WI,321470403,318651881,0.58,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/milwaukee-wi,307794000,R,0.966,23.58,303966000,R,0.954,23.14,0.966,True
+Omaha,NE,159838743,159838743,0.38,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/omaha-ne,154407000,R,0.966,20.66,135087000,R,0.845,15.11,0.966,True
+Portland,OR,238190326,238190326,0.31,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/portland-or,230653000,R,0.968,13.01,213188000,R,0.895,12.21,0.968,True
+Indianapolis,IN,283571003,253937003,0.35,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/indianapolis-in,246637000,S,0.971,6.96,228466000,S,0.9,6.53,0.971,True
+Memphis,TN,274511008,274511008,0.38,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/memphis-tn,291774000,R,1.063,21.14,282424000,R,1.029,22.02,1.029,True
+Billings,MT,27017423,27017423,0.64,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/billings-mt,26078000,R,0.965,15.87,26248000,R,0.972,16.66,0.972,True
+Boise,ID,70561456,70301739,0.29,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/boise-id,68477000,R,0.974,15.75,59511000,R,0.847,14.28,0.974,True
+Fort Worth,TX,352893268,352893268,0.35,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/fort-worth-tx,330875000,R,0.938,22.88,344854000,R,0.977,22.52,0.977,True
+Mesa,AZ,198152493,198152493,0.11,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/mesa-az,194455000,I,0.981,23.98,188337000,I,0.95,24.92,0.981,True
+Baltimore,MD,549046349,546176477,0.26,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/baltimore-md,536087000,R,0.982,12.44,530286000,R,0.971,11.38,0.982,True
+Atlanta,GA,248508775,248508775,0.30,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/atlanta-ga,221921000,R,0.893,12.43,244294000,R,0.983,13.89,0.983,True
+Virginia Beach,VA,102960533,102960533,0.09,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/virginia-beach-va,87195000,R,0.847,4.19,104706000,R,1.017,5.03,1.017,True
+Wichita,KS,89245584,89245584,0.35,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/wichita-ks,90771000,R,1.017,25.7,94893000,R,1.063,26.63,1.017,True
+Boston,MA,431731291,431731291,0.16,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/boston-ma,439588000,R,1.018,10.58,438738000,R,1.016,9.87,1.016,True
+Miami,FL,281251000,281251000,0.33,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/miami-fl,261725000,R,0.931,26.88,285774000,R,1.016,28.47,1.016,True
+Salt Lake City,UT,82235729,82235729,0.25,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/salt-lake-city-ut,87486000,R,1.064,5.67,80960000,R,0.984,5.72,0.984,True
+Little Rock,AR,80209890,80209890,0.38,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/little-rock-ar,81306000,I,1.014,17.3,78979000,R,0.985,14.75,1.014,True
+Des Moines,IA,71546587,71546587,0.39,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/des-moines-ia,70839000,R,0.99,12.95,70159000,R,0.981,11.64,0.99,True
+Tulsa,OK,121682000,121682000,0.35,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/tulsa-ok,126004000,R,1.036,14.6,122719000,R,1.009,14.24,1.009,True
+Chicago,IL,1776930437,1762078349,0.37,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/chicago-il,1619079000,R,0.919,18.65,1748860000,R,0.992,19.34,0.992,True
+Louisville,KY,191988200,189725100,0.29,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/louisville-ky,191208000,R,1.008,9.84,187281000,R,0.987,9.85,1.008,True
+Arlington,TX,117847632,117847635,0.44,https://www.vera.org/publications/what-policing-costs-in-americas-biggest-cities/arlington-tx,118232000,RS,1.003,9.64,115456000,R,0.98,12.31,1.003,True

@@ -1,0 +1,15 @@
+{
+	// Static-assets-only Worker. .site/ is staged by `python census/publish.py`
+	// (output/ itself cannot be the assets directory — it carries ~158 MB of
+	// cohort-flow CSVs, one of them over Cloudflare's 25 MB per-asset limit).
+	"name": "census-cohort-tracing",
+	"compatibility_date": "2026-08-01",
+	"workers_dev": true,
+	"assets": {
+		// index.html and explorer.html are the same self-contained explorer;
+		// report.md is the seven-decade write-up.
+		"directory": "./.site"
+	},
+	"observability": { "enabled": true },
+	"routes": [{ "pattern": "census.bristleconeanalytics.com", "custom_domain": true }]
+}

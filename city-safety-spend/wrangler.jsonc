@@ -1,0 +1,15 @@
+{
+	// Static-assets-only Worker: no server code, just site/ served at the edge.
+	// The pipeline still runs on the homelab and regenerates site/; publishing is
+	// `npx wrangler deploy` from this directory, which keeps the homelab LAN-only.
+	"name": "safetyspend",
+	"compatibility_date": "2026-08-01",
+	"workers_dev": true,
+	"assets": {
+		// index.html is the dashboard ("Public Safety Share"); findings.html is the
+		// piece ("Twenty-Eight Cents"); factsheets/ holds one sheet per city.
+		"directory": "./site"
+	},
+	"observability": { "enabled": true },
+	"routes": [{ "pattern": "safetyspend.bristleconeanalytics.com", "custom_domain": true }]
+}

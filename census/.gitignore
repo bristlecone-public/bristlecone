@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/*
+data/processed/*
+output/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!output/.gitkeep
+# Published artifacts — committed; the flow CSVs (~70 MB) stay regenerable-only.
+!output/report.md
+!output/explorer.html
+
+# Cloudflare deploy staging (built by publish.py)
+.site/

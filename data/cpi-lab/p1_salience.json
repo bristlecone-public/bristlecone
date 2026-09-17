@@ -1,0 +1,6914 @@
+{
+ "generated_at": "2026-09-12T09:37:09.981649+00:00",
+ "latest_month": "2026-08",
+ "diary_years": [
+  2022,
+  2023,
+  2024
+ ],
+ "weight_years": [
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "labels": {
+  "official_replica": "Official (expenditure-weighted) replica",
+  "salience": "Frequency-weighted CPI",
+  "blend50": "50/50 expenditure + frequency",
+  "bill_salience": "Bill-adjusted frequency-weighted CPI",
+  "bill_blend50": "50/50 expenditure + bill-adjusted frequency"
+ },
+ "method": {
+  "frequency": "share of weighted CE Diary purchase entries per consumer-unit-week, mapped UCC -> ELI -> published item stratum",
+  "multi_eli_split": "expenditure-weight split of the 29 multi-ELI UCCs (see sensitivity variant split_equal)",
+  "aggregation_level": "published item (see sensitivity variant agg_class)",
+  "bill_frequency_per_cuweek": 0.23015,
+  "bill_rule": "max(diary frequency, 1/4.345 entries per CU-week) for the listed items only",
+  "bill_items": [
+   {
+    "item_code": "SEEB01",
+    "item_name": "College tuition and fees"
+   },
+   {
+    "item_code": "SEEB02",
+    "item_name": "Elementary and high school tuition and fees"
+   },
+   {
+    "item_code": "SEEB03",
+    "item_name": "Day care and preschool"
+   },
+   {
+    "item_code": "SEED03",
+    "item_name": "Wireless telephone services"
+   },
+   {
+    "item_code": "SEED04",
+    "item_name": "Residential telephone services"
+   },
+   {
+    "item_code": "SEEE03",
+    "item_name": "Internet services and electronic information providers"
+   },
+   {
+    "item_code": "SEHA",
+    "item_name": "Rent of primary residence"
+   },
+   {
+    "item_code": "SEHC01",
+    "item_name": "Owners' equivalent rent of primary residence"
+   },
+   {
+    "item_code": "SEHD",
+    "item_name": "Tenants' and household insurance"
+   },
+   {
+    "item_code": "SEHF01",
+    "item_name": "Electricity"
+   },
+   {
+    "item_code": "SEHF02",
+    "item_name": "Utility (piped) gas service"
+   },
+   {
+    "item_code": "SEHG01",
+    "item_name": "Water and sewerage maintenance"
+   },
+   {
+    "item_code": "SEHG02",
+    "item_name": "Garbage and trash collection"
+   },
+   {
+    "item_code": "SEME",
+    "item_name": "Health insurance"
+   },
+   {
+    "item_code": "SERA02",
+    "item_name": "Cable, satellite, and live streaming television service"
+   },
+   {
+    "item_code": "SETE",
+    "item_name": "Motor vehicle insurance"
+   },
+   {
+    "item_code": "SETF01",
+    "item_name": "State motor vehicle registration and license fees"
+   }
+  ],
+  "index": "December-chained Laspeyres over the same leaf universe as the P0 replica",
+  "min_leaf_coverage": 0.9,
+  "excluded_months": {
+   "2025-10": 11.3
+  }
+ },
+ "bootstrap": {
+  "replicates": 44,
+  "formula": "sigma = sqrt( sum_{r=1..44} (theta_r - theta)^2 / 44 )",
+  "source": "BLS CE PUMD Getting Started Guide sec. 6.3 'Estimating sampling error' (https://www.bls.gov/cex/pumd-getting-started-guide.htm)",
+  "quantity": "standard error of (scheme YoY - official replica YoY), percentage points",
+  "note": "PUMD replicate weights are doubled half-sample weights, so no Fay factor is applied; under the Fay k=0.5 convention (variance = 4/44 * sum) every SE would be exactly 2x larger.",
+  "blank_replicate_cells": {
+   "2022": 279598,
+   "2023": 272558,
+   "2024": 275154
+  },
+  "missing_replicate_columns": {
+   "2022": [],
+   "2023": [],
+   "2024": []
+  }
+ },
+ "series": [
+  {
+   "ym": "2019-01",
+   "published_yoy": 1.551,
+   "official_replica_yoy": 1.503,
+   "salience_yoy": 0.41,
+   "salience_se": 0.013,
+   "blend50_yoy": 0.956,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 0.696,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.099,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2019-02",
+   "published_yoy": 1.52,
+   "official_replica_yoy": 1.478,
+   "salience_yoy": 0.83,
+   "salience_se": 0.012,
+   "blend50_yoy": 1.155,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.007,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.243,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-03",
+   "published_yoy": 1.863,
+   "official_replica_yoy": 1.832,
+   "salience_yoy": 1.458,
+   "salience_se": 0.012,
+   "blend50_yoy": 1.645,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.584,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.708,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-04",
+   "published_yoy": 1.996,
+   "official_replica_yoy": 1.972,
+   "salience_yoy": 1.119,
+   "salience_se": 0.012,
+   "blend50_yoy": 1.545,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.31,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.641,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-05",
+   "published_yoy": 1.79,
+   "official_replica_yoy": 1.765,
+   "salience_yoy": 1.201,
+   "salience_se": 0.011,
+   "blend50_yoy": 1.482,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.359,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.561,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-06",
+   "published_yoy": 1.648,
+   "official_replica_yoy": 1.604,
+   "salience_yoy": 0.849,
+   "salience_se": 0.01,
+   "blend50_yoy": 1.226,
+   "blend50_se": 0.005,
+   "bill_salience_yoy": 1.064,
+   "bill_salience_se": 0.009,
+   "bill_blend50_yoy": 1.333,
+   "bill_blend50_se": 0.004
+  },
+  {
+   "ym": "2019-07",
+   "published_yoy": 1.811,
+   "official_replica_yoy": 1.766,
+   "salience_yoy": 0.686,
+   "salience_se": 0.011,
+   "blend50_yoy": 1.225,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 0.937,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.351,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-08",
+   "published_yoy": 1.75,
+   "official_replica_yoy": 1.71,
+   "salience_yoy": 0.692,
+   "salience_se": 0.012,
+   "blend50_yoy": 1.2,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 0.933,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.321,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-09",
+   "published_yoy": 1.711,
+   "official_replica_yoy": 1.666,
+   "salience_yoy": 0.615,
+   "salience_se": 0.012,
+   "blend50_yoy": 1.139,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 0.887,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.275,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-10",
+   "published_yoy": 1.764,
+   "official_replica_yoy": 1.724,
+   "salience_yoy": 0.799,
+   "salience_se": 0.011,
+   "blend50_yoy": 1.261,
+   "blend50_se": 0.005,
+   "bill_salience_yoy": 1.116,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.419,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-11",
+   "published_yoy": 2.051,
+   "official_replica_yoy": 2.022,
+   "salience_yoy": 0.87,
+   "salience_se": 0.011,
+   "blend50_yoy": 1.445,
+   "blend50_se": 0.005,
+   "bill_salience_yoy": 1.188,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.604,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2019-12",
+   "published_yoy": 2.285,
+   "official_replica_yoy": 2.272,
+   "salience_yoy": 0.956,
+   "salience_se": 0.011,
+   "blend50_yoy": 1.613,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.229,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.75,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2020-01",
+   "published_yoy": 2.487,
+   "official_replica_yoy": 2.481,
+   "salience_yoy": 1.124,
+   "salience_se": 0.014,
+   "blend50_yoy": 1.802,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.428,
+   "bill_salience_se": 0.013,
+   "bill_blend50_yoy": 1.954,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2020-02",
+   "published_yoy": 2.335,
+   "official_replica_yoy": 2.32,
+   "salience_yoy": 1.008,
+   "salience_se": 0.011,
+   "blend50_yoy": 1.664,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.346,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 1.833,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2020-03",
+   "published_yoy": 1.539,
+   "official_replica_yoy": 1.496,
+   "salience_yoy": 0.522,
+   "salience_se": 0.013,
+   "blend50_yoy": 1.01,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 0.914,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.206,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2020-04",
+   "published_yoy": 0.329,
+   "official_replica_yoy": 0.247,
+   "salience_yoy": 1.225,
+   "salience_se": 0.034,
+   "blend50_yoy": 0.747,
+   "blend50_se": 0.017,
+   "bill_salience_yoy": 1.483,
+   "bill_salience_se": 0.029,
+   "bill_blend50_yoy": 0.873,
+   "bill_blend50_se": 0.015
+  },
+  {
+   "ym": "2020-05",
+   "published_yoy": 0.118,
+   "official_replica_yoy": 0.023,
+   "salience_yoy": 1.192,
+   "salience_se": 0.036,
+   "blend50_yoy": 0.613,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 1.401,
+   "bill_salience_se": 0.031,
+   "bill_blend50_yoy": 0.715,
+   "bill_blend50_se": 0.015
+  },
+  {
+   "ym": "2020-06",
+   "published_yoy": 0.646,
+   "official_replica_yoy": 0.599,
+   "salience_yoy": 2.048,
+   "salience_se": 0.033,
+   "blend50_yoy": 1.329,
+   "blend50_se": 0.017,
+   "bill_salience_yoy": 2.148,
+   "bill_salience_se": 0.028,
+   "bill_blend50_yoy": 1.377,
+   "bill_blend50_se": 0.014
+  },
+  {
+   "ym": "2020-07",
+   "published_yoy": 0.986,
+   "official_replica_yoy": 0.979,
+   "salience_yoy": 2.103,
+   "salience_se": 0.028,
+   "blend50_yoy": 1.543,
+   "blend50_se": 0.014,
+   "bill_salience_yoy": 2.272,
+   "bill_salience_se": 0.023,
+   "bill_blend50_yoy": 1.626,
+   "bill_blend50_se": 0.012
+  },
+  {
+   "ym": "2020-08",
+   "published_yoy": 1.31,
+   "official_replica_yoy": 1.282,
+   "salience_yoy": 2.449,
+   "salience_se": 0.025,
+   "blend50_yoy": 1.865,
+   "blend50_se": 0.012,
+   "bill_salience_yoy": 2.56,
+   "bill_salience_se": 0.021,
+   "bill_blend50_yoy": 1.92,
+   "bill_blend50_se": 0.01
+  },
+  {
+   "ym": "2020-09",
+   "published_yoy": 1.371,
+   "official_replica_yoy": 1.389,
+   "salience_yoy": 2.142,
+   "salience_se": 0.019,
+   "blend50_yoy": 1.768,
+   "blend50_se": 0.01,
+   "bill_salience_yoy": 2.273,
+   "bill_salience_se": 0.016,
+   "bill_blend50_yoy": 1.832,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2020-10",
+   "published_yoy": 1.182,
+   "official_replica_yoy": 1.184,
+   "salience_yoy": 1.951,
+   "salience_se": 0.023,
+   "blend50_yoy": 1.571,
+   "blend50_se": 0.011,
+   "bill_salience_yoy": 2.042,
+   "bill_salience_se": 0.019,
+   "bill_blend50_yoy": 1.615,
+   "bill_blend50_se": 0.01
+  },
+  {
+   "ym": "2020-11",
+   "published_yoy": 1.175,
+   "official_replica_yoy": 1.137,
+   "salience_yoy": 1.729,
+   "salience_se": 0.021,
+   "blend50_yoy": 1.434,
+   "blend50_se": 0.01,
+   "bill_salience_yoy": 1.841,
+   "bill_salience_se": 0.017,
+   "bill_blend50_yoy": 1.49,
+   "bill_blend50_se": 0.009
+  },
+  {
+   "ym": "2020-12",
+   "published_yoy": 1.362,
+   "official_replica_yoy": 1.336,
+   "salience_yoy": 2.246,
+   "salience_se": 0.02,
+   "blend50_yoy": 1.793,
+   "blend50_se": 0.01,
+   "bill_salience_yoy": 2.268,
+   "bill_salience_se": 0.017,
+   "bill_blend50_yoy": 1.804,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2021-01",
+   "published_yoy": 1.4,
+   "official_replica_yoy": 1.435,
+   "salience_yoy": 2.281,
+   "salience_se": 0.014,
+   "blend50_yoy": 1.861,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 2.27,
+   "bill_salience_se": 0.012,
+   "bill_blend50_yoy": 1.855,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2021-02",
+   "published_yoy": 1.676,
+   "official_replica_yoy": 1.723,
+   "salience_yoy": 2.463,
+   "salience_se": 0.014,
+   "blend50_yoy": 2.095,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 2.433,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 2.08,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2021-03",
+   "published_yoy": 2.62,
+   "official_replica_yoy": 2.696,
+   "salience_yoy": 3.225,
+   "salience_se": 0.022,
+   "blend50_yoy": 2.963,
+   "blend50_se": 0.011,
+   "bill_salience_yoy": 3.1,
+   "bill_salience_se": 0.018,
+   "bill_blend50_yoy": 2.901,
+   "bill_blend50_se": 0.009
+  },
+  {
+   "ym": "2021-04",
+   "published_yoy": 4.16,
+   "official_replica_yoy": 4.276,
+   "salience_yoy": 2.861,
+   "salience_se": 0.036,
+   "blend50_yoy": 3.558,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 2.851,
+   "bill_salience_se": 0.032,
+   "bill_blend50_yoy": 3.554,
+   "bill_blend50_se": 0.016
+  },
+  {
+   "ym": "2021-05",
+   "published_yoy": 4.993,
+   "official_replica_yoy": 5.133,
+   "salience_yoy": 3.07,
+   "salience_se": 0.041,
+   "blend50_yoy": 4.092,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 3.096,
+   "bill_salience_se": 0.036,
+   "bill_blend50_yoy": 4.106,
+   "bill_blend50_se": 0.018
+  },
+  {
+   "ym": "2021-06",
+   "published_yoy": 5.391,
+   "official_replica_yoy": 5.506,
+   "salience_yoy": 3.085,
+   "salience_se": 0.038,
+   "blend50_yoy": 4.283,
+   "blend50_se": 0.019,
+   "bill_salience_yoy": 3.097,
+   "bill_salience_se": 0.033,
+   "bill_blend50_yoy": 4.29,
+   "bill_blend50_se": 0.017
+  },
+  {
+   "ym": "2021-07",
+   "published_yoy": 5.365,
+   "official_replica_yoy": 5.472,
+   "salience_yoy": 3.739,
+   "salience_se": 0.036,
+   "blend50_yoy": 4.6,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 3.591,
+   "bill_salience_se": 0.03,
+   "bill_blend50_yoy": 4.526,
+   "bill_blend50_se": 0.015
+  },
+  {
+   "ym": "2021-08",
+   "published_yoy": 5.251,
+   "official_replica_yoy": 5.373,
+   "salience_yoy": 3.8,
+   "salience_se": 0.037,
+   "blend50_yoy": 4.584,
+   "blend50_se": 0.019,
+   "bill_salience_yoy": 3.656,
+   "bill_salience_se": 0.032,
+   "bill_blend50_yoy": 4.511,
+   "bill_blend50_se": 0.016
+  },
+  {
+   "ym": "2021-09",
+   "published_yoy": 5.39,
+   "official_replica_yoy": 5.466,
+   "salience_yoy": 4.749,
+   "salience_se": 0.035,
+   "blend50_yoy": 5.107,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 4.537,
+   "bill_salience_se": 0.03,
+   "bill_blend50_yoy": 5.0,
+   "bill_blend50_se": 0.015
+  },
+  {
+   "ym": "2021-10",
+   "published_yoy": 6.222,
+   "official_replica_yoy": 6.318,
+   "salience_yoy": 5.687,
+   "salience_se": 0.039,
+   "blend50_yoy": 6.001,
+   "blend50_se": 0.02,
+   "bill_salience_yoy": 5.455,
+   "bill_salience_se": 0.033,
+   "bill_blend50_yoy": 5.884,
+   "bill_blend50_se": 0.017
+  },
+  {
+   "ym": "2021-11",
+   "published_yoy": 6.809,
+   "official_replica_yoy": 6.955,
+   "salience_yoy": 6.708,
+   "salience_se": 0.042,
+   "blend50_yoy": 6.832,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 6.333,
+   "bill_salience_se": 0.036,
+   "bill_blend50_yoy": 6.644,
+   "bill_blend50_se": 0.018
+  },
+  {
+   "ym": "2021-12",
+   "published_yoy": 7.036,
+   "official_replica_yoy": 7.192,
+   "salience_yoy": 6.657,
+   "salience_se": 0.04,
+   "blend50_yoy": 6.923,
+   "blend50_se": 0.02,
+   "bill_salience_yoy": 6.303,
+   "bill_salience_se": 0.034,
+   "bill_blend50_yoy": 6.745,
+   "bill_blend50_se": 0.017
+  },
+  {
+   "ym": "2022-01",
+   "published_yoy": 7.48,
+   "official_replica_yoy": 7.547,
+   "salience_yoy": 7.143,
+   "salience_se": 0.037,
+   "blend50_yoy": 7.344,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 6.792,
+   "bill_salience_se": 0.031,
+   "bill_blend50_yoy": 7.168,
+   "bill_blend50_se": 0.016
+  },
+  {
+   "ym": "2022-02",
+   "published_yoy": 7.871,
+   "official_replica_yoy": 7.957,
+   "salience_yoy": 8.128,
+   "salience_se": 0.034,
+   "blend50_yoy": 8.044,
+   "blend50_se": 0.017,
+   "bill_salience_yoy": 7.671,
+   "bill_salience_se": 0.029,
+   "bill_blend50_yoy": 7.815,
+   "bill_blend50_se": 0.014
+  },
+  {
+   "ym": "2022-03",
+   "published_yoy": 8.542,
+   "official_replica_yoy": 8.639,
+   "salience_yoy": 9.365,
+   "salience_se": 0.037,
+   "blend50_yoy": 9.006,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 8.772,
+   "bill_salience_se": 0.031,
+   "bill_blend50_yoy": 8.708,
+   "bill_blend50_se": 0.015
+  },
+  {
+   "ym": "2022-04",
+   "published_yoy": 8.259,
+   "official_replica_yoy": 8.301,
+   "salience_yoy": 9.547,
+   "salience_se": 0.037,
+   "blend50_yoy": 8.929,
+   "blend50_se": 0.018,
+   "bill_salience_yoy": 8.977,
+   "bill_salience_se": 0.031,
+   "bill_blend50_yoy": 8.643,
+   "bill_blend50_se": 0.015
+  },
+  {
+   "ym": "2022-05",
+   "published_yoy": 8.582,
+   "official_replica_yoy": 8.658,
+   "salience_yoy": 10.851,
+   "salience_se": 0.043,
+   "blend50_yoy": 9.758,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 10.218,
+   "bill_salience_se": 0.036,
+   "bill_blend50_yoy": 9.441,
+   "bill_blend50_se": 0.018
+  },
+  {
+   "ym": "2022-06",
+   "published_yoy": 9.06,
+   "official_replica_yoy": 9.131,
+   "salience_yoy": 12.004,
+   "salience_se": 0.046,
+   "blend50_yoy": 10.567,
+   "blend50_se": 0.023,
+   "bill_salience_yoy": 11.361,
+   "bill_salience_se": 0.039,
+   "bill_blend50_yoy": 10.246,
+   "bill_blend50_se": 0.019
+  },
+  {
+   "ym": "2022-07",
+   "published_yoy": 8.525,
+   "official_replica_yoy": 8.556,
+   "salience_yoy": 12.158,
+   "salience_se": 0.041,
+   "blend50_yoy": 10.358,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 11.486,
+   "bill_salience_se": 0.036,
+   "bill_blend50_yoy": 10.022,
+   "bill_blend50_se": 0.018
+  },
+  {
+   "ym": "2022-08",
+   "published_yoy": 8.263,
+   "official_replica_yoy": 8.268,
+   "salience_yoy": 12.08,
+   "salience_se": 0.037,
+   "blend50_yoy": 10.175,
+   "blend50_se": 0.019,
+   "bill_salience_yoy": 11.502,
+   "bill_salience_se": 0.033,
+   "bill_blend50_yoy": 9.886,
+   "bill_blend50_se": 0.016
+  },
+  {
+   "ym": "2022-09",
+   "published_yoy": 8.202,
+   "official_replica_yoy": 8.164,
+   "salience_yoy": 11.746,
+   "salience_se": 0.038,
+   "blend50_yoy": 9.963,
+   "blend50_se": 0.019,
+   "bill_salience_yoy": 11.261,
+   "bill_salience_se": 0.034,
+   "bill_blend50_yoy": 9.72,
+   "bill_blend50_se": 0.017
+  },
+  {
+   "ym": "2022-10",
+   "published_yoy": 7.745,
+   "official_replica_yoy": 7.769,
+   "salience_yoy": 11.449,
+   "salience_se": 0.041,
+   "blend50_yoy": 9.639,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 10.835,
+   "bill_salience_se": 0.036,
+   "bill_blend50_yoy": 9.328,
+   "bill_blend50_se": 0.018
+  },
+  {
+   "ym": "2022-11",
+   "published_yoy": 7.11,
+   "official_replica_yoy": 7.05,
+   "salience_yoy": 10.915,
+   "salience_se": 0.043,
+   "blend50_yoy": 8.993,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 10.316,
+   "bill_salience_se": 0.038,
+   "bill_blend50_yoy": 8.692,
+   "bill_blend50_se": 0.019
+  },
+  {
+   "ym": "2022-12",
+   "published_yoy": 6.454,
+   "official_replica_yoy": 6.336,
+   "salience_yoy": 10.468,
+   "salience_se": 0.048,
+   "blend50_yoy": 8.413,
+   "blend50_se": 0.024,
+   "bill_salience_yoy": 9.939,
+   "bill_salience_se": 0.043,
+   "bill_blend50_yoy": 8.147,
+   "bill_blend50_se": 0.022
+  },
+  {
+   "ym": "2023-01",
+   "published_yoy": 6.41,
+   "official_replica_yoy": 6.325,
+   "salience_yoy": 10.233,
+   "salience_se": 0.049,
+   "blend50_yoy": 8.291,
+   "blend50_se": 0.024,
+   "bill_salience_yoy": 9.754,
+   "bill_salience_se": 0.043,
+   "bill_blend50_yoy": 8.05,
+   "bill_blend50_se": 0.022
+  },
+  {
+   "ym": "2023-02",
+   "published_yoy": 6.036,
+   "official_replica_yoy": 5.874,
+   "salience_yoy": 9.12,
+   "salience_se": 0.047,
+   "blend50_yoy": 7.512,
+   "blend50_se": 0.024,
+   "bill_salience_yoy": 8.662,
+   "bill_salience_se": 0.042,
+   "bill_blend50_yoy": 7.281,
+   "bill_blend50_se": 0.021
+  },
+  {
+   "ym": "2023-03",
+   "published_yoy": 4.985,
+   "official_replica_yoy": 4.811,
+   "salience_yoy": 7.117,
+   "salience_se": 0.05,
+   "blend50_yoy": 5.982,
+   "blend50_se": 0.025,
+   "bill_salience_yoy": 6.799,
+   "bill_salience_se": 0.044,
+   "bill_blend50_yoy": 5.821,
+   "bill_blend50_se": 0.022
+  },
+  {
+   "ym": "2023-04",
+   "published_yoy": 4.93,
+   "official_replica_yoy": 4.78,
+   "salience_yoy": 6.839,
+   "salience_se": 0.046,
+   "blend50_yoy": 5.827,
+   "blend50_se": 0.023,
+   "bill_salience_yoy": 6.429,
+   "bill_salience_se": 0.041,
+   "bill_blend50_yoy": 5.621,
+   "bill_blend50_se": 0.021
+  },
+  {
+   "ym": "2023-05",
+   "published_yoy": 4.048,
+   "official_replica_yoy": 3.868,
+   "salience_yoy": 5.395,
+   "salience_se": 0.048,
+   "blend50_yoy": 4.651,
+   "blend50_se": 0.024,
+   "bill_salience_yoy": 5.024,
+   "bill_salience_se": 0.042,
+   "bill_blend50_yoy": 4.464,
+   "bill_blend50_se": 0.021
+  },
+  {
+   "ym": "2023-06",
+   "published_yoy": 2.969,
+   "official_replica_yoy": 2.795,
+   "salience_yoy": 3.991,
+   "salience_se": 0.047,
+   "blend50_yoy": 3.412,
+   "blend50_se": 0.024,
+   "bill_salience_yoy": 3.648,
+   "bill_salience_se": 0.042,
+   "bill_blend50_yoy": 3.239,
+   "bill_blend50_se": 0.021
+  },
+  {
+   "ym": "2023-07",
+   "published_yoy": 3.178,
+   "official_replica_yoy": 3.004,
+   "salience_yoy": 3.403,
+   "salience_se": 0.041,
+   "blend50_yoy": 3.219,
+   "blend50_se": 0.021,
+   "bill_salience_yoy": 3.146,
+   "bill_salience_se": 0.036,
+   "bill_blend50_yoy": 3.089,
+   "bill_blend50_se": 0.018
+  },
+  {
+   "ym": "2023-08",
+   "published_yoy": 3.665,
+   "official_replica_yoy": 3.512,
+   "salience_yoy": 3.595,
+   "salience_se": 0.028,
+   "blend50_yoy": 3.567,
+   "blend50_se": 0.014,
+   "bill_salience_yoy": 3.212,
+   "bill_salience_se": 0.025,
+   "bill_blend50_yoy": 3.374,
+   "bill_blend50_se": 0.013
+  },
+  {
+   "ym": "2023-09",
+   "published_yoy": 3.7,
+   "official_replica_yoy": 3.586,
+   "salience_yoy": 3.204,
+   "salience_se": 0.015,
+   "blend50_yoy": 3.404,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 2.775,
+   "bill_salience_se": 0.014,
+   "bill_blend50_yoy": 3.187,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2023-10",
+   "published_yoy": 3.241,
+   "official_replica_yoy": 3.032,
+   "salience_yoy": 2.358,
+   "salience_se": 0.016,
+   "blend50_yoy": 2.68,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 2.139,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 2.572,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2023-11",
+   "published_yoy": 3.137,
+   "official_replica_yoy": 2.941,
+   "salience_yoy": 1.724,
+   "salience_se": 0.018,
+   "blend50_yoy": 2.331,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 1.669,
+   "bill_salience_se": 0.016,
+   "bill_blend50_yoy": 2.304,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2023-12",
+   "published_yoy": 3.352,
+   "official_replica_yoy": 3.221,
+   "salience_yoy": 1.533,
+   "salience_se": 0.018,
+   "blend50_yoy": 2.37,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 1.506,
+   "bill_salience_se": 0.016,
+   "bill_blend50_yoy": 2.357,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2024-01",
+   "published_yoy": 3.091,
+   "official_replica_yoy": 2.969,
+   "salience_yoy": 1.302,
+   "salience_se": 0.02,
+   "blend50_yoy": 2.13,
+   "blend50_se": 0.01,
+   "bill_salience_yoy": 1.303,
+   "bill_salience_se": 0.017,
+   "bill_blend50_yoy": 2.13,
+   "bill_blend50_se": 0.009
+  },
+  {
+   "ym": "2024-02",
+   "published_yoy": 3.153,
+   "official_replica_yoy": 3.077,
+   "salience_yoy": 1.418,
+   "salience_se": 0.017,
+   "blend50_yoy": 2.241,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 1.533,
+   "bill_salience_se": 0.014,
+   "bill_blend50_yoy": 2.3,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2024-03",
+   "published_yoy": 3.477,
+   "official_replica_yoy": 3.38,
+   "salience_yoy": 1.6,
+   "salience_se": 0.015,
+   "blend50_yoy": 2.481,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.796,
+   "bill_salience_se": 0.013,
+   "bill_blend50_yoy": 2.58,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2024-04",
+   "published_yoy": 3.357,
+   "official_replica_yoy": 3.307,
+   "salience_yoy": 1.412,
+   "salience_se": 0.016,
+   "blend50_yoy": 2.35,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 1.686,
+   "bill_salience_se": 0.014,
+   "bill_blend50_yoy": 2.488,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2024-05",
+   "published_yoy": 3.269,
+   "official_replica_yoy": 3.21,
+   "salience_yoy": 1.333,
+   "salience_se": 0.015,
+   "blend50_yoy": 2.262,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.655,
+   "bill_salience_se": 0.012,
+   "bill_blend50_yoy": 2.423,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2024-06",
+   "published_yoy": 2.971,
+   "official_replica_yoy": 2.9,
+   "salience_yoy": 1.156,
+   "salience_se": 0.015,
+   "blend50_yoy": 2.019,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.507,
+   "bill_salience_se": 0.012,
+   "bill_blend50_yoy": 2.195,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2024-07",
+   "published_yoy": 2.895,
+   "official_replica_yoy": 2.812,
+   "salience_yoy": 1.227,
+   "salience_se": 0.014,
+   "blend50_yoy": 2.01,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.56,
+   "bill_salience_se": 0.012,
+   "bill_blend50_yoy": 2.177,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2024-08",
+   "published_yoy": 2.531,
+   "official_replica_yoy": 2.452,
+   "salience_yoy": 0.78,
+   "salience_se": 0.018,
+   "blend50_yoy": 1.601,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 1.167,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 1.796,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2024-09",
+   "published_yoy": 2.441,
+   "official_replica_yoy": 2.343,
+   "salience_yoy": 0.921,
+   "salience_se": 0.018,
+   "blend50_yoy": 1.624,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 1.319,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 1.824,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2024-10",
+   "published_yoy": 2.598,
+   "official_replica_yoy": 2.534,
+   "salience_yoy": 1.006,
+   "salience_se": 0.013,
+   "blend50_yoy": 1.764,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.356,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 1.94,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2024-11",
+   "published_yoy": 2.749,
+   "official_replica_yoy": 2.74,
+   "salience_yoy": 1.349,
+   "salience_se": 0.01,
+   "blend50_yoy": 2.039,
+   "blend50_se": 0.005,
+   "bill_salience_yoy": 1.609,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 2.17,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2024-12",
+   "published_yoy": 2.888,
+   "official_replica_yoy": 2.848,
+   "salience_yoy": 1.646,
+   "salience_se": 0.01,
+   "blend50_yoy": 2.242,
+   "blend50_se": 0.005,
+   "bill_salience_yoy": 1.859,
+   "bill_salience_se": 0.01,
+   "bill_blend50_yoy": 2.35,
+   "bill_blend50_se": 0.005
+  },
+  {
+   "ym": "2025-01",
+   "published_yoy": 3.0,
+   "official_replica_yoy": 2.937,
+   "salience_yoy": 1.702,
+   "salience_se": 0.012,
+   "blend50_yoy": 2.315,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.901,
+   "bill_salience_se": 0.011,
+   "bill_blend50_yoy": 2.415,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2025-02",
+   "published_yoy": 2.822,
+   "official_replica_yoy": 2.758,
+   "salience_yoy": 1.487,
+   "salience_se": 0.014,
+   "blend50_yoy": 2.117,
+   "blend50_se": 0.007,
+   "bill_salience_yoy": 1.73,
+   "bill_salience_se": 0.013,
+   "bill_blend50_yoy": 2.24,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2025-03",
+   "published_yoy": 2.391,
+   "official_replica_yoy": 2.339,
+   "salience_yoy": 1.62,
+   "salience_se": 0.016,
+   "blend50_yoy": 1.978,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 1.848,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 2.092,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2025-04",
+   "published_yoy": 2.311,
+   "official_replica_yoy": 2.207,
+   "salience_yoy": 1.207,
+   "salience_se": 0.017,
+   "blend50_yoy": 1.704,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 1.493,
+   "bill_salience_se": 0.016,
+   "bill_blend50_yoy": 1.848,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2025-05",
+   "published_yoy": 2.355,
+   "official_replica_yoy": 2.239,
+   "salience_yoy": 1.446,
+   "salience_se": 0.017,
+   "blend50_yoy": 1.84,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 1.713,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 1.974,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2025-06",
+   "published_yoy": 2.669,
+   "official_replica_yoy": 2.564,
+   "salience_yoy": 1.784,
+   "salience_se": 0.017,
+   "blend50_yoy": 2.172,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 2.04,
+   "bill_salience_se": 0.016,
+   "bill_blend50_yoy": 2.3,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2025-07",
+   "published_yoy": 2.705,
+   "official_replica_yoy": 2.623,
+   "salience_yoy": 1.644,
+   "salience_se": 0.016,
+   "blend50_yoy": 2.129,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 1.902,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 2.259,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2025-08",
+   "published_yoy": 2.916,
+   "official_replica_yoy": 2.839,
+   "salience_yoy": 2.062,
+   "salience_se": 0.016,
+   "blend50_yoy": 2.453,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 2.263,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 2.553,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2025-09",
+   "published_yoy": 3.013,
+   "official_replica_yoy": 2.95,
+   "salience_yoy": 2.276,
+   "salience_se": 0.015,
+   "blend50_yoy": 2.61,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 2.428,
+   "bill_salience_se": 0.014,
+   "bill_blend50_yoy": 2.686,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2025-11",
+   "published_yoy": 2.735,
+   "official_replica_yoy": 2.609,
+   "salience_yoy": 1.547,
+   "salience_se": 0.013,
+   "blend50_yoy": 2.064,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 1.771,
+   "bill_salience_se": 0.012,
+   "bill_blend50_yoy": 2.18,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2025-12",
+   "published_yoy": 2.677,
+   "official_replica_yoy": 2.598,
+   "salience_yoy": 1.824,
+   "salience_se": 0.013,
+   "blend50_yoy": 2.207,
+   "blend50_se": 0.006,
+   "bill_salience_yoy": 2.017,
+   "bill_salience_se": 0.012,
+   "bill_blend50_yoy": 2.305,
+   "bill_blend50_se": 0.006
+  },
+  {
+   "ym": "2026-01",
+   "published_yoy": 2.386,
+   "official_replica_yoy": 2.271,
+   "salience_yoy": 1.741,
+   "salience_se": 0.016,
+   "blend50_yoy": 2.003,
+   "blend50_se": 0.008,
+   "bill_salience_yoy": 1.912,
+   "bill_salience_se": 0.014,
+   "bill_blend50_yoy": 2.09,
+   "bill_blend50_se": 0.007
+  },
+  {
+   "ym": "2026-02",
+   "published_yoy": 2.414,
+   "official_replica_yoy": 2.302,
+   "salience_yoy": 2.122,
+   "salience_se": 0.017,
+   "blend50_yoy": 2.212,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 2.198,
+   "bill_salience_se": 0.015,
+   "bill_blend50_yoy": 2.25,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2026-03",
+   "published_yoy": 3.256,
+   "official_replica_yoy": 3.198,
+   "salience_yoy": 2.662,
+   "salience_se": 0.021,
+   "blend50_yoy": 2.927,
+   "blend50_se": 0.011,
+   "bill_salience_yoy": 2.655,
+   "bill_salience_se": 0.019,
+   "bill_blend50_yoy": 2.924,
+   "bill_blend50_se": 0.01
+  },
+  {
+   "ym": "2026-04",
+   "published_yoy": 3.811,
+   "official_replica_yoy": 3.759,
+   "salience_yoy": 3.653,
+   "salience_se": 0.025,
+   "blend50_yoy": 3.705,
+   "blend50_se": 0.013,
+   "bill_salience_yoy": 3.54,
+   "bill_salience_se": 0.022,
+   "bill_blend50_yoy": 3.648,
+   "bill_blend50_se": 0.011
+  },
+  {
+   "ym": "2026-05",
+   "published_yoy": 4.249,
+   "official_replica_yoy": 4.236,
+   "salience_yoy": 3.877,
+   "salience_se": 0.03,
+   "blend50_yoy": 4.054,
+   "blend50_se": 0.015,
+   "bill_salience_yoy": 3.734,
+   "bill_salience_se": 0.026,
+   "bill_blend50_yoy": 3.982,
+   "bill_blend50_se": 0.013
+  },
+  {
+   "ym": "2026-06",
+   "published_yoy": 3.531,
+   "official_replica_yoy": 3.475,
+   "salience_yoy": 3.393,
+   "salience_se": 0.022,
+   "blend50_yoy": 3.433,
+   "blend50_se": 0.011,
+   "bill_salience_yoy": 3.236,
+   "bill_salience_se": 0.019,
+   "bill_blend50_yoy": 3.353,
+   "bill_blend50_se": 0.01
+  },
+  {
+   "ym": "2026-07",
+   "published_yoy": 3.365,
+   "official_replica_yoy": 3.292,
+   "salience_yoy": 3.215,
+   "salience_se": 0.019,
+   "blend50_yoy": 3.253,
+   "blend50_se": 0.009,
+   "bill_salience_yoy": 3.088,
+   "bill_salience_se": 0.016,
+   "bill_blend50_yoy": 3.189,
+   "bill_blend50_se": 0.008
+  },
+  {
+   "ym": "2026-08",
+   "published_yoy": 3.397,
+   "official_replica_yoy": 3.329,
+   "salience_yoy": 2.988,
+   "salience_se": 0.019,
+   "blend50_yoy": 3.157,
+   "blend50_se": 0.01,
+   "bill_salience_yoy": 2.927,
+   "bill_salience_se": 0.017,
+   "bill_blend50_yoy": 3.127,
+   "bill_blend50_se": 0.009
+  }
+ ],
+ "sensitivity": [
+  {
+   "variant": "agg_class",
+   "ym": "2019-01",
+   "yoy": 0.459
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-02",
+   "yoy": 0.89
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-03",
+   "yoy": 1.47
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-04",
+   "yoy": 1.094
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-05",
+   "yoy": 1.054
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-06",
+   "yoy": 0.748
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-07",
+   "yoy": 0.655
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-08",
+   "yoy": 0.58
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-09",
+   "yoy": 0.512
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-10",
+   "yoy": 0.829
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-11",
+   "yoy": 0.942
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2019-12",
+   "yoy": 0.921
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-01",
+   "yoy": 1.18
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-02",
+   "yoy": 0.976
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-03",
+   "yoy": 0.438
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-04",
+   "yoy": 1.154
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-05",
+   "yoy": 1.219
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-06",
+   "yoy": 2.031
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-07",
+   "yoy": 1.998
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-08",
+   "yoy": 2.304
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-09",
+   "yoy": 2.0
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-10",
+   "yoy": 1.848
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-11",
+   "yoy": 1.669
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2020-12",
+   "yoy": 2.183
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-01",
+   "yoy": 2.21
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-02",
+   "yoy": 2.513
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-03",
+   "yoy": 3.247
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-04",
+   "yoy": 2.932
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-05",
+   "yoy": 3.202
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-06",
+   "yoy": 3.212
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-07",
+   "yoy": 3.704
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-08",
+   "yoy": 3.884
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-09",
+   "yoy": 4.834
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-10",
+   "yoy": 5.705
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-11",
+   "yoy": 6.654
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2021-12",
+   "yoy": 6.757
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-01",
+   "yoy": 7.414
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-02",
+   "yoy": 8.424
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-03",
+   "yoy": 9.786
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-04",
+   "yoy": 10.128
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-05",
+   "yoy": 11.275
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-06",
+   "yoy": 12.385
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-07",
+   "yoy": 12.591
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-08",
+   "yoy": 12.397
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-09",
+   "yoy": 11.941
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-10",
+   "yoy": 11.605
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-11",
+   "yoy": 11.147
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2022-12",
+   "yoy": 10.5
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-01",
+   "yoy": 10.204
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-02",
+   "yoy": 9.089
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-03",
+   "yoy": 7.013
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-04",
+   "yoy": 6.479
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-05",
+   "yoy": 5.066
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-06",
+   "yoy": 3.598
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-07",
+   "yoy": 3.1
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-08",
+   "yoy": 3.274
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-09",
+   "yoy": 3.068
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-10",
+   "yoy": 2.204
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-11",
+   "yoy": 1.57
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2023-12",
+   "yoy": 1.391
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-01",
+   "yoy": 1.117
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-02",
+   "yoy": 1.17
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-03",
+   "yoy": 1.359
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-04",
+   "yoy": 1.182
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-05",
+   "yoy": 1.11
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-06",
+   "yoy": 1.002
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-07",
+   "yoy": 1.007
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-08",
+   "yoy": 0.632
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-09",
+   "yoy": 0.753
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-10",
+   "yoy": 0.918
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-11",
+   "yoy": 1.287
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2024-12",
+   "yoy": 1.665
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-01",
+   "yoy": 1.753
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-02",
+   "yoy": 1.514
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-03",
+   "yoy": 1.615
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-04",
+   "yoy": 1.221
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-05",
+   "yoy": 1.42
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-06",
+   "yoy": 1.758
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-07",
+   "yoy": 1.585
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-08",
+   "yoy": 2.043
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-09",
+   "yoy": 2.282
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-11",
+   "yoy": 1.56
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2025-12",
+   "yoy": 1.856
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-01",
+   "yoy": 1.703
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-02",
+   "yoy": 2.116
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-03",
+   "yoy": 2.647
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-04",
+   "yoy": 3.643
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-05",
+   "yoy": 3.887
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-06",
+   "yoy": 3.371
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-07",
+   "yoy": 3.215
+  },
+  {
+   "variant": "agg_class",
+   "ym": "2026-08",
+   "yoy": 2.959
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-01",
+   "yoy": 0.41
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-02",
+   "yoy": 0.83
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-03",
+   "yoy": 1.458
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-04",
+   "yoy": 1.119
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-05",
+   "yoy": 1.201
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-06",
+   "yoy": 0.849
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-07",
+   "yoy": 0.686
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-08",
+   "yoy": 0.692
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-09",
+   "yoy": 0.615
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-10",
+   "yoy": 0.799
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-11",
+   "yoy": 0.87
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2019-12",
+   "yoy": 0.956
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-01",
+   "yoy": 1.124
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-02",
+   "yoy": 1.008
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-03",
+   "yoy": 0.522
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-04",
+   "yoy": 1.225
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-05",
+   "yoy": 1.192
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-06",
+   "yoy": 2.048
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-07",
+   "yoy": 2.103
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-08",
+   "yoy": 2.449
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-09",
+   "yoy": 2.142
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-10",
+   "yoy": 1.951
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-11",
+   "yoy": 1.729
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2020-12",
+   "yoy": 2.246
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-01",
+   "yoy": 2.281
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-02",
+   "yoy": 2.463
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-03",
+   "yoy": 3.225
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-04",
+   "yoy": 2.861
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-05",
+   "yoy": 3.07
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-06",
+   "yoy": 3.085
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-07",
+   "yoy": 3.739
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-08",
+   "yoy": 3.8
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-09",
+   "yoy": 4.749
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-10",
+   "yoy": 5.687
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-11",
+   "yoy": 6.708
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2021-12",
+   "yoy": 6.657
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-01",
+   "yoy": 7.143
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-02",
+   "yoy": 8.128
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-03",
+   "yoy": 9.365
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-04",
+   "yoy": 9.547
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-05",
+   "yoy": 10.851
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-06",
+   "yoy": 12.004
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-07",
+   "yoy": 12.158
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-08",
+   "yoy": 12.08
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-09",
+   "yoy": 11.746
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-10",
+   "yoy": 11.449
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-11",
+   "yoy": 10.915
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2022-12",
+   "yoy": 10.468
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-01",
+   "yoy": 10.233
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-02",
+   "yoy": 9.12
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-03",
+   "yoy": 7.117
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-04",
+   "yoy": 6.839
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-05",
+   "yoy": 5.395
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-06",
+   "yoy": 3.991
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-07",
+   "yoy": 3.403
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-08",
+   "yoy": 3.595
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-09",
+   "yoy": 3.204
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-10",
+   "yoy": 2.358
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-11",
+   "yoy": 1.724
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2023-12",
+   "yoy": 1.533
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-01",
+   "yoy": 1.302
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-02",
+   "yoy": 1.418
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-03",
+   "yoy": 1.6
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-04",
+   "yoy": 1.412
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-05",
+   "yoy": 1.333
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-06",
+   "yoy": 1.156
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-07",
+   "yoy": 1.227
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-08",
+   "yoy": 0.78
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-09",
+   "yoy": 0.921
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-10",
+   "yoy": 1.006
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-11",
+   "yoy": 1.349
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2024-12",
+   "yoy": 1.646
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-01",
+   "yoy": 1.702
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-02",
+   "yoy": 1.487
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-03",
+   "yoy": 1.62
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-04",
+   "yoy": 1.207
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-05",
+   "yoy": 1.446
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-06",
+   "yoy": 1.784
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-07",
+   "yoy": 1.644
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-08",
+   "yoy": 2.062
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-09",
+   "yoy": 2.276
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-11",
+   "yoy": 1.547
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2025-12",
+   "yoy": 1.824
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-01",
+   "yoy": 1.741
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-02",
+   "yoy": 2.122
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-03",
+   "yoy": 2.662
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-04",
+   "yoy": 3.653
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-05",
+   "yoy": 3.877
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-06",
+   "yoy": 3.393
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-07",
+   "yoy": 3.215
+  },
+  {
+   "variant": "agg_item",
+   "ym": "2026-08",
+   "yoy": 2.988
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-01",
+   "yoy": 0.41
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-02",
+   "yoy": 0.83
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-03",
+   "yoy": 1.458
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-04",
+   "yoy": 1.119
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-05",
+   "yoy": 1.201
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-06",
+   "yoy": 0.849
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-07",
+   "yoy": 0.686
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-08",
+   "yoy": 0.692
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-09",
+   "yoy": 0.615
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-10",
+   "yoy": 0.799
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-11",
+   "yoy": 0.87
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2019-12",
+   "yoy": 0.956
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-01",
+   "yoy": 1.124
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-02",
+   "yoy": 1.008
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-03",
+   "yoy": 0.522
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-04",
+   "yoy": 1.225
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-05",
+   "yoy": 1.192
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-06",
+   "yoy": 2.048
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-07",
+   "yoy": 2.103
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-08",
+   "yoy": 2.449
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-09",
+   "yoy": 2.142
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-10",
+   "yoy": 1.951
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-11",
+   "yoy": 1.729
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2020-12",
+   "yoy": 2.246
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-01",
+   "yoy": 2.281
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-02",
+   "yoy": 2.463
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-03",
+   "yoy": 3.225
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-04",
+   "yoy": 2.861
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-05",
+   "yoy": 3.07
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-06",
+   "yoy": 3.085
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-07",
+   "yoy": 3.739
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-08",
+   "yoy": 3.8
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-09",
+   "yoy": 4.749
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-10",
+   "yoy": 5.687
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-11",
+   "yoy": 6.708
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2021-12",
+   "yoy": 6.657
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-01",
+   "yoy": 7.143
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-02",
+   "yoy": 8.128
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-03",
+   "yoy": 9.365
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-04",
+   "yoy": 9.547
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-05",
+   "yoy": 10.851
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-06",
+   "yoy": 12.004
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-07",
+   "yoy": 12.158
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-08",
+   "yoy": 12.08
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-09",
+   "yoy": 11.746
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-10",
+   "yoy": 11.449
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-11",
+   "yoy": 10.915
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2022-12",
+   "yoy": 10.468
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-01",
+   "yoy": 10.233
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-02",
+   "yoy": 9.12
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-03",
+   "yoy": 7.117
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-04",
+   "yoy": 6.839
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-05",
+   "yoy": 5.395
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-06",
+   "yoy": 3.991
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-07",
+   "yoy": 3.403
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-08",
+   "yoy": 3.595
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-09",
+   "yoy": 3.204
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-10",
+   "yoy": 2.358
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-11",
+   "yoy": 1.724
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2023-12",
+   "yoy": 1.533
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-01",
+   "yoy": 1.286
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-02",
+   "yoy": 1.534
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-03",
+   "yoy": 1.715
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-04",
+   "yoy": 1.578
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-05",
+   "yoy": 1.36
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-06",
+   "yoy": 1.132
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-07",
+   "yoy": 1.195
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-08",
+   "yoy": 0.723
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-09",
+   "yoy": 0.821
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-10",
+   "yoy": 0.9
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-11",
+   "yoy": 1.393
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2024-12",
+   "yoy": 1.74
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-01",
+   "yoy": 1.831
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-02",
+   "yoy": 1.463
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-03",
+   "yoy": 1.573
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-04",
+   "yoy": 1.101
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-05",
+   "yoy": 1.448
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-06",
+   "yoy": 1.8
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-07",
+   "yoy": 1.558
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-08",
+   "yoy": 2.023
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-09",
+   "yoy": 2.197
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-11",
+   "yoy": 1.467
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2025-12",
+   "yoy": 1.667
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-01",
+   "yoy": 1.4
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-02",
+   "yoy": 1.937
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-03",
+   "yoy": 2.747
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-04",
+   "yoy": 3.873
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-05",
+   "yoy": 4.258
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-06",
+   "yoy": 3.681
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-07",
+   "yoy": 3.501
+  },
+  {
+   "variant": "diary_2022",
+   "ym": "2026-08",
+   "yoy": 3.283
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-01",
+   "yoy": 0.543
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-02",
+   "yoy": 0.96
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-03",
+   "yoy": 1.436
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-04",
+   "yoy": 1.011
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-05",
+   "yoy": 1.169
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-06",
+   "yoy": 0.894
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-07",
+   "yoy": 0.758
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-08",
+   "yoy": 0.717
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-09",
+   "yoy": 0.628
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-10",
+   "yoy": 0.811
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-11",
+   "yoy": 0.925
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2019-12",
+   "yoy": 0.92
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-01",
+   "yoy": 1.022
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-02",
+   "yoy": 0.895
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-03",
+   "yoy": 0.573
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-04",
+   "yoy": 1.639
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-05",
+   "yoy": 1.675
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-06",
+   "yoy": 2.463
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-07",
+   "yoy": 2.404
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-08",
+   "yoy": 2.674
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-09",
+   "yoy": 2.394
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-10",
+   "yoy": 2.226
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-11",
+   "yoy": 2.0
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2020-12",
+   "yoy": 2.469
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-01",
+   "yoy": 2.492
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-02",
+   "yoy": 2.62
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-03",
+   "yoy": 3.048
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-04",
+   "yoy": 2.479
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-05",
+   "yoy": 2.607
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-06",
+   "yoy": 2.614
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-07",
+   "yoy": 3.307
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-08",
+   "yoy": 3.417
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-09",
+   "yoy": 4.323
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-10",
+   "yoy": 5.259
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-11",
+   "yoy": 6.189
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2021-12",
+   "yoy": 6.278
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-01",
+   "yoy": 6.864
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-02",
+   "yoy": 7.952
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-03",
+   "yoy": 9.295
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-04",
+   "yoy": 9.573
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-05",
+   "yoy": 10.744
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-06",
+   "yoy": 11.816
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-07",
+   "yoy": 12.144
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-08",
+   "yoy": 12.278
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-09",
+   "yoy": 12.141
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-10",
+   "yoy": 11.814
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-11",
+   "yoy": 11.408
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2022-12",
+   "yoy": 10.922
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-01",
+   "yoy": 10.604
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-02",
+   "yoy": 9.595
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-03",
+   "yoy": 7.703
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-04",
+   "yoy": 7.15
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-05",
+   "yoy": 5.881
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-06",
+   "yoy": 4.527
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-07",
+   "yoy": 3.858
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-08",
+   "yoy": 3.791
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-09",
+   "yoy": 3.282
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-10",
+   "yoy": 2.621
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-11",
+   "yoy": 1.915
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2023-12",
+   "yoy": 1.734
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-01",
+   "yoy": 1.518
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-02",
+   "yoy": 1.483
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-03",
+   "yoy": 1.628
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-04",
+   "yoy": 1.588
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-05",
+   "yoy": 1.378
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-06",
+   "yoy": 1.197
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-07",
+   "yoy": 1.205
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-08",
+   "yoy": 0.833
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-09",
+   "yoy": 0.908
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-10",
+   "yoy": 0.882
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-11",
+   "yoy": 1.343
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2024-12",
+   "yoy": 1.646
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-01",
+   "yoy": 1.686
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-02",
+   "yoy": 1.458
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-03",
+   "yoy": 1.589
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-04",
+   "yoy": 1.188
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-05",
+   "yoy": 1.425
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-06",
+   "yoy": 1.771
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-07",
+   "yoy": 1.617
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-08",
+   "yoy": 2.036
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-09",
+   "yoy": 2.246
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-11",
+   "yoy": 1.547
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2025-12",
+   "yoy": 1.817
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-01",
+   "yoy": 1.738
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-02",
+   "yoy": 2.149
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-03",
+   "yoy": 2.727
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-04",
+   "yoy": 3.713
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-05",
+   "yoy": 3.957
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-06",
+   "yoy": 3.446
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-07",
+   "yoy": 3.261
+  },
+  {
+   "variant": "diary_2023",
+   "ym": "2026-08",
+   "yoy": 3.033
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-01",
+   "yoy": 0.529
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-02",
+   "yoy": 0.938
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-03",
+   "yoy": 1.393
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-04",
+   "yoy": 0.944
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-05",
+   "yoy": 1.108
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-06",
+   "yoy": 0.859
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-07",
+   "yoy": 0.715
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-08",
+   "yoy": 0.668
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-09",
+   "yoy": 0.587
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-10",
+   "yoy": 0.784
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-11",
+   "yoy": 0.897
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2019-12",
+   "yoy": 0.892
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-01",
+   "yoy": 0.972
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-02",
+   "yoy": 0.866
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-03",
+   "yoy": 0.581
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-04",
+   "yoy": 1.73
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-05",
+   "yoy": 1.805
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-06",
+   "yoy": 2.566
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-07",
+   "yoy": 2.464
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-08",
+   "yoy": 2.732
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-09",
+   "yoy": 2.447
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-10",
+   "yoy": 2.288
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-11",
+   "yoy": 2.05
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2020-12",
+   "yoy": 2.511
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-01",
+   "yoy": 2.534
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-02",
+   "yoy": 2.659
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-03",
+   "yoy": 3.036
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-04",
+   "yoy": 2.416
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-05",
+   "yoy": 2.519
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-06",
+   "yoy": 2.535
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-07",
+   "yoy": 3.261
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-08",
+   "yoy": 3.381
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-09",
+   "yoy": 4.302
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-10",
+   "yoy": 5.226
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-11",
+   "yoy": 6.166
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2021-12",
+   "yoy": 6.268
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-01",
+   "yoy": 6.885
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-02",
+   "yoy": 7.976
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-03",
+   "yoy": 9.337
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-04",
+   "yoy": 9.628
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-05",
+   "yoy": 10.791
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-06",
+   "yoy": 11.84
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-07",
+   "yoy": 12.217
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-08",
+   "yoy": 12.361
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-09",
+   "yoy": 12.197
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-10",
+   "yoy": 11.86
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-11",
+   "yoy": 11.456
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2022-12",
+   "yoy": 10.971
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-01",
+   "yoy": 10.64
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-02",
+   "yoy": 9.634
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-03",
+   "yoy": 7.729
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-04",
+   "yoy": 7.123
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-05",
+   "yoy": 5.855
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-06",
+   "yoy": 4.513
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-07",
+   "yoy": 3.821
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-08",
+   "yoy": 3.726
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-09",
+   "yoy": 3.234
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-10",
+   "yoy": 2.6
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-11",
+   "yoy": 1.887
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2023-12",
+   "yoy": 1.701
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-01",
+   "yoy": 1.485
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-02",
+   "yoy": 1.424
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-03",
+   "yoy": 1.586
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-04",
+   "yoy": 1.554
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-05",
+   "yoy": 1.352
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-06",
+   "yoy": 1.177
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-07",
+   "yoy": 1.189
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-08",
+   "yoy": 0.829
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-09",
+   "yoy": 0.927
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-10",
+   "yoy": 0.889
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-11",
+   "yoy": 1.352
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2024-12",
+   "yoy": 1.664
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-01",
+   "yoy": 1.713
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-02",
+   "yoy": 1.51
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-03",
+   "yoy": 1.646
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-04",
+   "yoy": 1.251
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-05",
+   "yoy": 1.473
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-06",
+   "yoy": 1.812
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-07",
+   "yoy": 1.656
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-08",
+   "yoy": 2.079
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-09",
+   "yoy": 2.262
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-11",
+   "yoy": 1.557
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2025-12",
+   "yoy": 1.824
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-01",
+   "yoy": 1.741
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-02",
+   "yoy": 2.122
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-03",
+   "yoy": 2.662
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-04",
+   "yoy": 3.653
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-05",
+   "yoy": 3.877
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-06",
+   "yoy": 3.393
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-07",
+   "yoy": 3.215
+  },
+  {
+   "variant": "diary_2024",
+   "ym": "2026-08",
+   "yoy": 2.988
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-01",
+   "yoy": 0.502
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-02",
+   "yoy": 0.917
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-03",
+   "yoy": 1.426
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-04",
+   "yoy": 1.015
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-05",
+   "yoy": 1.155
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-06",
+   "yoy": 0.869
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-07",
+   "yoy": 0.723
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-08",
+   "yoy": 0.692
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-09",
+   "yoy": 0.609
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-10",
+   "yoy": 0.798
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-11",
+   "yoy": 0.9
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2019-12",
+   "yoy": 0.919
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-01",
+   "yoy": 1.031
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-02",
+   "yoy": 0.914
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-03",
+   "yoy": 0.562
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-04",
+   "yoy": 1.562
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-05",
+   "yoy": 1.594
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-06",
+   "yoy": 2.391
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-07",
+   "yoy": 2.346
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-08",
+   "yoy": 2.636
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-09",
+   "yoy": 2.346
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-10",
+   "yoy": 2.176
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-11",
+   "yoy": 1.946
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2020-12",
+   "yoy": 2.425
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-01",
+   "yoy": 2.451
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-02",
+   "yoy": 2.592
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-03",
+   "yoy": 3.091
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-04",
+   "yoy": 2.557
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-05",
+   "yoy": 2.698
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-06",
+   "yoy": 2.71
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-07",
+   "yoy": 3.405
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-08",
+   "yoy": 3.506
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-09",
+   "yoy": 4.429
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-10",
+   "yoy": 5.361
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-11",
+   "yoy": 6.319
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2021-12",
+   "yoy": 6.376
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-01",
+   "yoy": 6.947
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-02",
+   "yoy": 8.008
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-03",
+   "yoy": 9.33
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-04",
+   "yoy": 9.586
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-05",
+   "yoy": 10.79
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-06",
+   "yoy": 11.875
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-07",
+   "yoy": 12.175
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-08",
+   "yoy": 12.256
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-09",
+   "yoy": 12.057
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-10",
+   "yoy": 11.734
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-11",
+   "yoy": 11.294
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2022-12",
+   "yoy": 10.819
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-01",
+   "yoy": 10.518
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-02",
+   "yoy": 9.482
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-03",
+   "yoy": 7.556
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-04",
+   "yoy": 7.057
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-05",
+   "yoy": 5.741
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-06",
+   "yoy": 4.379
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-07",
+   "yoy": 3.722
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-08",
+   "yoy": 3.714
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-09",
+   "yoy": 3.243
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-10",
+   "yoy": 2.543
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-11",
+   "yoy": 1.853
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2023-12",
+   "yoy": 1.668
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-01",
+   "yoy": 1.443
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-02",
+   "yoy": 1.475
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-03",
+   "yoy": 1.636
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-04",
+   "yoy": 1.573
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-05",
+   "yoy": 1.364
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-06",
+   "yoy": 1.172
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-07",
+   "yoy": 1.197
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-08",
+   "yoy": 0.802
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-09",
+   "yoy": 0.892
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-10",
+   "yoy": 0.889
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-11",
+   "yoy": 1.36
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2024-12",
+   "yoy": 1.678
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-01",
+   "yoy": 1.735
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-02",
+   "yoy": 1.479
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-03",
+   "yoy": 1.606
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-04",
+   "yoy": 1.188
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-05",
+   "yoy": 1.449
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-06",
+   "yoy": 1.794
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-07",
+   "yoy": 1.616
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-08",
+   "yoy": 2.048
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-09",
+   "yoy": 2.239
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-11",
+   "yoy": 1.53
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2025-12",
+   "yoy": 1.779
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-01",
+   "yoy": 1.649
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-02",
+   "yoy": 2.082
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-03",
+   "yoy": 2.708
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-04",
+   "yoy": 3.734
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-05",
+   "yoy": 4.008
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-06",
+   "yoy": 3.49
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-07",
+   "yoy": 3.308
+  },
+  {
+   "variant": "diary_pooled",
+   "ym": "2026-08",
+   "yoy": 3.083
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-01",
+   "yoy": 0.58
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-02",
+   "yoy": 0.951
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-03",
+   "yoy": 1.511
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-04",
+   "yoy": 1.098
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-05",
+   "yoy": 1.188
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-06",
+   "yoy": 0.865
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-07",
+   "yoy": 0.654
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-08",
+   "yoy": 0.706
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-09",
+   "yoy": 0.634
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-10",
+   "yoy": 0.784
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-11",
+   "yoy": 0.791
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2019-12",
+   "yoy": 0.82
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-01",
+   "yoy": 0.984
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-02",
+   "yoy": 0.923
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-03",
+   "yoy": 0.55
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-04",
+   "yoy": 1.483
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-05",
+   "yoy": 1.433
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-06",
+   "yoy": 2.133
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-07",
+   "yoy": 2.163
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-08",
+   "yoy": 2.458
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-09",
+   "yoy": 2.118
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-10",
+   "yoy": 1.931
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-11",
+   "yoy": 1.697
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2020-12",
+   "yoy": 2.199
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-01",
+   "yoy": 2.205
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-02",
+   "yoy": 2.356
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-03",
+   "yoy": 3.062
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-04",
+   "yoy": 2.59
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-05",
+   "yoy": 2.789
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-06",
+   "yoy": 2.912
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-07",
+   "yoy": 3.607
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-08",
+   "yoy": 3.682
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-09",
+   "yoy": 4.653
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-10",
+   "yoy": 5.616
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-11",
+   "yoy": 6.634
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2021-12",
+   "yoy": 6.605
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-01",
+   "yoy": 7.125
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-02",
+   "yoy": 8.146
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-03",
+   "yoy": 9.467
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-04",
+   "yoy": 9.814
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-05",
+   "yoy": 11.18
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-06",
+   "yoy": 12.215
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-07",
+   "yoy": 12.503
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-08",
+   "yoy": 12.474
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-09",
+   "yoy": 12.192
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-10",
+   "yoy": 11.869
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-11",
+   "yoy": 11.423
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2022-12",
+   "yoy": 10.972
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-01",
+   "yoy": 10.61
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-02",
+   "yoy": 9.426
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-03",
+   "yoy": 7.279
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-04",
+   "yoy": 6.726
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-05",
+   "yoy": 5.256
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-06",
+   "yoy": 3.912
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-07",
+   "yoy": 3.196
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-08",
+   "yoy": 3.368
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-09",
+   "yoy": 2.997
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-10",
+   "yoy": 2.221
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-11",
+   "yoy": 1.545
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2023-12",
+   "yoy": 1.336
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-01",
+   "yoy": 1.185
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-02",
+   "yoy": 1.331
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-03",
+   "yoy": 1.529
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-04",
+   "yoy": 1.393
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-05",
+   "yoy": 1.312
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-06",
+   "yoy": 1.202
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-07",
+   "yoy": 1.288
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-08",
+   "yoy": 0.823
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-09",
+   "yoy": 0.916
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-10",
+   "yoy": 0.947
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-11",
+   "yoy": 1.242
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2024-12",
+   "yoy": 1.534
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-01",
+   "yoy": 1.621
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-02",
+   "yoy": 1.436
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-03",
+   "yoy": 1.63
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-04",
+   "yoy": 1.246
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-05",
+   "yoy": 1.501
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-06",
+   "yoy": 1.829
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-07",
+   "yoy": 1.747
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-08",
+   "yoy": 2.142
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-09",
+   "yoy": 2.32
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-11",
+   "yoy": 1.605
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2025-12",
+   "yoy": 1.893
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-01",
+   "yoy": 1.798
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-02",
+   "yoy": 2.173
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-03",
+   "yoy": 2.775
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-04",
+   "yoy": 3.886
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-05",
+   "yoy": 4.003
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-06",
+   "yoy": 3.546
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-07",
+   "yoy": 3.261
+  },
+  {
+   "variant": "split_equal",
+   "ym": "2026-08",
+   "yoy": 3.141
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-01",
+   "yoy": 0.41
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-02",
+   "yoy": 0.83
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-03",
+   "yoy": 1.458
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-04",
+   "yoy": 1.119
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-05",
+   "yoy": 1.201
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-06",
+   "yoy": 0.849
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-07",
+   "yoy": 0.686
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-08",
+   "yoy": 0.692
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-09",
+   "yoy": 0.615
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-10",
+   "yoy": 0.799
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-11",
+   "yoy": 0.87
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2019-12",
+   "yoy": 0.956
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-01",
+   "yoy": 1.124
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-02",
+   "yoy": 1.008
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-03",
+   "yoy": 0.522
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-04",
+   "yoy": 1.225
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-05",
+   "yoy": 1.192
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-06",
+   "yoy": 2.048
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-07",
+   "yoy": 2.103
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-08",
+   "yoy": 2.449
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-09",
+   "yoy": 2.142
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-10",
+   "yoy": 1.951
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-11",
+   "yoy": 1.729
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2020-12",
+   "yoy": 2.246
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-01",
+   "yoy": 2.281
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-02",
+   "yoy": 2.463
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-03",
+   "yoy": 3.225
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-04",
+   "yoy": 2.861
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-05",
+   "yoy": 3.07
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-06",
+   "yoy": 3.085
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-07",
+   "yoy": 3.739
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-08",
+   "yoy": 3.8
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-09",
+   "yoy": 4.749
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-10",
+   "yoy": 5.687
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-11",
+   "yoy": 6.708
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2021-12",
+   "yoy": 6.657
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-01",
+   "yoy": 7.143
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-02",
+   "yoy": 8.128
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-03",
+   "yoy": 9.365
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-04",
+   "yoy": 9.547
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-05",
+   "yoy": 10.851
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-06",
+   "yoy": 12.004
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-07",
+   "yoy": 12.158
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-08",
+   "yoy": 12.08
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-09",
+   "yoy": 11.746
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-10",
+   "yoy": 11.449
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-11",
+   "yoy": 10.915
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2022-12",
+   "yoy": 10.468
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-01",
+   "yoy": 10.233
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-02",
+   "yoy": 9.12
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-03",
+   "yoy": 7.117
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-04",
+   "yoy": 6.839
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-05",
+   "yoy": 5.395
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-06",
+   "yoy": 3.991
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-07",
+   "yoy": 3.403
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-08",
+   "yoy": 3.595
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-09",
+   "yoy": 3.204
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-10",
+   "yoy": 2.358
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-11",
+   "yoy": 1.724
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2023-12",
+   "yoy": 1.533
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-01",
+   "yoy": 1.302
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-02",
+   "yoy": 1.418
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-03",
+   "yoy": 1.6
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-04",
+   "yoy": 1.412
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-05",
+   "yoy": 1.333
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-06",
+   "yoy": 1.156
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-07",
+   "yoy": 1.227
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-08",
+   "yoy": 0.78
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-09",
+   "yoy": 0.921
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-10",
+   "yoy": 1.006
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-11",
+   "yoy": 1.349
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2024-12",
+   "yoy": 1.646
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-01",
+   "yoy": 1.702
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-02",
+   "yoy": 1.487
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-03",
+   "yoy": 1.62
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-04",
+   "yoy": 1.207
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-05",
+   "yoy": 1.446
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-06",
+   "yoy": 1.784
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-07",
+   "yoy": 1.644
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-08",
+   "yoy": 2.062
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-09",
+   "yoy": 2.276
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-11",
+   "yoy": 1.547
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2025-12",
+   "yoy": 1.824
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-01",
+   "yoy": 1.741
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-02",
+   "yoy": 2.122
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-03",
+   "yoy": 2.662
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-04",
+   "yoy": 3.653
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-05",
+   "yoy": 3.877
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-06",
+   "yoy": 3.393
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-07",
+   "yoy": 3.215
+  },
+  {
+   "variant": "split_exp",
+   "ym": "2026-08",
+   "yoy": 2.988
+  }
+ ],
+ "sensitivity_latest": [
+  {
+   "variant": "agg_class",
+   "yoy": 2.959,
+   "gap": -0.37
+  },
+  {
+   "variant": "split_exp",
+   "yoy": 2.988,
+   "gap": -0.342
+  },
+  {
+   "variant": "agg_item",
+   "yoy": 2.988,
+   "gap": -0.342
+  },
+  {
+   "variant": "diary_2024",
+   "yoy": 2.988,
+   "gap": -0.342
+  },
+  {
+   "variant": "diary_2023",
+   "yoy": 3.033,
+   "gap": -0.296
+  },
+  {
+   "variant": "diary_pooled",
+   "yoy": 3.083,
+   "gap": -0.246
+  },
+  {
+   "variant": "split_equal",
+   "yoy": 3.141,
+   "gap": -0.188
+  },
+  {
+   "variant": "diary_2022",
+   "yoy": 3.283,
+   "gap": -0.046
+  }
+ ],
+ "sensitivity_range": {
+  "ym": "2026-08",
+  "min_gap": -0.37,
+  "max_gap": -0.046,
+  "range_pp": 0.324
+ },
+ "items_latest": [
+  {
+   "item_code": "SEFV02",
+   "w_exp": 2.749,
+   "w_sal": 5.963,
+   "w_bill": 5.346,
+   "yoy": 3.201,
+   "name": "Limited service meals and snacks",
+   "contrib_exp": 0.088,
+   "contrib_sal": 0.191,
+   "gap_driver": 0.103
+  },
+  {
+   "item_code": "SEFL04",
+   "w_exp": 0.312,
+   "w_sal": 4.39,
+   "w_bill": 3.936,
+   "yoy": 1.97,
+   "name": "Other fresh vegetables",
+   "contrib_exp": 0.006,
+   "contrib_sal": 0.087,
+   "gap_driver": 0.08
+  },
+  {
+   "item_code": "SEFT04",
+   "w_exp": 0.325,
+   "w_sal": 3.944,
+   "w_bill": 3.536,
+   "yoy": 3.139,
+   "name": "Spices, seasonings, condiments, sauces",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.124,
+   "gap_driver": 0.114
+  },
+  {
+   "item_code": "SEFT06",
+   "w_exp": 0.596,
+   "w_sal": 3.78,
+   "w_bill": 3.389,
+   "yoy": 3.576,
+   "name": "Other miscellaneous foods",
+   "contrib_exp": 0.021,
+   "contrib_sal": 0.135,
+   "gap_driver": 0.114
+  },
+  {
+   "item_code": "SEFT03",
+   "w_exp": 0.381,
+   "w_sal": 3.042,
+   "w_bill": 2.727,
+   "yoy": 2.004,
+   "name": "Snacks",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.061,
+   "gap_driver": 0.053
+  },
+  {
+   "item_code": "SEFK04",
+   "w_exp": 0.33,
+   "w_sal": 2.918,
+   "w_bill": 2.616,
+   "yoy": 5.432,
+   "name": "Other fresh fruits",
+   "contrib_exp": 0.018,
+   "contrib_sal": 0.158,
+   "gap_driver": 0.141
+  },
+  {
+   "item_code": "SEFN03",
+   "w_exp": 0.354,
+   "w_sal": 2.742,
+   "w_bill": 2.459,
+   "yoy": 3.245,
+   "name": "Nonfrozen noncarbonated juices and drinks",
+   "contrib_exp": 0.011,
+   "contrib_sal": 0.089,
+   "gap_driver": 0.077
+  },
+  {
+   "item_code": "SEFN01",
+   "w_exp": 0.332,
+   "w_sal": 2.706,
+   "w_bill": 2.426,
+   "yoy": 4.401,
+   "name": "Carbonated drinks",
+   "contrib_exp": 0.015,
+   "contrib_sal": 0.119,
+   "gap_driver": 0.104
+  },
+  {
+   "item_code": "SETB01",
+   "w_exp": 2.965,
+   "w_sal": 2.638,
+   "w_bill": 2.365,
+   "yoy": 27.405,
+   "name": "Gasoline (all types)",
+   "contrib_exp": 0.812,
+   "contrib_sal": 0.723,
+   "gap_driver": -0.089
+  },
+  {
+   "item_code": "SEFJ02",
+   "w_exp": 0.267,
+   "w_sal": 2.481,
+   "w_bill": 2.224,
+   "yoy": -3.839,
+   "name": "Cheese and related products",
+   "contrib_exp": -0.01,
+   "contrib_sal": -0.095,
+   "gap_driver": -0.085
+  },
+  {
+   "item_code": "SEFB04",
+   "w_exp": 0.222,
+   "w_sal": 2.11,
+   "w_bill": 1.892,
+   "yoy": 1.668,
+   "name": "Other bakery products",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.035,
+   "gap_driver": 0.032
+  },
+  {
+   "item_code": "SEFJ04",
+   "w_exp": 0.197,
+   "w_sal": 2.054,
+   "w_bill": 1.841,
+   "yoy": 0.685,
+   "name": "Other dairy and related products",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.014,
+   "gap_driver": 0.013
+  },
+  {
+   "item_code": "SEFV01",
+   "w_exp": 2.443,
+   "w_sal": 1.996,
+   "w_bill": 1.79,
+   "yoy": 3.489,
+   "name": "Full service meals and snacks",
+   "contrib_exp": 0.085,
+   "contrib_sal": 0.07,
+   "gap_driver": -0.016
+  },
+  {
+   "item_code": "SEFJ01",
+   "w_exp": 0.195,
+   "w_sal": 1.988,
+   "w_bill": 1.783,
+   "yoy": 4.098,
+   "name": "Milk",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.081,
+   "gap_driver": 0.074
+  },
+  {
+   "item_code": "SEFR02",
+   "w_exp": 0.247,
+   "w_sal": 1.88,
+   "w_bill": 1.685,
+   "yoy": 8.124,
+   "name": "Candy and chewing gum",
+   "contrib_exp": 0.02,
+   "contrib_sal": 0.153,
+   "gap_driver": 0.133
+  },
+  {
+   "item_code": "SEFB01",
+   "w_exp": 0.179,
+   "w_sal": 1.875,
+   "w_bill": 1.681,
+   "yoy": 3.771,
+   "name": "Bread",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.071,
+   "gap_driver": 0.064
+  },
+  {
+   "item_code": "SEFT02",
+   "w_exp": 0.312,
+   "w_sal": 1.781,
+   "w_bill": 1.597,
+   "yoy": 0.069,
+   "name": "Frozen and freeze dried prepared foods",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.001,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SEFM01",
+   "w_exp": 0.098,
+   "w_sal": 1.551,
+   "w_bill": 1.391,
+   "yoy": 3.985,
+   "name": "Canned fruits and vegetables",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.062,
+   "gap_driver": 0.058
+  },
+  {
+   "item_code": "SEFB03",
+   "w_exp": 0.215,
+   "w_sal": 1.47,
+   "w_bill": 1.318,
+   "yoy": 3.114,
+   "name": "Cakes, cupcakes, and cookies",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.046,
+   "gap_driver": 0.039
+  },
+  {
+   "item_code": "SEFA03",
+   "w_exp": 0.144,
+   "w_sal": 1.469,
+   "w_bill": 1.317,
+   "yoy": 3.432,
+   "name": "Rice, pasta, cornmeal",
+   "contrib_exp": 0.005,
+   "contrib_sal": 0.05,
+   "gap_driver": 0.045
+  },
+  {
+   "item_code": "SEFK02",
+   "w_exp": 0.061,
+   "w_sal": 1.438,
+   "w_bill": 1.289,
+   "yoy": -1.403,
+   "name": "Bananas",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.02,
+   "gap_driver": -0.019
+  },
+  {
+   "item_code": "SEFE",
+   "w_exp": 0.212,
+   "w_sal": 1.376,
+   "w_bill": 1.234,
+   "yoy": 1.479,
+   "name": "Other meats",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.02,
+   "gap_driver": 0.017
+  },
+  {
+   "item_code": "SEHN01",
+   "w_exp": 0.315,
+   "w_sal": 1.282,
+   "w_bill": 1.15,
+   "yoy": 2.138,
+   "name": "Household cleaning products",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.027,
+   "gap_driver": 0.021
+  },
+  {
+   "item_code": "SEFB02",
+   "w_exp": 0.123,
+   "w_sal": 1.279,
+   "w_bill": 1.147,
+   "yoy": 1.982,
+   "name": "Fresh biscuits, rolls, muffins",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.025,
+   "gap_driver": 0.023
+  },
+  {
+   "item_code": "SEFF01",
+   "w_exp": 0.298,
+   "w_sal": 1.272,
+   "w_bill": 1.14,
+   "yoy": -2.332,
+   "name": "Chicken",
+   "contrib_exp": -0.007,
+   "contrib_sal": -0.03,
+   "gap_driver": -0.023
+  },
+  {
+   "item_code": "SEMF02",
+   "w_exp": 0.39,
+   "w_sal": 1.25,
+   "w_bill": 1.121,
+   "yoy": -2.037,
+   "name": "Nonprescription drugs",
+   "contrib_exp": -0.008,
+   "contrib_sal": -0.025,
+   "gap_driver": -0.018
+  },
+  {
+   "item_code": "SEFH",
+   "w_exp": 0.136,
+   "w_sal": 1.204,
+   "w_bill": 1.08,
+   "yoy": -23.013,
+   "name": "Eggs",
+   "contrib_exp": -0.031,
+   "contrib_sal": -0.277,
+   "gap_driver": -0.246
+  },
+  {
+   "item_code": "SEHN03",
+   "w_exp": 0.373,
+   "w_sal": 1.196,
+   "w_bill": 1.072,
+   "yoy": 3.151,
+   "name": "Miscellaneous household products",
+   "contrib_exp": 0.012,
+   "contrib_sal": 0.038,
+   "gap_driver": 0.026
+  },
+  {
+   "item_code": "SEGB01",
+   "w_exp": 0.332,
+   "w_sal": 1.181,
+   "w_bill": 1.059,
+   "yoy": 3.088,
+   "name": "Hair, dental, shaving, and miscellaneous personal care products",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.036,
+   "gap_driver": 0.026
+  },
+  {
+   "item_code": "SERB01",
+   "w_exp": 0.627,
+   "w_sal": 1.146,
+   "w_bill": 1.027,
+   "yoy": 1.934,
+   "name": "Pets and pet products",
+   "contrib_exp": 0.012,
+   "contrib_sal": 0.022,
+   "gap_driver": 0.01
+  },
+  {
+   "item_code": "SEFA02",
+   "w_exp": 0.139,
+   "w_sal": 1.106,
+   "w_bill": 0.991,
+   "yoy": 3.073,
+   "name": "Breakfast cereal",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.034,
+   "gap_driver": 0.03
+  },
+  {
+   "item_code": "SEFT01",
+   "w_exp": 0.087,
+   "w_sal": 1.018,
+   "w_bill": 0.913,
+   "yoy": 1.018,
+   "name": "Soups",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.01,
+   "gap_driver": 0.009
+  },
+  {
+   "item_code": "SEFL03",
+   "w_exp": 0.065,
+   "w_sal": 0.934,
+   "w_bill": 0.837,
+   "yoy": 5.791,
+   "name": "Tomatoes",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.054,
+   "gap_driver": 0.05
+  },
+  {
+   "item_code": "SEFM02",
+   "w_exp": 0.086,
+   "w_sal": 0.919,
+   "w_bill": 0.823,
+   "yoy": 2.352,
+   "name": "Frozen fruits and vegetables",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.022,
+   "gap_driver": 0.02
+  },
+  {
+   "item_code": "SEFK03",
+   "w_exp": 0.079,
+   "w_sal": 0.918,
+   "w_bill": 0.823,
+   "yoy": 2.357,
+   "name": "Citrus fruits",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.022,
+   "gap_driver": 0.02
+  },
+  {
+   "item_code": "SEFJ03",
+   "w_exp": 0.118,
+   "w_sal": 0.904,
+   "w_bill": 0.81,
+   "yoy": -1.8,
+   "name": "Ice cream and related products",
+   "contrib_exp": -0.002,
+   "contrib_sal": -0.016,
+   "gap_driver": -0.014
+  },
+  {
+   "item_code": "SEGB02",
+   "w_exp": 0.348,
+   "w_sal": 0.894,
+   "w_bill": 0.802,
+   "yoy": 2.808,
+   "name": "Cosmetics, perfume, bath, nail preparations and implements",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.025,
+   "gap_driver": 0.015
+  },
+  {
+   "item_code": "SEFD01",
+   "w_exp": 0.134,
+   "w_sal": 0.892,
+   "w_bill": 0.8,
+   "yoy": -2.294,
+   "name": "Bacon, breakfast sausage, and related products",
+   "contrib_exp": -0.003,
+   "contrib_sal": -0.02,
+   "gap_driver": -0.017
+  },
+  {
+   "item_code": "SEFM03",
+   "w_exp": 0.084,
+   "w_sal": 0.845,
+   "w_bill": 0.758,
+   "yoy": 3.446,
+   "name": "Other processed fruits and vegetables including dried",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.029,
+   "gap_driver": 0.026
+  },
+  {
+   "item_code": "SEFC01",
+   "w_exp": 0.242,
+   "w_sal": 0.815,
+   "w_bill": 0.731,
+   "yoy": 7.222,
+   "name": "Uncooked ground beef",
+   "contrib_exp": 0.017,
+   "contrib_sal": 0.059,
+   "gap_driver": 0.041
+  },
+  {
+   "item_code": "SEFP02",
+   "w_exp": 0.101,
+   "w_sal": 0.815,
+   "w_bill": 0.731,
+   "yoy": 0.449,
+   "name": "Other beverage materials including tea",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.004,
+   "gap_driver": 0.003
+  },
+  {
+   "item_code": "SEFL01",
+   "w_exp": 0.065,
+   "w_sal": 0.789,
+   "w_bill": 0.708,
+   "yoy": 3.569,
+   "name": "Potatoes",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.028,
+   "gap_driver": 0.026
+  },
+  {
+   "item_code": "SEFP01",
+   "w_exp": 0.226,
+   "w_sal": 0.755,
+   "w_bill": 0.677,
+   "yoy": 6.088,
+   "name": "Coffee",
+   "contrib_exp": 0.014,
+   "contrib_sal": 0.046,
+   "gap_driver": 0.032
+  },
+  {
+   "item_code": "SEFX",
+   "w_exp": 0.454,
+   "w_sal": 0.749,
+   "w_bill": 0.672,
+   "yoy": 3.02,
+   "name": "Alcoholic beverages away from home",
+   "contrib_exp": 0.014,
+   "contrib_sal": 0.023,
+   "gap_driver": 0.009
+  },
+  {
+   "item_code": "SEAC03",
+   "w_exp": 0.375,
+   "w_sal": 0.727,
+   "w_bill": 0.651,
+   "yoy": 4.525,
+   "name": "Women's suits and separates",
+   "contrib_exp": 0.017,
+   "contrib_sal": 0.033,
+   "gap_driver": 0.016
+  },
+  {
+   "item_code": "SEFG02",
+   "w_exp": 0.153,
+   "w_sal": 0.716,
+   "w_bill": 0.642,
+   "yoy": 6.804,
+   "name": "Processed fish and seafood",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.049,
+   "gap_driver": 0.038
+  },
+  {
+   "item_code": "SEFK01",
+   "w_exp": 0.075,
+   "w_sal": 0.704,
+   "w_bill": 0.631,
+   "yoy": 5.4,
+   "name": "Apples",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.038,
+   "gap_driver": 0.034
+  },
+  {
+   "item_code": "SEFS03",
+   "w_exp": 0.113,
+   "w_sal": 0.681,
+   "w_bill": 0.61,
+   "yoy": 2.469,
+   "name": "Other fats and oils including peanut butter",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.017,
+   "gap_driver": 0.014
+  },
+  {
+   "item_code": "SEHN02",
+   "w_exp": 0.179,
+   "w_sal": 0.658,
+   "w_bill": 0.59,
+   "yoy": 0.164,
+   "name": "Household paper products",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.001,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SEMF01",
+   "w_exp": 0.996,
+   "w_sal": 0.643,
+   "w_bill": 0.577,
+   "yoy": -2.946,
+   "name": "Prescription drugs",
+   "contrib_exp": -0.029,
+   "contrib_sal": -0.019,
+   "gap_driver": 0.01
+  },
+  {
+   "item_code": "SEFL02",
+   "w_exp": 0.045,
+   "w_sal": 0.633,
+   "w_bill": 0.568,
+   "yoy": -2.19,
+   "name": "Lettuce",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.014,
+   "gap_driver": -0.013
+  },
+  {
+   "item_code": "SEGE",
+   "w_exp": 0.188,
+   "w_sal": 0.595,
+   "w_bill": 0.534,
+   "yoy": 3.612,
+   "name": "Miscellaneous personal goods",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.021,
+   "gap_driver": 0.015
+  },
+  {
+   "item_code": "SEFS01",
+   "w_exp": 0.068,
+   "w_sal": 0.568,
+   "w_bill": 0.509,
+   "yoy": -5.665,
+   "name": "Butter and margarine",
+   "contrib_exp": -0.004,
+   "contrib_sal": -0.032,
+   "gap_driver": -0.028
+  },
+  {
+   "item_code": "SERE01",
+   "w_exp": 0.3,
+   "w_sal": 0.555,
+   "w_bill": 0.497,
+   "yoy": 2.278,
+   "name": "Toys",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.013,
+   "gap_driver": 0.006
+  },
+  {
+   "item_code": "SEFS02",
+   "w_exp": 0.056,
+   "w_sal": 0.538,
+   "w_bill": 0.483,
+   "yoy": -0.71,
+   "name": "Salad dressing",
+   "contrib_exp": -0.0,
+   "contrib_sal": -0.004,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEFR03",
+   "w_exp": 0.056,
+   "w_sal": 0.501,
+   "w_bill": 0.449,
+   "yoy": 1.685,
+   "name": "Other sweets",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.008,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SEFC03",
+   "w_exp": 0.246,
+   "w_sal": 0.473,
+   "w_bill": 0.424,
+   "yoy": 4.001,
+   "name": "Uncooked beef steaks",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.019,
+   "gap_driver": 0.009
+  },
+  {
+   "item_code": "SEFG01",
+   "w_exp": 0.169,
+   "w_sal": 0.468,
+   "w_bill": 0.419,
+   "yoy": 6.321,
+   "name": "Fresh fish and seafood",
+   "contrib_exp": 0.011,
+   "contrib_sal": 0.03,
+   "gap_driver": 0.019
+  },
+  {
+   "item_code": "SEAC04",
+   "w_exp": 0.24,
+   "w_sal": 0.43,
+   "w_bill": 0.385,
+   "yoy": 3.575,
+   "name": "Women's underwear, nightwear, swimwear and accessories",
+   "contrib_exp": 0.009,
+   "contrib_sal": 0.015,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SEHL01",
+   "w_exp": 0.337,
+   "w_sal": 0.419,
+   "w_bill": 0.376,
+   "yoy": -3.141,
+   "name": "Clocks, lamps, and decorator items",
+   "contrib_exp": -0.011,
+   "contrib_sal": -0.013,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEFA01",
+   "w_exp": 0.039,
+   "w_sal": 0.405,
+   "w_bill": 0.363,
+   "yoy": 0.62,
+   "name": "Flour and prepared flour mixes",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.003,
+   "gap_driver": 0.002
+  },
+  {
+   "item_code": "SEHM02",
+   "w_exp": 0.307,
+   "w_sal": 0.403,
+   "w_bill": 0.361,
+   "yoy": 0.38,
+   "name": "Outdoor equipment and supplies",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.002,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEFF02",
+   "w_exp": 0.074,
+   "w_sal": 0.38,
+   "w_bill": 0.341,
+   "yoy": 11.485,
+   "name": "Other uncooked poultry including turkey",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.044,
+   "gap_driver": 0.035
+  },
+  {
+   "item_code": "SEFD02",
+   "w_exp": 0.068,
+   "w_sal": 0.379,
+   "w_bill": 0.34,
+   "yoy": 4.16,
+   "name": "Ham",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.016,
+   "gap_driver": 0.013
+  },
+  {
+   "item_code": "SEEE03",
+   "w_exp": 0.945,
+   "w_sal": 0.378,
+   "w_bill": 0.663,
+   "yoy": 1.471,
+   "name": "Internet services and electronic information providers",
+   "contrib_exp": 0.014,
+   "contrib_sal": 0.006,
+   "gap_driver": -0.008
+  },
+  {
+   "item_code": "SERA04",
+   "w_exp": 0.193,
+   "w_sal": 0.368,
+   "w_bill": 0.33,
+   "yoy": 10.792,
+   "name": "Purchase, subscription, and rental of video",
+   "contrib_exp": 0.021,
+   "contrib_sal": 0.04,
+   "gap_driver": 0.019
+  },
+  {
+   "item_code": "SEFD04",
+   "w_exp": 0.099,
+   "w_sal": 0.354,
+   "w_bill": 0.317,
+   "yoy": 1.005,
+   "name": "Other pork including roasts, steaks, and ribs",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.004,
+   "gap_driver": 0.003
+  },
+  {
+   "item_code": "SEFW01",
+   "w_exp": 0.138,
+   "w_sal": 0.344,
+   "w_bill": 0.308,
+   "yoy": 2.359,
+   "name": "Beer, ale, and other malt beverages at home",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.008,
+   "gap_driver": 0.005
+  },
+  {
+   "item_code": "SERF01",
+   "w_exp": 0.784,
+   "w_sal": 0.332,
+   "w_bill": 0.297,
+   "yoy": -1.338,
+   "name": "Club membership for shopping clubs, fraternal, or other organizations, or participant sports fees",
+   "contrib_exp": -0.01,
+   "contrib_sal": -0.004,
+   "gap_driver": 0.006
+  },
+  {
+   "item_code": "SEAD",
+   "w_exp": 0.144,
+   "w_sal": 0.325,
+   "w_bill": 0.292,
+   "yoy": 6.125,
+   "name": "Girls' apparel",
+   "contrib_exp": 0.009,
+   "contrib_sal": 0.02,
+   "gap_driver": 0.011
+  },
+  {
+   "item_code": "SEFR01",
+   "w_exp": 0.033,
+   "w_sal": 0.323,
+   "w_bill": 0.29,
+   "yoy": -0.488,
+   "name": "Sugar and sugar substitutes",
+   "contrib_exp": -0.0,
+   "contrib_sal": -0.002,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SEFW03",
+   "w_exp": 0.176,
+   "w_sal": 0.317,
+   "w_bill": 0.284,
+   "yoy": -1.058,
+   "name": "Wine at home",
+   "contrib_exp": -0.002,
+   "contrib_sal": -0.003,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SETF03",
+   "w_exp": 0.194,
+   "w_sal": 0.31,
+   "w_bill": 0.278,
+   "yoy": -0.061,
+   "name": "Parking and other fees",
+   "contrib_exp": -0.0,
+   "contrib_sal": -0.0,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SEFV03",
+   "w_exp": 0.067,
+   "w_sal": 0.299,
+   "w_bill": 0.268,
+   "yoy": 3.025,
+   "name": "Food at employee sites and schools",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.009,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SETG03",
+   "w_exp": 0.364,
+   "w_sal": 0.284,
+   "w_bill": 0.254,
+   "yoy": 8.466,
+   "name": "Intracity transportation",
+   "contrib_exp": 0.031,
+   "contrib_sal": 0.024,
+   "gap_driver": -0.007
+  },
+  {
+   "item_code": "SEFV04",
+   "w_exp": 0.055,
+   "w_sal": 0.283,
+   "w_bill": 0.254,
+   "yoy": 3.792,
+   "name": "Food from vending machines and mobile vendors",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.011,
+   "gap_driver": 0.009
+  },
+  {
+   "item_code": "SEAA02",
+   "w_exp": 0.133,
+   "w_sal": 0.28,
+   "w_bill": 0.251,
+   "yoy": 7.73,
+   "name": "Men's underwear, nightwear, swimwear and accessories",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.022,
+   "gap_driver": 0.011
+  },
+  {
+   "item_code": "SEHH03",
+   "w_exp": 0.126,
+   "w_sal": 0.255,
+   "w_bill": 0.228,
+   "yoy": 0.972,
+   "name": "Other linens",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.002,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SEAB",
+   "w_exp": 0.119,
+   "w_sal": 0.232,
+   "w_bill": 0.208,
+   "yoy": 3.856,
+   "name": "Boys' apparel",
+   "contrib_exp": 0.005,
+   "contrib_sal": 0.009,
+   "gap_driver": 0.004
+  },
+  {
+   "item_code": "SEFC04",
+   "w_exp": 0.078,
+   "w_sal": 0.225,
+   "w_bill": 0.202,
+   "yoy": 4.431,
+   "name": "Uncooked other beef and veal",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.01,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SEFD03",
+   "w_exp": 0.047,
+   "w_sal": 0.213,
+   "w_bill": 0.191,
+   "yoy": 1.942,
+   "name": "Pork chops",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.004,
+   "gap_driver": 0.003
+  },
+  {
+   "item_code": "SEHL02",
+   "w_exp": 0.124,
+   "w_sal": 0.212,
+   "w_bill": 0.19,
+   "yoy": 0.163,
+   "name": "Indoor plants and flowers",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.0,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SETC02",
+   "w_exp": 0.057,
+   "w_sal": 0.206,
+   "w_bill": 0.185,
+   "yoy": 3.89,
+   "name": "Vehicle accessories other than tires",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.008,
+   "gap_driver": 0.006
+  },
+  {
+   "item_code": "SETE",
+   "w_exp": 2.82,
+   "w_sal": 0.202,
+   "w_bill": 0.663,
+   "yoy": -5.128,
+   "name": "Motor vehicle insurance",
+   "contrib_exp": -0.145,
+   "contrib_sal": -0.01,
+   "gap_driver": 0.134
+  },
+  {
+   "item_code": "SEAE03",
+   "w_exp": 0.275,
+   "w_sal": 0.199,
+   "w_bill": 0.178,
+   "yoy": 4.338,
+   "name": "Women's footwear",
+   "contrib_exp": 0.012,
+   "contrib_sal": 0.009,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEHL04",
+   "w_exp": 0.074,
+   "w_sal": 0.197,
+   "w_bill": 0.177,
+   "yoy": 4.649,
+   "name": "Nonelectric cookware and tableware",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.009,
+   "gap_driver": 0.006
+  },
+  {
+   "item_code": "SEAF",
+   "w_exp": 0.105,
+   "w_sal": 0.191,
+   "w_bill": 0.171,
+   "yoy": -3.354,
+   "name": "Infants' and toddlers' apparel",
+   "contrib_exp": -0.004,
+   "contrib_sal": -0.006,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEAA03",
+   "w_exp": 0.129,
+   "w_sal": 0.188,
+   "w_bill": 0.169,
+   "yoy": 5.282,
+   "name": "Men's shirts and sweaters",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.01,
+   "gap_driver": 0.003
+  },
+  {
+   "item_code": "SEGA01",
+   "w_exp": 0.335,
+   "w_sal": 0.18,
+   "w_bill": 0.161,
+   "yoy": 6.98,
+   "name": "Cigarettes",
+   "contrib_exp": 0.023,
+   "contrib_sal": 0.013,
+   "gap_driver": -0.011
+  },
+  {
+   "item_code": "SEMC01",
+   "w_exp": 1.724,
+   "w_sal": 0.166,
+   "w_bill": 0.149,
+   "yoy": 2.005,
+   "name": "Physicians' services",
+   "contrib_exp": 0.035,
+   "contrib_sal": 0.003,
+   "gap_driver": -0.031
+  },
+  {
+   "item_code": "SETD02",
+   "w_exp": 0.526,
+   "w_sal": 0.164,
+   "w_bill": 0.147,
+   "yoy": 7.929,
+   "name": "Motor vehicle maintenance and servicing",
+   "contrib_exp": 0.042,
+   "contrib_sal": 0.013,
+   "gap_driver": -0.029
+  },
+  {
+   "item_code": "SERF02",
+   "w_exp": 0.721,
+   "w_sal": 0.164,
+   "w_bill": 0.147,
+   "yoy": 2.863,
+   "name": "Admissions",
+   "contrib_exp": 0.021,
+   "contrib_sal": 0.005,
+   "gap_driver": -0.016
+  },
+  {
+   "item_code": "SERA02",
+   "w_exp": 0.621,
+   "w_sal": 0.16,
+   "w_bill": 0.663,
+   "yoy": 2.962,
+   "name": "Cable, satellite, and live streaming television service",
+   "contrib_exp": 0.018,
+   "contrib_sal": 0.005,
+   "gap_driver": -0.014
+  },
+  {
+   "item_code": "SEAA04",
+   "w_exp": 0.118,
+   "w_sal": 0.157,
+   "w_bill": 0.141,
+   "yoy": 0.238,
+   "name": "Men's pants and shorts",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.0,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEHA",
+   "w_exp": 8.029,
+   "w_sal": 0.154,
+   "w_bill": 0.663,
+   "yoy": 2.75,
+   "name": "Rent of primary residence",
+   "contrib_exp": 0.221,
+   "contrib_sal": 0.004,
+   "gap_driver": -0.217
+  },
+  {
+   "item_code": "SEFW02",
+   "w_exp": 0.092,
+   "w_sal": 0.152,
+   "w_bill": 0.137,
+   "yoy": -0.671,
+   "name": "Distilled spirits at home",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.001,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SEFC02",
+   "w_exp": 0.089,
+   "w_sal": 0.15,
+   "w_bill": 0.135,
+   "yoy": 8.421,
+   "name": "Uncooked beef roasts",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.013,
+   "gap_driver": 0.005
+  },
+  {
+   "item_code": "SEHL03",
+   "w_exp": 0.044,
+   "w_sal": 0.143,
+   "w_bill": 0.128,
+   "yoy": 9.77,
+   "name": "Dishes and flatware",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.014,
+   "gap_driver": 0.01
+  },
+  {
+   "item_code": "SEHM01",
+   "w_exp": 0.215,
+   "w_sal": 0.131,
+   "w_bill": 0.117,
+   "yoy": 2.757,
+   "name": "Tools, hardware and supplies",
+   "contrib_exp": 0.006,
+   "contrib_sal": 0.004,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SERC02",
+   "w_exp": 0.237,
+   "w_sal": 0.126,
+   "w_bill": 0.113,
+   "yoy": 3.467,
+   "name": "Sports equipment",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.004,
+   "gap_driver": -0.004
+  },
+  {
+   "item_code": "SEAE01",
+   "w_exp": 0.196,
+   "w_sal": 0.119,
+   "w_bill": 0.107,
+   "yoy": 5.683,
+   "name": "Men's footwear",
+   "contrib_exp": 0.011,
+   "contrib_sal": 0.007,
+   "gap_driver": -0.004
+  },
+  {
+   "item_code": "SERG02",
+   "w_exp": 0.061,
+   "w_sal": 0.118,
+   "w_bill": 0.106,
+   "yoy": -2.21,
+   "name": "Recreational books",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.003,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SETD03",
+   "w_exp": 0.409,
+   "w_sal": 0.116,
+   "w_bill": 0.104,
+   "yoy": 2.569,
+   "name": "Motor vehicle repair",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.003,
+   "gap_driver": -0.008
+  },
+  {
+   "item_code": "SEEC01",
+   "w_exp": 0.06,
+   "w_sal": 0.113,
+   "w_bill": 0.102,
+   "yoy": 12.673,
+   "name": "Postage",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.014,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SERB02",
+   "w_exp": 0.559,
+   "w_sal": 0.113,
+   "w_bill": 0.102,
+   "yoy": 4.751,
+   "name": "Pet services including veterinary",
+   "contrib_exp": 0.027,
+   "contrib_sal": 0.005,
+   "gap_driver": -0.021
+  },
+  {
+   "item_code": "SEFT05",
+   "w_exp": 0.054,
+   "w_sal": 0.111,
+   "w_bill": 0.099,
+   "yoy": 1.28,
+   "name": "Baby food and formula",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.001,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SEMC03",
+   "w_exp": 0.335,
+   "w_sal": 0.105,
+   "w_bill": 0.094,
+   "yoy": 1.3,
+   "name": "Eyeglasses and eye care",
+   "contrib_exp": 0.004,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEAE02",
+   "w_exp": 0.127,
+   "w_sal": 0.105,
+   "w_bill": 0.094,
+   "yoy": -1.194,
+   "name": "Boys' and girls' footwear",
+   "contrib_exp": -0.002,
+   "contrib_sal": -0.001,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEAC02",
+   "w_exp": 0.107,
+   "w_sal": 0.101,
+   "w_bill": 0.09,
+   "yoy": -1.02,
+   "name": "Women's dresses",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.001,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEAG02",
+   "w_exp": 0.131,
+   "w_sal": 0.094,
+   "w_bill": 0.084,
+   "yoy": 7.778,
+   "name": "Jewelry",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.007,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEGD03",
+   "w_exp": 0.132,
+   "w_sal": 0.09,
+   "w_bill": 0.081,
+   "yoy": 5.141,
+   "name": "Laundry and dry cleaning services",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.005,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SEMC02",
+   "w_exp": 0.926,
+   "w_sal": 0.086,
+   "w_bill": 0.077,
+   "yoy": 4.968,
+   "name": "Dental services",
+   "contrib_exp": 0.046,
+   "contrib_sal": 0.004,
+   "gap_driver": -0.042
+  },
+  {
+   "item_code": "SEMG",
+   "w_exp": 0.138,
+   "w_sal": 0.084,
+   "w_bill": 0.075,
+   "yoy": -2.278,
+   "name": "Medical equipment and supplies",
+   "contrib_exp": -0.003,
+   "contrib_sal": -0.002,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SETB02",
+   "w_exp": 0.088,
+   "w_sal": 0.081,
+   "w_bill": 0.073,
+   "yoy": 43.964,
+   "name": "Other motor fuels",
+   "contrib_exp": 0.039,
+   "contrib_sal": 0.036,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SERE02",
+   "w_exp": 0.03,
+   "w_sal": 0.079,
+   "w_bill": 0.07,
+   "yoy": 3.542,
+   "name": "Sewing machines, fabric and supplies",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.003,
+   "gap_driver": 0.002
+  },
+  {
+   "item_code": "SEEE01",
+   "w_exp": 0.3,
+   "w_sal": 0.073,
+   "w_bill": 0.065,
+   "yoy": 8.43,
+   "name": "Computers, peripherals, and smart home assistants",
+   "contrib_exp": 0.025,
+   "contrib_sal": 0.006,
+   "gap_driver": -0.019
+  },
+  {
+   "item_code": "SEHK02",
+   "w_exp": 0.126,
+   "w_sal": 0.07,
+   "w_bill": 0.062,
+   "yoy": 1.335,
+   "name": "Other appliances",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SEEE04",
+   "w_exp": 0.472,
+   "w_sal": 0.064,
+   "w_bill": 0.058,
+   "yoy": -14.067,
+   "name": "Telephone hardware, calculators, and other consumer information items",
+   "contrib_exp": -0.066,
+   "contrib_sal": -0.009,
+   "gap_driver": 0.057
+  },
+  {
+   "item_code": "SETG02",
+   "w_exp": 0.25,
+   "w_sal": 0.064,
+   "w_bill": 0.058,
+   "yoy": -3.697,
+   "name": "Other intercity transportation",
+   "contrib_exp": -0.009,
+   "contrib_sal": -0.002,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SERF03",
+   "w_exp": 0.162,
+   "w_sal": 0.062,
+   "w_bill": 0.056,
+   "yoy": 1.917,
+   "name": "Fees for lessons or instructions",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SEGA02",
+   "w_exp": 0.117,
+   "w_sal": 0.06,
+   "w_bill": 0.054,
+   "yoy": 4.051,
+   "name": "Tobacco products other than cigarettes",
+   "contrib_exp": 0.005,
+   "contrib_sal": 0.002,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SEEB03",
+   "w_exp": 0.716,
+   "w_sal": 0.059,
+   "w_bill": 0.663,
+   "yoy": 3.985,
+   "name": "Day care and preschool",
+   "contrib_exp": 0.029,
+   "contrib_sal": 0.002,
+   "gap_driver": -0.026
+  },
+  {
+   "item_code": "SEEE02",
+   "w_exp": 0.028,
+   "w_sal": 0.057,
+   "w_bill": 0.051,
+   "yoy": 25.434,
+   "name": "Computer software and accessories",
+   "contrib_exp": 0.007,
+   "contrib_sal": 0.014,
+   "gap_driver": 0.007
+  },
+  {
+   "item_code": "SEAC01",
+   "w_exp": 0.07,
+   "w_sal": 0.053,
+   "w_bill": 0.047,
+   "yoy": 1.202,
+   "name": "Women's outerwear",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SEEA",
+   "w_exp": 0.039,
+   "w_sal": 0.05,
+   "w_bill": 0.044,
+   "yoy": 1.087,
+   "name": "Educational books and supplies",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.001,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEGD05",
+   "w_exp": 0.242,
+   "w_sal": 0.049,
+   "w_bill": 0.044,
+   "yoy": 1.181,
+   "name": "Financial services",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SEHP03",
+   "w_exp": 0.069,
+   "w_sal": 0.046,
+   "w_bill": 0.041,
+   "yoy": -4.586,
+   "name": "Moving, storage, freight expense",
+   "contrib_exp": -0.003,
+   "contrib_sal": -0.002,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SETF01",
+   "w_exp": 0.303,
+   "w_sal": 0.044,
+   "w_bill": 0.663,
+   "yoy": 3.378,
+   "name": "State motor vehicle registration and license fees",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.009
+  },
+  {
+   "item_code": "SEFN02",
+   "w_exp": 0.004,
+   "w_sal": 0.042,
+   "w_bill": 0.038,
+   "yoy": -0.349,
+   "name": "Frozen noncarbonated juices and drinks",
+   "contrib_exp": -0.0,
+   "contrib_sal": -0.0,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SETG01",
+   "w_exp": 0.902,
+   "w_sal": 0.042,
+   "w_bill": 0.037,
+   "yoy": 23.41,
+   "name": "Airline fares",
+   "contrib_exp": 0.211,
+   "contrib_sal": 0.01,
+   "gap_driver": -0.201
+  },
+  {
+   "item_code": "SERA06",
+   "w_exp": 0.084,
+   "w_sal": 0.036,
+   "w_bill": 0.032,
+   "yoy": 7.448,
+   "name": "Recorded music and music subscriptions",
+   "contrib_exp": 0.006,
+   "contrib_sal": 0.003,
+   "gap_driver": -0.004
+  },
+  {
+   "item_code": "SEHJ03",
+   "w_exp": 0.139,
+   "w_sal": 0.035,
+   "w_bill": 0.032,
+   "yoy": -1.934,
+   "name": "Other furniture",
+   "contrib_exp": -0.003,
+   "contrib_sal": -0.001,
+   "gap_driver": 0.002
+  },
+  {
+   "item_code": "SEHB02",
+   "w_exp": 1.094,
+   "w_sal": 0.035,
+   "w_bill": 0.031,
+   "yoy": 2.948,
+   "name": "Other lodging away from home including hotels and motels",
+   "contrib_exp": 0.032,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.031
+  },
+  {
+   "item_code": "SERD02",
+   "w_exp": 0.038,
+   "w_sal": 0.034,
+   "w_bill": 0.03,
+   "yoy": 3.786,
+   "name": "Photographers and photo processing",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SEAA01",
+   "w_exp": 0.099,
+   "w_sal": 0.033,
+   "w_bill": 0.03,
+   "yoy": 0.694,
+   "name": "Men's suits, sport coats, and outerwear",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SERA05",
+   "w_exp": 0.047,
+   "w_sal": 0.032,
+   "w_bill": 0.029,
+   "yoy": -1.966,
+   "name": "Audio equipment",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.001,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEHD",
+   "w_exp": 0.299,
+   "w_sal": 0.031,
+   "w_bill": 0.663,
+   "yoy": 4.088,
+   "name": "Tenants' and household insurance",
+   "contrib_exp": 0.012,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.011
+  },
+  {
+   "item_code": "SEHJ02",
+   "w_exp": 0.449,
+   "w_sal": 0.031,
+   "w_bill": 0.028,
+   "yoy": -0.762,
+   "name": "Living room, kitchen, and dining room furniture",
+   "contrib_exp": -0.003,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.003
+  },
+  {
+   "item_code": "SETC01",
+   "w_exp": 0.3,
+   "w_sal": 0.027,
+   "w_bill": 0.025,
+   "yoy": 0.386,
+   "name": "Tires",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SEHJ01",
+   "w_exp": 0.312,
+   "w_sal": 0.021,
+   "w_bill": 0.018,
+   "yoy": -0.472,
+   "name": "Bedroom furniture",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SERE03",
+   "w_exp": 0.044,
+   "w_sal": 0.019,
+   "w_bill": 0.017,
+   "yoy": 2.926,
+   "name": "Music instruments and accessories",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SEHH02",
+   "w_exp": 0.047,
+   "w_sal": 0.016,
+   "w_bill": 0.014,
+   "yoy": 5.402,
+   "name": "Window coverings",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SERA03",
+   "w_exp": 0.017,
+   "w_sal": 0.015,
+   "w_bill": 0.013,
+   "yoy": 4.605,
+   "name": "Other video equipment",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SEAG01",
+   "w_exp": 0.036,
+   "w_sal": 0.014,
+   "w_bill": 0.013,
+   "yoy": 9.204,
+   "name": "Watches",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.002
+  },
+  {
+   "item_code": "SERA01",
+   "w_exp": 0.11,
+   "w_sal": 0.014,
+   "w_bill": 0.012,
+   "yoy": -0.966,
+   "name": "Televisions",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SERC01",
+   "w_exp": 0.291,
+   "w_sal": 0.014,
+   "w_bill": 0.012,
+   "yoy": 6.809,
+   "name": "Sports vehicles including bicycles",
+   "contrib_exp": 0.02,
+   "contrib_sal": 0.001,
+   "gap_driver": -0.019
+  },
+  {
+   "item_code": "SERD01",
+   "w_exp": 0.027,
+   "w_sal": 0.011,
+   "w_bill": 0.01,
+   "yoy": -0.614,
+   "name": "Photographic equipment and supplies",
+   "contrib_exp": -0.0,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SETA04",
+   "w_exp": 0.141,
+   "w_sal": 0.009,
+   "w_bill": 0.008,
+   "yoy": 3.489,
+   "name": "Car and truck rental",
+   "contrib_exp": 0.005,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.005
+  },
+  {
+   "item_code": "SEEC02",
+   "w_exp": 0.005,
+   "w_sal": 0.008,
+   "w_bill": 0.007,
+   "yoy": 14.202,
+   "name": "Delivery services",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.001,
+   "gap_driver": 0.0
+  },
+  {
+   "item_code": "SEGD04",
+   "w_exp": 0.03,
+   "w_sal": 0.007,
+   "w_bill": 0.006,
+   "yoy": 6.305,
+   "name": "Apparel services other than laundry and dry cleaning",
+   "contrib_exp": 0.002,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SETA03",
+   "w_exp": 0.403,
+   "w_sal": 0.007,
+   "w_bill": 0.006,
+   "yoy": -0.968,
+   "name": "Leased cars and trucks",
+   "contrib_exp": -0.004,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.004
+  },
+  {
+   "item_code": "SEMD01",
+   "w_exp": 2.219,
+   "w_sal": 0.006,
+   "w_bill": 0.006,
+   "yoy": 5.205,
+   "name": "Hospital services",
+   "contrib_exp": 0.116,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.115
+  },
+  {
+   "item_code": "SEEB01",
+   "w_exp": 1.383,
+   "w_sal": 0.005,
+   "w_bill": 0.663,
+   "yoy": 2.815,
+   "name": "College tuition and fees",
+   "contrib_exp": 0.039,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.039
+  },
+  {
+   "item_code": "SEGD02",
+   "w_exp": 0.17,
+   "w_sal": 0.003,
+   "w_bill": 0.003,
+   "yoy": 3.024,
+   "name": "Funeral expenses",
+   "contrib_exp": 0.005,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.005
+  },
+  {
+   "item_code": "SEMD02",
+   "w_exp": 0.226,
+   "w_sal": 0.003,
+   "w_bill": 0.003,
+   "yoy": 4.562,
+   "name": "Nursing homes and adult day services",
+   "contrib_exp": 0.01,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.01
+  },
+  {
+   "item_code": "SEFV05",
+   "w_exp": 0.189,
+   "w_sal": 0.003,
+   "w_bill": 0.002,
+   "yoy": 4.376,
+   "name": "Other food away from home",
+   "contrib_exp": 0.008,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.008
+  },
+  {
+   "item_code": "SETA02",
+   "w_exp": 2.825,
+   "w_sal": 0.002,
+   "w_bill": 0.002,
+   "yoy": -2.318,
+   "name": "Used cars and trucks",
+   "contrib_exp": -0.065,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.065
+  },
+  {
+   "item_code": "SEME",
+   "w_exp": 0.911,
+   "w_sal": 0.002,
+   "w_bill": 0.663,
+   "yoy": -8.541,
+   "name": "Health insurance",
+   "contrib_exp": -0.078,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.078
+  },
+  {
+   "item_code": "SEEB02",
+   "w_exp": 0.418,
+   "w_sal": 0.002,
+   "w_bill": 0.663,
+   "yoy": 4.298,
+   "name": "Elementary and high school tuition and fees",
+   "contrib_exp": 0.018,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.018
+  },
+  {
+   "item_code": "SETA01",
+   "w_exp": 3.93,
+   "w_sal": 0.001,
+   "w_bill": 0.001,
+   "yoy": 0.569,
+   "name": "New vehicles",
+   "contrib_exp": 0.022,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.022
+  },
+  {
+   "item_code": "SEED03",
+   "w_exp": 1.372,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 3.17,
+   "name": "Wireless telephone services",
+   "contrib_exp": 0.044,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.044
+  },
+  {
+   "item_code": "SEED04",
+   "w_exp": 0.129,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 2.579,
+   "name": "Residential telephone services",
+   "contrib_exp": 0.003,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.003
+  },
+  {
+   "item_code": "SEHE01",
+   "w_exp": 0.085,
+   "w_sal": 0.0,
+   "w_bill": 0.0,
+   "yoy": 52.039,
+   "name": "Fuel oil",
+   "contrib_exp": 0.044,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.044
+  },
+  {
+   "item_code": "SEGC01",
+   "w_exp": 0.692,
+   "w_sal": 0.0,
+   "w_bill": 0.0,
+   "yoy": 4.249,
+   "name": "Haircuts and other personal care services",
+   "contrib_exp": 0.029,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.029
+  },
+  {
+   "item_code": "SEHC01",
+   "w_exp": 25.837,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 3.064,
+   "name": "Owners' equivalent rent of primary residence",
+   "contrib_exp": 0.792,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.792
+  },
+  {
+   "item_code": "SEHG01",
+   "w_exp": 0.802,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 4.918,
+   "name": "Water and sewerage maintenance",
+   "contrib_exp": 0.039,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.039
+  },
+  {
+   "item_code": "SEHF02",
+   "w_exp": 0.792,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 4.386,
+   "name": "Utility (piped) gas service",
+   "contrib_exp": 0.035,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.035
+  },
+  {
+   "item_code": "SEHF01",
+   "w_exp": 2.549,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 3.789,
+   "name": "Electricity",
+   "contrib_exp": 0.097,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.097
+  },
+  {
+   "item_code": "SEHE02",
+   "w_exp": 0.058,
+   "w_sal": 0.0,
+   "w_bill": 0.0,
+   "yoy": 0.554,
+   "name": "Propane, kerosene, and firewood",
+   "contrib_exp": 0.0,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.0
+  },
+  {
+   "item_code": "SEHH01",
+   "w_exp": 0.072,
+   "w_sal": 0.0,
+   "w_bill": 0.0,
+   "yoy": 0.855,
+   "name": "Floor coverings",
+   "contrib_exp": 0.001,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.001
+  },
+  {
+   "item_code": "SEHK01",
+   "w_exp": 0.067,
+   "w_sal": 0.0,
+   "w_bill": 0.0,
+   "yoy": -1.887,
+   "name": "Major appliances",
+   "contrib_exp": -0.001,
+   "contrib_sal": -0.0,
+   "gap_driver": 0.001
+  },
+  {
+   "item_code": "SEHG02",
+   "w_exp": 0.37,
+   "w_sal": 0.0,
+   "w_bill": 0.663,
+   "yoy": 4.408,
+   "name": "Garbage and trash collection",
+   "contrib_exp": 0.016,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.016
+  },
+  {
+   "item_code": "SERG01",
+   "w_exp": 0.055,
+   "w_sal": 0.0,
+   "w_bill": 0.0,
+   "yoy": 10.919,
+   "name": "Newspapers and magazines",
+   "contrib_exp": 0.006,
+   "contrib_sal": 0.0,
+   "gap_driver": -0.006
+  }
+ ],
+ "notes": [
+  "'Frequency-weighted' means each published CPI item is weighted by how often households record buying it in the CE Diary, not by how much they spend. Table and column names keep the older word 'salience' for compatibility.",
+  "The Diary is a two-week purchase log, so recurring bills collected by the CE Interview survey (rent, owners' equivalent rent, insurance, tuition, most medical care) score near zero frequency by construction. The bill_salience variant puts a one-entry-per-month floor under a documented list of such items; it is an assumption, not a measurement.",
+  "Purchase-entry counts also reflect how finely BLS splits an item into UCCs: an item recorded as several UCCs accumulates more entries than an equally common item recorded as one. The agg_class sensitivity variant aggregates frequency at the expenditure-class level to show how much that matters.",
+  "All indexes are December-chained Laspeyres over the same leaf universe; official_replica tracks the published all-items NSA YoY closely (see log for the year-by-year diff).",
+  "A month is only priced when leaves carrying at least 90% of the scheme's weight have data, so October 2025 (no CPI release) is absent from every scheme rather than being priced off the handful of items that happen to have an observation.",
+  "Descriptive only - no causal claim that any of these indexes measures inflation as experienced or perceived."
+ ]
+}

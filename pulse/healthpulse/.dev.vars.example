@@ -1,0 +1,15 @@
+# Copy to .dev.vars for local dev (gitignored). In production use `wrangler secret put`.
+ADMIN_TOKEN=change-me
+
+# --- Optional keys -----------------------------------------------------------
+# The dashboard is fully useful with none of these set. Instruments that need a
+# key are skipped and say so on the card; every other feed here is keyless.
+
+# AirNow (US EPA) — powers the `airnow-aqi` card in the Environment section.
+# Free, instant sign-up; 500 requests/hour. Request one at:
+#   https://docs.airnowapi.org/account/request/
+# AIRNOW_API_KEY=
+
+# Optional: which ZIP code the AQI card reports on. Defaults to 77002 (downtown
+# Houston, TX). Any US ZIP works; the card reads a 50-mile radius around it.
+# AIRNOW_ZIP=77002
