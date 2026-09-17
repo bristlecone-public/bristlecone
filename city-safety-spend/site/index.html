@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Public Safety Share</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -60,6 +65,12 @@ tr.row{cursor:pointer}
 tr.row:hover td{background:var(--surface2)}
 tr.row[aria-selected=true] td{background:var(--police-soft)}
 td.city{font-weight:600;white-space:nowrap}
+/* One consolidated-government name ("Baton Rouge-East Baton Rouge-Parish") is
+   ~284px wide and, under nowrap, set the column width for all 332 rows — pushing
+   the right-hand columns off screen. Cap the NAME, not the cell: table auto-layout
+   ignores width/max-width on cells, but an inline-block inside one is honoured.
+   The full name stays available as the title attribute, and in the detail panel. */
+td.city .nm{display:inline-block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
 td.city small{font-weight:400;color:var(--muted);margin-left:5px}
 td.pf{font-weight:600}
 .bar{display:flex;gap:2px;height:10px;width:120px}
@@ -144,7 +155,8 @@ footer p{margin:4px 0}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:10px;color:#555}
 }
 </style>
-
+</head>
+<body>
 <div class="wrap">
 <header>
   <div class="eyebrow">332 US cities of 100,000+ &middot; Census Bureau unit files 1967 to 2024 &middot; item codes <span class="code">E62</span> police, <span class="code">E24</span> fire</div>
@@ -312,7 +324,7 @@ function render(){
     const nul=s.pf==null;
     const cell=v=>nul?`<td class="num null">${s.na?'not in FiSC':'n/a'}</td>`:`<td class="num">${pct(v)}</td>`;
     const bar=nul?'':`<div class="bar" title="police ${pct(s.p)}, fire ${pct(s.f)}"><i class="p" style="width:${(s.p/max*100).toFixed(1)}%"></i><i class="f" style="width:${(s.f/max*100).toFixed(1)}%"></i></div>`;
-    return `<tr class="row" tabindex="0" data-id="${c.id}" aria-selected="${sel}"><td class="city">${fmtName(c)}<small>${c.state}</small></td><td class="num">${num(c.pop)}</td>${cell(s.p)}${cell(s.f)}${nul?`<td class="num null pf"></td>`:`<td class="num pf">${pct(s.pf)}</td>`}<td class="num">${c.emp&&c.emp.sw1k!=null?c.emp.sw1k.toFixed(2)+(c.emp.pfl==='imputed'?'*':''):''}</td><td>${bar}</td><td>${spark(c)}</td><td>${tags(c)}</td></tr>`;
+    return `<tr class="row" tabindex="0" data-id="${c.id}" aria-selected="${sel}"><td class="city"><span class="nm" title="${c.city}">${fmtName(c)}</span><small>${c.state}</small></td><td class="num">${num(c.pop)}</td>${cell(s.p)}${cell(s.f)}${nul?`<td class="num null pf"></td>`:`<td class="num pf">${pct(s.pf)}</td>`}<td class="num">${c.emp&&c.emp.sw1k!=null?c.emp.sw1k.toFixed(2)+(c.emp.pfl==='imputed'?'*':''):''}</td><td>${bar}</td><td>${spark(c)}</td><td>${tags(c)}</td></tr>`;
   }).join('');
   $('#count').innerHTML=`${rows.length} of ${C.length} cities &middot; shares divide by ${DEN[st.den].l} &middot; Census fiscal year 2022 &middot; sorted by ${st.sort==='city'?'name':st.sort==='pop'?'population':st.sort==='pf'?'police + fire':st.sort==='sw'?'officers per 1,000':st.sort} &middot; * imputed staffing`;
   document.querySelectorAll('th[data-k]').forEach(th=>{ if(th.dataset.k===st.sort) th.setAttribute('aria-sort',st.dir<0?'descending':'ascending'); else th.removeAttribute('aria-sort'); });
@@ -472,3 +484,5 @@ $('#prov').textContent=[D.meta.vintage,D.meta.built?'Built '+D.meta.built+'.':''
 const h=C[0]; if(h){st.sel=h.id;render();detail(h);}
 })();
 </script>
+</body>
+</html>
