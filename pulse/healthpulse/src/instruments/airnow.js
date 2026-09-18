@@ -86,7 +86,14 @@ export const airnowAqi = defineInstrument({
       '&dataType=A&format=application/json&verbose=1&monitorType=2&includerawconcentrations=0' +
       `&API_KEY=${encodeURIComponent(env.AIRNOW_API_KEY)}`;
 
-    const rows = await http.json(url);
+    // TIMEOUT: aq/data is slow enough in the afternoon to exceed the framework's
+    // 20s default. The failures were strongly diurnal — 4/5 of the 18:30 UTC runs
+    // (13:30 in Houston) aborted against 1/5 of the 06:30 ones — and the error was
+    // always "The operation was aborted", i.e. our own AbortController, never an
+    // HTTP status. AirNow answers; it just takes longer once the ozone monitors
+    // are all reporting and the 3-hour window covers busy hours. A 12h cadence
+    // can afford to wait.
+    const rows = await http.json(url, { timeout: 60_000 });
     if (!Array.isArray(rows) || !rows.length) throw new Error(`AirNow aq/data returned no rows for BBOX ${bbox}`);
 
     // dataType=A → the AQI is in `AQI`. Each monitor posts hourly and the latest
