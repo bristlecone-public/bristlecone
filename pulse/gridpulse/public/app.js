@@ -132,15 +132,25 @@ function statusPill(level) {
   return el('span', { class: `pill ${level}` }, el('i'), el('b', {}, `${LEVEL_ICON[level] || ''} ${LEVEL_LABEL[level] || level}`));
 }
 
-function ageEl(inst, snap) {
+// Two thresholds, not one. `stale` colours the small age label and is deliberately
+// twitchy. `badly` is the honesty gate: past it the reading is not a slightly-late
+// current value, it is a historical one, and the card must stop presenting it as
+// live. At least a day, so a couple of missed polls never triggers it.
+function staleness(inst, snap) {
   const limit = inst.staleAfter ? cadenceMs(inst.staleAfter) : Math.max(cadenceMs(inst.cadence) * 3, 2 * 36e5);
-  const stale = snap.at && Date.now() - Date.parse(snap.at) > limit;
+  const age = snap.at ? Date.now() - Date.parse(snap.at) : 0;
+  return { stale: !!snap.at && age > limit, badly: !!snap.at && age > Math.max(limit * 2, 24 * 36e5) };
+}
+
+function ageEl(inst, snap) {
+  const { stale } = staleness(inst, snap);
   return el('span', { class: `age${stale || snap.lastError ? ' stale' : ''}`, title: `observed ${snap.at || '—'} · fetched ${snap.fetchedAt || '—'}` },
     snap.lastError && !snap.at ? 'fetch failed' : ago(snap.at));
 }
 
 function metricCard(inst, snap) {
-  const card = el('article', { class: `card status-${snap.status || 'unknown'}`, tabindex: 0, role: 'button', 'aria-label': inst.title });
+  const { badly } = staleness(inst, snap);
+  const card = el('article', { class: `card status-${snap.status || 'unknown'}${badly ? ' is-stale' : ''}`, tabindex: 0, role: 'button', 'aria-label': inst.title });
   card.append(el('h3', {}, el('span', {}, inst.title), ageEl(inst, snap)));
   if (snap.skipped) {
     card.append(el('p', { class: 'skip' }, `Skipped — ${snap.skipped}`));
@@ -156,7 +166,16 @@ function metricCard(inst, snap) {
     ));
     card.append(sparkline(snap.series));
   }
-  if (snap.lastError) card.append(el('p', { class: 'err', title: snap.lastError }, `⚠ last fetch failed ${ago(snap.lastErrorAt)}${snap.value != null ? ' — showing last good value' : ''}`));
+  // "showing last good value" is fine for a value that is minutes late and
+  // misleading for one that is weeks old, so say which it is and how old.
+  if (snap.lastError) {
+    const msg = snap.value == null
+      ? `⚠ last fetch failed ${ago(snap.lastErrorAt)}`
+      : badly
+        ? `⚠ not current — last successful reading ${ago(snap.at)}; every fetch since has failed`
+        : `⚠ last fetch failed ${ago(snap.lastErrorAt)} — showing last good value`;
+    card.append(el('p', { class: 'err', title: snap.lastError }, msg));
+  }
   card.append(el('div', { class: 'card-foot' },
     statusPill(snap.status || 'unknown'),
     el('a', { href: inst.source.url, target: '_blank', rel: 'noopener', onclick: (e) => e.stopPropagation() }, inst.source.name),

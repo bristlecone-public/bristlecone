@@ -3,5 +3,5 @@ export const site = {
   name: 'NetPulse',
   tagline: "The internet's vital signs, live: traffic, outages, attacks, routing, protocol adoption, and the software ecosystem.",
   domain: 'netpulse.pages.dev',
-  userAgent: 'NetPulse/0.1 (+https://netpulse.pages.dev; vital-signs dashboard)',
+  userAgent: 'NetPulse/0.1 (+https://netpulse.bristleconeanalytics.com; vital-signs dashboard)',
 };

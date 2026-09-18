@@ -3,5 +3,5 @@ export const site = {
   name: 'GridPulse',
   tagline: 'The electric grid, live: demand, prices, reserves, generation mix, carbon, and grid emergencies.',
   domain: 'gridpulse.pages.dev',
-  userAgent: 'GridPulse/0.1 (+https://gridpulse.pages.dev; vital-signs dashboard)',
+  userAgent: 'GridPulse/0.1 (+https://gridpulse.bristleconeanalytics.com; vital-signs dashboard)',
 };
