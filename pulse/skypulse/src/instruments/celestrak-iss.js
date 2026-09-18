@@ -6,6 +6,7 @@
 // instantaneous altitude, which swings ±5 km every orbit.
 
 import { defineInstrument } from '../framework/registry.js';
+import { viaProxy } from './_proxy.js';
 import { num } from '../framework/http.js';
 
 const URL = 'https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=json';
@@ -31,8 +32,10 @@ export const issAltitude = defineInstrument({
   higherIsWorse: false,
   describe:
     'Mean altitude of the International Space Station above Earth’s equator, computed from its latest published orbit; it decays a few hundred metres a week from atmospheric drag until a reboost pushes it back up.',
-  async fetch({ http }) {
-    const rows = await http.json(URL);
+  async fetch({ http, env }) {
+    // CelesTrak 522s this Worker's shared egress IP; a homelab job parks the
+    // payload in KV. See _proxy.js. Falls back to a direct fetch when absent.
+    const rows = await viaProxy({ env, http, key: 'celestrak-iss', url: URL });
     const gp = Array.isArray(rows) ? rows[0] : rows;
     const meanMotion = num(gp?.MEAN_MOTION); // revolutions per day
     if (!meanMotion) throw new Error('no MEAN_MOTION in GP record');

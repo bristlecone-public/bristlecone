@@ -9,6 +9,7 @@
 // — all amounts are strings in dollars.
 
 import { defineInstrument } from '../framework/registry.js';
+import { viaProxy } from './_proxy.js';
 
 const URL = 'https://api.fiscaldata.treasury.gov/services/api/fiscal_service'
   + '/v2/accounting/od/debt_to_penny'
@@ -37,8 +38,11 @@ export const federalDebt = defineInstrument({
     license: 'public domain (U.S. government)',
   },
   describe: 'Every dollar the federal government owes, counted to the cent and republished each business day. Roughly four fifths is held by the public; the rest is owed to government trust funds.',
-  async fetch({ http }) {
-    const d = await http.json(URL);
+  async fetch({ http, env }) {
+    // fiscaldata 525s (SSL handshake) from this Worker's shared egress IP while
+    // returning 200 from a residential one; a homelab job parks it in KV.
+    // See _proxy.js. Falls back to a direct fetch when there is none.
+    const d = await viaProxy({ env, http, key: 'treasury-debt', url: URL });
     const rows = d?.data || [];
     if (!rows.length) throw new Error('Treasury debt_to_penny: empty data array');
 

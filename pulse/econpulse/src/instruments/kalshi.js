@@ -9,6 +9,7 @@
 // because a thin book can leave `last_price` stale for hours.
 
 import { defineInstrument } from '../framework/registry.js';
+import { viaProxy } from './_proxy.js';
 
 const EVENTS = (series) =>
   'https://api.elections.kalshi.com/trade-api/v2/events'
@@ -28,8 +29,10 @@ function impliedProb(m) {
 
 const pct = (p) => (p == null ? null : Number((p * 100).toFixed(1)));
 
-async function openEvents(http, series) {
-  const d = await http.json(EVENTS(series));
+async function openEvents(http, series, env) {
+  // Kalshi 429s this Worker's shared egress IP; a homelab job parks the payload
+  // in KV. See _proxy.js. Falls back to a direct fetch when there is none.
+  const d = await viaProxy({ env, http, key: `kalshi-${series}`, url: EVENTS(series) });
   const events = (d?.events || []).filter((e) => (e.markets || []).length);
   if (!events.length) throw new Error(`Kalshi ${series}: no open events`);
   return events;
@@ -65,8 +68,8 @@ export const fomcOdds = defineInstrument({
     license: 'public market data, Kalshi terms of use',
   },
   describe: 'The traded probability that the Fed leaves its target range unchanged at the next FOMC meeting. Real money, repriced by the market between our ~6-hourly snapshots — usually ahead of the economists.',
-  async fetch({ http }) {
-    const events = await openEvents(http, 'KXFEDDECISION');
+  async fetch({ http, env }) {
+    const events = await openEvents(http, 'KXFEDDECISION', env);
     // The soonest meeting that has not yet struck.
     const upcoming = events
       .map((e) => ({ e, t: Date.parse(e.strike_date) }))
@@ -126,8 +129,8 @@ export const recessionOdds = defineInstrument({
     license: 'public market data, Kalshi terms of use',
   },
   describe: 'The traded probability that the NBER later dates the start of a US recession inside the current calendar year. Settles on the official NBER call, not on the two-negative-quarters rule of thumb.',
-  async fetch({ http }) {
-    const events = await openEvents(http, 'KXRECSSNBER');
+  async fetch({ http, env }) {
+    const events = await openEvents(http, 'KXRECSSNBER', env);
     // Earliest-resolving open event = the current year's contract.
     const chosen = events
       .map((e) => ({ e, t: Date.parse(e.markets[0]?.close_time) }))
